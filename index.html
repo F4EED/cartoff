@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>cartoff - la cartographie offline pour l'aide à la gestion de crise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS Leaflet -->
+  <link rel="stylesheet" href="css/leaflet.css" />
+  
+  <style>
+    html, body { margin:0; height:100%; }
+    #map { width:100%; height:100vh; background:#ccc; }
+    .sidebar {
+      position: absolute;
+      top:10px;
+      right:10px;
+      z-index:2000;
+      background:white;
+      padding:10px;
+      border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+      max-width:300px;
+      font-family:Arial,sans-serif;
+      font-size:14px;
+      user-select:none;
+    }
+    .sidebar-header { cursor: grab; font-weight:bold; margin-bottom:8px; }
+    details summary { cursor:pointer; font-weight:bold; }
+    details { margin-bottom:5px; }
+    label { cursor:pointer; display:block; }
+    #coords {
+      position:absolute;
+      bottom:10px;
+      left:10px;
+      z-index:3000;
+      background:rgba(255,255,255,0.9);
+      padding:6px 10px;
+      border-radius:6px;
+      font-family:Arial,sans-serif;
+      font-size:13px;
+      box-shadow:0 1px 4px rgba(0,0,0,0.3);
+      min-width:260px;
+      user-select:none;
+      pointer-events:none;
+    }
+    #legend {
+      margin-top:10px;
+      border-top:1px solid #ccc;
+      padding-top:5px;
+      font-size:13px;
+    }
+    #legend img.icon {
+      width:20px; height:20px; vertical-align:middle; margin-right:6px;
+    }
+    #legend span.lineBox {
+      display:inline-block;
+      width:30px; height:0; border-top:3px solid black;
+      margin-right:6px; vertical-align:middle;
+    }
+    #sidebarLogo {
+      display:block;
+      margin:10px auto 0 auto;
+      max-width:100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar" id="layerMenu">
+    <div class="sidebar-header" id="dragHandle">Calques GeoJSON (déplacer ici)</div>
+
+    <details open>
+      <summary>Département de la Loire</summary>
+      <div id="departementLayers"></div>
+    </details>
+
+    <details open>
+      <summary>Gestion des risques</summary>
+      <div id="riskLayers"></div>
+    </details>
+
+    <details open>
+      <summary>Associations Agréées de Sécurité Civile</summary>
+      <div id="AASCLayers"></div>
+    </details>
+
+    <details open>
+      <summary>Départements de Corse</summary>
+      <div id="CorseLayers"></div>
+    </details>
+
+    <div id="legend"><b>Légende :</b><br>– aucun calque actif –</div>
+    <img src="images/Logo_F4EED.png" id="sidebarLogo" alt="Logo D42">
+  </div>
+
+  <div id="map"></div>
+  <div id="coords">Déplacez la souris sur la carte...</div>
+
+  <script src="js/leaflet.js"></script>
+  <script src="js/protomaps-leaflet.js"></script>
+
+  <script>
+    const map = L.map('map').setView([45.7885, 4.1830], 9);
+    /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:'&copy; OpenStreetMap contributors'
+    }).addTo(map);*/
+	
+	protomapsL.leafletLayer({ 
+    url: "pmtiles\\mymap.pmtiles",
+		flavor: 'light',
+		lang: 'fr',
+	}).addTo(map);
+
+    // Sidebar draggable
+    const sidebar = document.getElementById('layerMenu');
+    const dragHandle = document.getElementById('dragHandle');
+    let isDragging=false, startX, startY;
+    const savedX = localStorage.getItem('sidebarX');
+    const savedY = localStorage.getItem('sidebarY');
+    if(savedX && savedY){
+      sidebar.style.right='auto';
+      sidebar.style.left = savedX + 'px';
+      sidebar.style.top = savedY + 'px';
+    }
+    dragHandle.addEventListener('mousedown', e=>{
+      isDragging=true;
+      startX = e.clientX - sidebar.offsetLeft;
+      startY = e.clientY - sidebar.offsetTop;
+      dragHandle.style.cursor='grabbing';
+      e.preventDefault();
+    });
+    document.addEventListener('mousemove', e=>{
+      if(!isDragging) return;
+      let x = e.clientX - startX;
+      let y = e.clientY - startY;
+      x = Math.min(Math.max(0,x), window.innerWidth - sidebar.offsetWidth);
+      y = Math.min(Math.max(0,y), window.innerHeight - sidebar.offsetHeight);
+      sidebar.style.left = x+'px';
+      sidebar.style.top = y+'px';
+      sidebar.style.right = 'auto';
+      localStorage.setItem('sidebarX',x);
+      localStorage.setItem('sidebarY',y);
+    });
+    document.addEventListener('mouseup', ()=>{ if(isDragging){isDragging=false; dragHandle.style.cursor='grab';}});
+
+    // Coordonnées souris
+    const coordsDiv = document.getElementById('coords');
+    map.on('mousemove', e=>{
+      coordsDiv.innerHTML = `Lat: ${e.latlng.lat.toFixed(5)}, Lon: ${e.latlng.lng.toFixed(5)}`;
+    });
+
+    // Icônes personnalisées
+    const icons = {
+      "CIS": L.icon({iconUrl:'images/CIS.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]}),
+      "Ets_SEVESO": L.icon({iconUrl:'images/SEVEZO.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]}),
+      "PR_Routier": L.icon({iconUrl:'images/PR.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]})
+    };
+
+    // GeoJSON
+    const geojsonFiles = {
+      "departement":[
+        { name:"Point de Repère routier", file:"geojson/D42/PR_Routier.geojson", style:{color:"blue",weight:3} },
+        { name:"CD2E", file:"geojson/D42/CD2E.geojson", style:{color:"blue",weight:3} },
+        { name:"Route Départementale", file:"geojson/D42/routes.geojson", style:{color:"green",weight:2} },
+        { name:"Communes de La Loire", file:"geojson/D42/communes-42-loire.geojson", style:{color:"darkred",weight:3} },
+        { name:"Habitation", file:"geojson/D42/Zone_habitation.geojson", style:{color:"darkred",weight:3} },
+        { name:"Lieu dit :: non habitable", file:"geojson/D42/Lieu_dit_non_habite.geojson", style:{color:"darkred",weight:3} },
+        { name:"Lieu dit :: habitable", file:"geojson/D42/Toponyme.geojson", style:{color:"darkred",weight:3} }
+        
+      ],
+      "risks":[
+        { name:"Centre d'Icendie et Secours", file:"geojson/D42/CIS.geojson", style:{color:"red",weight:2,dashArray:'4 4'} },
+        { name:"Entreprises SEVESO", file:"geojson/D42/Ets_SEVESO.geojson", style:{color:"darkred",weight:3} },
+        { name:"Circuit déneigement DOVH ", file:"geojson/D42/Circuits_deneigement_dovh.geojson", style:{color:"orange",weight:2} },
+        { name:"Circuit déneigement PEVH ", file:"geojson/D42/Circuits_deneigement_pevh.geojson", style:{color:"blue",weight:2} },
+        //{ name:"PPRI", file:"geojson/PPRI.geojson", style:{color:"purple",weight:2} },
+        { name:"Onde de submersion du barrage de Grangent", file:"geojson//D42/PPI_Onde_de_submersion_du_barrage_de_granjean.geojson", style:{color:"aqua",weight:2} }
+      ],
+      "AASC":[
+        { name:"PIO UDIOM(42)", file:"geojson/D42/UDIOM42.geojson", style:{color:"red",weight:2,dashArray:'4 4'} }
+      ],
+      "Corse":[
+        { name:"TKNET", file:"geojson/TKNET.geojson", style:{color:"darkred",weight:3} },
+        { name:"Communes Corse", file:"geojson/communes-corse.geojson", style:{color:"darkred",weight:3} },
+      ]
+    };
+
+    const layers = {};
+    const layerStyles = {}; // pour mémoriser les styles des calques
+    const legendDiv = document.getElementById("legend");
+
+    async function loadGeoJSON(name,file,style){
+      try{
+        const res = await fetch(file);
+        if(!res.ok) throw new Error("Erreur chargement "+file);
+        const geojson = await res.json();
+        const useIcon = name in icons;
+        const layer = L.geoJSON(geojson,{
+          style:style,
+          pointToLayer:(feature,latlng)=> useIcon ? L.marker(latlng,{icon:icons[name]}) : L.circleMarker(latlng,style),
+          onEachFeature:(feature,l)=>{
+            if(feature.properties){
+              let popup="";
+              for(const key in feature.properties){ popup+=`<b>${key}:</b> ${feature.properties[key]}<br>`; }
+              l.bindPopup(popup);
+            }
+          }
+        });
+        layerStyles[name] = style;
+        return layer;
+      } catch(err){ console.error(err); alert(err); return null; }
+    }
+
+    function addCheckbox(div, name, layer){
+      const id="chk_"+name;
+      const label=document.createElement("label");
+      label.htmlFor=id;
+      const checkbox=document.createElement("input");
+      checkbox.type="checkbox"; checkbox.id=id; checkbox.checked=false; // décoché par défaut
+      checkbox.addEventListener("change", e=>{
+        if(e.target.checked){ 
+          layer.addTo(map); 
+          if(layer.getBounds) map.fitBounds(layer.getBounds(), {padding: [20,20]});
+        } else { 
+          map.removeLayer(layer); 
+        }
+        updateLegend();
+      });
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(" "+name));
+      div.appendChild(label);
+    }
+
+    function updateLegend(){
+      let active = [];
+      for(const name in layers){
+        const chk = document.getElementById("chk_"+name);
+        if(chk && chk.checked){ active.push(name); }
+      }
+      if(active.length===0){ legendDiv.innerHTML="<b>Légende :</b><br>– aucun calque actif –"; }
+      else{
+        let html = "<b>Légende :</b><br>";
+        active.forEach(name=>{
+          if(name in icons){
+            html += `<img src="${icons[name].options.iconUrl}" class="icon"> ${name}<br>`;
+          } else {
+            const style = layerStyles[name] || {};
+            let color = style.color || "#000";
+            let weight = style.weight || 2;
+            html += `<span class="lineBox" style="border-top:${weight}px solid ${color}"></span> ${name}<br>`;
+          }
+        });
+        legendDiv.innerHTML = html;
+      }
+    }
+
+    async function setupLayers(){
+      for(const item of geojsonFiles.departement){
+        const layer = await loadGeoJSON(item.name,item.file,item.style);
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("departementLayers"), item.name, layer); }
+      }
+      for(const item of geojsonFiles.risks){
+        const layer = await loadGeoJSON(item.name,item.file,item.style);
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("riskLayers"), item.name, layer); }
+      }
+      for(const item of geojsonFiles.AASC){
+        const layer = await loadGeoJSON(item.name,item.file,item.style);
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("AASCLayers"), item.name, layer); }
+      }
+      for(const item of geojsonFiles.Corse){
+        const layer = await loadGeoJSON(item.name,item.file,item.style);
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("CorseLayers"), item.name, layer); }
+      }
+    }
+
+    setupLayers();
+  </script>
+</body>
+</html>
