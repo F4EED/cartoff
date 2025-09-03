@@ -37,3 +37,5 @@ Juste curieux de nature et à la recherche de solutions libres, opensources, qui
     • Si vous en faite un vrai projet de gestion de crise, je suis éventuellement preneur d’un retour (frederic.f4eed at gmail.com)
 
 Bref amusez vous, apprenez et partager finalement cela fais plaisir !
+<img width="1913" height="1034" alt="image" src="https://github.com/user-attachments/assets/c4573301-cb96-4a46-9c80-a29d211f9a8f" />
+
