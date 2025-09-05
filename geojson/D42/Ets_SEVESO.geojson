@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "Ets_SEVESO",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "nom": "SNF SAS ANDREZIEUX", "activite": "20.16Z. Fabric. de matières plastiques de base", "niveau": "Seveso haut", "ppi": "1" }, "geometry": { "type": "Point", "coordinates": [ 4.310128621328842, 45.537021859508869 ] } },
+{ "type": "Feature", "properties": { "nom": "BECKER INDUSTRIE", "activite": "L1. Entreposage, manutention, commerces", "niveau": "Seveso bas", "ppi": "0" }, "geometry": { "type": "Point", "coordinates": [ 4.09305716216307, 45.599411238566745 ] } },
+{ "type": "Feature", "properties": { "nom": "CHROMOBRONZE", "activite": "25.61Z. Traitement et revêtement des métaux", "niveau": "Seveso bas", "ppi": "0" }, "geometry": { "type": "Point", "coordinates": [ 4.327401008245988, 45.437824176056417 ] } },
+{ "type": "Feature", "properties": { "nom": "CHROMAGE INDUSTRIEL DU CENTRE", "activite": "25.61Z. Traitement et revêtement des métaux", "niveau": "Seveso bas", "ppi": "0" }, "geometry": { "type": "Point", "coordinates": [ 4.405290007794501, 45.415367995661661 ] } },
+{ "type": "Feature", "properties": { "nom": "BECKER INDUSTRIE", "activite": "20.30Z. Fab. de peinture, vernis, encre & mastic", "niveau": "Seveso bas", "ppi": "0" }, "geometry": { "type": "Point", "coordinates": [ 4.091434306104702, 45.601587359399588 ] } },
+{ "type": "Feature", "properties": { "nom": "UNILIN INSULATION", "activite": null, "niveau": "Seveso bas", "ppi": "0" }, "geometry": { "type": "Point", "coordinates": [ 4.200716659365765, 45.532725440630017 ] } },
+{ "type": "Feature", "properties": { "nom": "SARPI LA TALAUDIERE", "activite": "38.22Z. Traitmnt & élimination déchets dangereux", "niveau": "Seveso bas", "ppi": "0" }, "geometry": { "type": "Point", "coordinates": [ 4.431366935233449, 45.473044423790476 ] } }
+]
+}

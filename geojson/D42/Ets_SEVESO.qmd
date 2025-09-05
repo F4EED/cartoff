@@ -1,11 +1,11 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.34.5-Prizren">
+<qgis version="3.40.10-Bratislava">
   <identifier></identifier>
   <parentidentifier></parentidentifier>
   <language></language>
   <type>dataset</type>
   <title></title>
-  <abstract>Centre Départemental d´Entretien et d´Exploitation (CDEE) (source CD42)</abstract>
+  <abstract>Entreprises identifiées Seveso</abstract>
   <links/>
   <dates/>
   <fees></fees>
