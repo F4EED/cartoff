@@ -1,0 +1,171 @@
+{
+  "type": "FeatureCollection",
+  "name": "helipads_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10706552287,
+        "osm_type": "node",
+        "operateur": "Samu 42"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3618184,
+          45.596031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 558126561,
+        "osm_type": "way"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0502405,
+          45.6142856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 623215925,
+        "osm_type": "way"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1726137,
+          46.156286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 741774190,
+        "osm_type": "way"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2221375,
+          45.7459309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 945586086,
+        "osm_type": "way"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3032848,
+          45.6070969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1236649581,
+        "osm_type": "way"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0798751,
+          46.0425949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1239094627,
+        "osm_type": "way"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.254072,
+          45.4465381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1243135556,
+        "osm_type": "way"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2284232,
+          45.7481368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1239094265,
+        "osm_type": "way",
+        "nom": "CHU Saint-Étienne Heliport",
+        "operateur": "Samu 42"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3635003,
+          45.4823513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 362100334,
+        "osm_type": "way",
+        "nom": "Héliport du centre hospitalier"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5155883,
+          45.4760419
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1239094596,
+        "osm_type": "way",
+        "nom": "Malacussy Heliport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3713898,
+          45.4240336
+        ]
+      }
+    }
+  ]
+}

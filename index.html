@@ -58,6 +58,45 @@
       width:30px; height:0; border-top:3px solid black;
       margin-right:6px; vertical-align:middle;
     }
+    #legend span.squareBox {
+      display:inline-block;
+      width:12px; height:12px;
+      margin-right:6px; vertical-align:middle;
+    }
+    #legend span.squareBox.red { background:red; border:1px solid #900; }
+    #legend span.squareBox.blue { background:#003399; border:1px solid #001a66; }
+    #legend span.squareBox.green { background:#388e3c; border:1px solid #1b5e20; }
+    #legend span.squareBox.orange { background:#f57c00; border:1px solid #e65100; }
+    #legend span.squareBox.purple { background:#6a1b9a; border:1px solid #4a148c; }
+    #legend span.squareBox.hospital { background:#c2185b; border:1px solid #880e4f; }
+    #legend span.squareBox.clinic { background:#0097a7; border:1px solid #006978; }
+    #legend span.squareBox.pharmacy { background:#827717; border:1px solid #524c00; }
+    .osm-square-marker {
+      background: transparent;
+      border: none;
+    }
+    .osm-square-marker div {
+      width: 12px;
+      height: 12px;
+    }
+    .osm-marker-hospital div { background: #c2185b; border: 1px solid #880e4f; }
+    .osm-marker-clinic div { background: #0097a7; border: 1px solid #006978; }
+    .osm-marker-pharmacy div { background: #827717; border: 1px solid #524c00; }
+    .osm-cis-marker, .osm-police-marker, .osm-aerodrome-marker,
+    .osm-helipad-marker, .osm-heliport-marker {
+      background: transparent;
+      border: none;
+    }
+    .osm-cis-marker div, .osm-police-marker div, .osm-aerodrome-marker div,
+    .osm-helipad-marker div, .osm-heliport-marker div {
+      width: 12px;
+      height: 12px;
+    }
+    .osm-cis-marker div { background: red; border: 1px solid #900; }
+    .osm-police-marker div { background: #003399; border: 1px solid #001a66; }
+    .osm-aerodrome-marker div { background: #388e3c; border: 1px solid #1b5e20; }
+    .osm-helipad-marker div { background: #f57c00; border: 1px solid #e65100; }
+    .osm-heliport-marker div { background: #6a1b9a; border: 1px solid #4a148c; }
     #sidebarLogo {
       display:block;
       margin:10px auto 0 auto;
@@ -81,14 +120,21 @@
     </details>
 
     <details open>
+      <summary>Santé (OSM)</summary>
+      <div id="santeLayers"></div>
+    </details>
+
+    <details open>
       <summary>Associations Agréées de Sécurité Civile</summary>
       <div id="AASCLayers"></div>
     </details>
 
+    <!--
     <details open>
       <summary>Départements de Corse</summary>
       <div id="CorseLayers"></div>
     </details>
+    -->
 
     <div id="legend"><b>Légende :</b><br>– aucun calque actif –</div>
     <img src="images/Logo_F4EED.png" id="sidebarLogo" alt="Logo D42">
@@ -106,11 +152,12 @@
       attribution:'&copy; OpenStreetMap contributors'
     }).addTo(map);*/
 	
-	protomapsL.leafletLayer({ 
-    url: "pmtiles\\mymap.pmtiles",
-		flavor: 'light',
-		lang: 'fr',
-	}).addTo(map);
+    const pmtilesUrl = new URL("pmtiles/loire.pmtiles", window.location.href).href;
+    protomapsL.leafletLayer({
+      url: pmtilesUrl,
+      flavor: "light",
+      lang: "fr",
+    }).addTo(map);
 
     // Sidebar draggable
     const sidebar = document.getElementById('layerMenu');
@@ -153,8 +200,74 @@
     // Icônes personnalisées
     const icons = {
       "CIS": L.icon({iconUrl:'images/CIS.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]}),
+      "Casernes sapeurs-pompiers (OSM)": L.divIcon({
+        className: 'osm-cis-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Police nationale (OSM)": L.divIcon({
+        className: 'osm-police-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Aérodromes (OSM)": L.divIcon({
+        className: 'osm-aerodrome-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Héliports (OSM)": L.divIcon({
+        className: 'osm-helipad-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Héliports (heliport) (OSM)": L.divIcon({
+        className: 'osm-heliport-marker osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Hôpitaux (OSM)": L.divIcon({
+        className: 'osm-marker-hospital osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Cliniques (OSM)": L.divIcon({
+        className: 'osm-marker-clinic osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Pharmacies (OSM)": L.divIcon({
+        className: 'osm-marker-pharmacy osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
       "Ets_SEVESO": L.icon({iconUrl:'images/SEVEZO.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]}),
       "PR_Routier": L.icon({iconUrl:'images/PR.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]})
+    };
+    const squareLegendLayers = {
+      "Casernes sapeurs-pompiers (OSM)": "red",
+      "Police nationale (OSM)": "blue",
+      "Aérodromes (OSM)": "green",
+      "Héliports (OSM)": "orange",
+      "Héliports (heliport) (OSM)": "purple",
+      "Hôpitaux (OSM)": "hospital",
+      "Cliniques (OSM)": "clinic",
+      "Pharmacies (OSM)": "pharmacy"
     };
 
     // GeoJSON
@@ -171,6 +284,11 @@
       ],
       "risks":[
         { name:"Centre d'Icendie et Secours", file:"geojson/D42/CIS.geojson", style:{color:"red",weight:2,dashArray:'4 4'} },
+        { name:"Casernes sapeurs-pompiers (OSM)", file:"geojson/D42/casernes_osm_42.geojson", style:{color:"red",weight:2} },
+        { name:"Police nationale (OSM)", file:"geojson/D42/police_nationale_osm_42.geojson", style:{color:"#003399",weight:2} },
+        { name:"Aérodromes (OSM)", file:"geojson/D42/aerodromes_osm_42.geojson", style:{color:"#388e3c",weight:2} },
+        { name:"Héliports (OSM)", file:"geojson/D42/helipads_osm_42.geojson", style:{color:"#f57c00",weight:2} },
+        { name:"Héliports (heliport) (OSM)", file:"geojson/D42/heliports_osm_42.geojson", style:{color:"#6a1b9a",weight:2} },
         //{ name:"Entreprises SEVESO", file:"geojson/D42/Ets_SEVESO.geojson", style:{color:"darkred",weight:3} },
         //{ name:"Circuit déneigement DOVH ", file:"geojson/D42/Circuits_deneigement_dovh.geojson", style:{color:"orange",weight:2} },
         //{ name:"Circuit déneigement PEVH ", file:"geojson/D42/Circuits_deneigement_pevh.geojson", style:{color:"blue",weight:2} },
@@ -180,10 +298,15 @@
       "AASC":[
         { name:"Points d'Intéret - UDIOM(42)", file:"geojson/D42/UDIOM42.geojson", style:{color:"red",weight:2,dashArray:'4 4'} }
       ],
-      "Corse":[
-        { name:"TKNET", file:"geojson/TKNET.geojson", style:{color:"darkred",weight:3} },
-        { name:"Communes Corse", file:"geojson/communes-corse.geojson", style:{color:"darkred",weight:3} },
-      ]
+      "sante":[
+        { name:"Hôpitaux (OSM)", file:"geojson/D42/hopitaux_osm_42.geojson", style:{color:"#c2185b",weight:2} },
+        { name:"Cliniques (OSM)", file:"geojson/D42/cliniques_osm_42.geojson", style:{color:"#0097a7",weight:2} },
+        { name:"Pharmacies (OSM)", file:"geojson/D42/pharmacies_osm_42.geojson", style:{color:"#827717",weight:2} }
+      ],
+      // "Corse":[
+      //   { name:"TKNET", file:"geojson/Corse/TKNET.geojson", style:{color:"darkred",weight:3} },
+      //   { name:"Communes Corse", file:"geojson/D42/communes-corse.geojson", style:{color:"darkred",weight:3} },
+      // ]
     };
 
     const layers = {};
@@ -242,7 +365,9 @@
       else{
         let html = "<b>Légende :</b><br>";
         active.forEach(name=>{
-          if(name in icons){
+          if(name in squareLegendLayers){
+            html += `<span class="squareBox ${squareLegendLayers[name]}"></span> ${name}<br>`;
+          } else if(name in icons && icons[name].options.iconUrl){
             html += `<img src="${icons[name].options.iconUrl}" class="icon"> ${name}<br>`;
           } else {
             const style = layerStyles[name] || {};
@@ -268,10 +393,14 @@
         const layer = await loadGeoJSON(item.name,item.file,item.style);
         if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("AASCLayers"), item.name, layer); }
       }
-      for(const item of geojsonFiles.Corse){
+      for(const item of geojsonFiles.sante){
         const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("CorseLayers"), item.name, layer); }
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("santeLayers"), item.name, layer); }
       }
+      // for(const item of geojsonFiles.Corse){
+      //   const layer = await loadGeoJSON(item.name,item.file,item.style);
+      //   if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("CorseLayers"), item.name, layer); }
+      // }
     }
 
     setupLayers();

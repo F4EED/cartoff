@@ -1,0 +1,136 @@
+{
+  "type": "FeatureCollection",
+  "name": "police_nationale_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4161750513,
+        "osm_type": "node",
+        "nom": "Commissariat Subdivisionnaire de Police de Saint-Étienne",
+        "operateur": "Police nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3834697,
+          45.423025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 260720131,
+        "osm_type": "node",
+        "nom": "Police nationale",
+        "nom_officiel": "Commissariat de police de Roanne",
+        "telephone": "+33 4 77 44 43 00",
+        "operateur": "Police nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0719379,
+          46.0324548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 392671682,
+        "osm_type": "node",
+        "nom": "Police nationale",
+        "nom_officiel": "Commissariat de police de Saint-Étienne",
+        "telephone": "+33 4 77 43 28 28",
+        "operateur": "Police nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4092621,
+          45.423142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1729045445,
+        "osm_type": "node",
+        "nom": "Police nationale",
+        "operateur": "Police nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3857476,
+          45.4537592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6039386212,
+        "osm_type": "node",
+        "nom": "Police nationale",
+        "nom_officiel": "Commissariat de police de l'Ondaine",
+        "telephone": "+33 4 77 40 15 40",
+        "operateur": "Police nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2870828,
+          45.3907729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63307933,
+        "osm_type": "way",
+        "nom": "Police nationale",
+        "adresse": "15 Rue de l'Alma",
+        "operateur": "Police nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3826048,
+          45.4412017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 421653762,
+        "osm_type": "way",
+        "nom": "Police nationale",
+        "nom_officiel": "Commissariat de police de Gier",
+        "adresse": "12 Route de Saint-Étienne 42400 Saint-Chamond",
+        "telephone": "+33 4 27 40 21 21",
+        "operateur": "Police nationale",
+        "website": "https://lannuaire.service-public.fr/auvergne-rhone-alpes/loire/commissariat_police-42207-01",
+        "horaires": "Mo-Fr 08:00-12:00, 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5003874,
+          45.4686299
+        ]
+      }
+    }
+  ]
+}

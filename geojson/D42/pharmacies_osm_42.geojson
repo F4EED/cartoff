@@ -1,0 +1,3815 @@
+{
+  "type": "FeatureCollection",
+  "name": "pharmacy_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629263156,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Aprium Pharmacie Seillier",
+        "telephone": "+33 4 77 71 47 38",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0666553,
+          46.030355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 505409591,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie de l'Europe",
+        "telephone": "+33 4 77 25 34 22",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:30,14:00-19:30; Sa 08:30-12:30,14:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4198956,
+          45.4187855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629265038,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie de Mably",
+        "telephone": "+33477719389",
+        "specialite": "pharmacy",
+        "website": "https://hellopharmacie.com/nos-pharmacies/grande-pharmacie-de-mably-38"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0595958,
+          46.0655299
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1945223606,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie de Montplaisir",
+        "adresse": "97 Boulevard Normandie Niemen",
+        "telephone": "+33 4 77 32 93 15",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 08:30-19:30",
+        "website": "https://hellopharmacie.com/nos-pharmacies/grande-pharmacie-de-montplaisir-44"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4173634,
+          45.4346792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12064499499,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie de Montreynaud",
+        "telephone": "+33 4 77 93 02 78",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3944838,
+          45.4727394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12087729276,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie de Rive-de-Gier",
+        "telephone": "+33 4 77 75 01 12",
+        "specialite": "pharmacy",
+        "website": "https://grande-pharmacie-rive-de-gier.aprium-pharmacie.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6163039,
+          45.5289183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7234787783,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie de Roche-la-Molière",
+        "telephone": "+33 4 77 90 30 32",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3162993,
+          45.4229304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2358569326,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie de Saint-Rambert",
+        "telephone": "+33 4 77 52 34 05",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2401267,
+          45.5000477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3159176296,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie de Terrenoire",
+        "telephone": "+33 4 77 95 70 24",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 08:30-19:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4379164,
+          45.4362335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9824419389,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie du Progrès",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0724644,
+          46.0351736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3177918014,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie du Soleil",
+        "adresse": "2 Rue Gambetta 42500 Le Chambon-Feugerolles",
+        "telephone": "+33 4 77 61 03 31",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3255192,
+          45.3961401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2269444704,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Grande Pharmacie du Viaduc",
+        "adresse": "56 Rue Charles de Gaulle",
+        "telephone": "+33 4 77 32 25 23",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:45-12:15,14:15-19:15, Sa 08:45-12:15",
+        "website": "https://grandepharmacieduviaduc.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3852462,
+          45.4464721
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1217421901,
+        "osm_type": "way",
+        "amenity": "pharmacy",
+        "nom": "Hello Pharmacie",
+        "adresse": "32 Rue de la Scierie 42600 Champdieu",
+        "telephone": "+33477971910",
+        "specialite": "pharmacy",
+        "website": "https://hellopharmacie.com/nos-pharmacies/grande-pharmacie-de-champdieu-55"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0506141,
+          45.6447873
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5707600433,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "La Grande Pharmacie",
+        "adresse": "8 Place Dorian 42400 Saint-Chamond",
+        "telephone": "+33 4 77 29 28 00",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 08:00-19:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5087212,
+          45.4752868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4455280501,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "La Grande Pharmacie des Trois Grâces",
+        "telephone": "+33 4 77 71 89 81",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0782167,
+          46.0381086
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 65634621,
+        "osm_type": "way",
+        "amenity": "pharmacy",
+        "nom": "La Pharmathèque Ratarieux",
+        "telephone": "+33 4 77 74 63 41",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3571058,
+          45.479973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2436685095,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Abrial",
+        "telephone": "+33 4 77 32 05 73",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 08:30-12:00,14:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3907332,
+          45.4377762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9580845438,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Allary",
+        "telephone": "+33477664211"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2123989,
+          45.9479434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 638725668,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Anatole France",
+        "telephone": "+33 4 77 32 56 77",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:30; Sa 08:30-12:30,13:30-19:30",
+        "website": "https://www.pharmacie-anatole-france.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3895541,
+          45.4304211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4110017402,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Bailly",
+        "telephone": "+33 4 77 96 16 11",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0723896,
+          45.5922253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5089633876,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Benguigui",
+        "adresse": "6 Rue Alexandre Séon 42140 Chazelles-sur-Lyon",
+        "telephone": "+33477542010",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3914695,
+          45.6385478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3391838977,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Bergson",
+        "telephone": "+33 4 77 74 23 38",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:30,13:30-19:00; Sa 08:30-12:00,14:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3819905,
+          45.4570048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4111993653,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Berteaux",
+        "telephone": "+33 4 77 90 68 54",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3355615,
+          45.4343131
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9580634714,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Brossat",
+        "telephone": "+33477661353",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2347401,
+          46.0328191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4235436554,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Carret",
+        "telephone": "+33477324248",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-12:30,14:00-19:00; Sa 09:00-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.382881,
+          45.4357145
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8739658825,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Centrale de Feurs",
+        "adresse": "5 Rue du Marché 42110 Feurs",
+        "telephone": "+33477264800",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2241788,
+          45.7433843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 670718964,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Centre Deux",
+        "telephone": "+33 4 77 57 05 99",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3936733,
+          45.4232551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3668377325,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Coissard",
+        "adresse": "Rue de l'Oranger 42640 Saint-Germain-Lespinasse",
+        "telephone": "+33 4 77 64 51 92",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.962827,
+          46.1049659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1744687419,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Crom",
+        "telephone": "+33 4 77 54 17 42",
+        "specialite": "pharmacy",
+        "website": "https://pharmaciecrom.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.318799,
+          45.5900289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629272742,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Cueille-Seignon",
+        "telephone": "+33 4 77 67 47 42",
+        "specialite": "pharmacy",
+        "website": "https://pharmacie-cueille-seignon.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0605591,
+          45.9993043
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2229197092,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie d'Izieux",
+        "adresse": "13 Place Nationale 42400 Saint-Chamond",
+        "telephone": "+33 4 77 22 13 55",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.503235,
+          45.4642423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9580877967,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Balbigny",
+        "telephone": "+33477281002"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.186493,
+          45.8179393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4110017403,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Beauregard",
+        "telephone": "+33 4 77 58 18 37",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0555074,
+          45.6112133
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3114246329,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Bellegarde",
+        "telephone": "+33 4 77 94 62 91",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2951068,
+          45.6467445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1746295061,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Bellevue",
+        "telephone": "+33 4 77 57 26 62",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.393959,
+          45.417113
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1295138122,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Belmont",
+        "telephone": "+33 4 77 63 60 91",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:00,14:30-19:00; Sa 09:00-12:00",
+        "website": "https://pharmaciedebelmont.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3468107,
+          46.1648906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12064487783,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Bourg Argental",
+        "telephone": "+33 4 77 39 12 80",
+        "specialite": "pharmacy",
+        "website": "https://bourg-argental.aprium-pharmacie.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5601341,
+          45.2968311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12121901019,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Bouthéon",
+        "telephone": "+33 4 77 02 08 49",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2666228,
+          45.5420532
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2345419661,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Bussières",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2674523,
+          45.8364994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 675244874,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Carnot",
+        "telephone": "+33 4 77 74 25 25",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-13:00,14:00-19:00; Sa 09:00-12:00,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3844402,
+          45.4483618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8902089683,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Chavanay",
+        "telephone": "+33 4 74 87 25 04",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7370614,
+          45.4170269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6229551211,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Fonsala",
+        "adresse": "6 Place de l'Île-de-France 42400 Saint-Chamond",
+        "telephone": "+33 4 77 22 26 80",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:00-19:30; Sa 08:00-19:00",
+        "website": "https://fonsala.aprium-pharmacie.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5330428,
+          45.4749948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12066072965,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Fraisses",
+        "telephone": "+33 4 77 56 14 41",
+        "specialite": "pharmacy",
+        "website": "https://pharmaciedefraisses.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2669299,
+          45.3890854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11540002407,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Gaffard",
+        "adresse": "2 Place des Cévennes 42500 Le Chambon-Feugerolles",
+        "telephone": "+33477610267",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.307148,
+          45.3848687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3220570876,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Genilac",
+        "telephone": "+33 4 77 75 75 14",
+        "specialite": "pharmacy",
+        "website": "https://www.pharmacie-de-genilac.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5809245,
+          45.5329059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12121901018,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de l'Avion",
+        "telephone": "+33 4 77 55 01 55",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 08:30-19:15",
+        "website": "https://www.pharmacie-de-lavion.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2705573,
+          45.5266206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1827818767,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de l'Europe",
+        "adresse": "3 Place Jacques Raffin",
+        "telephone": "+33 4 77 54 63 60",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:30; Sa 09:00-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2775162,
+          45.5615907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2440614186,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de l'Hôtel de Ville",
+        "telephone": "+33 4 77 32 52 85",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:30; Sa 09:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3881791,
+          45.4386677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11607444850,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de l'Ondaine",
+        "telephone": "+33477560315",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.289426,
+          45.3909436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 634553056,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de l'Université",
+        "telephone": "+33 4 77 32 38 05",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:30; Sa 08:30-12:30,14:00-18:45"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3904182,
+          45.4282418
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4204905389,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Baraillère",
+        "telephone": "+33 4 77 95 09 69",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4343417,
+          45.4473741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 334514312,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Béraudière",
+        "telephone": "+33 4 77 57 66 95",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 08:45-19:45"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3744429,
+          45.4122646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1620579518,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Cotonne",
+        "telephone": "+33 4 77 57 32 52",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-20:00; Sa 08:30-12:30",
+        "website": "https://pharmaciecotonne.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3848691,
+          45.4204035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1642869912,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Feuilletière",
+        "telephone": "+33 4 77 74 67 15",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3602949,
+          45.4695628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12093732421,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Fontaine",
+        "telephone": "+33 4 77 73 27 35",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5814228,
+          45.512986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8704527029,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Fouillouse",
+        "telephone": "+33477301876"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3194281,
+          45.5005958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3241282726,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la gare",
+        "telephone": "+33 4 77 75 04 43",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:00; Sa 08:30-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6098967,
+          45.5259673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7608371484,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Gare",
+        "adresse": "13 Avenue Denfert Rochereau",
+        "telephone": "+33477323398",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3978111,
+          45.4408333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7917837588,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Gare",
+        "telephone": "+33477551093",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:00,14:00-19:00; Sa 08:00-12:00",
+        "website": "https://www.pharmacie-bonson.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2176363,
+          45.5216927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2244917440,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Halle",
+        "adresse": "1 Place de la Halle 42400 Saint-Chamond",
+        "telephone": "+33 4 77 22 01 86",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:15,14:00-19:15; Sa 08:30-12:30,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5125101,
+          45.4777844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9843447567,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Loire",
+        "telephone": "+33 4 77 71 20 85",
+        "specialite": "pharmacy",
+        "website": "https://pharmaciedelaloire-roanne.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0743939,
+          46.0381343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6926373287,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Maladière",
+        "telephone": "+33 4 77 22 13 23",
+        "specialite": "pharmacy",
+        "website": "https://www.totum.fr/pharmacie/l-horme-pharmacie-de-la-maladiere"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5342254,
+          45.4831134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5982045019,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Marandinière",
+        "telephone": "+33 4 77 25 35 75",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:30,14:00-19:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4192628,
+          45.4254032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6341209051,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Montat",
+        "telephone": "+33 4 77 32 29 20",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-12:30,13:30-19:30; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4080161,
+          45.4421697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 505435454,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Métare",
+        "telephone": "+33 4 77 25 31 53",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4177925,
+          45.4181837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9580783825,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de La Pacaudière",
+        "telephone": "+33 4 77 64 35 78",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8664276,
+          46.1766945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3229779529,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Place Fourneyron",
+        "telephone": "+33 4 77 33 66 76",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-12:15,14:30-19:15; Sa 09:00-12:15",
+        "website": "https://pharmaciedelaplacefourneyron.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3966073,
+          45.4392785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10946353625,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Place Neuve",
+        "telephone": "+33 4 77 32 15 17",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-12:15,14:00-19:15; Sa 09:00-12:00,14:30-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.390575,
+          45.4351751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9580911319,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Plaine",
+        "telephone": "+33477270008"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2234139,
+          45.7428867
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2016869373,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Porte d'Auvergne",
+        "telephone": "+33 4 77 50 09 72",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:30,14:00-19:30; Sa 08:00-12:30,14:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0652295,
+          45.4231085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629257201,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Poste",
+        "telephone": "+33 4 77 71 33 23",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0729294,
+          46.0413906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12093732420,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Poste",
+        "telephone": "+33 4 77 73 25 40",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5799508,
+          45.5122616
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11053070506,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Ricamarie",
+        "telephone": "+33477574919",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3658643,
+          45.4035208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2979366733,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la République",
+        "operateur": "Wellpharma",
+        "telephone": "+33 4 77 32 43 99",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:30; Sa 08:30-18:30",
+        "website": "https://pharmacie-republique-saint-etienne.wellpharma.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3939071,
+          45.4392138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5478343281,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Source",
+        "telephone": "+33 4 77 24 52 52"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9687869,
+          45.7337317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4577119760,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de la Talaudière",
+        "telephone": "+33 4 77 53 60 22",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4326485,
+          45.4802839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12320244838,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Maclas",
+        "adresse": "3 Rue de la Forge 42520 Maclas",
+        "telephone": "+33 4 74 87 38 67",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6869356,
+          45.3619182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5030000776,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Marlhes",
+        "telephone": "+33 4 77 51 86 36",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3943496,
+          45.2831568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1007838208,
+        "osm_type": "way",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Monthieu",
+        "telephone": "+33 4 77 21 47 18",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 09:00-19:30",
+        "website": "https://pharmaciedemonthieu.apothical.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4223912,
+          45.4409176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9580845718,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Neulise",
+        "telephone": "+33477646103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.180868,
+          45.9024358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629263160,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Paris",
+        "telephone": "+33 4 77 71 26 97",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0699504,
+          46.0458716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 687555077,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Plaisance",
+        "adresse": "14 Rue Gambetta 42400 Saint-Chamond",
+        "telephone": "+33 4 77 22 01 20",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:30; Sa 08:30-13:00,14:00-19:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5109106,
+          45.47348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 553305584,
+        "osm_type": "way",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Renaison",
+        "operateur": "Pharma",
+        "adresse": "554 Rue du Collège 42370 Renaison",
+        "telephone": "+33 4 77 64 40 28",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 10:00-12:30,14:00-19:30",
+        "website": "http://pharmacie.rhone-alpes-pharma.com/454434-pharmacie-de-renaison#pos-content-carousel"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.932194,
+          46.0516246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6769821127,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Riorges",
+        "telephone": "+33 4 77 71 38 76",
+        "specialite": "pharmacy",
+        "website": "https://riorges.aprium-pharmacie.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0530659,
+          46.0446224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 342052441,
+        "osm_type": "way",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Saint-André-d'Apchon",
+        "telephone": "+33 4 77 65 81 42",
+        "specialite": "pharmacy",
+        "website": "https://saint-andre.aprium-pharmacie.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.936262,
+          46.0331661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3960593875,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Saint-François",
+        "telephone": "+33 4 77 32 04 91",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:45-12:15,14:30-19:00; Sa 08:45-12:15",
+        "website": "https://pharmaciesaintfrancois.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4025653,
+          45.4399306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1757134846,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Saint-Genest-Malifaux",
+        "telephone": "+33 4 77 51 20 42",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Su 08:30-19:30, 12:30-14:00",
+        "website": "https://www.pharmacie-saint-genest-malifaux.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4198734,
+          45.3404647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4311482787,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Saint-Germain-Laval",
+        "adresse": "160 Route de Roanne",
+        "telephone": "+33 4 77 65 42 31",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:30, 14:00-19:30; Sa 08:30-14:00",
+        "website": "https://hellopharmacie.com/nos-pharmacies/pharmacie-de-saint-germain-laval-37"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0149089,
+          45.8324435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12064762352,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Saint-Marcellin-en-Forez",
+        "telephone": "+33 4 77 52 84 80",
+        "specialite": "pharmacy",
+        "website": "https://pharmaciedestmarcellinenforez.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1702745,
+          45.4970475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9580825181,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Saint-Martin",
+        "telephone": "+33 4 77 64 00 29",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7979486,
+          46.2059805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1694552982,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Saint-Pierre",
+        "adresse": "67 Grande Rue",
+        "telephone": "+33 4 74 87 11 20",
+        "specialite": "pharmacy",
+        "horaires": "Mo, Tu, Th, Fr 09:00-12:15, 15:00-19:15; We 15:00-19:15; Sa 09:00-12:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7494707,
+          45.3827157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6027364726,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Saint-Priest",
+        "telephone": "+33 4 77 74 14 14",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-13:00,14:00-19:30; Sa 08:30-12:30",
+        "website": "https://pharmacie-st-priest.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3795028,
+          45.4660348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10574618671,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Savigneux",
+        "telephone": "+33477960828",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0783415,
+          45.6062823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 685755962,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Tardy",
+        "telephone": "+33 4 77 32 49 14",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-12:30,14:30-19:00; Sa 09:00-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3861645,
+          45.4274838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366198177,
+        "osm_type": "way",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Tigny",
+        "telephone": "+33 4 77 69 00 77",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:45-12:30,14:00-19:15; Sa 09:00-12:30,14:00-19:00; Su off"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1555188,
+          46.1526078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1644302748,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie de Villerest",
+        "telephone": "+33 4 77 67 58 53",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0498982,
+          46.0211829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6396299595,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Delas-Lacroix",
+        "telephone": "+33 4 77 55 45 46",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.236694,
+          45.5379032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4161903509,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Demangeon",
+        "telephone": "+33 4 77 57 42 12",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:15,14:00-19:15; Sa 08:30-12:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.38647,
+          45.4096533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12124480778,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Barques",
+        "telephone": "+33 4 77 52 36 45",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2575947,
+          45.5015448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12064451218,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Collines",
+        "telephone": "+33 4 77 28 62 11",
+        "specialite": "pharmacy",
+        "website": "https://pharmaciedescollines.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3375155,
+          45.7936794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4110017409,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Comtes du Forez",
+        "telephone": "+33 4 77 96 18 32",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0669387,
+          45.6050176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1584382878,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Platanes",
+        "telephone": "+33 4 77 53 63 62",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4489591,
+          45.4841535
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629263162,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Sables",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0729537,
+          46.0587496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629249795,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Saules",
+        "telephone": "+33 4 77 67 09 20",
+        "specialite": "pharmacy",
+        "website": "https://saules.aprium-pharmacie.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0863509,
+          46.0257358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9580721539,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Senteurs",
+        "telephone": "+33477712295",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0615741,
+          46.0385147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1886362257,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Sources",
+        "telephone": "+33 4 77 54 02 87",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3113486,
+          45.5854805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2384115055,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Thermes",
+        "telephone": "+33 4 77 54 44 93",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2320797,
+          45.6433422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2270794487,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie des Trois Coins",
+        "adresse": "24 Rue Honoré de Balzac 42000 Saint-Etienne",
+        "telephone": "+33 4 77 32 53 41",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:15,14:00-19:15; Sa 08:30-12:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3834161,
+          45.4429552
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 470558891,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Berland",
+        "telephone": "+33 4 77 32 68 29",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2969151,
+          45.4341998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3653136569,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Bois Monzil",
+        "telephone": "+33 4 77 79 20 51",
+        "specialite": "pharmacy",
+        "website": "https://pharmacieduboismonzil.pharminfo.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.369558,
+          45.4656319
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7234881666,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Bourg",
+        "telephone": "+33 4 77 56 15 70",
+        "specialite": "pharmacy",
+        "website": "https://pharmaciedubourg-unieux.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2622286,
+          45.4056864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10102257057,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Bourg",
+        "telephone": "+33477733190",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:00,14:30-19:00; Sa 08:30-12:00; Su off"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5748482,
+          45.482895
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11596408322,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Breuil",
+        "telephone": "+33477562313",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2867192,
+          45.3886883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5669989025,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Centre",
+        "telephone": "+33 4 77 90 60 04",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3225844,
+          45.4336557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8827874542,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Centre",
+        "adresse": "4 Rue Pierre Angénieux 42570 Saint-Héand",
+        "telephone": "+33477309474",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3733685,
+          45.5294793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10914586471,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Centre",
+        "telephone": "+33 4 77 32 26 94",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:15,14:00-19:15; Sa 09:00-12:00",
+        "website": "https://pharmaciebataille.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3889247,
+          45.4396436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1437144816,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Clos Borie",
+        "telephone": "+33 4 77 54 43 17",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2280142,
+          45.6437102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3241282727,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Cours",
+        "telephone": "+33 4 77 75 02 57",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6133151,
+          45.5275426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2813904228,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Creux",
+        "adresse": "156 Rue Pétin Gaudet 42400 Saint-Chamond",
+        "telephone": "+33 4 77 22 10 65",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5049729,
+          45.4577182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5054254314,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Faubourg",
+        "telephone": "+33 4 77 51 51 69",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6160094,
+          45.3223926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3147973183,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Forez",
+        "adresse": "18 Place de la République 42130 Boën-sur-Lignon",
+        "telephone": "+33 4 77 24 01 51",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:15, 14:00-19:00; Sa 08:30-12:15, 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0029642,
+          45.7461685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8721864820,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Forez",
+        "telephone": "+33 4 77 26 24 29",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.226264,
+          45.7351838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1804057971,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Grand Clos",
+        "adresse": "48 Rue Benoît Frachon",
+        "telephone": "+33 4 77 38 10 97",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3674714,
+          45.4468203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4063359721,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Grand Pont",
+        "telephone": "+33 4 77 75 00 85",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5978356,
+          45.5203713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12065667267,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Guéret",
+        "telephone": "+33 4 77 52 45 42",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2500918,
+          45.5039549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1879238210,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Lac",
+        "telephone": "+33 4 77 69 63 65",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-12:30,14:30-19:30, Sa 09:00-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0338526,
+          45.9915581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4577128229,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Moulin Gillier",
+        "telephone": "+33 4 77 53 64 25",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4432365,
+          45.4807168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12088657402,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Mûrier",
+        "telephone": "+33 4 77 63 20 42",
+        "specialite": "pharmacy",
+        "website": "https://pharmaciedumurier.mutualpharm.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2405503,
+          45.8926825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629249796,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Parc",
+        "telephone": "+33 4 77 68 10 46",
+        "specialite": "pharmacy",
+        "horaires": "Mo,Tu,Th,Fr 08:30-12:00,13:30-19:00; We 08:30-12:00,14:00-19:00; Sa 09:00-12:00,14:00-17:00",
+        "website": "https://pharmacieduparc42120.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0852653,
+          46.0298763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12124480779,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Parc",
+        "telephone": "+33 4 77 36 60 86",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2620144,
+          45.5059048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2083935805,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Pic",
+        "telephone": "+33 4 77 76 64 47",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1222796,
+          45.5546793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12067677828,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Pilat",
+        "telephone": "+33 4 77 73 52 76",
+        "specialite": "pharmacy",
+        "website": "https://www.pharmaciedupilat.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5639924,
+          45.4959434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3609035598,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Plateau",
+        "adresse": "15 Rue de la Mairie",
+        "telephone": "+33 4 77 20 60 39",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4857993,
+          45.5443669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1785211793,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Portail Rouge",
+        "telephone": "+33 4 77 25 54 14",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4103791,
+          45.4156352
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2505108839,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Progrès",
+        "telephone": "+33 4 77 32 93 51",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-19:00; Sa 09:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3890165,
+          45.4370507
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 392671686,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Rond-Point",
+        "telephone": "+33 4 77 25 18 00",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-19:00; Sa 08:45-12:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4100552,
+          45.4224113
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9108582208,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Sornin",
+        "telephone": "+33477600696",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:30,14:00-19:00; Sa 08:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2099274,
+          46.1792878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11540002383,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Trésor",
+        "adresse": "10 Place Jean Jaurès 42500 Le Chambon-Feugerolles",
+        "telephone": "+33 4 77 61 05 74",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.324454,
+          45.397289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7217248616,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie du Viaduc",
+        "telephone": "+33 4 74 87 60 27",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6790318,
+          45.417515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 972784503,
+        "osm_type": "way",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Dupont",
+        "telephone": "+33 4 77 70 35 70",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0957281,
+          46.0298296
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4161750520,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Duranton",
+        "telephone": "+33 4 77 01 40 48",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-19:00; Sa 09:00-13:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3925231,
+          45.4218353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3207682356,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie El Attar-Pons",
+        "adresse": "6 Rue des Tilleuls 42440 Noirétable",
+        "telephone": "+33 4 77 24 70 20",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7643181,
+          45.8159758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629263153,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Fournier",
+        "telephone": "+33 4 77 70 57 27",
+        "specialite": "pharmacy",
+        "website": "https://www.pharmacie-fournier-roanne.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0662261,
+          46.0333406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6170862299,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Furnon",
+        "adresse": "60 Rue des Orchidées 42155 Lentigny",
+        "telephone": "+33 4 77 63 32 30",
+        "specialite": "pharmacy",
+        "website": "https://www.pharmacie-lentigny.fr"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9816929,
+          45.9925493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4095529312,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Gallon-Briand",
+        "adresse": "52 Route Nationale 42550 Usson-en-Forez",
+        "telephone": "+33 4 77 50 60 65",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9402453,
+          45.3910903
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12065656004,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Giraud",
+        "telephone": "+33 4 77 74 00 33",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3745936,
+          45.485985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11596408323,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Gérard Bouthier",
+        "telephone": "+33477560971",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2850893,
+          45.3875914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6485077210,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Herboristerie de la Valette",
+        "adresse": "5 Place de la République 42400 Saint-Chamond",
+        "telephone": "+33 4 77 22 05 70",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:45-12:15,14:30-19:00; Sa 08:45-12:15",
+        "website": "https://pharmacie-herboristerie-lavalette.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5142978,
+          45.4694379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3158909179,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Humbert",
+        "telephone": "+33 4 77 90 23 17",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3367032,
+          45.4455595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1734269044,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Jacquard",
+        "telephone": "+33 4 77 32 34 55",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:00; Sa 09:00-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3827974,
+          45.4414908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12067692548,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie L'Hormoise",
+        "telephone": "+33 4 77 22 12 41",
+        "specialite": "pharmacy",
+        "website": "https://www.totum.fr/pharmacie/l-horme-pharmacie-l-hormoise"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5444828,
+          45.4877576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11596408326,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Lafayette Charretier",
+        "telephone": "+33477560442",
+        "specialite": "pharmacy",
+        "website": "https://www.pharmacielafayette.com/pharmacies/firminy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2919076,
+          45.3934283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2505108837,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Lafayette Stéphanoise",
+        "telephone": "+33 4 77 43 96 70",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 08:30-19:00",
+        "website": "https://www.pharmacielafayette.com/saint-etienne"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3896424,
+          45.4368294
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 958456912,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Livio Tuloup",
+        "telephone": "+33 4 74 63 95 13",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.357079,
+          45.8529398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629257196,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Marchienne",
+        "telephone": "+33 4 77 71 20 89",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0716777,
+          46.0354858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11606193332,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Marolles",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2848486,
+          45.3845035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8721852205,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Mermier Bon",
+        "telephone": "+33477260740",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2217004,
+          45.7432987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2934022716,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Messagier",
+        "adresse": "Rue Joannès Beaulieu",
+        "telephone": "+33 4 77 36 47 42",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2608154,
+          45.5028311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12066072964,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Michel",
+        "telephone": "+33 4 77 56 15 34",
+        "specialite": "pharmacy",
+        "website": "https://pharmaciemichel-unieux.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2642753,
+          45.3977249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6050630402,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Migeon",
+        "adresse": "26 Rue Max Fléchet 42140 Chazelles-sur-Lyon",
+        "telephone": "+33477542188",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3893524,
+          45.6373743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7251468653,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Moiroud",
+        "adresse": "Place du Champ de Mars",
+        "telephone": "+33 4 77 30 81 05",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 09:00-12:00, 14:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1822283,
+          45.540341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2386403586,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Molle",
+        "telephone": "+33 4 77 25 10 20",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:15,14:30-19:15; Sa 09:00-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.40207,
+          45.4290267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4455280515,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Murat",
+        "telephone": "+33 4 77 65 34 87"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1165414,
+          46.1021766
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2440614192,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Mutualiste",
+        "telephone": "+33 4 77 32 24 29",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:00; Sa 08:30-18:00",
+        "website": "https://saintetienne.pharmaciemutualiste.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.386897,
+          45.4397518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2959298102,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Mutualiste",
+        "telephone": "+33 4 77 60 05 20",
+        "horaires": "Mo-Fr 08:30-12:15,14:00-19:00; Sa 08:30-13:00,13:45-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1736106,
+          46.1582622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3210674590,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Mutualiste",
+        "telephone": "+33 4 77 22 00 12",
+        "specialite": "pharmacy",
+        "horaires": "Mo 09:00-12:00, 14:00-19:00; Tu-Fr 08:30-12:30, 13:30-19:00; Sa 08:30-12:30, 14:00-18:00",
+        "website": "https://saintchamond.pharmaciemutualiste.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5092881,
+          45.4758522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9277601263,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Mutualiste",
+        "adresse": "42700 Firminy",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2863671,
+          45.3864482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 392671679,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Neyret",
+        "telephone": "+33 4 77 25 23 56",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Sa 08:30-12:30, Mo-Fr 13:30-19:30, Sa 14:00-19:00",
+        "website": "https://www.pharmacieneyret.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4046731,
+          45.4267762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4161903510,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Neyret",
+        "telephone": "+33 4 77 57 27 50",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:00-20:00; Sa 08:00-19:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3942214,
+          45.4159892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5239464440,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Nock",
+        "telephone": "+33 4 77 63 00 44",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2171066,
+          45.9911809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8246117919,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Notre Dame",
+        "telephone": "+33477583289"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0659386,
+          45.6063647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3158771881,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Nouvelle",
+        "telephone": "+33 4 77 73 24 45",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5696064,
+          45.5053972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12121901017,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Parmeland",
+        "telephone": "+33 4 77 55 03 38",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:15,14:00-19:15; Sa 08:30-12:15,14:00-19:00",
+        "website": "https://pharmacieparmeland.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2565629,
+          45.524381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2270794493,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Pep's",
+        "adresse": "32 Rue Charles de Gaulle",
+        "telephone": "+33 4 77 32 37 35",
+        "horaires": "Mo-Fr 08:30-19:00; Sa 09:00-12:00,14:00-19:00",
+        "website": "https://www.mypharmactiv.fr/pharmacie/pepspharmacie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3857308,
+          45.4447599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12386229297,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Pierre Curie",
+        "telephone": "+33 4 77 72 19 60",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.084834,
+          46.0505415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629259243,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Place Centrale",
+        "telephone": "+33 4 77 71 63 62",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0339029,
+          46.0431603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8302692582,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Plault",
+        "telephone": "+33 4 77 60 81 48",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1083288,
+          46.1462001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4110017404,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Principale",
+        "telephone": "+33 4 77 58 21 46",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:30,14:00-19:00; Sa 08:30-12:30,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0646689,
+          45.6067293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10538701949,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Principale",
+        "adresse": "140 Rue Saint-Pierre 42810 Rozier-en-Donzy",
+        "telephone": "+33477280608",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:00,14:30-19:00; Sa 08:30-12:00; Su closed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2777816,
+          45.7967649
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1018538989,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Py",
+        "telephone": "+33477560537"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.284897,
+          45.3891087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3126613960,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Ray",
+        "telephone": "+33 4 77 25 37 11",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4168401,
+          45.4282017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2255944520,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Robespierre",
+        "telephone": "+33 4 77 57 25 52",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:15; Sa 08:30-12:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.39582,
+          45.4142114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11596408325,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Référence",
+        "telephone": "+33477560943",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2876083,
+          45.3890518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3177918004,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie République",
+        "adresse": "3 Rue de la République 42500 Le Chambon-Feugerolles",
+        "telephone": "+33477610412",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3238609,
+          45.3960288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8078700717,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Saint Laurent",
+        "telephone": "+33 4 77 54 60 33"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2964834,
+          45.569134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12087729277,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Saint-Jean",
+        "telephone": "+33 4 77 75 08 72",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6207767,
+          45.5310263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3812928092,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Saint-Jeandaire",
+        "adresse": "5 Place du Souvenir",
+        "telephone": "+33 4 77 95 00 86",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 09:00-12:15,14:30-19:15; Sa 09:00-12:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4472671,
+          45.4512889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3220583348,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Saint-Martin",
+        "telephone": "+33 4 77 75 54 46",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:00,14:30-19:00; Sa 08:30-12:00; Su off",
+        "website": "https://pharmaciedesaintmartin.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5939205,
+          45.5453403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1674632086,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Saint-Michel",
+        "telephone": "+33 4 77 93 00 95",
+        "specialite": "pharmacy",
+        "website": "https://pharmaciesaintmichel-42270.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.377846,
+          45.4738052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 844833570,
+        "osm_type": "way",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Saint-Philibert",
+        "telephone": "+33 4 77 69 03 02",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:15,14:00-19:15; Sa 08:30-12:15,14:00-19:00",
+        "website": "https://pharmacies.giphar.fr/auvergne-rhone-alpes/loire/charlieu/pharmacie-saint-philibert-1324"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1678472,
+          46.1570208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2255948672,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Saint-Roch",
+        "telephone": "+33 4 77 25 05 90",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:15,14:30-19:15; Sa 08:30-12:15",
+        "website": "https://pharmaciesaintroch.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3938494,
+          45.4297249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9847979826,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Saint-Roch",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3918899,
+          45.6391063
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63303658,
+        "osm_type": "way",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Sainte-Barbe",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4018784,
+          45.4500729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1168774746,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Salanon",
+        "telephone": "+33477235294",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:00,14:30-19:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1730584,
+          46.1599586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7200854214,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Seguin",
+        "adresse": "27 Rue Gambetta",
+        "telephone": "+33 4 77 30 80 10",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-12:00, 14:30-19:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1841453,
+          45.5388753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9003210525,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Seitz",
+        "telephone": "+33 4 77 71 16 55",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:45-19:30; Sa 09:00-12:15,14:00-19:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0637425,
+          46.055008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7822767177,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Siettel",
+        "telephone": "+33 4 77 65 02 53",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8461013,
+          45.9134844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4577122795,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Soleil",
+        "telephone": "+33 4 77 53 20 57",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4333547,
+          45.4808002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629272743,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Turlin",
+        "telephone": "+33 4 77 72 44 31",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0365082,
+          46.0403659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2500406279,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Valette",
+        "telephone": "+33 4 77 90 54 31",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.323441,
+          45.4349503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12064008361,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Vey-Jamroz",
+        "telephone": "+33477767480",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0401774,
+          45.5087389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3629263158,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Victor Hugo",
+        "telephone": "+33 4 77 70 55 19",
+        "specialite": "pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0577173,
+          46.0387799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3664777510,
+        "osm_type": "node",
+        "amenity": "pharmacy",
+        "nom": "Pharmacie Victor Hugo",
+        "adresse": "26 Rue Victor Hugo 42400 Saint-Chamond",
+        "telephone": "+33 4 77 22 07 90",
+        "specialite": "pharmacy",
+        "horaires": "Mo-Fr 08:30-19:30; Sa 08:30-12:30,14:00-19:00",
+        "website": "https://www.pharmacie-crozet.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5163405,
+          45.4746526
+        ]
+      }
+    }
+  ]
+}

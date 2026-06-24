@@ -1,0 +1,126 @@
+{
+  "type": "FeatureCollection",
+  "name": "aerodromes_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1042037288,
+        "osm_type": "node",
+        "nom": "Altisurface de la Jasserie",
+        "type_aerodrome": "airfield"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5790909,
+          45.3891147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 175110903,
+        "osm_type": "way",
+        "nom": "Aérodrome de Feurs - Chambéon",
+        "icao": "LFLZ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1963685,
+          45.7065848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 42019329,
+        "osm_type": "way",
+        "nom": "Aérodrome de Roanne",
+        "icao": "LFLO",
+        "iata": "RNE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0021516,
+          46.0549151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 574710054,
+        "osm_type": "way",
+        "nom": "Aérodrome de Saint-Galmier",
+        "icao": "LFKM"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3041031,
+          45.6061545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 104786843,
+        "osm_type": "way",
+        "nom": "Aérodrome Saint-Chamond L'Horme",
+        "icao": "LFHG",
+        "website": "http://aero.st.chamond.free.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5346326,
+          45.4921865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 42019331,
+        "osm_type": "way",
+        "nom": "Aéroport de Saint-Étienne-Loire",
+        "icao": "LFMH",
+        "iata": "EBU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2952238,
+          45.5404023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 68607698,
+        "osm_type": "way",
+        "nom": "Col du Béal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7888117,
+          45.681011
+        ]
+      }
+    }
+  ]
+}
