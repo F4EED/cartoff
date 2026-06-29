@@ -71,6 +71,23 @@
     #legend span.squareBox.hospital { background:#c2185b; border:1px solid #880e4f; }
     #legend span.squareBox.clinic { background:#0097a7; border:1px solid #006978; }
     #legend span.squareBox.pharmacy { background:#827717; border:1px solid #524c00; }
+    #legend span.squareBox.mairie { background:#8d6e63; border:1px solid #4e342e; }
+    #legend span.squareBox.gendarmerie { background:#455a64; border:1px solid #263238; }
+    #legend span.squareBox.toponyme { background:#a1887f; border:1px solid #5d4037; }
+    #legend span.squareBox.lieuxdits { background:#bcaaa4; border:1px solid #6d4c41; }
+    #legend span.squareBox.assembly { background:#e64a19; border:1px solid #bf360c; }
+    #legend span.squareBox.hydrant { background:#ff6f00; border:1px solid #e65100; }
+    #legend span.squareBox.community { background:#8e24aa; border:1px solid #6a1b9a; }
+    #legend span.squareBox.school { background:#039be5; border:1px solid #0277bd; }
+    #legend span.squareBox.shelter { background:#689f38; border:1px solid #33691e; }
+    #legend span.squareBox.works { background:#5d4037; border:1px solid #3e2723; }
+    #legend span.squareBox.mineshaft { background:#6d4c41; border:1px solid #3e2723; }
+    #legend span.squareBox.quarry { background:#8d6e63; border:1px solid #4e342e; }
+    #legend span.squareBox.decheterie { background:#33691e; border:1px solid #1b5e20; }
+    #legend span.squareBox.landfill { background:#558b2f; border:1px solid #33691e; }
+    #legend span.squareBox.cemetery { background:#757575; border:1px solid #424242; }
+    #legend span.squareBox.antenne { background:#00838f; border:1px solid #006064; }
+    #legend span.squareBox.government { background:#1565c0; border:1px solid #0d47a1; }
     .osm-square-marker {
       background: transparent;
       border: none;
@@ -82,21 +99,34 @@
     .osm-marker-hospital div { background: #c2185b; border: 1px solid #880e4f; }
     .osm-marker-clinic div { background: #0097a7; border: 1px solid #006978; }
     .osm-marker-pharmacy div { background: #827717; border: 1px solid #524c00; }
-    .osm-cis-marker, .osm-police-marker, .osm-aerodrome-marker,
-    .osm-helipad-marker, .osm-heliport-marker {
+    .osm-marker-mairie div { background: #8d6e63; border: 1px solid #4e342e; }
+    .osm-marker-gendarmerie div { background: #455a64; border: 1px solid #263238; }
+    .osm-marker-toponyme div { background: #a1887f; border: 1px solid #5d4037; }
+    .osm-marker-lieuxdits div { background: #bcaaa4; border: 1px solid #6d4c41; }
+    .osm-marker-assembly div { background: #e64a19; border: 1px solid #bf360c; }
+    .osm-marker-hydrant div { background: #ff6f00; border: 1px solid #e65100; }
+    .osm-marker-community div { background: #8e24aa; border: 1px solid #6a1b9a; }
+    .osm-marker-school div { background: #039be5; border: 1px solid #0277bd; }
+    .osm-marker-shelter div { background: #689f38; border: 1px solid #33691e; }
+    .osm-marker-works div { background: #5d4037; border: 1px solid #3e2723; }
+    .osm-marker-mineshaft div { background: #6d4c41; border: 1px solid #3e2723; }
+    .osm-marker-decheterie div { background: #33691e; border: 1px solid #1b5e20; }
+    .osm-marker-antenne div { background: #00838f; border: 1px solid #006064; }
+    .osm-marker-government div { background: #1565c0; border: 1px solid #0d47a1; }
+    .osm-fire-marker, .osm-police-marker, .osm-aerodrome-marker,
+    .osm-helipad-marker {
       background: transparent;
       border: none;
     }
-    .osm-cis-marker div, .osm-police-marker div, .osm-aerodrome-marker div,
-    .osm-helipad-marker div, .osm-heliport-marker div {
+    .osm-fire-marker div, .osm-police-marker div, .osm-aerodrome-marker div,
+    .osm-helipad-marker div {
       width: 12px;
       height: 12px;
     }
-    .osm-cis-marker div { background: red; border: 1px solid #900; }
+    .osm-fire-marker div { background: red; border: 1px solid #900; }
     .osm-police-marker div { background: #003399; border: 1px solid #001a66; }
     .osm-aerodrome-marker div { background: #388e3c; border: 1px solid #1b5e20; }
     .osm-helipad-marker div { background: #f57c00; border: 1px solid #e65100; }
-    .osm-heliport-marker div { background: #6a1b9a; border: 1px solid #4a148c; }
     #sidebarLogo {
       display:block;
       margin:10px auto 0 auto;
@@ -120,21 +150,29 @@
     </details>
 
     <details open>
+      <summary>Urgence &amp; industrie (OSM)</summary>
+      <div id="urgenceLayers"></div>
+    </details>
+
+    <details open>
+      <summary>Contexte terrain (OSM)</summary>
+      <div id="contexteLayers"></div>
+    </details>
+
+    <details open>
+      <summary>Toponymie (OSM)</summary>
+      <div id="toponymieLayers"></div>
+    </details>
+
+    <details open>
       <summary>Santé (OSM)</summary>
       <div id="santeLayers"></div>
     </details>
 
     <details open>
-      <summary>Associations Agréées de Sécurité Civile</summary>
-      <div id="AASCLayers"></div>
+      <summary>Services publics (OSM)</summary>
+      <div id="servicesLayers"></div>
     </details>
-
-    <!--
-    <details open>
-      <summary>Départements de Corse</summary>
-      <div id="CorseLayers"></div>
-    </details>
-    -->
 
     <div id="legend"><b>Légende :</b><br>– aucun calque actif –</div>
     <img src="images/Logo_F4EED.png" id="sidebarLogo" alt="Logo D42">
@@ -199,9 +237,8 @@
 
     // Icônes personnalisées
     const icons = {
-      "CIS": L.icon({iconUrl:'images/CIS.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]}),
       "Casernes sapeurs-pompiers (OSM)": L.divIcon({
-        className: 'osm-cis-marker',
+        className: 'osm-fire-marker',
         html: '<div></div>',
         iconSize: [12, 12],
         iconAnchor: [6, 6],
@@ -228,13 +265,6 @@
         iconAnchor: [6, 6],
         popupAnchor: [0, -6]
       }),
-      "Héliports (heliport) (OSM)": L.divIcon({
-        className: 'osm-heliport-marker osm-square-marker',
-        html: '<div></div>',
-        iconSize: [12, 12],
-        iconAnchor: [6, 6],
-        popupAnchor: [0, -6]
-      }),
       "Hôpitaux (OSM)": L.divIcon({
         className: 'osm-marker-hospital osm-square-marker',
         html: '<div></div>',
@@ -256,6 +286,104 @@
         iconAnchor: [6, 6],
         popupAnchor: [0, -6]
       }),
+      "Mairies (OSM)": L.divIcon({
+        className: 'osm-marker-mairie osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Gendarmerie (OSM)": L.divIcon({
+        className: 'osm-marker-gendarmerie osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Toponymes (OSM)": L.divIcon({
+        className: 'osm-marker-toponyme osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Lieux-dits (OSM)": L.divIcon({
+        className: 'osm-marker-lieuxdits osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Points de rassemblement (OSM)": L.divIcon({
+        className: 'osm-marker-assembly osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Bouches à incendie (OSM)": L.divIcon({
+        className: 'osm-marker-hydrant osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Centres communaux (OSM)": L.divIcon({
+        className: 'osm-marker-community osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Écoles (OSM)": L.divIcon({
+        className: 'osm-marker-school osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Abris (OSM)": L.divIcon({
+        className: 'osm-marker-shelter osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Sites industriels (OSM)": L.divIcon({
+        className: 'osm-marker-works osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Puits / mines (OSM)": L.divIcon({
+        className: 'osm-marker-mineshaft osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Déchèteries (OSM)": L.divIcon({
+        className: 'osm-marker-decheterie osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Antennes / relais (OSM)": L.divIcon({
+        className: 'osm-marker-antenne osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
+      "Services publics (OSM)": L.divIcon({
+        className: 'osm-marker-government osm-square-marker',
+        html: '<div></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -6]
+      }),
       "Ets_SEVESO": L.icon({iconUrl:'images/SEVEZO.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]}),
       "PR_Routier": L.icon({iconUrl:'images/PR.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]})
     };
@@ -264,49 +392,76 @@
       "Police nationale (OSM)": "blue",
       "Aérodromes (OSM)": "green",
       "Héliports (OSM)": "orange",
-      "Héliports (heliport) (OSM)": "purple",
       "Hôpitaux (OSM)": "hospital",
       "Cliniques (OSM)": "clinic",
-      "Pharmacies (OSM)": "pharmacy"
+      "Pharmacies (OSM)": "pharmacy",
+      "Mairies (OSM)": "mairie",
+      "Gendarmerie (OSM)": "gendarmerie",
+      "Toponymes (OSM)": "toponyme",
+      "Lieux-dits (OSM)": "lieuxdits",
+      "Points de rassemblement (OSM)": "assembly",
+      "Bouches à incendie (OSM)": "hydrant",
+      "Centres communaux (OSM)": "community",
+      "Écoles (OSM)": "school",
+      "Abris (OSM)": "shelter",
+      "Sites industriels (OSM)": "works",
+      "Puits / mines (OSM)": "mineshaft",
+      "Carrières (OSM)": "quarry",
+      "Déchèteries (OSM)": "decheterie",
+      "Décharges (OSM)": "landfill",
+      "Cimetières (OSM)": "cemetery",
+      "Antennes / relais (OSM)": "antenne",
+      "Administrations (OSM)": "government"
     };
 
     // GeoJSON
     const geojsonFiles = {
       "departement":[
-        //{ name:"Point de Repère routier", file:"geojson/D42/PR_Routier.geojson", style:{color:"blue",weight:3} },
-        //{ name:"CD2E", file:"geojson/D42/CD2E.geojson", style:{color:"blue",weight:3} },
-        //{ name:"Route Départementale", file:"geojson/D42/routes.geojson", style:{color:"green",weight:2} },
         { name:"Communes de La Loire", file:"geojson/D42/communes-42-loire.geojson", style:{color:"darkred",weight:3} },
+        { name:"Contours communes (OSM)", file:"geojson/D42/communes_contours_osm_42.geojson", style:{color:"#3949ab",weight:2,fillColor:"#3949ab",fillOpacity:0.08} },
         { name:"Habitation", file:"geojson/D42/Zone_habitation.geojson", style:{color:"darkred",weight:3} },
         { name:"Lieu dit :: non habitable", file:"geojson/D42/Lieu_dit_non_habite.geojson", style:{color:"darkred",weight:3} },
         { name:"Lieu dit :: habitable", file:"geojson/D42/Toponyme.geojson", style:{color:"darkred",weight:3} }
         
       ],
       "risks":[
-        { name:"Centre d'Icendie et Secours", file:"geojson/D42/CIS.geojson", style:{color:"red",weight:2,dashArray:'4 4'} },
         { name:"Casernes sapeurs-pompiers (OSM)", file:"geojson/D42/casernes_osm_42.geojson", style:{color:"red",weight:2} },
         { name:"Police nationale (OSM)", file:"geojson/D42/police_nationale_osm_42.geojson", style:{color:"#003399",weight:2} },
         { name:"Aérodromes (OSM)", file:"geojson/D42/aerodromes_osm_42.geojson", style:{color:"#388e3c",weight:2} },
-        { name:"Héliports (OSM)", file:"geojson/D42/helipads_osm_42.geojson", style:{color:"#f57c00",weight:2} },
-        { name:"Héliports (heliport) (OSM)", file:"geojson/D42/heliports_osm_42.geojson", style:{color:"#6a1b9a",weight:2} },
-        //{ name:"Entreprises SEVESO", file:"geojson/D42/Ets_SEVESO.geojson", style:{color:"darkred",weight:3} },
-        //{ name:"Circuit déneigement DOVH ", file:"geojson/D42/Circuits_deneigement_dovh.geojson", style:{color:"orange",weight:2} },
-        //{ name:"Circuit déneigement PEVH ", file:"geojson/D42/Circuits_deneigement_pevh.geojson", style:{color:"blue",weight:2} },
-        //{ name:"PPRI", file:"geojson/PPRI.geojson", style:{color:"purple",weight:2} },
-        //{ name:"Onde de submersion du barrage de Grangent", file:"geojson//D42/PPI_Onde_de_submersion_du_barrage_de_granjean.geojson", style:{color:"aqua",weight:2} }
+        { name:"Héliports (OSM)", file:"geojson/D42/helipads_osm_42.geojson", style:{color:"#f57c00",weight:2} }
       ],
-      "AASC":[
-        { name:"Points d'Intéret - UDIOM(42)", file:"geojson/D42/UDIOM42.geojson", style:{color:"red",weight:2,dashArray:'4 4'} }
+      "urgence":[
+        { name:"Points de rassemblement (OSM)", file:"geojson/D42/points_rassemblement_osm_42.json", style:{color:"#e64a19",weight:2} },
+        { name:"Bouches à incendie (OSM)", file:"geojson/D42/bouches_incendie_osm_42.json", style:{color:"#ff6f00",weight:2} },
+        { name:"Centres communaux (OSM)", file:"geojson/D42/centres_communaux_osm_42.json", style:{color:"#8e24aa",weight:2} },
+        { name:"Écoles (OSM)", file:"geojson/D42/ecoles_osm_42.json", style:{color:"#039be5",weight:2} },
+        { name:"Abris (OSM)", file:"geojson/D42/abris_osm_42.json", style:{color:"#689f38",weight:2} },
+        { name:"Zones industrielles (OSM)", file:"geojson/D42/zones_industrielles_osm_42.json", style:{color:"#78909c",weight:2,fillColor:"#78909c",fillOpacity:0.15} },
+        { name:"Sites industriels (OSM)", file:"geojson/D42/sites_industriels_osm_42.json", style:{color:"#5d4037",weight:2,fillColor:"#5d4037",fillOpacity:0.2} }
       ],
       "sante":[
         { name:"Hôpitaux (OSM)", file:"geojson/D42/hopitaux_osm_42.geojson", style:{color:"#c2185b",weight:2} },
         { name:"Cliniques (OSM)", file:"geojson/D42/cliniques_osm_42.geojson", style:{color:"#0097a7",weight:2} },
         { name:"Pharmacies (OSM)", file:"geojson/D42/pharmacies_osm_42.geojson", style:{color:"#827717",weight:2} }
       ],
-      // "Corse":[
-      //   { name:"TKNET", file:"geojson/Corse/TKNET.geojson", style:{color:"darkred",weight:3} },
-      //   { name:"Communes Corse", file:"geojson/D42/communes-corse.geojson", style:{color:"darkred",weight:3} },
-      // ]
+      "services":[
+        { name:"Mairies (OSM)", file:"geojson/D42/Maire42.json", style:{color:"#8d6e63",weight:2} },
+        { name:"Gendarmerie (OSM)", file:"geojson/D42/gendarmerie 42.json", style:{color:"#455a64",weight:2} }
+      ],
+      "toponymie":[
+        { name:"Toponymes (OSM)", file:"geojson/D42/toponymes_osm_42.json", style:{color:"#a1887f",weight:2} },
+        { name:"Lieux-dits (OSM)", file:"geojson/D42/lieux_dits_osm_42.json", style:{color:"#bcaaa4",weight:2} },
+        { name:"Zones d'habitation (OSM)", file:"geojson/D42/zones_habitation_osm_42.json", style:{color:"#ff8f00",weight:2,fillColor:"#ff8f00",fillOpacity:0.12} }
+      ],
+      "contexte":[
+        { name:"Puits / mines (OSM)", file:"geojson/D42/puits_mines_osm_42.json", style:{color:"#6d4c41",weight:2} },
+        { name:"Carrières (OSM)", file:"geojson/D42/carrieres_osm_42.json", style:{color:"#8d6e63",weight:2,fillColor:"#8d6e63",fillOpacity:0.2} },
+        { name:"Déchèteries (OSM)", file:"geojson/D42/decheteries_osm_42.json", style:{color:"#33691e",weight:2} },
+        { name:"Décharges (OSM)", file:"geojson/D42/decharges_osm_42.json", style:{color:"#558b2f",weight:2,fillColor:"#558b2f",fillOpacity:0.2} },
+        { name:"Cimetières (OSM)", file:"geojson/D42/cimetieres_osm_42.json", style:{color:"#757575",weight:2,fillColor:"#bdbdbd",fillOpacity:0.25} },
+        { name:"Antennes / relais (OSM)", file:"geojson/D42/antennes_osm_42.json", style:{color:"#00838f",weight:2} },
+        { name:"Administrations (OSM)", file:"geojson/D42/services_publics_osm_42.json", style:{color:"#1565c0",weight:2} }
+      ]
     };
 
     const layers = {};
@@ -315,7 +470,7 @@
 
     async function loadGeoJSON(name,file,style){
       try{
-        const res = await fetch(file);
+        const res = await fetch(encodeURI(file));
         if(!res.ok) throw new Error("Erreur chargement "+file);
         const geojson = await res.json();
         const useIcon = name in icons;
@@ -389,18 +544,26 @@
         const layer = await loadGeoJSON(item.name,item.file,item.style);
         if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("riskLayers"), item.name, layer); }
       }
-      for(const item of geojsonFiles.AASC){
+      for(const item of geojsonFiles.urgence){
         const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("AASCLayers"), item.name, layer); }
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("urgenceLayers"), item.name, layer); }
       }
       for(const item of geojsonFiles.sante){
         const layer = await loadGeoJSON(item.name,item.file,item.style);
         if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("santeLayers"), item.name, layer); }
       }
-      // for(const item of geojsonFiles.Corse){
-      //   const layer = await loadGeoJSON(item.name,item.file,item.style);
-      //   if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("CorseLayers"), item.name, layer); }
-      // }
+      for(const item of geojsonFiles.services){
+        const layer = await loadGeoJSON(item.name,item.file,item.style);
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("servicesLayers"), item.name, layer); }
+      }
+      for(const item of geojsonFiles.toponymie){
+        const layer = await loadGeoJSON(item.name,item.file,item.style);
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("toponymieLayers"), item.name, layer); }
+      }
+      for(const item of geojsonFiles.contexte){
+        const layer = await loadGeoJSON(item.name,item.file,item.style);
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("contexteLayers"), item.name, layer); }
+      }
     }
 
     setupLayers();

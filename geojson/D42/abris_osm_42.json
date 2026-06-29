@@ -1,0 +1,6676 @@
+{
+  "type": "FeatureCollection",
+  "name": "abris_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1368123556,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1381401,
+          45.50541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1875136305,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8239502,
+          46.2031959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2265798201,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0445475,
+          45.4786373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3066454248,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1982233,
+          45.6849328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5747416419,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0413272,
+          45.4216178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5747418027,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0238003,
+          45.421093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5957021032,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5104358,
+          45.4722642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6537472281,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9942883,
+          45.4605735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6575176989,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3880452,
+          45.4050842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7056747054,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0630738,
+          45.4246471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7056747055,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0634828,
+          45.4246311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7056747056,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0675236,
+          45.4199153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7056747057,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0678307,
+          45.4202268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7056747058,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0682102,
+          45.4202984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7447274995,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.011293,
+          45.5874235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7447274996,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0150736,
+          45.5902173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7568286785,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.294218,
+          45.6731957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7890401777,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5233166,
+          45.4120764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9049159506,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9186103,
+          46.0925154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9360434709,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5147221,
+          45.4267079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9391533786,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5197679,
+          45.4111712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9453265436,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0359036,
+          45.5988557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9453265437,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0146319,
+          45.5976212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9453265438,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.996274,
+          45.5967226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9611462575,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9894508,
+          45.4624531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9786750727,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0327613,
+          45.794237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9870396924,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2451165,
+          46.1529291
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9904859029,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.065952,
+          45.5248814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9961218587,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.18179,
+          45.3974203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10197486204,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.157616,
+          45.806773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10944776945,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5550058,
+          45.2866101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11599409797,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9969911,
+          45.5927156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11682208431,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2141075,
+          46.1500352
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11939584846,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3057984,
+          45.8906798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11939727925,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3061873,
+          45.8923343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11944993774,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2960412,
+          45.8917724
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11947114381,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2746489,
+          45.8772451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12011864705,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1521819,
+          45.4597363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12011876679,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1222991,
+          45.4433199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12011877715,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1522641,
+          45.4598657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12046922448,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0048373,
+          45.5721067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12047807641,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1606792,
+          45.4637024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12620887625,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4010336,
+          45.3950515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12698778373,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2167628,
+          45.5220841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12878896996,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6570037,
+          45.350633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12878946438,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7203175,
+          45.4072236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13030350549,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3018832,
+          45.5918499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13157098759,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2225595,
+          45.6648515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13159148464,
+        "osm_type": "node",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.142014,
+          45.3896054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 50033634,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0313474,
+          45.5508624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 62805889,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2612096,
+          45.4436088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63243289,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3795267,
+          45.4646664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63254703,
+        "osm_type": "way",
+        "operateur": "Région Auvergne-Rhône-Alpes",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3933552,
+          45.4152915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63263024,
+        "osm_type": "way",
+        "operateur": "Région Auvergne-Rhône-Alpes",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3941305,
+          45.4154202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63282010,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3937842,
+          45.4154772
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63296577,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3864618,
+          45.4415538
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63297887,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3865821,
+          45.4416517
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63299283,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3931923,
+          45.415656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63302327,
+        "osm_type": "way",
+        "operateur": "Région Auvergne-Rhône-Alpes",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3936344,
+          45.415338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63307152,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3864462,
+          45.44162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63308278,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3793468,
+          45.4647566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63308861,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3865987,
+          45.4415804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63316200,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3932942,
+          45.4156122
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63327704,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3870003,
+          45.4095598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63333834,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3933368,
+          45.4157106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63337841,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3947636,
+          45.415089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 65781937,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3230981,
+          45.4323059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 86508290,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3259561,
+          45.3956328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 95987022,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.234942,
+          45.396259
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 95988002,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2272145,
+          45.397769
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 95988250,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2361508,
+          45.3926579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 119184124,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5141366,
+          45.4666531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 124627946,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0707723,
+          46.0492882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 154271020,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2779125,
+          45.524835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 154271462,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.278062,
+          45.524936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 156473512,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.359908,
+          45.826368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 156475189,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.352988,
+          45.8511175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 163999636,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0758755,
+          45.5981155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164001144,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0558105,
+          45.609574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164001858,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0558165,
+          45.6098005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164085139,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.934073,
+          45.713589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 166544546,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.039184,
+          45.9756644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 167309513,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3866002,
+          45.4162859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 266045425,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5268461,
+          45.3164619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 267055778,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.378152,
+          45.4369737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319587554,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9515112,
+          45.3896597
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319589335,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9448595,
+          45.3893705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 324865559,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1824954,
+          45.40302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 340476955,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1251473,
+          45.8857741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 340476956,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1253383,
+          45.8856843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 340926201,
+        "osm_type": "way",
+        "adresse": "42560 Chenereilles",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1092494,
+          45.4861419
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 345537460,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5044192,
+          45.2688244
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 355145540,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2099974,
+          46.1746677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 362100309,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5152996,
+          45.4746739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 362569971,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8897948,
+          46.1416757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366152276,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9199075,
+          45.7439
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366197232,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1281465,
+          46.1691034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 372137736,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8793441,
+          45.9890202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 372137743,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8770305,
+          45.983074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 372139411,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8934789,
+          45.9740271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 372139412,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8932958,
+          45.9740496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 372139418,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8778003,
+          45.9612984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 372139420,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8809223,
+          45.9551143
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 395105295,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9051737,
+          45.6941963
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 432813078,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2675284,
+          46.1275746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 435053992,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9875182,
+          45.5309154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 435691420,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0446918,
+          46.1495527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 436118793,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9390656,
+          46.0105709
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 436118830,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9434373,
+          46.0148505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 436119546,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9359075,
+          46.0087271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 438339586,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2322274,
+          46.1088689
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 442972264,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.178759,
+          46.1328143
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 443459381,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.694473,
+          45.3863909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 443677128,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2811423,
+          46.0023655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 499335275,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3897687,
+          45.4618867
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 522866951,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8969157,
+          45.9464771
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 530255289,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6061755,
+          45.524231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 530410466,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3995768,
+          45.4437506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 530410467,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3995317,
+          45.4436309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 616199594,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3111397,
+          45.7450468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 628247621,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0430715,
+          45.5090563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 655706705,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0765857,
+          45.85871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 655706706,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0764894,
+          45.8586799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 661405671,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2931594,
+          45.5655463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 670032599,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5413631,
+          45.5230057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 700177886,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3870543,
+          45.405783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 744714295,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0943988,
+          45.9136242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 783638828,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2100174,
+          46.1750014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 784336141,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.940866,
+          45.3891718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 785701712,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2107753,
+          46.1788205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 796844457,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6065188,
+          45.524522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 796844461,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6057645,
+          45.5241456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 796844462,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6051434,
+          45.5239629
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 808110187,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6601424,
+          45.3576994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 879972159,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2166068,
+          46.1532528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 881694368,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.080239,
+          45.6776257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 896302885,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1081442,
+          46.143153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 899421238,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5024679,
+          45.4656179
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 899421239,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5030612,
+          45.4657605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 899651342,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4941603,
+          45.2688458
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 901675194,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1171602,
+          46.1453188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 904430278,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0806789,
+          46.1392809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 908190555,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1216245,
+          46.153731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 908190556,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1222592,
+          46.1534961
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 914136118,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1714487,
+          46.1443114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 929195239,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0382267,
+          45.6208807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 946561464,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0767308,
+          45.8587877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 948514836,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0977949,
+          45.56074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 948837235,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0848076,
+          46.0280666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 959874345,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.754143,
+          45.4551319
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 959874346,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7543811,
+          45.4551799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 964025807,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.424551,
+          45.3049369
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 964512589,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.515747,
+          45.3689963
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 965201626,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0369465,
+          45.6956412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 980977828,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1100886,
+          46.1313258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 997890145,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7535973,
+          45.4493336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 997890146,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7532424,
+          45.4488341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1005051135,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7294453,
+          45.4443977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1005052570,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1145741,
+          46.1077694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1005689590,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1880987,
+          45.8176135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1005689593,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1877612,
+          45.8178664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1006786914,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1149086,
+          46.1072387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1011319019,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3638593,
+          45.8547993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1016550583,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0785284,
+          45.6046104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1024856946,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1662007,
+          46.098387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1050018053,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2861343,
+          45.3915904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1050018054,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2863946,
+          45.3918013
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1052269670,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7267583,
+          45.3885286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1055230388,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.108874,
+          46.1506343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1067613191,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3788559,
+          45.8427825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1076793646,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3399767,
+          46.165321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1080595165,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3945424,
+          45.4153554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1086698741,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.341483,
+          45.4763613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1095028871,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5052524,
+          45.4760961
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1095028872,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5054505,
+          45.4759455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1095555324,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3285478,
+          45.5427116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1096662192,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1648898,
+          45.4963688
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1105926846,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2158318,
+          46.116909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1107997277,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1040323,
+          45.5130002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1108491148,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1375357,
+          46.1571732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1108790188,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0735306,
+          46.0348448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1108790189,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0728763,
+          46.0350911
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1108790190,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0730131,
+          46.035041
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1108790191,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0733248,
+          46.0349205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1130840346,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2772982,
+          45.7975547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1143195370,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2611502,
+          46.128141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1150930978,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3620377,
+          45.5961748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1198296603,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1086314,
+          46.131023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1201545967,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1061386,
+          46.1462251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1204652586,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3022677,
+          46.104959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1208368024,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.106948,
+          46.1558463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1209544509,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5210622,
+          45.2747397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1209657306,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.55992,
+          45.2966177
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1217843695,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0846168,
+          46.1496865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1248917674,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3918706,
+          45.4230679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1248917675,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3919066,
+          45.4229443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1248917676,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3917959,
+          45.4229295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1248917677,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3917604,
+          45.4230528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253738909,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3785894,
+          45.4656399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253738910,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3785858,
+          45.4657334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253738911,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3784587,
+          45.4656789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253738912,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3784598,
+          45.465795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253738913,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3789209,
+          45.466102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253738914,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3789812,
+          45.4660722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253738915,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3790622,
+          45.4659832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253751207,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.390835,
+          45.4267508
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253751208,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3907186,
+          45.4267152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253780034,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3893886,
+          45.4241923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253780035,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.389228,
+          45.4241552
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1253789716,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3785602,
+          45.4374595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1256635133,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2155932,
+          46.1740036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1263282793,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1813098,
+          46.1499509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1263343639,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4125851,
+          45.4431472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1264341710,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4231003,
+          45.4227812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1267751158,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1992565,
+          46.1887289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1267787425,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3886699,
+          45.4368038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1270201023,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3903858,
+          45.4370578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1270980356,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3872725,
+          45.4387294
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1270980358,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.38741,
+          45.4387465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1270980359,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3874314,
+          45.4386687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271140833,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4011657,
+          45.441194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271140834,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4013048,
+          45.4411382
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271218935,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3936958,
+          45.4366891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271218936,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3932693,
+          45.4369925
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271218937,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3932928,
+          45.4372258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271218938,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.39333,
+          45.4369548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271224901,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3929208,
+          45.4348528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271229162,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3909072,
+          45.436937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271229163,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3910759,
+          45.4368654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271229164,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3912021,
+          45.4366632
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271365633,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3891396,
+          45.4371306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271522220,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3928202,
+          45.4193502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271522221,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3928839,
+          45.4194958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1271522222,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3929065,
+          45.4194102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272044259,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4211181,
+          45.4447269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272044260,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4210313,
+          45.444862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272048744,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4078412,
+          45.4418741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272052926,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3878203,
+          45.4385227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272052927,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3878376,
+          45.4384662
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272052928,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3878425,
+          45.4395736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272052929,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3877502,
+          45.4384556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272052930,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3877328,
+          45.438511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272168288,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3965434,
+          45.4385883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272171016,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3989261,
+          45.4432673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272172187,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3963554,
+          45.4396409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1272172188,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3962103,
+          45.4396946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1273523314,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1189619,
+          46.1696283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1278544855,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4191643,
+          45.4187186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1278544856,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4181178,
+          45.4185161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1278547710,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4000094,
+          45.4429132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1278547711,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3999456,
+          45.4428048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1278547712,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.397519,
+          45.4394705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1278547713,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3997877,
+          45.4428372
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1279350159,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3959045,
+          45.4392939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1279360552,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3933377,
+          45.4375422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1279360554,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3930871,
+          45.4376117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1279360557,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3932303,
+          45.4375825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1279606143,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3880766,
+          45.4328651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1279672173,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3904732,
+          45.4436213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1279936409,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3923489,
+          45.4329398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1280261791,
+        "osm_type": "way",
+        "operateur": "Stas",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3939517,
+          45.415232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1280351142,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.417467,
+          45.4439804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1280351147,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.417737,
+          45.44376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1280351155,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4068311,
+          45.4418382
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1280351157,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4021236,
+          45.4407777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1280351161,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4024026,
+          45.4406529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1280530709,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3968082,
+          45.4472953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767713,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4010939,
+          45.4427274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767714,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4014029,
+          45.4426792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767715,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4017245,
+          45.4426251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767716,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4020187,
+          45.4425727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767717,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4023345,
+          45.4425166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767718,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4029312,
+          45.4424138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767719,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4007549,
+          45.4427879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767720,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4005469,
+          45.4426261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767721,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.400851,
+          45.4425751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767722,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4011593,
+          45.4425217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767723,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4014733,
+          45.4424669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767724,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.401775,
+          45.4424146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767725,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4020872,
+          45.4423598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767726,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4028477,
+          45.4422278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767727,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4003737,
+          45.4454594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767728,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4002044,
+          45.4455615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767729,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4049388,
+          45.4465579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1286767730,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4047208,
+          45.4465852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1287751577,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3952541,
+          45.4340746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1287751591,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3951261,
+          45.4339589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1287751598,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3896529,
+          45.4307573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1287751603,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3957293,
+          45.4301334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1288079581,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4003764,
+          45.439656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1288079594,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4033678,
+          45.4395553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1288079602,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4051009,
+          45.4386611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1288902239,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3856708,
+          45.4444359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1288902613,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3856454,
+          45.4445204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1288915675,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3845518,
+          45.4468759
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289174428,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4113391,
+          45.4193102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289174429,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4105073,
+          45.421684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289174430,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4115084,
+          45.4193324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289174431,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4106673,
+          45.4212816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289177083,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4077408,
+          45.4239221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289177084,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.408062,
+          45.4238773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289179986,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3963995,
+          45.4300148
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289424643,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3912089,
+          45.4545237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289424646,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.395169,
+          45.4592743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289424652,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3950979,
+          45.4591927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289424653,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3972309,
+          45.4620781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289424654,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3959492,
+          45.4591392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289424655,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3952178,
+          45.4591194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289424663,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3905214,
+          45.4523812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289424664,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3922048,
+          45.4567545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1289424666,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3956855,
+          45.4591555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290275785,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4022779,
+          45.4500929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290275786,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3805206,
+          45.4629866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290275787,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.389629,
+          45.4592262
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290275788,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4023566,
+          45.4500197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290275791,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3894121,
+          45.4591686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290292916,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3826437,
+          45.4553894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290292917,
+        "osm_type": "way",
+        "operateur": "Transdev Saint-Étienne",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.382611,
+          45.4555031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290791925,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3849278,
+          45.4475091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290791926,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3847842,
+          45.4475642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290791927,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3864131,
+          45.447114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290791928,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3848051,
+          45.4474917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290791929,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.385146,
+          45.4484181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290791930,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3848823,
+          45.447644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1290791931,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3849013,
+          45.44758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1294768416,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3790354,
+          45.4660508
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1295293555,
+        "osm_type": "way",
+        "operateur": "STAS",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3963017,
+          45.4305255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1295341169,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4004941,
+          45.4277666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1295349347,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4045536,
+          45.4263999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1295349847,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4050451,
+          45.4263564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1295378891,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4010839,
+          45.4274328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1295681320,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3867876,
+          45.4419285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1296109953,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.393666,
+          45.4151678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1296109954,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3940957,
+          45.4152422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1296272016,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2815414,
+          45.5301307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1296272017,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2811921,
+          45.5301211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1296272018,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2817215,
+          45.5299962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1296274667,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3007921,
+          45.5615018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1296274668,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2877266,
+          45.5615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1296274669,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2769211,
+          45.5617138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1296274670,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2804608,
+          45.5527811
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1297688850,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3699418,
+          45.4438306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1297688852,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.363542,
+          45.4448736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1297688854,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3702853,
+          45.4435108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1297688855,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3697679,
+          45.4438307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1297735873,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3837906,
+          45.4280222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1297735874,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3864072,
+          45.4274255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1297735879,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3823567,
+          45.4346269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1297735880,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3813503,
+          45.4321157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1297735882,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.381069,
+          45.430657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1300571504,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3872931,
+          45.4386509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1300883084,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5512238,
+          45.3613991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1300883085,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5515095,
+          45.3612795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1300937574,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3357491,
+          45.4340164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1300937576,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3237438,
+          45.4326178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1300949739,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3037693,
+          45.3941036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1303053433,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4119563,
+          45.417111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1303053434,
+        "osm_type": "way",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4120191,
+          45.4169466
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1305679503,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1255816,
+          45.8855344
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1305777178,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.282414,
+          46.0761274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1305963426,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2768429,
+          46.0761795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1307323392,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2680817,
+          46.1278571
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1313695801,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2149823,
+          45.9874786
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1315106383,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2183001,
+          46.1464489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1321591040,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7610037,
+          45.8161708
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1321994976,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2847389,
+          46.0772217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1332866456,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3548542,
+          45.6887548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1332913805,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3081364,
+          45.83719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1332948757,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5789319,
+          45.4373203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1337195051,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1075877,
+          46.1437465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1352963037,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1087866,
+          46.1330856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1357782254,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4125699,
+          45.4583829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1362425966,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.301901,
+          46.168252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1364472310,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0626121,
+          46.0399955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1364488391,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.08603,
+          46.0241191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1364488392,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0854329,
+          46.0243793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1364499764,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2933363,
+          45.5656058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1364759763,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2494617,
+          45.6441032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1366198519,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2166696,
+          45.5223649
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1366492091,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2612172,
+          45.3948149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1366532679,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2554286,
+          45.5217191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1366532687,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2546791,
+          45.5214749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1366532781,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2308788,
+          45.7438504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1366532782,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2308541,
+          45.7435387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1366622304,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1209882,
+          45.5544172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1366622305,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1212381,
+          45.5545865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1366628246,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0780052,
+          45.6044594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1367306545,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3226176,
+          45.3948776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1367306546,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3224347,
+          45.3946988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1367328595,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3604171,
+          45.40417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1367328596,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3603797,
+          45.4040247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1367342091,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3928848,
+          45.4162525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1367342092,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3926416,
+          45.4163745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1368382975,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4986792,
+          45.461687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1371058778,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.005286,
+          45.7412569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1371145842,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1825867,
+          45.5291936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1371181460,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2497009,
+          45.6437701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1371207156,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3992154,
+          45.443685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1371207157,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4002344,
+          45.4435099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1371207159,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3985132,
+          45.4436821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1371208252,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2780753,
+          45.5247902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1372217890,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1830388,
+          46.116873
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1385660764,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3908917,
+          45.631495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1386293934,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.273627,
+          46.1256913
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1386628752,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2670388,
+          46.1286864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1390482277,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2917179,
+          46.0983353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1396307527,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3898793,
+          45.4294922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1424894036,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1420085,
+          46.1473485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1428793432,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0779499,
+          46.1508309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1431654950,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5414797,
+          45.3621316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1433508084,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0775996,
+          46.1435898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1451168621,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1926813,
+          45.5363241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1466783910,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2251811,
+          46.1222092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1486257205,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.567883,
+          45.3478329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1487721121,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0591283,
+          46.0010401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1509448628,
+        "osm_type": "way",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.094359,
+          45.9135235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 148291449,
+        "osm_type": "way",
+        "nom": "Abri d'Aiguebelle",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4847838,
+          45.2536894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1367880657,
+        "osm_type": "node",
+        "nom": "Bussy",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.043285,
+          45.5192721
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8343880705,
+        "osm_type": "node",
+        "nom": "Cabane des bœufs",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.86261,
+          45.87258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 407961161,
+        "osm_type": "way",
+        "nom": "Cabane du jardinier des forêts",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7288277,
+          45.917329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 897799724,
+        "osm_type": "way",
+        "nom": "Cabane du maquis",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.751817,
+          45.9182998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8343817105,
+        "osm_type": "node",
+        "nom": "Chapelle Saint-Roch",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7772577,
+          45.8463368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 156474634,
+        "osm_type": "way",
+        "nom": "Hall du randonneur",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3573095,
+          45.8526774
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 377751056,
+        "osm_type": "way",
+        "nom": "La Cabane Duchène",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8812781,
+          46.0161943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2318557395,
+        "osm_type": "node",
+        "nom": "Lavoir",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4412388,
+          45.5651641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1040328941,
+        "osm_type": "way",
+        "nom": "Mairie",
+        "operateur": "Région Auvergne-Rhône-Alpes",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1175624,
+          46.1017704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1072330405,
+        "osm_type": "way",
+        "nom": "Mairie-Ligne L23",
+        "operateur": "Région Auvergne-Rhône-Alpes",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1174832,
+          46.1018817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 265743377,
+        "osm_type": "way",
+        "nom": "Maison des gardes",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5160737,
+          45.3535181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12698286700,
+        "osm_type": "node",
+        "nom": "Montbrison Gare",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0780055,
+          45.6044631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3066453850,
+        "osm_type": "node",
+        "nom": "Observatoire Bilhoreau",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2025518,
+          45.6826181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3066453851,
+        "osm_type": "node",
+        "nom": "Observatoire Bécassine",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2009745,
+          45.6846334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3066453852,
+        "osm_type": "node",
+        "nom": "Observatoire Cormoran",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1980584,
+          45.6899565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 180131996,
+        "osm_type": "way",
+        "nom": "Refuge de la jasserie",
+        "telephone": "+33 4 77 20 40 16",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5737927,
+          45.390754
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 893325036,
+        "osm_type": "way",
+        "nom": "Refuge du Dentillon",
+        "telephone": "+33 4 74 87 52 00",
+        "operateur": "Mairie de Pelussin",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.639036,
+          45.3947401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4302919091,
+        "osm_type": "node",
+        "nom": "Salle Hors-sac \"Le GIAT\"",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5298683,
+          45.367533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1287434184,
+        "osm_type": "way",
+        "nom": "Zénith - Comédie",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3943693,
+          45.4545508
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1287434185,
+        "osm_type": "way",
+        "nom": "Zénith - Comédie",
+        "operateur": "Transdev",
+        "type": "shelter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3945216,
+          45.4546698
+        ]
+      }
+    }
+  ]
+}

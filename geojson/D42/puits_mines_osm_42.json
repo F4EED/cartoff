@@ -1,0 +1,91 @@
+{
+  "type": "FeatureCollection",
+  "name": "puits_mines_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1369078546,
+        "osm_type": "way",
+        "type": "mineshaft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6004388,
+          45.523551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63308936,
+        "osm_type": "way",
+        "nom": "Chevalement du Puit Couriot",
+        "type": "mineshaft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3769248,
+          45.4376757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 85019304,
+        "osm_type": "way",
+        "nom": "Puits des Combes",
+        "type": "mineshaft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3638551,
+          45.4140922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 86513915,
+        "osm_type": "way",
+        "nom": "Puits du Marais",
+        "type": "mineshaft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3444143,
+          45.3991816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11215284644,
+        "osm_type": "node",
+        "nom": "Puits Fay",
+        "type": "mineshaft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5398163,
+          45.4969711
+        ]
+      }
+    }
+  ]
+}

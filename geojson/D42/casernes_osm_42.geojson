@@ -14,10 +14,8 @@
         "osm_id": 651697479,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours d'Andrézieux-Bouthéon",
-        "type_cis": "CS",
         "adresse": "1 Boulevard de l'Industrie 42160 Andrézieux-Bouthéon",
-        "telephone": "+33 4 77 55 16 36",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 55 16 36"
       },
       "geometry": {
         "type": "Point",
@@ -33,10 +31,8 @@
         "osm_id": 973272236,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours d'Usson-en-Forez",
-        "type_cis": "CPI",
         "adresse": "Route de Saint-Pal 42550 Usson-en-Forez",
-        "telephone": "+33 4 77 50 66 21",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 50 66 21"
       },
       "geometry": {
         "type": "Point",
@@ -52,10 +48,8 @@
         "osm_id": 1005412478,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Balbigny",
-        "type_cis": "CPI",
         "adresse": "Boulevard de la Tuilerie 42510 Balbigny",
-        "telephone": "+33 4 77 28 15 48",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 28 15 48"
       },
       "geometry": {
         "type": "Point",
@@ -71,10 +65,8 @@
         "osm_id": 366189745,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Belmont-de-la-Loire",
-        "type_cis": "CPI",
         "adresse": "Chemin de Lacroix 42670 Belmont-de-la-Loire",
-        "telephone": "+33 4 77 63 63 90",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 63 63 90"
       },
       "geometry": {
         "type": "Point",
@@ -90,10 +82,8 @@
         "osm_id": 893666789,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Bourg-Argental",
-        "type_cis": "CPI",
         "adresse": "1 allée des Rivets 42220 Bourg-Argental",
-        "telephone": "+33 4 77 39 10 52",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 39 10 52"
       },
       "geometry": {
         "type": "Point",
@@ -109,10 +99,8 @@
         "osm_id": 308790293,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Boën-sur-Lignon",
-        "type_cis": "CPI",
         "adresse": "Boulevard Salvador Allende 42130 Boën-sur-Lignon",
-        "telephone": "+33 4 77 24 11 27",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 24 11 27"
       },
       "geometry": {
         "type": "Point",
@@ -128,10 +116,8 @@
         "osm_id": 351348305,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Bussières",
-        "type_cis": "CPI",
         "adresse": "Rue Aristide Briand 42510 Bussières",
-        "telephone": "+33 4 77 27 39 82",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 27 39 82"
       },
       "geometry": {
         "type": "Point",
@@ -147,10 +133,8 @@
         "osm_id": 127120808,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Chalmazel",
-        "type_cis": "CPI",
         "adresse": "Route de Couzan 42920 Chalmazel",
-        "telephone": "+33 4 77 24 84 95",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 24 84 95"
       },
       "geometry": {
         "type": "Point",
@@ -166,10 +150,8 @@
         "osm_id": 801366087,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Charlieu",
-        "type_cis": "CPI",
         "adresse": "561 Rue du Brionnais 42190 Charlieu",
-        "telephone": "+33 4 77 60 09 23",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 60 09 23"
       },
       "geometry": {
         "type": "Point",
@@ -185,10 +167,8 @@
         "osm_id": 973307805,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Chavanay",
-        "type_cis": "CPI",
         "adresse": "135 Route Nationale 86 42410 Chavanay",
-        "telephone": "+33 4 74 87 20 18",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 74 87 20 18"
       },
       "geometry": {
         "type": "Point",
@@ -204,10 +184,8 @@
         "osm_id": 313457523,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Chazelles-sur-Lyon",
-        "type_cis": "CPI",
         "adresse": "Rue de Saint-Galmier 42140 Chazelles-sur-Lyon",
-        "telephone": "+33 4 77 54 34 09",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 54 34 09"
       },
       "geometry": {
         "type": "Point",
@@ -223,10 +201,8 @@
         "osm_id": 972855773,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Cordelle",
-        "type_cis": "CPI",
         "adresse": "473 rue de l'École 42123 Cordelle",
-        "telephone": "+33 4 77 64 97 64",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 64 97 64"
       },
       "geometry": {
         "type": "Point",
@@ -242,10 +218,8 @@
         "osm_id": 366149759,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Cremeaux",
-        "type_cis": "CPI",
         "adresse": "Route du Forez 42260 Cremeaux",
-        "telephone": "+33 4 77 62 52 52",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 62 52 52"
       },
       "geometry": {
         "type": "Point",
@@ -261,10 +235,8 @@
         "osm_id": 432812851,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Cuinzier",
-        "type_cis": "CPI",
         "adresse": "110 route de Villers 42460 Cuinzier",
-        "telephone": "+33 4 77 60 53 02",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 60 53 02"
       },
       "geometry": {
         "type": "Point",
@@ -280,9 +252,7 @@
         "osm_id": 972863434,
         "osm_type": "way",
         "nom": "Centre d'Incendie et de Secours de Doizieux",
-        "type_cis": "CPI",
-        "telephone": "+33 4 77 20 95 46",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 20 95 46"
       },
       "geometry": {
         "type": "Point",
@@ -298,10 +268,8 @@
         "osm_id": 363914440,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Feurs",
-        "type_cis": "CS",
         "adresse": "2 rue Galliéni 42110 Feurs",
-        "telephone": "+33 4 77 27 04 48",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 27 04 48"
       },
       "geometry": {
         "type": "Point",
@@ -317,10 +285,8 @@
         "osm_id": 973272231,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Firminy",
-        "type_cis": "CS",
         "adresse": "35 boulevard de la Corniche 42700 Firminy",
-        "telephone": "+33 4 77 40 55 30",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 40 55 30"
       },
       "geometry": {
         "type": "Point",
@@ -336,10 +302,8 @@
         "osm_id": 222913676,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Grammond",
-        "type_cis": "CPI",
         "adresse": "Rue du Lavoir 42140 Grammond",
-        "telephone": "+33 4 77 20 61 79",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 20 61 79"
       },
       "geometry": {
         "type": "Point",
@@ -355,10 +319,8 @@
         "osm_id": 170217636,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Jonzieux",
-        "type_cis": "CPI",
         "adresse": "18 Les Chauds 42660 Jonzieux",
-        "telephone": "+33 4 77 39 97 43",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 39 97 43"
       },
       "geometry": {
         "type": "Point",
@@ -374,10 +336,8 @@
         "osm_id": 366996768,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de La Pacaudière",
-        "type_cis": "CPI",
         "adresse": "166 route d'Urbise 42310 La Pacaudière",
-        "telephone": "+33 4 77 63 21 74",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 63 21 74"
       },
       "geometry": {
         "type": "Point",
@@ -393,10 +353,8 @@
         "osm_id": 973283541,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de La Ricamarie",
-        "type_cis": "CS",
         "adresse": "Rue du Commandant Bousquet 42150 La Ricamarie",
-        "telephone": "+33 4 77 80 09 01",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 80 09 01"
       },
       "geometry": {
         "type": "Point",
@@ -412,10 +370,8 @@
         "osm_id": 265920881,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de La Terrasse-sur-Dorlay",
-        "type_cis": "CPI",
         "adresse": "127 rue Alphonse Lacombe - 42740 La Terrasse-sur-Dorlay",
-        "telephone": "+33 4 77 20 98 05",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 20 98 05"
       },
       "geometry": {
         "type": "Point",
@@ -431,10 +387,8 @@
         "osm_id": 145778847,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de La Vallée-du-Gier",
-        "type_cis": "CS",
         "adresse": "2T rue Louis Pasteur 42320 La Grand-Croix",
-        "telephone": "+33 4 77 73 25 35",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 73 25 35"
       },
       "geometry": {
         "type": "Point",
@@ -450,10 +404,8 @@
         "osm_id": 973283544,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Le Berland/Roche-la-Molière",
-        "type_cis": "CS",
         "adresse": "Allée des Camions Rouges 42230 Saint-Victor-sur-Loire",
-        "telephone": "+33 4 77 90 02 73",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 90 02 73"
       },
       "geometry": {
         "type": "Point",
@@ -469,10 +421,8 @@
         "osm_id": 863393679,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Maclas",
-        "type_cis": "CPI",
         "adresse": "7 rue Jean-François Choron 42520 Maclas",
-        "telephone": "+33 4 74 87 42 91",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 74 87 42 91"
       },
       "geometry": {
         "type": "Point",
@@ -488,10 +438,8 @@
         "osm_id": 973294453,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Marlhes - Saint-Régis-du-Coin",
-        "type_cis": "CPI",
         "adresse": "Route de Saint-Genest 42660 Marlhes",
-        "telephone": "+33 4 77 51 25 64",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 51 25 64"
       },
       "geometry": {
         "type": "Point",
@@ -507,10 +455,8 @@
         "osm_id": 972855772,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Montagny",
-        "type_cis": "CPI",
         "adresse": "48 rue de Roanne 42840 Montagny",
-        "telephone": "+33 4 77 66 15 46",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 66 15 46"
       },
       "geometry": {
         "type": "Point",
@@ -526,10 +472,8 @@
         "osm_id": 972855782,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Montbrison",
-        "type_cis": "CS",
         "adresse": "6 avenue Charles de Gaulle 42600 Montbrison",
-        "telephone": "+33 4 77 96 36 00",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 96 36 00"
       },
       "geometry": {
         "type": "Point",
@@ -545,10 +489,8 @@
         "osm_id": 972930163,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Montrond-les-Bains",
-        "type_cis": "CPI",
         "adresse": "Rue des Rotys 42210 Montrond-les-Bains",
-        "telephone": "+33 4 77 94 50 48",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 94 50 48"
       },
       "geometry": {
         "type": "Point",
@@ -564,10 +506,8 @@
         "osm_id": 972905972,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Neulise",
-        "type_cis": "CPI",
         "adresse": "ZA les Jacqins 42590 Neulise",
-        "telephone": "+33 4 77 64 65 35",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 64 65 35"
       },
       "geometry": {
         "type": "Point",
@@ -583,10 +523,8 @@
         "osm_id": 319496526,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Noirétable",
-        "type_cis": "CPI",
         "adresse": "3 rue de la Condamine 42440 Noirétable",
-        "telephone": "+33 4 77 24 99 38",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 24 99 38"
       },
       "geometry": {
         "type": "Point",
@@ -602,10 +540,8 @@
         "osm_id": 236545065,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Panissières",
-        "type_cis": "CPI",
         "adresse": "7 rue Louis Minjard 42360 Panissières",
-        "telephone": "+33 4 77 28 75 62",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 28 75 62"
       },
       "geometry": {
         "type": "Point",
@@ -621,10 +557,8 @@
         "osm_id": 311322670,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Pouilly-sous-Charlieu",
-        "type_cis": "CPI",
         "adresse": "173 rue de la République - 42720 Pouilly-sous-Charlieu",
-        "telephone": "+33 4 77 69 94 06",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 69 94 06"
       },
       "geometry": {
         "type": "Point",
@@ -640,7 +574,6 @@
         "osm_id": 1028892370,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Pélussin",
-        "type_cis": "CS",
         "adresse": "15 rue des Prairies 42410 Pélussin"
       },
       "geometry": {
@@ -657,10 +590,8 @@
         "osm_id": 972863439,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Périgneux",
-        "type_cis": "CPI",
         "adresse": "La Conche - 42380 Périgneux",
-        "telephone": "+33 4 77 30 74 04",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 30 74 04"
       },
       "geometry": {
         "type": "Point",
@@ -676,10 +607,8 @@
         "osm_id": 972881171,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Renaison",
-        "type_cis": "CPI",
         "adresse": "410 rue de l’Annexe 42370 Renaison",
-        "telephone": "+33 4 77 64 23 64",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 64 23 64"
       },
       "geometry": {
         "type": "Point",
@@ -695,10 +624,8 @@
         "osm_id": 780669329,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Rive-de-Gier",
-        "type_cis": "CS",
         "adresse": "1 rue du Sardon 42800 Rive-de-Gier",
-        "telephone": "+33 4 77 83 99 42",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 83 99 42"
       },
       "geometry": {
         "type": "Point",
@@ -714,10 +641,8 @@
         "osm_id": 370346316,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Rozier-en-Donzy",
-        "type_cis": "CPI",
         "adresse": "24 rue du Poêt 42810 Rozier-en-Donzy",
-        "telephone": "+33 4 77 28 30 78",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 28 30 78"
       },
       "geometry": {
         "type": "Point",
@@ -733,10 +658,8 @@
         "osm_id": 410859611,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Sail-sous-Couzan",
-        "type_cis": "CPI",
         "adresse": "Rue du Moulin 42890 Sail-sous-Couzan",
-        "telephone": "+33 4 77 24 59 81",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 24 59 81"
       },
       "geometry": {
         "type": "Point",
@@ -752,10 +675,8 @@
         "osm_id": 972855775,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Alban-les-Eaux",
-        "type_cis": "CPI",
         "adresse": "181 Petite rue Malène 42370 Saint-Alban-les-Eaux",
-        "telephone": "+33 4 77 65 94 46",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 65 94 46"
       },
       "geometry": {
         "type": "Point",
@@ -771,10 +692,8 @@
         "osm_id": 973272232,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Bonnet/Saint-Nizier",
-        "type_cis": "CPI",
         "adresse": "6681 chemin des Pépinières 42380 Saint-Bonnet-le-Château",
-        "telephone": "+33 4 77 50 09 53",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 50 09 53"
       },
       "geometry": {
         "type": "Point",
@@ -790,10 +709,8 @@
         "osm_id": 119203279,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Chamond",
-        "type_cis": "CSP",
         "adresse": "70 boulevard Waldeck Rousseau 42400 Saint-Chamond",
-        "telephone": "+33 4 77 29 84 80",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 29 84 80"
       },
       "geometry": {
         "type": "Point",
@@ -809,10 +726,8 @@
         "osm_id": 973300333,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Christo-en-Jarez",
-        "type_cis": "CPI",
         "adresse": "2 route de Fontanes 42320 Saint-Christo-en-Jarez",
-        "telephone": "+33 4 77 20 75 75",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 20 75 75"
       },
       "geometry": {
         "type": "Point",
@@ -828,10 +743,8 @@
         "osm_id": 399233456,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Cyr-de-Valorges",
-        "type_cis": "CPI",
         "adresse": "73 chemin du Clos - 42114 Saint-Cyr-de-Valorges",
-        "telephone": "+33 4 77 62 49 60",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 62 49 60"
       },
       "geometry": {
         "type": "Point",
@@ -847,10 +760,8 @@
         "osm_id": 783638829,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Denis-de-Cabanne",
-        "type_cis": "CPI",
         "adresse": "Rue de l'Industrie - 42750 Saint-Denis-de-Cabanne",
-        "telephone": "+33 4 77 69 03 31",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 69 03 31"
       },
       "geometry": {
         "type": "Point",
@@ -866,10 +777,8 @@
         "osm_id": 972863448,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Galmier",
-        "type_cis": "CS",
         "adresse": "73 rue de la Richelande 42330 Saint-Galmier",
-        "telephone": "+33 4 77 54 02 07",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 54 02 07"
       },
       "geometry": {
         "type": "Point",
@@ -885,10 +794,8 @@
         "osm_id": 973294458,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Genest-Malifaux",
-        "type_cis": "CPI",
         "adresse": "Rue de l'Étang 42660 Saint-Genest-Malifaux",
-        "telephone": "+33 4 77 51 25 64",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 51 25 64"
       },
       "geometry": {
         "type": "Point",
@@ -904,10 +811,8 @@
         "osm_id": 164085682,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Georges-en-Couzan",
-        "type_cis": "CPI",
         "adresse": "18 Le Bourg 42990 Saint-Georges-en-Couzan",
-        "telephone": "+33 4 77 24 87 28",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 24 87 28"
       },
       "geometry": {
         "type": "Point",
@@ -923,10 +828,8 @@
         "osm_id": 1443291646,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Germain-Laval",
-        "type_cis": "CPI",
         "adresse": "98 Route de Pommiers 42260 Saint-Germain-Laval",
-        "telephone": "+33 4 77 65 50 50",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 65 50 50"
       },
       "geometry": {
         "type": "Point",
@@ -942,10 +845,8 @@
         "osm_id": 972863445,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Héand",
-        "type_cis": "CPI",
         "adresse": "3 rue de la Montuclarde 42570 Saint-Héand",
-        "telephone": "+33 4 77 30 93 41",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 30 93 41"
       },
       "geometry": {
         "type": "Point",
@@ -961,10 +862,8 @@
         "osm_id": 973286073,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Jean-Bonnefonds",
-        "type_cis": "CS",
         "adresse": "Chemin de Poyeton 42650 Saint-Jean-Bonnefonds",
-        "telephone": "+33 4 77 95 04 01",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 95 04 01"
       },
       "geometry": {
         "type": "Point",
@@ -980,10 +879,8 @@
         "osm_id": 173192019,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Jean-Soleymieux",
-        "type_cis": "CPI",
         "adresse": "194 Au Travers 42560 Saint-Jean-Soleymieux",
-        "telephone": "+33 4 77 76 74 86",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 76 74 86"
       },
       "geometry": {
         "type": "Point",
@@ -999,10 +896,8 @@
         "osm_id": 893666800,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Julien-Molin-Molette",
-        "type_cis": "CPI",
         "adresse": "7C rue du Tacon 42220 Saint-Julien-Molin-Molette",
-        "telephone": "+33 4 77 51 54 90",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 51 54 90"
       },
       "geometry": {
         "type": "Point",
@@ -1018,10 +913,8 @@
         "osm_id": 972855770,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Just Saint-Rambert",
-        "type_cis": "CPI",
         "adresse": "Route de Saint Côme 42170 Saint-Just Saint-Rambert",
-        "telephone": "+33 4 77 52 13 48",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 52 13 48"
       },
       "geometry": {
         "type": "Point",
@@ -1037,10 +930,8 @@
         "osm_id": 407968441,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Just-en-Chevalet",
-        "type_cis": "CPI",
         "adresse": "Route de Thiers 42430 Saint-Just-en-Chevalet",
-        "telephone": "+33 4 77 65 03 10",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 65 03 10"
       },
       "geometry": {
         "type": "Point",
@@ -1056,10 +947,8 @@
         "osm_id": 1524772412,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Just-la-Pendue",
-        "type_cis": "CPI",
         "adresse": "693 rue Fernand Merlin 42540 Saint-Just-la-Pendue",
-        "telephone": "+33 4 77 63 20 20",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 63 20 20"
       },
       "geometry": {
         "type": "Point",
@@ -1075,10 +964,8 @@
         "osm_id": 780669331,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Martin-la-Plaine",
-        "type_cis": "CPI",
         "adresse": "1 route de Gitoux 42800 Saint-Martin-la-Plaine",
-        "telephone": "+33 4 77 75 97 38",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 75 97 38"
       },
       "geometry": {
         "type": "Point",
@@ -1094,10 +981,8 @@
         "osm_id": 311340129,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Martin-la-Sauveté",
-        "type_cis": "CPI",
         "adresse": "Rue des Rapeaux 42260 Saint-Martin-la-Sauveté",
-        "telephone": "+33 4 77 62 25 22",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 62 25 22"
       },
       "geometry": {
         "type": "Point",
@@ -1113,10 +998,8 @@
         "osm_id": 315723031,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Martin-Lestra",
-        "type_cis": "CPI",
         "adresse": "72 chemin des Sirènes 42110 Saint-Martin-Lestra",
-        "telephone": "+33 4 77 28 56 52",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 28 56 52"
       },
       "geometry": {
         "type": "Point",
@@ -1132,10 +1015,8 @@
         "osm_id": 972863437,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Maurice-en-Gourgois",
-        "type_cis": "CPI",
         "adresse": "Route de Firminy 42240 Saint-Maurice-en-Gourgois",
-        "telephone": "+33 4 77 50 36 30",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 50 36 30"
       },
       "geometry": {
         "type": "Point",
@@ -1151,10 +1032,8 @@
         "osm_id": 893666703,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Pierre-de-Bœuf",
-        "type_cis": "CPI",
         "adresse": "3 avenue du Rhône 42520 Saint-Pierre-de-Boeuf",
-        "telephone": "+33 4 74 87 14 65",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 74 87 14 65"
       },
       "geometry": {
         "type": "Point",
@@ -1170,10 +1049,8 @@
         "osm_id": 193384345,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Romain-le-Puy",
-        "type_cis": "CPI",
         "adresse": "3 rue du 11 Novembre 42610 Saint-Romain-le-Puy",
-        "telephone": "+33 4 77 76 04 98",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 76 04 98"
       },
       "geometry": {
         "type": "Point",
@@ -1189,9 +1066,7 @@
         "osm_id": 1235835841,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Régis-du-Coin",
-        "type_cis": "CPI",
-        "adresse": "Place de l’Église",
-        "operateur": "SDIS 42"
+        "adresse": "Place de l’Église"
       },
       "geometry": {
         "type": "Point",
@@ -1207,10 +1082,8 @@
         "osm_id": 893666802,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Sauveur-en-Rue",
-        "type_cis": "CPI",
         "adresse": "28 Route du Tracol 42220 Saint-Sauveur-en-Rue",
-        "telephone": "+33 4 77 39 28 12",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 39 28 12"
       },
       "geometry": {
         "type": "Point",
@@ -1226,10 +1099,8 @@
         "osm_id": 337981241,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Saint-Symphorien-de-Lay",
-        "type_cis": "CPI",
         "adresse": "86 Route de Roanne 42470 Saint-Symphorien-de-Lay",
-        "telephone": "+33 4 77 64 70 89",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 64 70 89"
       },
       "geometry": {
         "type": "Point",
@@ -1245,10 +1116,8 @@
         "osm_id": 973274362,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours de Sury-le-Comtal",
-        "type_cis": "CPI",
         "adresse": "7786 Rue des Chartonnes 42450 Sury-le-Comtal",
-        "telephone": "+33 4 77 30 88 14",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 30 88 14"
       },
       "geometry": {
         "type": "Point",
@@ -1263,9 +1132,7 @@
       "properties": {
         "osm_id": 156476006,
         "osm_type": "way",
-        "nom": "Centre d'incendie et de secours de Violay",
-        "type_cis": "PA",
-        "operateur": "SDIS 42"
+        "nom": "Centre d'incendie et de secours de Violay"
       },
       "geometry": {
         "type": "Point",
@@ -1281,10 +1148,8 @@
         "osm_id": 431534081,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours du Cergne",
-        "type_cis": "CPI",
         "adresse": "54 chemin du Bois de Joux 42460 Le Cergne",
-        "telephone": "+33 4 74 89 94 46",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 74 89 94 46"
       },
       "geometry": {
         "type": "Point",
@@ -1300,10 +1165,8 @@
         "osm_id": 973272230,
         "osm_type": "way",
         "nom": "Centre d'incendie et de secours du Chambon Feugerolles",
-        "type_cis": "CS",
         "adresse": "2 bis rue Edouard Michot 42500 Le Chambon Feugerolles",
-        "telephone": "+33 4 77 89 46 23",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 89 46 23"
       },
       "geometry": {
         "type": "Point",
@@ -1319,10 +1182,8 @@
         "osm_id": 444325587,
         "osm_type": "way",
         "nom": "Centre d'incendie et de Secours du Val de Rhins",
-        "type_cis": "CPI",
         "adresse": "2 rue du capitaine Razon 42630 Régny",
-        "telephone": "+33 4 77 63 07 35",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 63 07 35"
       },
       "geometry": {
         "type": "Point",
@@ -1338,10 +1199,8 @@
         "osm_id": 927927794,
         "osm_type": "way",
         "nom": "Centre de secours principal de Roanne",
-        "type_cis": "CSP",
         "adresse": "1 place Dr Thiodet 42300 Roanne",
         "telephone": "+33 4 77 23 27 27",
-        "operateur": "SDIS 42",
         "website": "https://www.sdis42.fr/page/centre-de-roanne"
       },
       "geometry": {
@@ -1358,10 +1217,8 @@
         "osm_id": 973289101,
         "osm_type": "way",
         "nom": "Centre de secours principal de Saint-Étienne - La Métare",
-        "type_cis": "CSP",
         "adresse": "22 boulevard Karl-Marx 42000 Saint-Étienne",
-        "telephone": "+33 4 77 43 18 70",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 43 18 70"
       },
       "geometry": {
         "type": "Point",
@@ -1377,10 +1234,8 @@
         "osm_id": 973283556,
         "osm_type": "way",
         "nom": "Centre de secours principal de Saint-Étienne - Séverine",
-        "type_cis": "CSP",
         "adresse": "16 rue des Brunandières 42000 Saint-Etienne",
-        "telephone": "+33 4 77 43 18 50",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 43 18 50"
       },
       "geometry": {
         "type": "Point",
@@ -1396,10 +1251,8 @@
         "osm_id": 844810322,
         "osm_type": "way",
         "nom": "Centre de secours principal Saint-Étienne-Terrasse",
-        "type_cis": "CSP",
         "adresse": "59 rue de la Tour 42000 Saint-Étienne",
-        "telephone": "+33 4 77 92 18 90",
-        "operateur": "SDIS 42"
+        "telephone": "+33 4 77 92 18 90"
       },
       "geometry": {
         "type": "Point",

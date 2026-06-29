@@ -1,0 +1,190 @@
+{
+  "type": "FeatureCollection",
+  "name": "decheteries_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1143759808,
+        "osm_type": "way",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0885136,
+          45.5787985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1143760468,
+        "osm_type": "way",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9938889,
+          45.5746267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1459240986,
+        "osm_type": "way",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8900619,
+          45.9651426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1494288643,
+        "osm_type": "way",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3949016,
+          45.4105862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 233221050,
+        "osm_type": "way",
+        "nom": "Centre de transfert de déchets non dangereux - Site Brunandières",
+        "operateur": "SITA - Suez Environnement",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3679911,
+          45.4335236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770977027,
+        "osm_type": "node",
+        "nom": "Derichebourg Purfer",
+        "adresse": "14 Rue des Vernes 42600 Montbrison",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0962933,
+          45.594243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1126239638,
+        "osm_type": "way",
+        "nom": "Méthamoly",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4108665,
+          45.6294946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1006802518,
+        "osm_type": "way",
+        "nom": "Méthaniseur agricole",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1700321,
+          45.5923167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 87564903,
+        "osm_type": "way",
+        "nom": "TriValLoire",
+        "adresse": "8 Rue du Colonel Riez 42700 Firminy",
+        "operateur": "Suez",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.279864,
+          45.3919908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 926010802,
+        "osm_type": "way",
+        "nom": "Unité de Méthanisation",
+        "operateur": "CVE Biogaz",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0941882,
+          45.5960196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770977028,
+        "osm_type": "node",
+        "nom": "Veolia",
+        "adresse": "1 Rue des Vernes 42600 Montbrison",
+        "type": "waste_transfer_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0932345,
+          45.5947272
+        ]
+      }
+    }
+  ]
+}

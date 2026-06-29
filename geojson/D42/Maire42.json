@@ -1,0 +1,6475 @@
+{
+  "type": "FeatureCollection",
+  "name": "mairies_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3543836368,
+        "osm_type": "node",
+        "telephone": "+33 4 77 20 40 98",
+        "email": "mairie@tarentaise42.fr",
+        "website": "http://tarentaise-pilat.fr",
+        "horaires": "Mo 13:30-17:00; Th 08:30-11:30; Fr 14:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4887697,
+          45.3733226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4571874218,
+        "osm_type": "node",
+        "telephone": "+33474878365",
+        "email": "mairie-lachapellevillars@wanadoo.fr",
+        "horaires": "Mo 14:00-17:00; We 09:00-12:00; Fr 09:00-11:00,14:00-17:00; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7177798,
+          45.4728485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4788048383,
+        "osm_type": "node",
+        "telephone": "+33477974080",
+        "email": "marcillym@wanadoo.fr",
+        "website": "https://www.marcillylechatel.eu",
+        "horaires": "Mo 14:00-18:00; We 08:30-11:30; Fr 14:30-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0365824,
+          45.6952136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6037689359,
+        "osm_type": "node",
+        "adresse": "12 Rue Armand Bazin 42140 Chazelles-sur-Lyon",
+        "telephone": "+33477542020",
+        "email": "mairie@chazelles-sur-lyon.fr",
+        "website": "https://www.chazelles-sur-lyon.fr/",
+        "horaires": "Mo 08:30-12:30; Tu-Fr 08:30-12:30,13:30-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3904362,
+          45.6371052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6051463745,
+        "osm_type": "node",
+        "adresse": "Cours Marin 42152 L'Horme",
+        "telephone": "+33477221209",
+        "email": "mairie@ville-horme.fr",
+        "website": "https://www.ville-horme.fr/",
+        "horaires": "Mo 08:30-12:00; Tu 08:30-12:00,13:30-17:30; We 13:30-17:30; Th 08:30-12:00,14:00-17:30; Fr 08:30-12:00,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5429695,
+          45.4856528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6315724903,
+        "osm_type": "node",
+        "telephone": "+33477202039",
+        "email": "mairie.de.pavezin@wanadoo.fr",
+        "website": "https://pavezin.fr",
+        "horaires": "Tu 14:00-17:00; Fr 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6710652,
+          45.4657182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9868836030,
+        "osm_type": "node"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8247544,
+          45.8142771
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 443469916,
+        "osm_type": "way",
+        "adresse": "10 Place de la Mairie 42520 Bessey",
+        "telephone": "+33474873683",
+        "email": "mairie.bessey42@orange.fr",
+        "horaires": "Tu 09:00-12:00; Fr 16:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6959235,
+          45.3845624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1336924444,
+        "osm_type": "way",
+        "telephone": "+334 77 60 90 22",
+        "email": "accueilmairie@pouillysouscharlieu.com",
+        "website": "https://www.pouillysouscharlieu.fr/",
+        "horaires": "Mo-Fr 09:00-12:00,14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1080426,
+          46.1439836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1689012619,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "telephone": "+33 4 77 69 33 89",
+        "email": "contacts@ville-charlieu.fr",
+        "website": "https://www.ville-charlieu.fr/",
+        "horaires": "Mo,Tu 08:45-12:00,13:30-17:30; We 08:45-12:00; Th 08:45-12:00,13:30-18:00; Fr 08:45-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1714826,
+          46.1592818
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1821807434,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "adresse": "2 Rue Gambetta 42230 Roche-la-Molière",
+        "telephone": "+33477907700",
+        "email": "mairie@rochelamoliere.fr",
+        "website": "https://www.roche-la-moliere.fr",
+        "horaires": "Mo-Th 08:30-12:00,13:30-17:15; Fr 08:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.322642,
+          45.4330469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2031904393,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "adresse": "Place de l'Hôtel de Ville 42610 Saint-Romain-le-Puy",
+        "telephone": "+33477766055",
+        "email": "sg@ville-srlp.fr",
+        "website": "http://www.mairie-saintromainlepuy.fr",
+        "horaires": "Mo-Fr 09:00-12:30,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1214295,
+          45.5550893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2228898351,
+        "osm_type": "node",
+        "nom": "Hôtel de ville",
+        "adresse": "Place Jean Jaurès 42500 Le Chambon-Feugerolles",
+        "telephone": "+33477403020",
+        "email": "mairie@lechambon.fr",
+        "website": "https://lechambon.fr",
+        "horaires": "Mo 08:30-12:00,13:00-17:00; Tu 08:30-12:00,13:00-18:00; We-Fr 08:30-12:00,13:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3251868,
+          45.3960314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2399244982,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "adresse": "2 Place du Breuil 42702 Firminy",
+        "telephone": "+33477405060",
+        "email": "mairie@ville-firminy.fr",
+        "operateur": "Ville de Firminy",
+        "website": "https://www.ville-firminy.fr/",
+        "horaires": "Mo 08:30-12:30,13:30-17:00; Tu-We 08:30-12:00,13:30-17:00; Th 08:30-12:00,13:30-18:00; Fr 08:30-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2871654,
+          45.3879348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2647708099,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "telephone": "+33477551416",
+        "email": "contact@mairie-bonson.fr",
+        "website": "https://www.mairie-bonson.fr",
+        "horaires": "Mo 13:30-17:00; Tu-Fr 08:30-12:00,13:30-17:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.215931,
+          45.5232824
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6052500455,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "adresse": "8 Boulevard de la Libération 42170 Saint-Just-Saint-Rambert",
+        "telephone": "+33477524853",
+        "email": "mairie@stjust-strambert.com",
+        "website": "https://www.stjust-strambert.fr/",
+        "horaires": "Mo-Fr 08:00-12:00,13:30-17:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2412359,
+          45.4991202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6153918107,
+        "osm_type": "node",
+        "nom": "Hôtel de ville",
+        "telephone": "+33477274040",
+        "email": "mairie@panissieres.fr",
+        "website": "https://panissieres.fr/",
+        "horaires": "Mo 09:00-12:00,13:30-17:00; Tu 10:00-12:00,13:30-17:00; We 09:00-12:00; Th-Fr 09:00-12:00,13:30-17:00; Sa 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.338912,
+          45.791832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6274046660,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "adresse": "Place de l'Hôtel de Ville 42130 Boën-sur-Lignon",
+        "telephone": "+33477977240",
+        "email": "mairie@boen.fr",
+        "website": "http://commune-boen.fr/",
+        "horaires": "Mo 08:30-12:30; Tu-Fr 08:30-12:30,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0043421,
+          45.7452255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6312651400,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "telephone": "+33477544277",
+        "email": "mairie@montrond-les-bains.fr",
+        "website": "https://www.montrond-les-bains.fr/",
+        "horaires": "Mo 10:00-12:30,13:30-17:00; We 09:00-12:00; Th-Fr 09:00-12:30,13:30-17:00; Sa 09:30-12:00; Tu 09:00-12:30,12:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2308157,
+          45.6428381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6315756469,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "adresse": "42410 Pélussin",
+        "telephone": "+33474876202",
+        "email": "mairie@ville-pelussin.fr",
+        "website": "https://www.pelussin.fr",
+        "horaires": "Mo 08:30-12:00,13:30-17:30; Tu 08:30-12:00; We-Fr 08:30-12:00,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6834261,
+          45.4181146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6347142460,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "adresse": "Boulevard Aristide Briand 42651 Saint-Jean-Bonnefonds",
+        "telephone": "+33477950703",
+        "email": "contact@ville-st-jean-bonnefonds.fr",
+        "website": "https://www.ville-st-jean-bonnefonds.fr/",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4445878,
+          45.4492205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6360138300,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "adresse": "Place Charles Crouzet 42240 Unieux",
+        "telephone": "+33477403080",
+        "email": "mairie-unieux@unieux.fr",
+        "website": "https://www.ville-unieux.fr",
+        "horaires": "Mo-Th 08:00-12:00,13:30-17:30; Fr 08:00-12:00,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2614902,
+          45.3996839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10538803724,
+        "osm_type": "node",
+        "nom": "Hôtel de Ville",
+        "adresse": "Place de l'Hôtel de Ville 42300 Roanne",
+        "telephone": "+33477232000",
+        "email": "accueil@mairie-roanne.fr",
+        "website": "https://www.aggloroanne.fr",
+        "horaires": "Mo-Th 09:00-12:00,13:30-16:00; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.07275,
+          46.0343723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5201020,
+        "osm_type": "relation",
+        "nom": "Hôtel de Ville",
+        "adresse": "5 Place de l'Hôtel de Ville",
+        "telephone": "+33 4 77 48 77 48",
+        "email": "courriermairie@saint-etienne.fr",
+        "operateur": "Ville de Saint-Étienne",
+        "website": "http://www.saint-etienne.fr",
+        "horaires": "Mo,We-Th 08:45-17:00; Tu 08:45-18:00; Fr 08:45-16:30; Sa-Su closed; PH closed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3872925,
+          45.4401869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6174725644,
+        "osm_type": "node",
+        "nom": "Hôtel de ville de Riorges",
+        "adresse": "411 Rue Pasteur 42153 Riorges",
+        "telephone": "+33477236262",
+        "email": "mairie@riorges.fr",
+        "website": "https://www.riorges.fr/",
+        "horaires": "Mo-Th 08:30-12:00,13:30-17:30; Fr 09:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0444415,
+          46.0433682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 145779422,
+        "osm_type": "way",
+        "nom": "Hôtel de Ville La Grand’Croix",
+        "adresse": "2 Rue Jean Jaurès",
+        "telephone": "+33477732243",
+        "email": "accueil@lagrandcroix.fr",
+        "website": "https://www.lagrandcroix.fr/",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.569511,
+          45.5039845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 432732779,
+        "osm_type": "node",
+        "nom": "Mairie",
+        "adresse": "Place de l'Hôtel de Ville 42600 Montbrison",
+        "telephone": "+33 4 77 96 18 18",
+        "email": "mairie@ville-montbrison.fr",
+        "website": "https://ville-montbrison.fr/",
+        "horaires": "Mo-Fr 09:00-12:30,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0630236,
+          45.6074919
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6270820483,
+        "osm_type": "node",
+        "nom": "Mairie annexe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0339804,
+          45.8774356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 434723330,
+        "osm_type": "way",
+        "nom": "Mairie Annexe de la Croix-Leigne",
+        "telephone": "+33 4 77 60 07 16",
+        "email": "mairie-chandon-42@wanadoo.fr",
+        "website": "http://chandon.e-monsite.com",
+        "horaires": "Mo-Tu,Th-Fr 08:00-12:00,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1812482,
+          46.1497174
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13194463838,
+        "osm_type": "node",
+        "nom": "Mairie Annexe de L’Hôpital-sous-Rochefort",
+        "telephone": "+33 4 77 24 59 26",
+        "website": "https://solore-en-forez.fr/",
+        "horaires": "Mo-Tu,Th,Sa 08:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9345881,
+          45.7739845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13194421546,
+        "osm_type": "node",
+        "nom": "Mairie annexe de Montbrison Moingt",
+        "telephone": "+33 4 77 58 27 23",
+        "horaires": "Mo-Fr 08:30-12:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0718646,
+          45.5924904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5134538313,
+        "osm_type": "node",
+        "nom": "Mairie Annexe de Saint-Laurent-Rochefort",
+        "telephone": "+33 4 77 24 50 87",
+        "email": "mairie.stlaurentrochefort@wanadoo.fr",
+        "website": "https://solore-en-forez.fr/",
+        "horaires": "Mo,Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9233673,
+          45.7732812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6268598519,
+        "osm_type": "node",
+        "nom": "Mairie d'Aboën",
+        "telephone": "+33477503512",
+        "email": "mairie@aboen.fr",
+        "horaires": "Mo 09:00-12:00,14:00-16:00; Tu 14:00-18:00; Th 09:00-12:00,13:00-18:00; Sa 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1305204,
+          45.4149326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4799271578,
+        "osm_type": "node",
+        "nom": "Mairie d'Ailleux",
+        "telephone": "+33477246510",
+        "email": "mairie-ailleux@orange.fr",
+        "website": "https://www.mairieailleux.fr/",
+        "horaires": "Mo 10:00-12:00,14:00-16:00; Fr 10:00-12:00,14:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9438447,
+          45.8028396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5138945591,
+        "osm_type": "node",
+        "nom": "Mairie d'Ambierle",
+        "telephone": "+33477656067",
+        "email": "contact@mairieambierle.fr",
+        "website": "https://www.ambierle.fr/",
+        "horaires": "Mo 09:00-12:00; Tu 09:00-12:00,13:30-17:00; Th-Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8958614,
+          46.104169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6270957950,
+        "osm_type": "node",
+        "nom": "Mairie d'Andrézieux-Bouthéon",
+        "adresse": "Avenue du Parc 42160 Andrézieux-Bouthéon",
+        "telephone": "+33477550342",
+        "email": "mairie@andrezieux-boutheon.com",
+        "website": "https://www.andrezieux-boutheon.com",
+        "horaires": "Mo 08:30-12:00,13:30-18:00; Tu 08:30-12:00,13:30-17:00; We 08:30-12:00,13:30-18:00; Th-Fr 08:30-12:00,13:30-17:00; Sa 09:00-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2592012,
+          45.5250181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 538474942,
+        "osm_type": "node",
+        "nom": "Mairie d'Apinac",
+        "telephone": "+33477502581",
+        "email": "mairie.apinac@wanadoo.fr",
+        "website": "http://www.apinac.fr",
+        "horaires": "Tu 08:00-12:00,14:00-18:00; We 08:00-12:00; Th 08:00-12:00,14:00-18:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9958161,
+          45.3799673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6271120924,
+        "osm_type": "node",
+        "nom": "Mairie d'Arcinges",
+        "telephone": "+33 4 77 60 52 44",
+        "email": "communearcinges@wanadoo.fr",
+        "website": "https://arcinges.fr/",
+        "horaires": "Tu 08:30-12:00; Th 14:00-18:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2819515,
+          46.1380218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6273601090,
+        "osm_type": "node",
+        "nom": "Mairie d'Arcon",
+        "adresse": "76 Place de Verdun 42370 Arcon",
+        "telephone": "+33477658567",
+        "email": "mairiearcon@wanadoo.fr",
+        "horaires": "Th 14:00-18:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8869376,
+          46.0105284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5141692821,
+        "osm_type": "node",
+        "nom": "Mairie d'Arthun",
+        "adresse": "30 Place du 19 Mars 1962 42130 Arthun",
+        "telephone": "+33477246021",
+        "email": "mairie.darthun@wanadoo.fr",
+        "website": "https://arthun.fr",
+        "horaires": "Tu 09:00-12:00; Th 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0309759,
+          45.7739607
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5142326873,
+        "osm_type": "node",
+        "nom": "Mairie d'Aveizieux",
+        "adresse": "1 Rue des Érables 42330 Aveizieux",
+        "telephone": "+33477940012",
+        "email": "mairie@mairieaveizieux.fr",
+        "website": "https://www.aveizieux.fr/",
+        "horaires": "Mo 08:30-11:30; Tu 08:30-11:30,13:30-17:00; We-Th 08:30-11:30; Fr 08:30-11:30,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3704124,
+          45.5658371
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6289186360,
+        "osm_type": "node",
+        "nom": "Mairie d'Essertines-en-Châtelneuf",
+        "telephone": "+33477960508",
+        "email": "mairieessertines-en-chatelneuf@wanadoo.fr",
+        "website": "https://essertines-en-chatelneuf.fr",
+        "horaires": "Mo 10:00-16:00; We 14:00-17:00; Fr 13:30-15:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9967081,
+          45.6188009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1323014476,
+        "osm_type": "node",
+        "nom": "Mairie d'Essertines-en-Donzy",
+        "telephone": "+33477286199",
+        "email": "mairie.essertines.en.donzy@wanadoo.fr",
+        "website": "https://www.essertinesendonzy.fr",
+        "horaires": "Mo 14:00-18:00; Fr 09:00-12:00,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3450756,
+          45.7534102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1213904470,
+        "osm_type": "node",
+        "nom": "Mairie d'Estivareilles",
+        "adresse": "10 Rue du Couvent 42380 Estivareilles",
+        "telephone": "+33477502267",
+        "email": "mairie@estivareilles42.fr",
+        "website": "https://estivareilles42.fr/",
+        "horaires": "Mo 09:00-12:00; Tu 09:00-12:00,14:00-17:00; Th 09:00-12:00; Fr 09:00-12:00,14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0098076,
+          45.415898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6315585060,
+        "osm_type": "node",
+        "nom": "Mairie d'Ouches",
+        "adresse": "1 Rue des Écoles 42155 Ouches",
+        "telephone": "+33477668645",
+        "email": "mairie.ouches@wanadoo.fr",
+        "website": "https://www.mairieouches.fr/",
+        "horaires": "Mo-Tu 13:00-17:00; Th 09:00-13:00; Fr 13:00-17:00; Sa 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9869489,
+          46.0147797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6360126318,
+        "osm_type": "node",
+        "nom": "Mairie d'Unias",
+        "telephone": "+33477544359",
+        "email": "mairie-unias@wanadoo.fr",
+        "website": "https://www.commune-unias.fr/",
+        "horaires": "Mo 14:30-18:00; We 14:30-18:00; Th 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.226811,
+          45.6054164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5116767086,
+        "osm_type": "node",
+        "nom": "Mairie d'Urbise",
+        "telephone": "+33477643219",
+        "email": "mairie@urbise.fr",
+        "horaires": "Tu 09:00-12:00; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.892427,
+          46.2539055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6360152403,
+        "osm_type": "node",
+        "nom": "Mairie d'Usson-en-Forez",
+        "telephone": "+33477506125",
+        "email": "mairie@usson-en-forez.fr",
+        "website": "https://www.usson-en-forez.fr/",
+        "horaires": "Mo 08:30-12:00; Tu 08:30-12:00,14:00-17:30; We 08:30-12:00; Th-Fr 08:30-12:00,14:00-17:30; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9410189,
+          45.389171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 436319260,
+        "osm_type": "way",
+        "nom": "Mairie d'Écoche",
+        "telephone": "+33477636026",
+        "email": "mairie@ecoche.fr",
+        "website": "https://ecoche.fr/",
+        "horaires": "Tu 09:00-12:00; Th 09:00-12:00; Fr 09:00-12:00,14:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2979315,
+          46.1604523
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6288885278,
+        "osm_type": "node",
+        "nom": "Mairie d'Écotay-l'Olme",
+        "adresse": "Place de la Mairie 42600 Écotay-l'Olme",
+        "telephone": "+33477585969",
+        "email": "ecotay@wanadoo.fr",
+        "website": "https://ecotaylolme.fr/",
+        "horaires": "Mo-Tu 09:30-12:30; Th 09:30-12:30; Fr 09:30-12:30,14:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0509725,
+          45.5912151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6067374140,
+        "osm_type": "node",
+        "nom": "Mairie d'Épercieux-Saint-Paul",
+        "adresse": "Chemin des Écoliers 42110 Épercieux-Saint-Paul",
+        "telephone": "+33477260152",
+        "email": "mairie.epercieux@wanadoo.fr",
+        "website": "https://www.epercieux-saint-paul.fr",
+        "horaires": "Mo 15:00-18:00; Th 09:00-11:30; Fr 10:00-13:00,13:30-15:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.210361,
+          45.7912371
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1002432315,
+        "osm_type": "way",
+        "nom": "Mairie de Balbigny",
+        "adresse": "20 Rue du 11 Novembre 42510 Balbigny",
+        "telephone": "+33477281412",
+        "email": "mairie@balbigny.net",
+        "website": "https://www.balbigny.fr",
+        "horaires": "Mo 08:00-12:00,13:00-17:00; Tu 08:00-12:00; We 08:00-12:00,13:30-17:30; Th 08:00-12:00; Fr 08:00-12:00,13:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1832321,
+          45.8190686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164182215,
+        "osm_type": "way",
+        "nom": "Mairie de Bard",
+        "adresse": "1 Place de la Mairie 42600 Bard",
+        "telephone": "+33477762260",
+        "email": "mairie@bard.fr",
+        "website": "https://bard.fr/",
+        "horaires": "Tu 09:00-12:00,14:00-16:00; Th-Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.011058,
+          45.5876425
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6053989509,
+        "osm_type": "node",
+        "nom": "Mairie de Bellegarde-en-Forez",
+        "adresse": "29 Rue des Écoles 42210 Bellegarde-en-Forez",
+        "telephone": "+33477544811",
+        "email": "mairie@bellegarde42.fr",
+        "website": "https://www.mairie-bellegarde-en-forez.fr/",
+        "horaires": "Mo-Tu 08:30-12:00,13:30-17:00; We 08:30-12:00; Th-Fr 08:30-12:00,13:30-17:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2996682,
+          45.648273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1300858797,
+        "osm_type": "node",
+        "nom": "Mairie de Belleroche",
+        "adresse": "2 Place de la Mairie 42670 Belleroche",
+        "telephone": "+33474036341",
+        "email": "mairie.belleroche@orange.fr",
+        "website": "https://belleroche42.fr",
+        "horaires": "Tu 09:00-12:30,13:30-18:00; Fr 09:00-12:30,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4119401,
+          46.1683832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1294997400,
+        "osm_type": "node",
+        "nom": "Mairie de Belmont-de-la-Loire",
+        "telephone": "+33477636055",
+        "email": "mairie@belmontdelaloire.fr",
+        "website": "https://www.belmontdelaloire.fr",
+        "horaires": "Mo-Fr 08:30-12:00,14:30-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3459532,
+          46.1654942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6274074246,
+        "osm_type": "node",
+        "nom": "Mairie de Boisset-lès-Montrond",
+        "adresse": "1 Place de l'Église 42210 Boisset-lès-Montrond",
+        "telephone": "+33477544016",
+        "email": "mairie.boisset42@wanadoo.fr",
+        "website": "https://boisset-les-montrond.com",
+        "horaires": "Mo 16:30-18:30; Th 16:30-18:30; Fr 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2115109,
+          45.620298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6274355381,
+        "osm_type": "node",
+        "nom": "Mairie de Boisset-Saint-Priest",
+        "adresse": "15 Rue de Bellevue 42560 Boisset-Saint-Priest",
+        "telephone": "+33477763488",
+        "email": "mairie@boisset-saint-priest.fr",
+        "website": "https://www.boisset-saint-priest.fr/fr/",
+        "horaires": "Mo 09:00-12:00; We 09:00-12:00,14:00-18:00; Fr 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1045568,
+          45.5125284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319187779,
+        "osm_type": "way",
+        "nom": "Mairie de Bourg-Argental",
+        "telephone": "+33477396134",
+        "email": "mairie@bourgargental.fr",
+        "website": "https://www.bourg-argental.fr",
+        "horaires": "Mo 08:30-12:00,13:30-17:00; Tu 08:30-12:00; We 08:30-12:00,13:30-17:00; Th 08:30-12:00; Fr 08:30-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5607182,
+          45.2964032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 442967137,
+        "osm_type": "way",
+        "nom": "Mairie de Boyer",
+        "telephone": "+33 4 77 66 22 15",
+        "email": "mairie@boyer42.fr",
+        "horaires": "Tu 14:00-17:30; Th 14:00-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2089825,
+          46.0992549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 249241774,
+        "osm_type": "way",
+        "nom": "Mairie de Briennon",
+        "telephone": "+33477608073",
+        "email": "mairie.briennon@wanadoo.fr",
+        "website": "https://briennon.fr",
+        "horaires": "Mo-Tu 08:30-11:30,14:00-17:00; We 08:30-11:30; Th 08:30-11:30,14:00-17:00; Fr 08:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0842519,
+          46.1473082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 437171732,
+        "osm_type": "way",
+        "nom": "Mairie de Bully",
+        "adresse": "1 Place de l'Église 42260 Bully",
+        "telephone": "+33 4 77 65 24 64",
+        "email": "mairie@bully42.fr",
+        "website": "https://bully-42.fr",
+        "horaires": "Mo 09:00-12:00,14:00-16:00; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0053578,
+          45.9281353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 456836847,
+        "osm_type": "way",
+        "nom": "Mairie de Burdignes",
+        "telephone": "+33963686441",
+        "email": "mairie@burdignes.com",
+        "website": "https://burdignes.com/",
+        "horaires": "Tu 14:00-17:00; We 09:00-11:00; Th 14:00-17:00; Fr 14:00-17:00; Sa 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5648352,
+          45.2698498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6067348255,
+        "osm_type": "node",
+        "nom": "Mairie de Bussières",
+        "adresse": "1 Rue Thimonier 42510 Bussières",
+        "telephone": "+33477273233",
+        "email": "mairie@bussieres.fr",
+        "website": "https://www.bussieres42.fr",
+        "horaires": "Mo-Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2688605,
+          45.8371987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5139050922,
+        "osm_type": "node",
+        "nom": "Mairie de Bussy-Albieux",
+        "telephone": "+33477246045",
+        "email": "mairie.bussy-albieux@wanadoo.fr",
+        "website": "http://www.bussy-albieux.fr",
+        "horaires": "Mo 08:30-11:00; Tu 09:30-11:00; Th 14:00-18:00; Fr 08:30-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0342965,
+          45.7945627
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6274585172,
+        "osm_type": "node",
+        "nom": "Mairie de Cellieu",
+        "adresse": "1 Place de Verdun 42320 Cellieu",
+        "telephone": "+33477730091",
+        "email": "secretariat@cellieu.fr",
+        "website": "https://cellieu.fr/",
+        "horaires": "Mo-Tu 08:00-12:00; We 14:00-17:00; Th-Fr 08:00-12:00; Sa 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5412652,
+          45.5232527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6275865166,
+        "osm_type": "node",
+        "nom": "Mairie de Cervières",
+        "telephone": "+33477247679",
+        "email": "mairie-de-cervieres@wanadoo.fr",
+        "website": "https://cervieres42.fr/",
+        "horaires": "Tu 09:00-12:00,14:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7717982,
+          45.8475472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4570688895,
+        "osm_type": "node",
+        "nom": "Mairie de Cezay",
+        "telephone": "+33477246382",
+        "email": "mairie-cezay@wanadoo.fr",
+        "website": "https://cezay.fr",
+        "horaires": "Tu 10:00-12:00; Fr 14:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9653553,
+          45.8017714
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 181623668,
+        "osm_type": "way",
+        "nom": "Mairie de Chagnon",
+        "adresse": "72",
+        "telephone": "+33 4 77 75 44 10",
+        "email": "mairie@chagnon-42.fr",
+        "website": "http://www.chagnon42.fr",
+        "horaires": "Tu 08:15-12:00; Mo 13:15-17:15; Th 08:15-12:15,13:15-17:15; Fr 13:15-17:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5536322,
+          45.5346505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366155224,
+        "osm_type": "way",
+        "nom": "Mairie de Chalain-d'Uzore",
+        "adresse": "Place de la Mairie 42600 Chalain-d'Uzore",
+        "telephone": "+33477971304",
+        "email": "mairie@chalainduzore.fr",
+        "website": "https://chalainduzore.wordpress.com",
+        "horaires": "Tu 09:00-11:30,15:00-17:30; Fr 09:00-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0703934,
+          45.6727372
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2331507473,
+        "osm_type": "node",
+        "nom": "Mairie de Chalain-le-Comtal",
+        "telephone": "+33477761169",
+        "email": "mairie.chalain.le.comtal@wanadoo.fr",
+        "website": "https://www.chalainlecomtal.com",
+        "horaires": "Mo 09:00-13:00; Th 10:00-13:00; Fr 12:30-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1689358,
+          45.6457487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276084563,
+        "osm_type": "node",
+        "nom": "Mairie de Chalmazel-Jeansagnière",
+        "telephone": "+33477248027",
+        "email": "contact@mairiechalmazeljeansagniere.fr",
+        "website": "https://www.chalmazel-jeansagniere.fr",
+        "horaires": "Tu-Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8505684,
+          45.7024674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4127065091,
+        "osm_type": "node",
+        "nom": "Mairie de Chambles",
+        "adresse": "Place de la Mairie 42170 Chambles",
+        "telephone": "+33477523890",
+        "email": "mairie@chambles.fr",
+        "website": "https://www.chambles.fr/fr/",
+        "horaires": "Mo 14:00-19:00; Tu 08:00-11:45; Th 08:00-11:45; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2396262,
+          45.4417081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 359933793,
+        "osm_type": "way",
+        "nom": "Mairie de Chambéon",
+        "telephone": "+33 4 77 27 81 82",
+        "email": "mairie@chambeon.fr",
+        "website": "https://www.chambeon.fr/",
+        "horaires": "Mo-Fr 09:00-12:00,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1759978,
+          45.6967253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2825720545,
+        "osm_type": "node",
+        "nom": "Mairie de Chambœuf",
+        "adresse": "2 Place de l'Église 42330 Chambœuf",
+        "telephone": "+33477540372",
+        "email": "mairie@chamboeuf.fr",
+        "website": "http://www.chamboeuf.fr",
+        "horaires": "Mo 08:30-12:00; Tu 14:00-18:00; We 08:30-12:00; Th 14:00-17:00; Fr 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3203943,
+          45.576942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3548854545,
+        "osm_type": "node",
+        "nom": "Mairie de Champdieu",
+        "adresse": "82 Rue de la Mairie 42600 Champdieu",
+        "telephone": "+33477971729",
+        "email": "mairie@champdieu.fr",
+        "website": "https://www.champdieu.eu/",
+        "horaires": "Mo 08:30-12:00; Tu 08:30-12:00,16:00-18:00; We-Th 08:30-12:00; Fr 08:30-12:00,16:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.04673,
+          45.6456985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5138972365,
+        "osm_type": "node",
+        "nom": "Mairie de Champoly",
+        "telephone": "+33477651431",
+        "email": "mairiechampoly@gmail.com",
+        "website": "https://champoly.fr",
+        "horaires": "We 15:30-17:30; Fr 10:00-12:00,13:30-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8330728,
+          45.8570848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 434724138,
+        "osm_type": "way",
+        "nom": "Mairie de Chandon",
+        "telephone": "+33 4 77 60 07 16",
+        "email": "mairie@chandon42.fr",
+        "website": "https://chandon.e-monsite.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2132355,
+          46.1498994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276686765,
+        "osm_type": "node",
+        "nom": "Mairie de Changy",
+        "telephone": "+33477643051",
+        "email": "mairie@changy.fr",
+        "website": "http://www.changy.fr",
+        "horaires": "Mo-Tu 09:00-12:00; Th 09:00-12:00; Fr 09:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.892458,
+          46.1417197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276820530,
+        "osm_type": "node",
+        "nom": "Mairie de Chausseterre",
+        "telephone": "+33477651031",
+        "email": "mairie@chausseterre.fr",
+        "website": "https://chausseterre.fr/",
+        "horaires": "Mo-Tu 13:30-17:00; Th 13:30-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7852103,
+          45.8966211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5144431961,
+        "osm_type": "node",
+        "nom": "Mairie de Chavanay",
+        "telephone": "+33474872309",
+        "email": "accueil@mairiechavanay.fr",
+        "website": "https://www.ville-de-chavanay.com/",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7314918,
+          45.4144537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6051332609,
+        "osm_type": "node",
+        "nom": "Mairie de Chazelles-sur-Lavieu",
+        "adresse": "Place du Bourg 42560 Chazelles-sur-Lavieu",
+        "telephone": "+33477767833",
+        "email": "chazelles-sur-lavieu.cne@orange.fr",
+        "website": "https://chazelles-sur-lavieu.fr",
+        "horaires": "Tu 09:00-12:00,12:30-16:00; Th 09:00-12:00,12:30-16:00; Fr 16:30-19:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0008943,
+          45.5398899
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4570688892,
+        "osm_type": "node",
+        "nom": "Mairie de Chenereilles",
+        "telephone": "+33477767080",
+        "email": "mairie@chenereilles-loire.fr",
+        "horaires": "Tu 14:00-18:00; Fr 14:00-19:00; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0781852,
+          45.4846423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6278649056,
+        "osm_type": "node",
+        "nom": "Mairie de Cherier",
+        "adresse": "1 Rue du Haut des Moulins 42430 Cherier",
+        "telephone": "+33477631467",
+        "email": "mairie.cherier@gmail.com",
+        "website": "https://www.cherier.fr/",
+        "horaires": "Mo-Tu 08:30-12:30; Th-Fr 08:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9092576,
+          45.965257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6076385492,
+        "osm_type": "node",
+        "nom": "Mairie de Chevrières",
+        "telephone": "+33477940250",
+        "email": "contact@chevrieres42.fr",
+        "website": "http://chevrieres42.fr",
+        "horaires": "Tu 08:00-12:00; We 09:00-12:00; Th 13:30-18:00; Fr 14:00-18:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.399712,
+          45.5887974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4570688889,
+        "osm_type": "node",
+        "nom": "Mairie de Chirassimont",
+        "adresse": "Place de l'Église 42114 Chirassimont",
+        "telephone": "+33477624331",
+        "email": "mairie.chirassimont@copler.fr",
+        "website": "https://www.chirassimont.fr",
+        "horaires": "Tu-Fr 08:30-11:30; Sa 09:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2854224,
+          45.9143255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 914960309,
+        "osm_type": "way",
+        "nom": "Mairie de Chuyer",
+        "telephone": "+33474878471",
+        "email": "mairie.chuyer@wanadoo.fr",
+        "website": "https://www.chuyer.fr/",
+        "horaires": "Mo 09:00-12:00,14:00-17:30; We 09:00-11:30; Th-Fr 09:00-12:00,14:00-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6935031,
+          45.4575452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276770531,
+        "osm_type": "node",
+        "nom": "Mairie de Châteauneuf",
+        "adresse": "103 Route de Sainte-Croix 42800 Châteauneuf",
+        "telephone": "+33477750793",
+        "email": "mairie@mairiedechateauneuf.fr",
+        "website": "https://mairiedechateauneuf.fr/",
+        "horaires": "Mo-Th 08:30-12:30; Fr 08:30-12:30,13:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6250257,
+          45.5219554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276783562,
+        "osm_type": "node",
+        "nom": "Mairie de Châtelneuf",
+        "telephone": "+33477768429",
+        "email": "mairie@chatelneuf.fr",
+        "website": "https://www.chatelneuf.fr",
+        "horaires": "Tu 15:00-17:00; Th 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9819171,
+          45.6373566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6076380553,
+        "osm_type": "node",
+        "nom": "Mairie de Châtelus",
+        "telephone": "+33477207226",
+        "email": "chatelus.mairie@gmail.com",
+        "horaires": "Mo 09:30-12:00,13:30-17:00; Th 13:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4651607,
+          45.5968847
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6067359452,
+        "osm_type": "node",
+        "nom": "Mairie de Civens",
+        "telephone": "+33477260445",
+        "email": "mairie@mairie-civens.fr",
+        "website": "https://www.mairie-civens.fr",
+        "horaires": "Mo-Tu 14:00-18:00; We 08:30-11:30; Th 14:00-18:00; Sa 08:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.251891,
+          45.7807781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5141696953,
+        "osm_type": "node",
+        "nom": "Mairie de Cleppé",
+        "adresse": "1 Esplanade de la Tour 42110 Cleppé",
+        "telephone": "+33477260961",
+        "email": "mairie-cleppe@wanadoo.fr",
+        "horaires": "Mo-Tu 14:00-17:00; Th 14:00-17:00; Fr 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1819104,
+          45.770081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 266185051,
+        "osm_type": "way",
+        "nom": "Mairie de Colombier",
+        "telephone": "+33477515423",
+        "email": "mairie@colombier42.fr",
+        "website": "https://colombier-pilat.e-monsite.com/",
+        "horaires": "We 10:00-12:00; Fr 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6010071,
+          45.337955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5141675021,
+        "osm_type": "node",
+        "nom": "Mairie de Combre",
+        "telephone": "+33474641442",
+        "email": "mairie.combre@wanadoo.fr",
+        "website": "https://www.combre.fr/",
+        "horaires": "Mo 08:30-12:00,13:00-17:30; Th 08:30-12:00,13:00-17:30; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2631048,
+          46.0253901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4171317902,
+        "osm_type": "node",
+        "nom": "Mairie de Commelle-Vernay",
+        "adresse": "519 Rue Jules Ferry 42120 Commelle-Vernay",
+        "telephone": "+33477232590",
+        "email": "mairie@mairie-commelle-vernay.fr",
+        "website": "https://www.mairie-commelle-vernay.fr/",
+        "horaires": "Mo-Fr 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0592926,
+          45.999855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1896753294,
+        "osm_type": "node",
+        "nom": "Mairie de Cordelle",
+        "adresse": "154 Route de Roanne 42123 Cordelle",
+        "telephone": "+33477649012",
+        "email": "mairie.cordelle@copler.fr",
+        "website": "https://www.cordelle.fr/",
+        "horaires": "Mo-Tu 08:30-12:00; Th 08:30-12:00; Fr 08:30-12:00,14:00-16:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0604997,
+          45.9456971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5141710548,
+        "osm_type": "node",
+        "nom": "Mairie de Cottance",
+        "telephone": "+33477280110",
+        "email": "p.r.i.cottance@wanadoo.fr",
+        "website": "https://www.cottance.com",
+        "horaires": "Mo 15:00-17:00; Th 09:00-12:00; Fr 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2979192,
+          45.7936075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3893225128,
+        "osm_type": "node",
+        "nom": "Mairie de Coutouvre",
+        "adresse": "31 Grande Rue 42460 Coutouvre",
+        "telephone": "+33477662113",
+        "email": "contact.mairie@coutouvre.fr",
+        "website": "http://www.coutouvre.fr",
+        "horaires": "Mo 08:30-12:00; Tu 08:30-12:00,14:00-17:30; We 08:30-12:00; Th 08:30-12:00,14:00-17:30; Fr-Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2131927,
+          46.0733069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6188780315,
+        "osm_type": "node",
+        "nom": "Mairie de Craintilleux",
+        "adresse": "Place Jean Dussurgey 42210 Craintilleux",
+        "telephone": "+33477546316",
+        "email": "accueil.mairie-craintilleux@orange.fr",
+        "website": "https://www.craintilleux.fr/",
+        "horaires": "Mo 08:00-12:15,13:30-16:30; Tu 08:00-12:15; We 08:00-12:15,13:30-16:30; Th 08:00-12:15; Fr 08:00-12:15,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2348724,
+          45.5846234
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5138963469,
+        "osm_type": "node",
+        "nom": "Mairie de Cremeaux",
+        "adresse": "Place de Pierre-Bénite 42260 Crémeaux",
+        "telephone": "+33477625067",
+        "email": "mairie@cremeaux.fr",
+        "website": "https://cremeaux.fr",
+        "horaires": "We 09:15-12:15; Tu 08:30-12:15; Th-Fr 08:30-12:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9302331,
+          45.9070407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4570688386,
+        "osm_type": "node",
+        "nom": "Mairie de Croizet-sur-Gand",
+        "telephone": "+33477632180",
+        "email": "mairie.croizet.sur.gand@copler.fr",
+        "horaires": "Mo 09:00-11:00,14:00-16:00; Tu 14:00-16:00; We-Th 09:00-11:00,14:00-16:00; Fr 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2291597,
+          45.9163534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5140768307,
+        "osm_type": "node",
+        "nom": "Mairie de Cuinzier",
+        "telephone": "+33 4 77 60 52 35",
+        "email": "mairie@cuinzier.fr",
+        "website": "http://www.cuinzier.fr",
+        "horaires": "Mo-Tu 08:30-12:00,13:30-17:00; We-Th 08:30-12:00,13:30-17:30; Fr 08:00-13:00; Sa 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2662641,
+          46.1274851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5142315176,
+        "osm_type": "node",
+        "nom": "Mairie de Cuzieu",
+        "adresse": "10 Route de Veauche 42330 Cuzieu",
+        "telephone": "+33477548832",
+        "email": "mairie@cuzieu.fr",
+        "website": "https://www.cuzieu.fr",
+        "horaires": "Mo-Tu 08:00-12:00; Th-Fr 13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2604941,
+          45.6086744
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5518539653,
+        "osm_type": "node",
+        "nom": "Mairie de Dargoire",
+        "adresse": "9 Rue des Remparts",
+        "telephone": "+33477755357",
+        "email": "mairie.dargoire.42@gmail.com",
+        "website": "http://www.dargoire.fr",
+        "horaires": "Mo 09:00-12:00,14:00-19:00; Tu 09:00-12:00,14:00-17:30; Th-Fr 09:00-12:00,14:00-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6670677,
+          45.5602318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6288788886,
+        "osm_type": "node",
+        "nom": "Mairie de Doizieux",
+        "adresse": "1 Place de la Platière 42740 Doizieux",
+        "telephone": "+33477209562",
+        "email": "contact@doizieux.fr",
+        "website": "https://www.doizieux.fr/",
+        "horaires": "Tu 08:00-12:00; We 08:00-12:00,14:00-17:00; Fr 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5862741,
+          45.4270959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5144411313,
+        "osm_type": "node",
+        "nom": "Mairie de Farnay",
+        "telephone": "+33477735946",
+        "email": "mairie@farnay.fr",
+        "website": "https://www.farnay.fr/",
+        "horaires": "Mo 08:30-12:00,13:30-17:30; Tu-Fr 08:30-12:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5973361,
+          45.4923111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6067391225,
+        "osm_type": "node",
+        "nom": "Mairie de Feurs",
+        "adresse": "4 bis Place Antoine Drivet 42110 Feurs",
+        "telephone": "+33477274000",
+        "email": "mairiedefeurs@feurs.fr",
+        "website": "https://www.feurs.org",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.22139,
+          45.7441502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6070498195,
+        "osm_type": "node",
+        "nom": "Mairie de Fontanès",
+        "adresse": "Place de la Mairie 42140 Fontanès",
+        "telephone": "+33477208708",
+        "email": "accueil@mairie-fontanes.fr",
+        "website": "https://www.fontanes-42.fr/fr/",
+        "horaires": "Mo 09:00-11:30; Tu 14:00-16:30; We 09:00-12:00; Th 14:00-16:30; Fr 15:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4372519,
+          45.546886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5141684062,
+        "osm_type": "node",
+        "nom": "Mairie de Fourneaux",
+        "adresse": "70 Place de la Mairie 42470 Fourneaux",
+        "telephone": "+33477624646",
+        "email": "mairie.fourneaux@copler.fr",
+        "horaires": "Tu-We 08:30-12:00; Fr 08:30-12:00; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2690269,
+          45.9370015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6301275190,
+        "osm_type": "node",
+        "nom": "Mairie de Fraisses",
+        "adresse": "12 Rue Jean Padel 42490 Fraisses",
+        "telephone": "+33477405640",
+        "email": "contact@fraisses.fr",
+        "website": "https://www.fraisses.fr/",
+        "horaires": "Mo 08:00-12:00,13:30-17:30; Tu 08:00-12:00,14:00-17:30; We-Th 08:00-12:00,13:30-17:30; Fr 08:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2691248,
+          45.3881357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3220570909,
+        "osm_type": "node",
+        "nom": "Mairie de Genilac",
+        "telephone": "+33477750858",
+        "email": "mairie@genilac.fr",
+        "website": "https://www.genilac.fr/",
+        "horaires": "Mo 08:00-12:00,14:00-18:00; Tu 08:00-12:00,14:00-17:00; We 08:00-12:00,14:00-19:00; Th 08:00-12:00; Fr 08:00-12:00,14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5805541,
+          45.5332798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6301332758,
+        "osm_type": "node",
+        "nom": "Mairie de Graix",
+        "telephone": "+33477204259",
+        "email": "secretariat@graix.fr",
+        "horaires": "Mo 14:30-16:30; Fr 16:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5696516,
+          45.3475665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2318712009,
+        "osm_type": "node",
+        "nom": "Mairie de Grammond",
+        "adresse": "111 Rue du Forez 42140 Grammond",
+        "telephone": "+33477208738",
+        "email": "mairie@grammond.fr",
+        "website": "https://www.grammond.fr/",
+        "horaires": "Mo 08:30-12:00; Tu 08:30-11:30,16:00-19:30; Th 08:30-11:30,16:00-19:30; Fr 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4402073,
+          45.5662475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5141767779,
+        "osm_type": "node",
+        "nom": "Mairie de Grézieux-le-Fromental",
+        "telephone": "+33477761096",
+        "email": "mairie.grezieux-le-fromental@orange.fr",
+        "horaires": "Mo 08:30-12:00; We 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1515492,
+          45.6195222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6301802722,
+        "osm_type": "node",
+        "nom": "Mairie de Grézolles",
+        "telephone": "+33477625700",
+        "email": "mairiegrezolles@outlook.fr",
+        "website": "https://grezolles.fr/",
+        "horaires": "Tu 14:00-17:00; Fr 09:00-12:00,14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9520334,
+          45.863845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5144401386,
+        "osm_type": "node",
+        "nom": "Mairie de Gumières",
+        "adresse": "Le Bourg 42560 Gumières",
+        "telephone": "+33477767525",
+        "email": "mairie@gumieres.fr",
+        "website": "http://www.gumieres.fr",
+        "horaires": "Mo 13:30-17:30; Th 13:30-17:30; Fr 13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9870934,
+          45.5314845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 438339538,
+        "osm_type": "way",
+        "nom": "Mairie de Jarnosse",
+        "telephone": "+33477605059",
+        "email": "mairie@jarnosse42.fr",
+        "website": "https://www.commune-de-jarnosse.fr",
+        "horaires": "Mo 08:00-13:00; Tu 13:00-17:30; Th-Fr 08:00-13:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2333716,
+          46.1086529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4265039717,
+        "osm_type": "node",
+        "nom": "Mairie de Jas",
+        "telephone": "+33477285490",
+        "email": "contact@mairie-jas.fr",
+        "website": "https://mairie-jas.fr",
+        "horaires": "Mo 08:00-12:00; Fr 08:00-12:00; We 08:00-12:00,14:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3093582,
+          45.745608
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276208771,
+        "osm_type": "node",
+        "nom": "Mairie de Jeansagnière",
+        "telephone": "+33477248418",
+        "email": "mairie.jeansagniere0703@orange.fr",
+        "horaires": "We 14:00-17:00; Th 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8375792,
+          45.7324637
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6308100603,
+        "osm_type": "node",
+        "nom": "Mairie de Jonzieux",
+        "adresse": "1 Place de l'Église 42660 Jonzieux",
+        "telephone": "+33477399276",
+        "email": "mairie@mairie-jonzieux.fr",
+        "website": "https://jonzieux.fr",
+        "horaires": "Mo 08:00-12:00,13:30-17:00; Tu-Th 08:00-12:00; Fr 08:00-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3611213,
+          45.315014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 490647421,
+        "osm_type": "way",
+        "nom": "Mairie de Juré",
+        "telephone": "+33477625513",
+        "email": "mairie@jure.fr",
+        "website": "https://jure.fr/",
+        "horaires": "We 08:00-12:00; Fr 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8903247,
+          45.8836692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6301828429,
+        "osm_type": "node",
+        "nom": "Mairie de L'Hôpital-le-Grand",
+        "adresse": "Place du 19 Mars 1962 42210 L'Hôpital-le-Grand",
+        "telephone": "+33477761370",
+        "email": "contact@lhopitallegrand.fr",
+        "website": "https://www.lhopitallegrand.fr/",
+        "horaires": "Mo 08:00-12:00,13:30-18:30; Tu 08:00-12:00,13:30-16:30; Th 08:00-12:00; Fr 08:00-12:00,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1975149,
+          45.593081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6293370897,
+        "osm_type": "node",
+        "nom": "Mairie de L'Étrat",
+        "adresse": "3 BIS Rue de Verdun 42580 L'Étrat",
+        "telephone": "+33477913131",
+        "email": "etrat.mairie@orange.fr",
+        "website": "https://ville-letrat.fr/",
+        "horaires": "Mo-Fr 08:30-12:00,14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3772447,
+          45.4855459
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 435691498,
+        "osm_type": "way",
+        "nom": "Mairie de La Bénisson-Dieu",
+        "telephone": "+33 4 77 66 64 44",
+        "email": "mairie@la-benisson-dieu.fr",
+        "website": "https://la-benisson-dieu.fr/",
+        "horaires": "Mo-Tu 08:00-16:00; Th 08:00-16:00; Fr 08:00-14:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0446786,
+          46.1506846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276231975,
+        "osm_type": "node",
+        "nom": "Mairie de La Chamba",
+        "telephone": "+33477247592",
+        "email": "mairie-lachamba@orange.fr",
+        "horaires": "Tu 14:00-18:00; Th 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7573116,
+          45.7556036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276520837,
+        "osm_type": "node",
+        "nom": "Mairie de La Chambonie",
+        "telephone": "+33477249034",
+        "email": "mairie.chambonie@orange.fr",
+        "horaires": "Mo 08:00-12:00; We 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7471313,
+          45.7482225
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6268663439,
+        "osm_type": "node",
+        "nom": "Mairie de La Chapelle-en-Lafaye",
+        "telephone": "+33477501605",
+        "email": "mairie.lachapelle-en-lafaye@wanadoo.fr",
+        "website": "https://www.la-chapelle-en-lafaye.fr/",
+        "horaires": "Tu 09:00-17:00; Th 09:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9893766,
+          45.4626389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5129897979,
+        "osm_type": "node",
+        "nom": "Mairie de La Côte-Saint-Didier",
+        "telephone": "+33 4 77 97 90 51",
+        "email": "mairie@lacotesaintdidier.fr",
+        "website": "https://www.lacotesaintdidier.fr/",
+        "horaires": "Tu,Fr 08:30-12:30; Th 13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8428716,
+          45.7931189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6301126519,
+        "osm_type": "node",
+        "nom": "Mairie de La Fouillouse",
+        "adresse": "1 Rue de la Croix de Mission 42480 La Fouillouse",
+        "telephone": "+33477301034",
+        "email": "mairie@lafouillouse.fr",
+        "website": "http://www.lafouillouse.fr",
+        "horaires": "Mo-Fr 08:30-12:30,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3191636,
+          45.500431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5142324642,
+        "osm_type": "node",
+        "nom": "Mairie de La Gimond",
+        "telephone": "+33477304422",
+        "email": "mairielagimond@gmail.com",
+        "horaires": "Tu 10:00-12:00; Fr 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4094869,
+          45.5575598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 442087098,
+        "osm_type": "way",
+        "nom": "Mairie de la Gresle",
+        "telephone": "+33 4 74 64 10 60",
+        "email": "mairie@mairielagresle.fr",
+        "website": "https://mairielagresle.fr",
+        "horaires": "Tu 10:00-12:00,14:00-16:00; We-Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2828615,
+          46.0753955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5138955408,
+        "osm_type": "node",
+        "nom": "Mairie de La Pacaudière",
+        "telephone": "+33477643018",
+        "email": "lapacaudiere@orange.fr",
+        "website": "https://www.la-pacaudiere.fr/",
+        "horaires": "Tu-Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8659604,
+          46.1756397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6337194405,
+        "osm_type": "node",
+        "nom": "Mairie de La Ricamarie",
+        "adresse": "Place Michel Rondet 42150 La Ricamarie",
+        "telephone": "+33477810400",
+        "email": "mairie@ville-la-ricamarie.fr",
+        "website": "https://www.ville-laricamarie.fr/",
+        "horaires": "Mo-Th 08:15-12:00,13:30-17:00; Fr 08:15-12:00,13:30-15:45"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3660672,
+          45.4042078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1729689588,
+        "osm_type": "node",
+        "nom": "Mairie de La Talaudière",
+        "telephone": "+33477539200",
+        "email": "contact@mairie-la-talaudiere.fr",
+        "website": "https://www.mairie-la-talaudiere.fr",
+        "horaires": "Mo-Fr 08:00-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4350736,
+          45.4815149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5144412023,
+        "osm_type": "node",
+        "nom": "Mairie de La Terrasse-sur-Dorlay",
+        "telephone": "+33477209559",
+        "email": "mairie@laterrassesurdorlay.fr",
+        "website": "http://www.la-terrasse-sur-dorlay.com",
+        "horaires": "Mo-We 08:00-12:00; Fr 13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5829765,
+          45.4466897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6359999101,
+        "osm_type": "node",
+        "nom": "Mairie de La Tour-en-Jarez",
+        "adresse": "1 Rue des Bretons 42580 La Tour-en-Jarez",
+        "telephone": "+33477932341",
+        "email": "contact@la-tour-en-jarez.fr",
+        "website": "https://www.la-tour-en-jarez.fr/",
+        "horaires": "Mo-Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3868711,
+          45.4856839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6268664717,
+        "osm_type": "node",
+        "nom": "Mairie de La Tourette",
+        "telephone": "+33477500843",
+        "email": "secretariat.mairie@latourette42.fr",
+        "website": "https://latourette42.fr/",
+        "horaires": "Mo-Tu 09:00-12:00,14:00-17:00; We 09:00-12:00; Th 09:00-12:00,14:00-17:00; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0827732,
+          45.4150766
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6360067967,
+        "osm_type": "node",
+        "nom": "Mairie de La Tuilière",
+        "telephone": "+33477629293",
+        "email": "mairie@latuiliere42.fr",
+        "website": "https://latuiliere42.fr/",
+        "horaires": "Mo 08:00-12:00; We-Th 08:00-12:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8014344,
+          45.945278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4059492284,
+        "osm_type": "node",
+        "nom": "Mairie de La Valla-en-Gier",
+        "adresse": "5 Rue de L'Andéolaise 42131 La Valla-en-Gier",
+        "telephone": "+33477360858",
+        "email": "mairie@la-valla-en-gier.fr",
+        "website": "https://www.la-valla-en-gier.fr/",
+        "horaires": "Mo-Tu 08:00-12:30; Th 08:00-12:00,14:00-18:30; Fr 08:30-12:00,13:30-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5160767,
+          45.4165312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4571874216,
+        "osm_type": "node",
+        "nom": "Mairie de La Valla-sur-Rochefort",
+        "telephone": "+33477979539",
+        "email": "mairielavallasurrochefort@orange.fr",
+        "website": "https://lavallasurrochefort.jimdofree.com",
+        "horaires": "Mo 08:30-12:30,13:00-15:00; Th 08:30-12:30,13:00-15:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8519988,
+          45.759876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6360356942,
+        "osm_type": "node",
+        "nom": "Mairie de La Versanne",
+        "telephone": "+33477396131",
+        "email": "mairie-la-versanne@wanadoo.fr",
+        "horaires": "Mo 13:00-16:30; Th 13:00-16:30; Sa 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5261294,
+          45.3174842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6051282518,
+        "osm_type": "node",
+        "nom": "Mairie de Lavieu",
+        "adresse": "Le Bourg 42560 Lavieu",
+        "telephone": "+33477765058",
+        "email": "mairie@lavieu.fr",
+        "horaires": "Tu 09:00-12:00; Th 13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0361559,
+          45.5393237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6308194909,
+        "osm_type": "node",
+        "nom": "Mairie de Lay",
+        "adresse": "4 Place de l'Église 42470 Lay",
+        "telephone": "+33477647864",
+        "email": "mairie.lay@copler.fr",
+        "website": "https://villagedelay.fr/fr/",
+        "horaires": "Tu 08:30-13:00,14:00-16:00; We-Th 08:30-13:00; Fr 08:30-13:00,14:00-16:00; Sa 09:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2190981,
+          45.9563482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6308217932,
+        "osm_type": "node",
+        "nom": "Mairie de Leigneux",
+        "telephone": "+33477245781",
+        "email": "mairie@leigneux.fr",
+        "website": "https://www.leigneux.fr/",
+        "horaires": "Mo-Tu 09:00-12:00; Th 09:00-12:00,14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9758471,
+          45.7512777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6169232552,
+        "osm_type": "node",
+        "nom": "Mairie de Lentigny",
+        "telephone": "+33477631360",
+        "email": "mairie@lentigny.fr",
+        "website": "http://lentigny.fr",
+        "horaires": "Mo-Tu 08:30-12:30; Th-Fr 08:30-12:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9813927,
+          45.9962603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1077682643,
+        "osm_type": "way",
+        "nom": "Mairie de Lorette",
+        "adresse": "Place du Troisième Millénaire 42420 Lorette",
+        "telephone": "+33 4 77 73 30 44",
+        "email": "mairie@ville-lorette.fr",
+        "website": "https://www.ville-lorette.fr/",
+        "horaires": "Mo 08:00-12:00,13:30-17:30; Tu 08:00-12:00; We-Fr 08:00-12:00,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5806955,
+          45.5130713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 266229153,
+        "osm_type": "way",
+        "nom": "Mairie de Lupé",
+        "telephone": "+33474873050",
+        "email": "mairie.lupe@orange.fr",
+        "website": "https://www.lupe.fr",
+        "horaires": "Tu 14:00-17:00; We 08:00-11:00; Fr 14:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.705726,
+          45.3729859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6268681782,
+        "osm_type": "node",
+        "nom": "Mairie de Luriecq",
+        "adresse": "98 Place de l'Église 42380 Luriecq",
+        "telephone": "+33477500533",
+        "email": "mairie@luriecq.fr",
+        "website": "https://www.luriecq.fr",
+        "horaires": "Mo 13:30-17:00; Tu 08:30-12:00,13:30-17:00; We 09:00-12:00; Th 08:30-12:00; Fr 14:00-18:30; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0802895,
+          45.4518031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6309926102,
+        "osm_type": "node",
+        "nom": "Mairie de Luré",
+        "telephone": "+33477625864",
+        "email": "lure.cne@wanadoo.fr",
+        "horaires": "Mo 14:00-18:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9371714,
+          45.8816984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6308266279,
+        "osm_type": "node",
+        "nom": "Mairie de Lérigneux",
+        "telephone": "+33477762086",
+        "email": "mairielerigneux@wanadoo.fr",
+        "website": "http://www.commune-lerigneux.fr",
+        "horaires": "Th 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9648348,
+          45.6019211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6051527417,
+        "osm_type": "node",
+        "nom": "Mairie de Lézigneux",
+        "adresse": "1 Place de la Mairie 42600 Lézigneux",
+        "telephone": "+33477582054",
+        "email": "mairie.lezigneux@wanadoo.fr",
+        "website": "http://www.lezigneux.fr",
+        "horaires": "Mo 09:00-18:00; Tu 09:00-13:00; We 09:00-12:00; Th 09:00-18:00; Fr 12:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0600163,
+          45.567865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5904338176,
+        "osm_type": "node",
+        "nom": "Mairie de Mably",
+        "adresse": "5 Rue du Parc 42300 Mably",
+        "telephone": "+33477442190",
+        "email": "mairie@ville-mably.fr",
+        "website": "https://www.ville-mably.fr/fr/",
+        "horaires": "Mo 08:45-12:00,13:30-16:30; Tu 08:45-12:00; We-Th 08:45-12:00,13:30-16:30; Fr 08:45-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0626073,
+          46.0861323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6309936296,
+        "osm_type": "node",
+        "nom": "Mairie de Machézal",
+        "telephone": "+33477624035",
+        "email": "mairie.machezal@copler.fr",
+        "website": "https://www.machezal.fr/",
+        "horaires": "Tu-Fr 09:00-12:00; Sa 09:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3023788,
+          45.9223274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 266224471,
+        "osm_type": "way",
+        "nom": "Mairie de Maclas",
+        "telephone": "+33474873804",
+        "email": "mairie@maclas.fr",
+        "website": "https://www.maclas.fr",
+        "horaires": "Tu-We 09:00-12:00; Th 09:00-12:00,14:00-17:00; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6848985,
+          45.361465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6309941840,
+        "osm_type": "node",
+        "nom": "Mairie de Magneux-Haute-Rive",
+        "adresse": "9 Rue des Guénodes 42600 Magneux-Haute-Rive",
+        "telephone": "+33477761076",
+        "email": "mairie.magneuxhauterive@orange.fr",
+        "website": "https://magneuxhauterive.fr",
+        "horaires": "Tu 14:00-17:00; We 10:00-12:00,14:00-17:00; Fr 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1716472,
+          45.6696114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 436262199,
+        "osm_type": "way",
+        "nom": "Mairie de Maizilly",
+        "telephone": "+33477600451",
+        "email": "mairie@maizilly.fr",
+        "website": "https://www.maizilly.fr",
+        "horaires": "Mo 14:30-18:30; We 09:00-13:00; Th 14:30-18:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2459056,
+          46.1778861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5144438102,
+        "osm_type": "node",
+        "nom": "Mairie de Malleval",
+        "telephone": "+33474871254",
+        "email": "mairie.malleval@wanadoo.fr",
+        "website": "https://www.mairie-malleval.fr",
+        "horaires": "Mo 08:00-11:00; We 08:00-12:00; Sa 09:00-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7250645,
+          45.3853655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6040249696,
+        "osm_type": "node",
+        "nom": "Mairie de Marcenod",
+        "adresse": "Rue de la Mairie 42140 Marcenod",
+        "telephone": "+33477208608",
+        "email": "mairie@marcenod.fr",
+        "website": "https://www.marcenod.fr/",
+        "horaires": "Mo-We 09:00-12:30; Fr 14:00-17:30; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4818215,
+          45.5721246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6067402324,
+        "osm_type": "node",
+        "nom": "Mairie de Marclopt",
+        "adresse": "88 Rue Charles de Gaulle 42210 Marclopt",
+        "telephone": "+33477545119",
+        "email": "mairie.marclopt@wanadoo.fr",
+        "website": "https://www.marclopt.fr/",
+        "horaires": "Mo 14:00-18:30; We 08:00-12:30; Fr 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2113699,
+          45.6640801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6312137704,
+        "osm_type": "node",
+        "nom": "Mairie de Marcoux",
+        "telephone": "+33477974116",
+        "email": "mairiedemarcoux42@wanadoo.fr",
+        "website": "https://www.villagedemarcoux.fr/",
+        "horaires": "Mo 14:00-15:30; We 09:30-11:00; Th 14:00-17:00; Fr 17:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.013072,
+          45.7110829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4571960777,
+        "osm_type": "node",
+        "nom": "Mairie de Margerie-Chantagret",
+        "telephone": "+33477763523",
+        "email": "mairie.margerie-chantagret@wanadoo.fr",
+        "website": "https://www.margerie-chantagret.fr/",
+        "horaires": "Tu 16:00-19:00; Fr 16:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0666937,
+          45.5259135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4894995454,
+        "osm_type": "node",
+        "nom": "Mairie de Maringes",
+        "telephone": "+33477944221",
+        "email": "accueil@mairie-maringes.fr",
+        "website": "https://www.mairie-maringes.fr",
+        "horaires": "Mo 08:30-12:30,13:30-17:30; We 08:30-11:00; Fr 08:30-12:30,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3517665,
+          45.6610384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5030000775,
+        "osm_type": "node",
+        "nom": "Mairie de Marlhes",
+        "adresse": "5 Place Marcellin Champagnat 42660 Marlhes",
+        "telephone": "+33477518057",
+        "email": "mairie@marlhes.fr",
+        "website": "https://marlhes.fr",
+        "horaires": "Tu-Sa 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.394839,
+          45.2827386
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2265798210,
+        "osm_type": "node",
+        "nom": "Mairie de Marols",
+        "telephone": "+33477767194",
+        "email": "marols.mairie@wanadoo.fr",
+        "website": "https://marols.fr",
+        "horaires": "Mo 10:00-12:00,16:00-17:00; Tu 17:00-19:00; We 10:00-13:00; Th-Fr 10:00-12:00; Sa 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0449448,
+          45.4786484
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 433032182,
+        "osm_type": "way",
+        "nom": "Mairie de Mars",
+        "telephone": "+33477605187",
+        "email": "mairie@mars-42.fr",
+        "website": "https://communedemars.fr",
+        "horaires": "Mo 16:00-18:00; Tu 08:30-12:00; Th 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2458479,
+          46.1530279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6268797439,
+        "osm_type": "node",
+        "nom": "Mairie de Merle-Leignec",
+        "telephone": "+33477502567",
+        "email": "mairie@merle-leignec.fr",
+        "website": "https://www.merle-leignec.fr",
+        "horaires": "Mo-Tu 08:30-12:00; Th-Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0174492,
+          45.3747097
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 341830504,
+        "osm_type": "way",
+        "nom": "Mairie de Mizérieux",
+        "telephone": "+33477272372",
+        "email": "mairie.mizerieux42@wanadoo.fr",
+        "website": "https://www.mizerieux.fr/",
+        "horaires": "Tu 10:00-17:00; Th 10:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1626972,
+          45.7945814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6312491861,
+        "osm_type": "node",
+        "nom": "Mairie de Montagny",
+        "telephone": "+33477661064",
+        "email": "montagny.mairie@wanadoo.fr",
+        "website": "http://www.montagny.fr",
+        "horaires": "Mo 09:30-12:00; Tu 09:30-12:00,15:00-17:00; We 09:30-12:00; Th-Fr 09:30-12:00,15:00-17:00; Sa 09:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2344341,
+          46.0321675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1585998081,
+        "osm_type": "node",
+        "nom": "Mairie de Montarcher",
+        "telephone": "+33477501689",
+        "email": "mairiemontarcher@wanadoo.fr",
+        "website": "https://montarcher.jimdo.com",
+        "horaires": "Mo 09:00-12:30,14:00-16:30; We 08:30-12:30; Fr 08:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9957029,
+          45.4586866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11283999674,
+        "osm_type": "node",
+        "nom": "Mairie de Montchal",
+        "adresse": "35 Rue de la Mairie 42360 Montchal",
+        "telephone": "+33 4 77 28 60 38",
+        "email": "mairie.montchal@wanadoo.fr",
+        "website": "https://www.montchal.fr/",
+        "horaires": "Mo 09:00-12:00; Tu 14:00-18:00; Th 14:00-18:00; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3156089,
+          45.8268828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4444656808,
+        "osm_type": "node",
+        "nom": "Mairie de Montverdun",
+        "telephone": "+33477974714",
+        "email": "mairie-de-montverdun@wanadoo.fr",
+        "horaires": "Mo 14:30-16:30; We 10:00-12:00,14:00-15:30; Th 14:30-16:30; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.066505,
+          45.7148561
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6312764281,
+        "osm_type": "node",
+        "nom": "Mairie de Mornand-en-Forez",
+        "telephone": "+33477971877",
+        "email": "mairiemornand-en-forez@wanadoo.fr",
+        "website": "https://mornand-en-forez.fr",
+        "horaires": "Tu 09:00-12:00; Fr 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1239008,
+          45.6768239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5140777494,
+        "osm_type": "node",
+        "nom": "Mairie de Nandax",
+        "telephone": "+33477653264",
+        "email": "contact@mairienandax.fr",
+        "website": "https://www.nandax.fr/",
+        "horaires": "Mo 09:00-16:00; Th 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1638197,
+          46.0975997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6313024215,
+        "osm_type": "node",
+        "nom": "Mairie de Neaux",
+        "telephone": "+33477647808",
+        "email": "mairie.neaux@copler.fr",
+        "horaires": "Mo-Tu 09:00-12:00,14:00-16:00; Fr 09:00-12:00,14:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1811734,
+          45.9634289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3554366354,
+        "osm_type": "node",
+        "nom": "Mairie de Nervieux",
+        "telephone": "+33477281209",
+        "email": "nervieux@nervieux.fr",
+        "website": "https://www.nervieux.fr",
+        "horaires": "Mo 08:45-12:00,14:00-17:00; Tu 08:45-12:00; We 08:45-11:30; Th-Fr 08:45-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1554574,
+          45.8056165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2416024765,
+        "osm_type": "node",
+        "nom": "Mairie de Neulise",
+        "adresse": "54 Chemin Vieux 42590 Neulise",
+        "telephone": "+33 4 77 64 61 13",
+        "email": "mairie@neulise.fr",
+        "website": "https://www.neulise.com/",
+        "horaires": "Mo-Tu 09:00-12:00; We 09:00-12:00,14:00-17:00; Th 09:00-12:00; Fr 09:00-12:00,14:00-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1813707,
+          45.901776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3895245665,
+        "osm_type": "node",
+        "nom": "Mairie de Noailly",
+        "telephone": "+33477666113",
+        "email": "mairie@noailly.fr",
+        "website": "https://noailly.fr",
+        "horaires": "Mo-Fr 08:00-12:00; Sa 10:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0119211,
+          46.1365124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2607242971,
+        "osm_type": "node",
+        "nom": "Mairie de Noirétable",
+        "adresse": "1 Rue Claude Peurière 42440 Noirétable",
+        "telephone": "+33477247012",
+        "email": "noiretable@orange.fr",
+        "website": "http://www.noiretable.fr",
+        "horaires": "Mo 09:30-12:30; Tu-We 09:30-12:30,14:00-16:00; Th 09:30-12:30; Fr 09:30-12:30,14:00-16:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7663338,
+          45.8169052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6315445174,
+        "osm_type": "node",
+        "nom": "Mairie de Nollieux",
+        "adresse": "25 Route de Morand 42260 Nollieux",
+        "telephone": "+33962349290",
+        "email": "mairie.nollieux@wanadoo.fr",
+        "website": "https://espacesurdemande.anct.gouv.fr/espace/582",
+        "horaires": "Tu 14:00-16:00; Fr 16:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9969595,
+          45.817416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6315458687,
+        "osm_type": "node",
+        "nom": "Mairie de Notre-Dame-de-Boisset",
+        "adresse": "16 Rue Léon Marcel 42120 Notre-Dame-de-Boisset",
+        "telephone": "+33477620331",
+        "email": "notre.dame.de.boisset@wanadoo.fr",
+        "website": "https://www.notre-dame-de-boisset.fr",
+        "horaires": "Mo-Tu 08:30-12:30,13:30-17:00; Th 08:30-12:30,13:30-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1296175,
+          45.9939045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3771990713,
+        "osm_type": "node",
+        "nom": "Mairie de Néronde",
+        "telephone": "+33477273044",
+        "email": "mairie.neronde@orange.fr",
+        "website": "https://www.neronde.fr",
+        "horaires": "Mo-Tu 08:30-12:30; Fr 08:30-13:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2365127,
+          45.8387576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6074213330,
+        "osm_type": "node",
+        "nom": "Mairie de Palogneux",
+        "adresse": "Le Bourg 42990 Palogneux",
+        "telephone": "+33477245353",
+        "email": "commune-de-palogneux@orange.fr",
+        "website": "https://www.mairie-palogneux.fr",
+        "horaires": "Mo 09:00-12:00; Tu 14:00-18:00; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9200739,
+          45.7434096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4169981467,
+        "osm_type": "node",
+        "nom": "Mairie de Parigny",
+        "telephone": "+33477620655",
+        "email": "mairie@parigny.fr",
+        "website": "https://www.parigny.fr/",
+        "horaires": "Mo-Fr 08:00-13:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0974038,
+          45.9899768
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1875988901,
+        "osm_type": "node",
+        "nom": "Mairie de Perreux",
+        "adresse": "Place de Verdun",
+        "telephone": "+33477727070",
+        "email": "contact@perreux.fr",
+        "website": "https://www.perreux.fr/",
+        "horaires": "Mo-Fr 08:30-13:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1211976,
+          46.0384815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6316093891,
+        "osm_type": "node",
+        "nom": "Mairie de Pinay",
+        "telephone": "+33477634378",
+        "email": "mairie.pinay@wanadoo.fr",
+        "website": "https://www.pinay.fr",
+        "horaires": "Tu-We 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1364846,
+          45.8731585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4218549001,
+        "osm_type": "node",
+        "nom": "Mairie de Planfoy",
+        "telephone": "+33477514069",
+        "email": "mairie@planfoy.fr",
+        "website": "https://planfoy.fr/",
+        "horaires": "Fr 09:00-12:00,14:00-17:00; Sa 10:00-12:00; Mo-Tu 09:00-12:00; Th 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4405688,
+          45.3824508
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11308502760,
+        "osm_type": "node",
+        "nom": "Mairie de Pommiers-en-Forez",
+        "telephone": "+33477654063",
+        "email": "mairie@pommiers-en-forez.fr",
+        "horaires": "Mo-Tu 09:00-11:30; Th 14:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0627299,
+          45.830258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6317668108,
+        "osm_type": "node",
+        "nom": "Mairie de Poncins",
+        "telephone": "+33477278009",
+        "email": "mairie.poncins@orange.fr",
+        "website": "https://www.commune-poncins.fr",
+        "horaires": "Mo-Tu 15:00-18:00; Th 15:00-17:00; Fr 15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1604192,
+          45.7265521
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6335162397,
+        "osm_type": "node",
+        "nom": "Mairie de Pouilly-les-Nonains",
+        "adresse": "170 Rue des Monts de la Madeleine 42155 Pouilly-les-Nonains",
+        "telephone": "+33477668375",
+        "email": "mairie@pouilly-les-nonains.fr",
+        "website": "https://www.pouilly-les-nonains.fr",
+        "horaires": "Mo 08:30-12:00; Tu 08:30-17:00; We-Th 08:30-12:00; Fr 08:30-12:00,13:30-17:00; Sa 08:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9788744,
+          46.0390653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2328490889,
+        "osm_type": "node",
+        "nom": "Mairie de Pouilly-lès-Feurs",
+        "adresse": "8 Place de la Mairie 42110 Pouilly-lès-Feurs",
+        "telephone": "+33477260584",
+        "email": "mairie@pouillylesfeurs.fr",
+        "website": "https://www.pouillylesfeurs.fr/",
+        "horaires": "Tu 14:00-18:00; We 09:00-12:00; Fr 09:00-12:00,14:00-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2320194,
+          45.7986855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6335230890,
+        "osm_type": "node",
+        "nom": "Mairie de Pradines",
+        "telephone": "+33477628195",
+        "email": "mairie.pradines@copler.fr",
+        "website": "https://pradines-loire.fr/",
+        "horaires": "Mo-Tu 13:30-18:00; Th-Fr 13:30-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1754549,
+          45.9979757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6335458514,
+        "osm_type": "node",
+        "nom": "Mairie de Pralong",
+        "adresse": "32 Rue Louis Varigas 42600 Pralong",
+        "telephone": "+33477971745",
+        "email": "contact@mairiepralong.eu",
+        "website": "https://mairiepralong.eu/",
+        "horaires": "Mo-Tu 08:30-14:00; Th 14:00-17:00; Fr 10:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0302916,
+          45.6653029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1745707181,
+        "osm_type": "node",
+        "nom": "Mairie de Proximité de Centre-Deux",
+        "adresse": "Rue des Docteurs Charcot",
+        "telephone": "+33 4 77 81 20 33",
+        "email": "courriermairie@saint-etienne.fr",
+        "operateur": "Ville de Saint-Étienne",
+        "website": "https://www.saint-etienne.fr/annuaire-general/mairie-de-proximite-de-centre-deux",
+        "horaires": "Mo,We-Th 09:00-12:30,13:15-17:00; Tu 09:00-12:30,13:15-18:00; Fr 09:00-12:30,13:15-16:30; PH closed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3927444,
+          45.4212991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3551023394,
+        "osm_type": "node",
+        "nom": "Mairie de proximité de La Cotonne",
+        "telephone": "+33 4 77 48 65 06",
+        "email": "courriermairie@saint-etienne.fr",
+        "operateur": "Ville de Saint-Étienne",
+        "website": "https://www.saint-etienne.fr/annuaire-general/mairie-de-proximite-de-la-cotonne",
+        "horaires": "Tu 13:45-18:00; Fr 09:00-12:00; PH closed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3848852,
+          45.4211278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2386403588,
+        "osm_type": "node",
+        "nom": "Mairie de proximité de la Métare",
+        "telephone": "+33 4 77 53 55 60",
+        "email": "courriermairie@saint-etienne.fr",
+        "operateur": "Ville de Saint-Étienne",
+        "website": "https://www.saint-etienne.fr/annuaire-general/mairie-de-proximite-de-la-metare",
+        "horaires": "Mo,We-Th 09:00-12:30,13:15-17:00; Tu 09:00-12:30,13:15-18:00; Fr 09:00-12:30,13:15-16:30; PH closed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4205608,
+          45.4188668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2463696716,
+        "osm_type": "node",
+        "nom": "Mairie de proximité de Montreynaud",
+        "telephone": "+33 4 77 49 71 25",
+        "email": "courriermairie@saint-etienne.fr",
+        "operateur": "Ville de Saint-Étienne",
+        "website": "https://www.saint-etienne.fr/annuaire-general/mairie-de-proximite-de-montreynaud",
+        "horaires": "Mo,We-Th 09:00-12:30,13:15-17:00; Tu 09:00-12:30,13:15-18:00; Fr 09:00-12:30,13:15-16:30; PH closed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4007824,
+          45.4706547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2448347596,
+        "osm_type": "node",
+        "nom": "Mairie de proximité de Rochetaillée",
+        "telephone": "+33 4 77 32 88 52",
+        "email": "courriermairie@saint-etienne.fr",
+        "operateur": "Ville de Saint-Étienne",
+        "website": "https://www.saint-etienne.fr/annuaire-general/mairie-de-rochetaillee",
+        "horaires": "Mo,We 09:00-12:30,13:15-17:00; Fr 09:00-12:30,13:15-16:30; PH closed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.445833,
+          45.4105805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1914361953,
+        "osm_type": "node",
+        "nom": "Mairie de proximité de Terrenoire",
+        "telephone": "+33 4 77 95 82 98",
+        "email": "courriermairie@saint-etienne.fr",
+        "operateur": "Ville de Saint-Étienne",
+        "website": "https://www.saint-etienne.fr/annuaire-general/mairie-de-proximite-de-terrenoire",
+        "horaires": "Mo,We-Th 09:00-12:30,13:15-17:00; Tu 09:00-12:30,13:15-18:00; Fr 09:00-12:30,13:15-16:30; PH closed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4366507,
+          45.4359879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6053269972,
+        "osm_type": "node",
+        "nom": "Mairie de Précieux",
+        "adresse": "Le Bourg 42600 Précieux",
+        "telephone": "+33477760379",
+        "email": "mairie-precieux@wanadoo.fr",
+        "website": "https://commune-precieux.fr/",
+        "horaires": "Th-Fr 08:00-12:00,13:30-17:30; Mo-Tu 08:00-12:00,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1509992,
+          45.5858643
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6315964617,
+        "osm_type": "node",
+        "nom": "Mairie de Périgneux",
+        "telephone": "+33477307255",
+        "email": "contact@perigneux.com",
+        "website": "https://perigneux.com/",
+        "horaires": "Mo 14:00-18:00; Tu 08:30-12:00; Th-Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1549786,
+          45.4439104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6335712316,
+        "osm_type": "node",
+        "nom": "Mairie de Renaison",
+        "adresse": "152 Rue de Gruyères 42370 Renaison",
+        "telephone": "+33477644022",
+        "email": "contact@renaison.fr",
+        "website": "https://www.renaison.fr/",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.923812,
+          46.0511175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3058894859,
+        "osm_type": "node",
+        "nom": "Mairie de Rivas",
+        "adresse": "Place de l'Église 42340 Rivas",
+        "telephone": "+33477546343",
+        "email": "mairie.rivas@wanadoo.fr",
+        "website": "https://www.rivas.fr/",
+        "horaires": "Mo-Tu 09:00-12:00,13:00-17:00; Th 09:00-12:00,13:00-17:00; Fr 09:00-12:00,13:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2468504,
+          45.5853711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276735029,
+        "osm_type": "node",
+        "nom": "Mairie de Rive-de-Gier",
+        "adresse": "2 Rue de l'Hôtel de Ville 42800 Rive-de-Gier",
+        "telephone": "+33477830780",
+        "email": "mairie@ville-rivedegier.fr",
+        "website": "https://www.rivedegier.fr/",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6190011,
+          45.5296336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5115334172,
+        "osm_type": "node",
+        "nom": "Mairie de Roche-en-Forez",
+        "telephone": "+33477762431",
+        "email": "mairieroche42@orange.fr",
+        "website": "https://mairie-roche-loire.fr",
+        "horaires": "We 13:00-16:00; Th 09:00-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9481022,
+          45.6149472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 875708142,
+        "osm_type": "way",
+        "nom": "Mairie de Roisey",
+        "adresse": "228 Rue du Pilat 42520 Roisey",
+        "telephone": "+33 4 74 87 48 93",
+        "email": "mairie@roisey.fr",
+        "website": "https://roisey.fr/",
+        "horaires": "Mo 13:30-16:00; Tu 09:00-11:30; We-Th 13:30-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6716092,
+          45.3871381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6268857747,
+        "osm_type": "node",
+        "nom": "Mairie de Rozier-Côtes-d'Aurec",
+        "telephone": "+33477500473",
+        "email": "mairie-rca@orange.fr",
+        "website": "https://roziercotesdaurec.fr/",
+        "horaires": "Mo 13:30-16:30; Tu 09:30-12:30; Th 09:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1036329,
+          45.3714781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10538701947,
+        "osm_type": "node",
+        "nom": "Mairie de Rozier-en-Donzy",
+        "adresse": "54 Rue Saint-Pierre 42810 Rozier-en-Donzy",
+        "telephone": "+33 4 77 28 01 76",
+        "email": "secretariat@mairie-rozier-en-donzy.fr",
+        "website": "https://www.mairie-rozier-en-donzy.fr/",
+        "horaires": "Mo-Tu 08:00-12:00; We 08:00-12:00,13:30-16:30; Th-Fr 08:00-12:00; Sa 08:00-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2772331,
+          45.7960823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1776607303,
+        "osm_type": "node",
+        "nom": "Mairie de Régny",
+        "adresse": "Place Jacques Fougerat 42630 Régny",
+        "telephone": "+33477630034",
+        "email": "accueil@regny.fr",
+        "website": "https://regny.fr",
+        "horaires": "Tu-Th 08:15-11:45; Fr 14:00-17:00; Sa 09:15-11:45"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2161964,
+          45.9898731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6337778120,
+        "osm_type": "node",
+        "nom": "Mairie de Sail-les-Bains",
+        "telephone": "+33477643085",
+        "email": "mairie.sail.les.bains@wanadoo.fr",
+        "horaires": "Mo-Tu 14:00-17:00; Th 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8465655,
+          46.237653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5116516170,
+        "osm_type": "node",
+        "nom": "Mairie de Sail-sous-Couzan",
+        "telephone": "+33477245262",
+        "email": "mairie.accueil@sail-sous-couzan.com",
+        "website": "https://www.sail-sous-couzan.com/",
+        "horaires": "Tu 09:00-12:00; We 09:00-12:00,14:00-17:30; Th-Fr 09:00-12:00; Sa 10:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9714884,
+          45.7353812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6337886910,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Alban-les-Eaux",
+        "adresse": "307 Grande Rue 42370 Saint-Alban-les-Eaux",
+        "telephone": "+33477658454",
+        "email": "accueil@saintalbanleseaux.fr",
+        "website": "https://www.saintalbanleseaux.fr",
+        "horaires": "Mo 09:00-12:00,14:00-18:00; Tu 09:00-12:00; We 10:30-16:00; Th 13:30-17:00; Fr 08:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9357835,
+          46.0079383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6339319252,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-André-d'Apchon",
+        "adresse": "2 Place de la Mairie 42370 Saint-André-d'Apchon",
+        "telephone": "+33477658174",
+        "email": "mairie@saint-andre-d-apchon.fr",
+        "website": "http://www.saint-andre-d-apchon.fr",
+        "horaires": "Mo-Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.931418,
+          46.0310727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6339605108,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-André-le-Puy",
+        "telephone": "+33477544024",
+        "email": "mairie@saintandrelepuy.fr",
+        "website": "https://www.mairie-saintandrelepuy.fr",
+        "horaires": "Mo 08:30-12:00; Tu 13:30-17:00; We-Th 08:30-12:00; Fr 13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2584645,
+          45.6453804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 893567856,
+        "osm_type": "way",
+        "nom": "Mairie de Saint-Appolinard",
+        "telephone": "+33474873749",
+        "email": "mairie.stappo@wanadoo.fr",
+        "website": "https://www.st-appolinard42.fr",
+        "horaires": "Mo 14:00-19:00; Tu 08:00-12:30; We 14:00-18:00; Th 08:00-12:30; Fr 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6521422,
+          45.3415492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6077153786,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Barthélemy-Lestra",
+        "adresse": "1 Place des Godelons 42110 Saint-Barthélemy-Lestra",
+        "telephone": "+33477285259",
+        "email": "mairie@saintbarthelemylestra.fr",
+        "website": "http://www.saintbarthelemylestra.fr",
+        "horaires": "Mo 10:00-12:00,14:00-19:00; Tu 14:00-16:00; Fr 08:00-12:00,14:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.340347,
+          45.7195867
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5119291406,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Bonnet-des-Quarts",
+        "telephone": "+33477643104",
+        "email": "mairie@saintbonnetdesquarts.fr",
+        "website": "https://saintbonnetdesquarts.fr",
+        "horaires": "Tu 09:00-12:00; Th 09:00-12:00; Fr 14:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8449253,
+          46.1314054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2408996499,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Bonnet-le-Château",
+        "adresse": "23 Avenue Paul Doumer 42380 Saint-Bonnet-le-Château",
+        "telephone": "+33477505240",
+        "email": "mairie@saintbonnetlechateau.fr",
+        "website": "https://st-bonnet-le-chateau.fr/",
+        "horaires": "Tu 09:30-13:30; We 09:30-15:00; Th 09:30-13:30; Fr 08:00-13:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0661442,
+          45.4239012
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1759392409,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Bonnet-le-Courreau",
+        "adresse": "30 Route de Fraisse 42940 Saint-Bonnet-le-Courreau",
+        "telephone": "+33477768187",
+        "email": "stbc.s@orange.fr",
+        "website": "http://www.saint-bonnet-le-courreau.fr",
+        "horaires": "Tu 09:15-14:15; Th-Fr 09:15-14:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9441567,
+          45.6593777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5120293327,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Bonnet-les-Oules",
+        "adresse": "130 Allée du Bourg 42330 Saint-Bonnet-les-Oules",
+        "telephone": "+33477540582",
+        "email": "mairie@saint-bonnet-les-oules.fr",
+        "website": "https://saint-bonnet-les-oules.fr/",
+        "horaires": "Mo 14:00-17:00; Tu 08:30-12:00,13:30-17:00; We 09:00-12:00; Th 09:00-12:00,13:30-17:00; Fr 09:00-12:00,13:30-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3288073,
+          45.5430655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 52982638,
+        "osm_type": "way",
+        "nom": "Mairie de Saint-Chamond",
+        "adresse": "Avenue Antoine Pinay 42403 Saint-Chamond",
+        "telephone": "+33 4 77 31 05 05",
+        "email": "ville@saint-chamond.fr",
+        "website": "https://saint-chamond.fr/",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:30; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5127941,
+          45.4759473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6040274075,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Christo-en-Jarez",
+        "adresse": "4 Rue de la Mairie 42320 Saint-Christo-en-Jarez",
+        "telephone": "+33477208519",
+        "email": "secretariatgeneral@st-christo.fr",
+        "website": "https://saint-christo-en-jarez.fr/",
+        "horaires": "Tu 08:30-12:00,13:00-17:00; We-Th 08:30-12:00; Fr 08:30-12:00,14:15-17:00; Sa 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4860171,
+          45.5438673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1319015923,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Cyprien",
+        "telephone": "+33477550374",
+        "email": "contact.mairie@saintcyprien.fr",
+        "website": "https://www.saintcyprien.fr",
+        "horaires": "Mo-Th 08:30-12:00,13:30-17:00; Fr 08:30-12:30,13:30-16:00; Sa 09:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2360517,
+          45.5378104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5123501245,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Cyr-de-Favières",
+        "telephone": "+33477649099",
+        "email": "mairie.stcyr.de.favieres@copler.fr",
+        "horaires": "Mo 08:30-12:30; Tu 08:30-12:30; We 11:00-12:30; Th 08:30-12:30; Th 11:00-12:30; Fr 11:00-12:30,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0945142,
+          45.9668384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5123504329,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Cyr-de-Valorges",
+        "adresse": "25 Place des Culottes Courtes",
+        "telephone": "+33 4 77 62 47 47",
+        "email": "mairie@saintcyrdevalorges.fr",
+        "website": "https://www.saint-cyr-de-valorges.fr",
+        "horaires": "Mo 09:00-12:00,12:30-16:00; We 09:00-12:00; Fr 09:00-12:00,12:30-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3060228,
+          45.8926753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6247958258,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Cyr-les-Vignes",
+        "adresse": "1 Place du Combattant 42210 Saint-Cyr-les-Vignes",
+        "telephone": "+33477289115",
+        "email": "commune.stcyr@orange.fr",
+        "website": "https://www.saintcyrlesvignes.com",
+        "horaires": "Mo 09:00-12:00; Tu 14:00-17:00; Th 14:00-17:00; Fr 09:00-12:00; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2993388,
+          45.6757872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5129896493,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Denis-sur-Coise",
+        "adresse": "Le Bourg 42140 Saint-Denis-sur-Coise",
+        "telephone": "+33477543413",
+        "email": "mairie@saint-denis-sur-coise.fr",
+        "website": "http://www.saint-denis-sur-coise.fr",
+        "horaires": "Tu 09:00-11:30; Th 09:00-11:30; Fr 14:00-17:30; Sa 09:00-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4236668,
+          45.6161498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5129914546,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Forgeux-Lespinasse",
+        "telephone": "+33477656064",
+        "email": "mairie@sfl42.fr",
+        "website": "https://saint-forgeux-lespinasse.fr",
+        "horaires": "Mo-Tu 14:00-17:00; Th 14:00-17:00; Fr 08:00-13:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9300053,
+          46.123091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1889459906,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Galmier",
+        "telephone": "+33477527400",
+        "email": "contact@mairie-saint-galmier.fr",
+        "website": "https://www.saint-galmier.fr",
+        "horaires": "Mo 08:30-12:00; Tu-Fr 08:30-12:00,13:30-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3186274,
+          45.5903949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2766421411,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Genest-Lerpt",
+        "adresse": "Place Charles de Gaulle 42530 Saint-Genest-Lerpt",
+        "telephone": "+33477505180",
+        "email": "mairie@villesgl.fr",
+        "website": "https://www.villesgl.fr/",
+        "horaires": "Mo 13:30-18:30; Tu-Th 08:30-12:00,13:30-17:00; Fr 08:30-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3363129,
+          45.4460447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1757015304,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Genest-Malifaux",
+        "telephone": "+33477512001",
+        "email": "mairie@st-genest-malifaux.fr",
+        "website": "https://www.st-genest-malifaux.fr/",
+        "horaires": "Tu 08:00-12:00,14:00-17:00; We-Th 08:00-12:00; Fr 08:00-12:00,14:00-17:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.420556,
+          45.3401011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5131505700,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Georges-de-Baroille",
+        "telephone": "+33477654444",
+        "email": "contact@saintgeorgesdebaroille.com",
+        "website": "https://saintgeorgesdebaroille.com/",
+        "horaires": "Tu 09:00-11:00,16:30-17:30; Th 09:00-11:00; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1300233,
+          45.8488028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3890674747,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Georges-en-Couzan",
+        "telephone": "+33477248170",
+        "email": "mairie.saintgeorgesencouzan@wanadoo.fr",
+        "website": "https://www.saintgeorgesencouzan.fr",
+        "horaires": "Tu 08:30-11:30; Th 08:30-11:30; Fr 08:00-11:30,13:30-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9312324,
+          45.7030268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5131527668,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Georges-Haute-Ville",
+        "telephone": "+33477760367",
+        "email": "mairie@saintgeorgeshauteville.fr",
+        "website": "https://saintgeorgeshauteville.fr",
+        "horaires": "Mo 08:30-12:30,13:30-18:00; Tu 08:30-12:30,13:30-17:00; We-Th 08:30-12:30; Fr 08:30-12:30,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.099046,
+          45.5543783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6344980957,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Germain-la-Montagne",
+        "telephone": "+33477636016",
+        "email": "mairiesaintgermainlamontagne@wanadoo.fr",
+        "website": "https://www.mairiesaintgermainlamontagne.fr/",
+        "horaires": "Mo 14:30-18:30; Th 09:30-12:30,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3781038,
+          46.2025658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2789652880,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Germain-Laval",
+        "adresse": "2 Rue du Marché 42260 Saint-Germain-Laval",
+        "telephone": "+33477654130",
+        "email": "mairie@st-germain-laval.fr",
+        "website": "http://www.st-germain-laval.fr",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0111177,
+          45.8294674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3668378430,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Germain-Lespinasse",
+        "adresse": "30 Rue de l'Oranger 42640 Saint-Germain-Lespinasse",
+        "telephone": "+33477645020",
+        "email": "mairie@st-germain-lespinasse.fr",
+        "website": "https://www.saint-germain-lespinasse.com/",
+        "horaires": "Mo-Fr 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9638358,
+          46.1041286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6345165674,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Haon-le-Châtel",
+        "adresse": "8 Place de Verdun 42370 Saint-Haon-le-Châtel",
+        "telephone": "+33477644062",
+        "email": "contact@sainthaonlechatel.fr",
+        "website": "https://www.sainthaonlechatel.fr",
+        "horaires": "Mo 14:00-17:00; Tu 08:00-12:00; Th-Sa 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9149307,
+          46.0662049
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10539856499,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Haon-le-Vieux",
+        "telephone": "+33477644281",
+        "email": "mairie.st.haon.le.vieux@wanadoo.fr",
+        "website": "http://www.st-haon-le-vieux.fr",
+        "horaires": "Mo-Th 08:00-11:30; Fr 08:00-11:30,16:30-17:00; Sa 08:00-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9073447,
+          46.0742937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1789917310,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Hilaire-Cusson-la-Valmitte",
+        "telephone": "+33477502243",
+        "email": "mairie@sthilaireclv.fr",
+        "website": "https://saint-hilaire-cusson-la-valmitte.jimdo.com",
+        "horaires": "Mo-Tu 14:00-16:00; Th-Fr 14:00-16:00; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0412871,
+          45.3681303
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5132273082,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Hilaire-sous-Charlieu",
+        "telephone": "+33477600578",
+        "email": "mairie@sthilairesoucharlieu.fr",
+        "website": "https://saint-hilaire-sous-charlieu.fr/",
+        "horaires": "Mo 16:00-17:30; We 09:00-12:00; Th 16:30-18:30; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.183147,
+          46.1218569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6345219049,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Héand",
+        "telephone": "+33477304123",
+        "email": "mairie@saint-heand.fr",
+        "website": "https://www.saint-heand.fr/",
+        "horaires": "Mo 09:00-12:00,14:00-17:30; Tu 09:00-12:00,14:00-18:30; We-Th 09:00-12:00,14:00-17:30; Fr 09:00-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3732791,
+          45.5292739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5132340272,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Jean-la-Vêtre",
+        "telephone": "+33477978144",
+        "email": "commune-st.jean.lavetre@wanadoo.fr",
+        "website": "https://communestjeanlavetre.fr",
+        "horaires": "Mo-Tu 09:30-11:30; Th 09:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8053557,
+          45.7888935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6347227971,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Jean-Saint-Maurice-sur-Loire",
+        "telephone": "+33477631404",
+        "email": "mairie@saintjeansaintmaurice.fr",
+        "website": "https://www.saint-jean-saint-maurice.fr/",
+        "horaires": "Mo 08:00-12:00,14:00-16:00; Tu 08:00-12:00; Th-Sa 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0022207,
+          45.9666594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5928571074,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Jean-Soleymieux",
+        "telephone": "+33477767012",
+        "email": "contact@saint-jean-soleymieux.fr",
+        "website": "https://saint-jean-soleymieux.fr/",
+        "horaires": "Mo-Tu 09:00-12:00; Th 09:00-12:00; Fr 14:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0396836,
+          45.5025799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5132365946,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Jodard",
+        "adresse": "1 Rue de la Mairie 42590 Saint-Jodard",
+        "telephone": "+33477634242",
+        "email": "mairie.st.jodard@wanadoo.fr",
+        "website": "https://www.saint-jodard.fr",
+        "horaires": "Mo 08:30-14:00; Tu 08:30-12:30,13:00-16:30; Th 13:00-18:30; Fr 08:30-12:30; Fr 08:30-12:30,13:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1307159,
+          45.881148
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3220612461,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Joseph",
+        "adresse": "1 Place de la Mairie 42800 Saint-Joseph",
+        "telephone": "+33477750753",
+        "email": "secretariat@commune-saint-joseph.fr",
+        "website": "https://www.commune-saint-joseph.fr/fr/",
+        "horaires": "Mo-We 08:00-12:00,13:30-16:30; Th 08:00-12:00; Fr 08:00-12:00,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6181728,
+          45.5559051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5132376507,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Julien-d'Oddes",
+        "telephone": "+33477654195",
+        "email": "mairiestjuliendoddes@wanadoo.fr",
+        "horaires": "Tu 09:00-12:00; Fr 13:30-16:30; Sa 10:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9968526,
+          45.8476462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 893185612,
+        "osm_type": "way",
+        "nom": "Mairie de Saint-Julien-Molin-Molette",
+        "telephone": "+33477515111",
+        "email": "secretariat.mairie@saint-julien-molin-molette.fr",
+        "website": "https://www.saint-julien-molin-molette.fr",
+        "horaires": "Mo 13:30-16:00; Tu-We 09:00-11:30,13:30-16:30; Fr 09:00-11:30,13:30-16:30; Sa 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6138085,
+          45.3229995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6347553211,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Just-en-Bas",
+        "telephone": "+33477248129",
+        "email": "mairie.st.just.en.bas@orange.fr",
+        "website": "https://www.stjustenbas.com",
+        "horaires": "We 14:00-16:30; Fr 14:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8807587,
+          45.7306696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4571960741,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Just-en-Chevalet",
+        "adresse": "Rue de Thiers 42430 Saint-Just-en-Chevalet",
+        "telephone": "+33477650062",
+        "email": "mairie@stjustenchevalet.fr",
+        "website": "https://www.st-just-en-chevalet.com",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-16:30; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8458935,
+          45.9139564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5134449419,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Just-la-Pendue",
+        "adresse": "52 Rue du 11 Novembre 42540 Saint-Just-la-Pendue",
+        "telephone": "+33 4 77 63 20 12",
+        "email": "mairie@saintjustlapendue.fr",
+        "website": "https://www.saint-just-la-pendue.fr",
+        "horaires": "Mo-Fr 08:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2409031,
+          45.8927619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6347578690,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Laurent-la-Conche",
+        "telephone": "+33477289479",
+        "email": "commune-de-st-laurent-la-conche@orange.fr",
+        "website": "https://www.saintlaurentlaconche.com/",
+        "horaires": "Mo 14:00-18:00; Fr 09:00-12:00,14:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2086178,
+          45.6841747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5134551555,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Léger-sur-Roanne",
+        "telephone": "+33477668672",
+        "email": "accueil@saintlegersurroanne.fr",
+        "website": "https://www.saintlegersurroanne.fr/",
+        "horaires": "Mo 10:00-16:30; Tu-Fr 13:30-17:00; Sa 09:00-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0004925,
+          46.0403928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6347594599,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Marcel-d'Urfé",
+        "telephone": "+33477625367",
+        "email": "mairie@st-marcel-d-urfe.fr",
+        "website": "https://st-marcel-d-urfe.fr/",
+        "horaires": "Mo 09:00-12:00; Th 15:30-18:30; Fr 18:00-20:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8853951,
+          45.8715057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6115928224,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Marcel-de-Félines",
+        "adresse": "11 Place de la Mairie 42122 Saint-Marcel-de-Félines",
+        "telephone": "+33477632335",
+        "email": "mairie@saint-marcel-de-felines.fr",
+        "website": "https://www.saint-marcel-de-felines.fr",
+        "horaires": "Mo-We 08:00-12:00; Fr 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1908416,
+          45.868843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5135753109,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Marcellin-en-Forez",
+        "adresse": "24 Rue Carles de Mazenod 42680 Saint-Marcellin-en-Forez",
+        "telephone": "+33477361090",
+        "email": "mairie@saintmarcellinenforez.fr",
+        "website": "https://www.saintmarcellinenforez.com/",
+        "horaires": "Mo-Fr 09:00-12:00,13:30-17:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1677106,
+          45.4980778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1866256821,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Martin-d'Estréaux",
+        "telephone": "+33477640008",
+        "email": "mairie@saintmartindestreaux.fr",
+        "website": "https://st-martin-destreaux.fr",
+        "horaires": "Mo-Fr 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7988795,
+          46.2049713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1969792003,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Martin-la-Plaine",
+        "adresse": "1 Route de la Tour 42800 Saint-Martin-la-Plaine",
+        "telephone": "+33477750725",
+        "email": "mairie@saintmartinlaplaine.fr",
+        "website": "https://www.saintmartinlaplaine.fr",
+        "horaires": "Mo-Tu 08:30-12:00,13:00-16:30; We 08:30-12:00; Th-Fr 08:30-12:00,13:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5957207,
+          45.5442376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6347648172,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Martin-la-Sauveté",
+        "telephone": "+33477622146",
+        "email": "mairie@saintmartinlasauvete.fr",
+        "website": "https://saintmartinlasauvete.fr",
+        "horaires": "Mo-Tu 08:00-12:00,14:00-18:00; We 08:00-12:00; Th-Fr 08:00-12:00,14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9216251,
+          45.8333034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4237714234,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Martin-Lestra",
+        "adresse": "Place de l'Église 42110 Saint-Martin-Lestra",
+        "telephone": "+33477285084",
+        "email": "mairie.sml@wanadoo.fr",
+        "website": "http://www.saintmartinlestra.fr",
+        "horaires": "Mo-Tu 09:00-12:00; We 08:00-12:30; Th-Fr 09:00-12:00,14:00-19:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3541211,
+          45.7209044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10706513153,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Maurice-en-Gourgois",
+        "adresse": "6 Rue du 19 Mars 1962 42240 Saint-Maurice-en-Gourgois",
+        "telephone": "+33477503012",
+        "email": "secretariat@saint-maurice-en-gourgois.fr",
+        "website": "https://www.saint-maurice-en-gourgois.fr",
+        "horaires": "Mo-Tu 09:00-12:00,14:00-17:30; Th-Fr 09:00-12:00,14:00-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1814407,
+          45.4034914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5136128292,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Michel-sur-Rhône",
+        "telephone": "+33474595798",
+        "email": "mairie-saintmichelsurrhone@orange.fr",
+        "website": "https://www.mairie-saintmichelsurrhone.fr",
+        "horaires": "Mo 14:00-18:00; Th 09:00-12:00,14:00-17:30; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7458244,
+          45.4465584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6077290839,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Médard-en-Forez",
+        "telephone": "+33477940521",
+        "email": "mairie@saintmedardenforez.fr",
+        "website": "https://saintmedardenforez-42330.fr/",
+        "horaires": "Mo 13:30-17:00; Tu 08:00-12:30; Th 13:30-17:30; Fr 08:00-12:30,13:30-17:30; Sa 08:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3618158,
+          45.5968974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3482836440,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Nizier-de-Fornas",
+        "adresse": "8 Rue de la Mairie 42380 Saint-Nizier-de-Fornas",
+        "telephone": "+33477500897",
+        "email": "mairie.sndf42@wanadoo.fr",
+        "website": "https://saint-nizier-de-fornas.fr/",
+        "horaires": "Mo 09:00-12:00,14:00-17:00; Th-Fr 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0805358,
+          45.4030126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10706569360,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Nizier-sous-Charlieu",
+        "telephone": "+33477608168",
+        "email": "mairie@st-nizier-sous-charlieu.fr",
+        "website": "https://www.st-nizier-sous-charlieu.fr/",
+        "horaires": "Mo-Tu 08:30-12:30,13:30-18:00; We 08:30-12:00; Th 08:30-12:30,13:30-18:00; Fr 08:30-12:30,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1233304,
+          46.1539611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10706565067,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Paul-d'Uzore",
+        "telephone": "+33477971946",
+        "email": "mairiestpaulduzore@orange.fr",
+        "website": "https://saintpaulduzore.fr/",
+        "horaires": "Th 09:00-15:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0802798,
+          45.6780842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6270827895,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Paul-de-Vézelin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0850353,
+          45.885192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5136170749,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Paul-en-Cornillon",
+        "adresse": "20 Route du Baret 42240 Saint-Paul-en-Cornillon",
+        "telephone": "+33477357119",
+        "email": "mairie@ville-stpaulencornillon.fr",
+        "website": "http://www.ville-stpaulencornillon.fr",
+        "horaires": "Mo-Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2416531,
+          45.397248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1369279972,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Paul-en-Jarez",
+        "adresse": "34 Rue de la République 42740 Saint-Paul-en-Jarez",
+        "telephone": "+33 4 77 73 21 24",
+        "email": "mairie@saint-paul-en-jarez.fr",
+        "website": "https://saint-paul-en-jarez.fr/",
+        "horaires": "Mo-Tu 08:30-12:00,14:00-17:30; We 08:30-12:00; Th 08:30-12:00,15:00-19:00; Fr 08:30-12:00,14:00-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5739103,
+          45.4832723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 438301193,
+        "osm_type": "way",
+        "nom": "Mairie de Saint-Pierre-de-Bœuf",
+        "adresse": "66 42520 Saint-Pierre-de-Bœuf",
+        "telephone": "+33474871130",
+        "email": "mairie@saintpierredeboeuf.fr",
+        "website": "https://www.saintpierredeboeuf.com",
+        "horaires": "Tu 08:30-12:00,14:00-16:00; We 08:30-12:00; Mo 14:00-16:00; Th-Fr 08:30-12:00,14:00-16:00; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7492399,
+          45.382447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6349071743,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Pierre-la-Noaille",
+        "telephone": "+33477608733",
+        "email": "mairie@saintpierrelanoaille.fr",
+        "website": "https://saintpierrelanoaille.fr/",
+        "horaires": "Mo 08:30-12:30; Tu-We 08:30-12:30,13:30-17:30; Fr 08:30-12:30,13:30-17:30; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0970013,
+          46.1793602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5136891430,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Polgues",
+        "telephone": "+33477652142",
+        "email": "mairie@stpolgues.fr",
+        "horaires": "Mo 15:30-20:00; Tu 08:30-12:00; Th-Fr 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9773189,
+          45.9117468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1674389478,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Priest-en-Jarez",
+        "adresse": "8 Rue Claudius Cottier 42270",
+        "telephone": "+33477911330",
+        "email": "gdeville@mspj.fr",
+        "website": "https://saint-priest-en-jarez.fr/",
+        "horaires": "Mo-Fr 08:30-12:15,13:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.379642,
+          45.473405
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5136915132,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Priest-la-Prugne",
+        "telephone": "+33477629213",
+        "email": "mairie.st.priest.la.prugne@wanadoo.fr",
+        "horaires": "Mo-Tu 13:00-17:00; Th-Fr 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7500679,
+          45.9607461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 505393002,
+        "osm_type": "way",
+        "nom": "Mairie de Saint-Priest-la-Roche",
+        "telephone": "+33477649168",
+        "email": "mairie.stpriestlaroche@orange.fr",
+        "horaires": "Mo 09:00-12:00,13:30-16:30; We 09:00-12:00; Th 09:00-12:00,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0954189,
+          45.9137417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4438876413,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Priest-la-Vêtre",
+        "telephone": "+33477978309",
+        "email": "stpriestlavetre@orange.fr",
+        "horaires": "Mo 10:00-12:00,13:00-15:00; Th 10:00-12:00,13:00-15:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8091655,
+          45.8031647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4389388318,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Rirand",
+        "telephone": "+33477657633",
+        "email": "mairie@strirand.fr",
+        "horaires": "Mo 12:30-17:30; Th 13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8492461,
+          46.0757882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6351973346,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Romain-d'Urfé",
+        "telephone": "+33477650501",
+        "email": "mairie@saintromaindurfe.fr",
+        "website": "http://www.saintromaindurfe.fr",
+        "horaires": "Tu 09:00-12:00,13:00-16:00; Fr 09:00-12:00,13:00-17:00; Mo 09:00-12:00,13:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8277383,
+          45.8872432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4013930225,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Romain-en-Jarez",
+        "adresse": "Place du Plâtre 42800 Saint-Romain-en-Jarez",
+        "telephone": "+33477208033",
+        "email": "mairie.stromainenjarez@wanadoo.fr",
+        "website": "http://www.saint-romain-en-jarez.fr",
+        "horaires": "Mo 08:30-12:00; Tu 08:30-12:00,13:30-18:00; Th 08:30-12:00,13:30-18:00; Fr 13:30-18:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5345714,
+          45.5557464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6352038874,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Romain-la-Motte",
+        "adresse": "358 Rue de Trébande 42640 Saint-Romain-la-Motte",
+        "telephone": "+33477645043",
+        "email": "secretariat@stromainlamotte.fr",
+        "website": "https://www.st-romain-la-motte.fr",
+        "horaires": "Mo-Th 08:30-11:30; Fr 08:30-11:30,13:00-17:00; Sa 08:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9862603,
+          46.0834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6352062466,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Romain-les-Atheux",
+        "telephone": "+33477512424",
+        "email": "mairie@srla.fr",
+        "website": "https://saint-romain-les-atheux.fr/",
+        "horaires": "Mo 08:30-12:00; Tu 08:00-12:00; We-Th 08:30-12:00; Fr 08:00-12:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3763565,
+          45.3563801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2995383866,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Régis-du-Coin",
+        "telephone": "+33477518159",
+        "email": "mairie@saintregisducoin.fr",
+        "website": "https://www.saintregisducoin.fr/",
+        "horaires": "Tu-Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4445547,
+          45.283291
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5136972108,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Sauveur-en-Rue",
+        "adresse": "1 Place du 8 Mai 1945 42220 Saint-Sauveur-en-Rue",
+        "telephone": "+33477392033",
+        "email": "mairie@stsauveurenrue.com",
+        "website": "https://www.stsauveurenrue.fr/",
+        "horaires": "Tu 08:30-12:00,13:30-17:00; We-Th 08:30-12:00; Fr 08:30-12:00,13:30-17:00; Sa 08:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4951166,
+          45.2694149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5136985449,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Sixte",
+        "adresse": "Le Bourg 42130 Saint-Sixte",
+        "telephone": "+33477246520",
+        "email": "mairie.stsixte42@wanadoo.fr",
+        "website": "https://stsixte.fr/",
+        "horaires": "Mo 14:00-16:30; We 10:00-12:00; Fr 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9810584,
+          45.7750082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3848379105,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Symphorien-de-Lay",
+        "adresse": "53 Route Nationale 7 42470 Saint-Symphorien-de-Lay",
+        "telephone": "+33477647025",
+        "email": "mairie.stsymphorien.de.lay@copler.fr",
+        "website": "https://www.stsymphoriendelay.fr/",
+        "horaires": "Mo-Fr 09:00-12:00; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2114962,
+          45.948287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1757311377,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Thomas-la-Garde",
+        "adresse": "19 Route du Lavoir 42600 Saint-Thomas-la-Garde",
+        "telephone": "+33477583882",
+        "email": "mairie@saint-thomas-la-garde.fr",
+        "website": "http://saint-thomas-la-garde.wifeo.com",
+        "horaires": "Mo 13:30-17:30; Tu 08:00-12:00; Fr 13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0812902,
+          45.5672938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 62803457,
+        "osm_type": "way",
+        "nom": "Mairie de Saint-Victor sur Loire",
+        "telephone": "+33 4 77 90 44 28",
+        "email": "courriermairie@saint-etienne.fr",
+        "operateur": "Ville de Saint-Étienne",
+        "website": "https://www.saint-etienne.fr/annuaire-general/mairie-de-proximite-de-saint-victor-sur-loire",
+        "horaires": "Mo,We,Th 09:00-12:30,13:15-17:00; Tu 09:00-12:30,13:15-18:00; Fr 09:00-12:30,13:15-16:30; PH closed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2605728,
+          45.4456551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5137003527,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Victor-sur-Rhins",
+        "adresse": "70 Rue de Thizy 42630 Saint-Victor-sur-Rhins",
+        "telephone": "+33474640618",
+        "email": "mairie.stvictor.sur.rhins@copler.fr",
+        "website": "https://stvictorsurrhins.fr/",
+        "horaires": "Mo-Tu 08:30-12:30; Th-Fr 08:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2805922,
+          46.0046396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6352191931,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Vincent-de-Boisset",
+        "telephone": "+33477620224",
+        "email": "mairie@stvincentdeboisset.fr",
+        "website": "https://stvincentdeboisset.fr/",
+        "horaires": "Mo-Tu 10:00-12:00,13:30-17:00; We 10:00-12:00; Th-Fr 10:00-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1135442,
+          46.0046411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5129913572,
+        "osm_type": "node",
+        "nom": "Mairie de Saint-Étienne-le-Molard",
+        "telephone": "+33477975705",
+        "email": "mairie.lemolard@wanadoo.fr",
+        "horaires": "Mo 14:00-17:00; Tu 09:00-12:00,14:00-16:30; We 08:00-12:00,14:00-17:00; Th 09:00-12:00,14:00-16:30; Fr 08:00-12:00,14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0888907,
+          45.7315529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6344422182,
+        "osm_type": "node",
+        "nom": "Mairie de Sainte-Agathe-en-Donzy",
+        "telephone": "+33477273609",
+        "email": "ste.agathe.en.donzy@wanadoo.fr",
+        "website": "https://www.sainte-agathe-en-donzy.fr",
+        "horaires": "Tu 13:30-17:30; Th 13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3065107,
+          45.8377829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5137016118,
+        "osm_type": "node",
+        "nom": "Mairie de Sainte-Agathe-la-Bouteresse",
+        "telephone": "+33477974193",
+        "email": "mairie@ste-agathe-la-bouteresse.fr",
+        "website": "http://www.sainteagathelabouteresse.com",
+        "horaires": "Mo 08:30-12:00; Tu 08:30-16:30; We 08:30-12:00; Fr 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0557318,
+          45.7344106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5137024181,
+        "osm_type": "node",
+        "nom": "Mairie de Sainte-Colombe-sur-Gand",
+        "adresse": "Place de la Mairie 42540 Sainte-Colombe-sur-Gand",
+        "telephone": "+33 4 77 63 21 71",
+        "email": "colombe-sur-gand@wanadoo.fr",
+        "website": "https://www.saintecolombesurgand.fr/",
+        "horaires": "Mo-Tu 08:30-12:30,13:30-17:30; Th-Fr 08:30-12:30,13:30-17:30; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.275074,
+          45.8794844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 778673060,
+        "osm_type": "node",
+        "nom": "Mairie de Sainte-Croix-en-Jarez",
+        "telephone": "+33477202001",
+        "email": "mairie@saintecroixenjarez.fr",
+        "website": "https://saintecroixenjarez.fr",
+        "horaires": "Mo 13:30-17:00; Th 13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.646367,
+          45.4792996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4571960748,
+        "osm_type": "node",
+        "nom": "Mairie de Sainte-Foy-Saint-Sulpice",
+        "telephone": "+33477278122",
+        "email": "mairie@stefoystsulpice.fr",
+        "website": "https://www.stefoystsulpice.fr/",
+        "horaires": "Mo-Tu 08:00-12:00,13:00-16:00; Th-Fr 08:00-12:00,13:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1292071,
+          45.7692321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5116529410,
+        "osm_type": "node",
+        "nom": "Mairie de Salt-en-Donzy",
+        "telephone": "+33477260436",
+        "email": "saltendonzy@wanadoo.fr",
+        "website": "http://www.salt-en-donzy.fr",
+        "horaires": "Tu 14:00-18:00; Th 14:00-18:00; Fr 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2890322,
+          45.7366213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6077171255,
+        "osm_type": "node",
+        "nom": "Mairie de Salvizinet",
+        "telephone": "+33477262012",
+        "email": "mairie.salvizinet@wanadoo.fr",
+        "website": "http://www.salvizinet.fr",
+        "horaires": "Mo 09:00-13:30; Th 07:30-09:30; Sa 09:00-11:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2737852,
+          45.7596558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6051554187,
+        "osm_type": "node",
+        "nom": "Mairie de Sauvain",
+        "telephone": "+33477768160",
+        "email": "mairie-sauvain@sauvain.fr",
+        "website": "https://www.sauvain.fr",
+        "horaires": "Mo 09:00-12:00; Tu 09:00-12:00; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9051256,
+          45.6740846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1494353826,
+        "osm_type": "node",
+        "nom": "Mairie de Savigneux",
+        "telephone": "+33477967979",
+        "email": "mairie@savigneux.fr",
+        "website": "http://www.savigneux.fr",
+        "horaires": "Mo-Th 08:30-12:15,13:30-17:00; Fr 08:30-12:15,13:30-16:45"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0825086,
+          45.60713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5116552885,
+        "osm_type": "node",
+        "nom": "Mairie de Sevelinges",
+        "adresse": "53 Route de Cours 42460 Sevelinges",
+        "telephone": "+33 4 74 89 77 09",
+        "email": "contact@mairiesevelinges.fr",
+        "website": "https://mairiesevelinges.fr/",
+        "horaires": "Mo-Tu 09:30-12:30; Th-Fr 09:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2979589,
+          46.0978512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5930919614,
+        "osm_type": "node",
+        "nom": "Mairie de Soleymieux",
+        "adresse": "Le Bourg 42560 Soleymieux",
+        "telephone": "+33477767162",
+        "email": "mairieoleymieux42@soleymieux.com",
+        "website": "https://www.soleymieux.com/",
+        "horaires": "Mo 13:00-18:00; Tu 08:00-12:00; Th 13:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0425706,
+          45.509034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6288357128,
+        "osm_type": "node",
+        "nom": "Mairie de Solore-en-Forez",
+        "telephone": "+33 4 77 24 52 43",
+        "email": "mairie@mairiesolore.fr",
+        "website": "https://solore-en-forez.fr/",
+        "horaires": "Mo,Fr 14:00-16:00; Tu 09:00-16:00; Th 09:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9418251,
+          45.759741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6353947596,
+        "osm_type": "node",
+        "nom": "Mairie de Sorbiers",
+        "adresse": "13 Rue de la Flache 42290 Sorbiers",
+        "telephone": "+33477011130",
+        "email": "contact@mairie-sorbiers.fr",
+        "website": "https://www.mairie-sorbiers.fr/",
+        "horaires": "Mo-Th 08:30-12:00,13:30-17:00; Fr 08:30-12:00,13:30-16:30; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4495841,
+          45.490716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3225099385,
+        "osm_type": "node",
+        "nom": "Mairie de Souternon",
+        "adresse": "42260 Souternon",
+        "telephone": "+33477655456",
+        "email": "souternonmairie@yahoo.fr",
+        "website": "https://www.souternon.fr/",
+        "horaires": "Th 14:00-18:00; Tu-We 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9863433,
+          45.8686586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5116664507,
+        "osm_type": "node",
+        "nom": "Mairie de Sury-le-Comtal",
+        "adresse": "Place de l'Hôtel de Ville 42450 Sury-Le-Comtal",
+        "telephone": "+33477505250",
+        "email": "accueil@ville-surylecomtal.fr",
+        "website": "https://www.ville-surylecomtal.fr",
+        "horaires": "Mo-We 09:00-12:30,13:30-17:00; Th 13:30-17:00; Fr 09:00-12:30,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1828586,
+          45.5374681
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3187414820,
+        "osm_type": "node",
+        "nom": "Mairie de Tartaras",
+        "adresse": "2 Rue Pierre Mussieux 42800 Tartaras",
+        "telephone": "+33477751898",
+        "email": "secretariat@mairie-tartaras.fr",
+        "website": "https://mairie-tartaras.com/fr/",
+        "horaires": "Mo 08:00-12:00,14:00-17:30; Tu 14:00-18:00; We 08:00-12:00; Th 08:00-12:00; Fr 08:00-12:00,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6680134,
+          45.5532937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3298872055,
+        "osm_type": "node",
+        "nom": "Mairie de Thélis-la-Combe",
+        "telephone": "+33477391006",
+        "email": "mairie@thelislacombe.fr",
+        "horaires": "Tu 09:00-12:00,13:00-15:30; Fr 08:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.554833,
+          45.3273481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6360034695,
+        "osm_type": "node",
+        "nom": "Mairie de Trelins",
+        "adresse": "14 Rue de l'Église 42130 Trelins",
+        "telephone": "+33477240202",
+        "email": "mairie@trelins.fr",
+        "website": "https://www.trelins.fr/",
+        "horaires": "Mo 14:00-17:00; Tu 09:00-11:30; Th 09:00-11:30; Fr 14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0076495,
+          45.7309339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6067320423,
+        "osm_type": "node",
+        "nom": "Mairie de Valeille",
+        "adresse": "Le Bourg 42110 Valeille",
+        "telephone": "+33 4 77 28 93 64",
+        "email": "mairie.valeille@orange.fr",
+        "website": "https://www.valeille.fr",
+        "horaires": "Mo 08:00-11:00; Tu 13:00-16:00; Th 09:00-12:00; Sa 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3051161,
+          45.7079087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3568946893,
+        "osm_type": "node",
+        "nom": "Mairie de Valfleury",
+        "adresse": "1 Place de la Mairie 42320 Valfleury",
+        "telephone": "+33477207701",
+        "email": "mairie-de-valfleury@wanadoo.fr",
+        "website": "https://www.valfleury.fr/",
+        "horaires": "Mo 15:00-17:45; Tu-We 08:15-11:15; Th 15:00-17:45; Fr-Sa 08:15-11:15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4929237,
+          45.521384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6189216758,
+        "osm_type": "node",
+        "nom": "Mairie de Veauche",
+        "adresse": "Place Jacques Raffin 42340 Veauche",
+        "telephone": "+33477368282",
+        "email": "info@veauche.fr",
+        "operateur": "Mairie",
+        "website": "https://www.veauche.fr",
+        "horaires": "Mo-Th 08:30-12:00,13:30-17:30; Fr 08:30-12:00,13:30-16:00; Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2778352,
+          45.5614402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5118303067,
+        "osm_type": "node",
+        "nom": "Mairie de Veauchette",
+        "adresse": "Place Just de Rostaing 42340 Veauchette",
+        "telephone": "+33477546105",
+        "email": "mairie@veauchette.fr",
+        "website": "https://www.veauchette.fr",
+        "horaires": "Mo 11:00-12:30,16:00-19:00; Tu-We 11:00-12:30; Th 11:00-12:30,16:00-19:00; Fr 11:00-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2652364,
+          45.5622879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5118310721,
+        "osm_type": "node",
+        "nom": "Mairie de Vendranges",
+        "telephone": "+33477649424",
+        "email": "mairie.vendranges@copler.fr",
+        "horaires": "Mo 08:30-16:30; Tu 08:30-17:00; Th 08:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1366535,
+          45.9413628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6051521383,
+        "osm_type": "node",
+        "nom": "Mairie de Verrières-en-Forez",
+        "adresse": "Le Bourg 42600 Verrières-en-Forez",
+        "telephone": "+33477762508",
+        "email": "mairie@verrieresenforez.fr",
+        "website": "https://www.verrieresenforez.fr/",
+        "horaires": "Mo 09:00-12:00; Fr 09:30-12:30,14:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9951089,
+          45.571525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1755036111,
+        "osm_type": "node",
+        "nom": "Mairie de Villars",
+        "telephone": "+33477911120",
+        "email": "secretariat@villars.fr",
+        "website": "https://villars.fr/",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3525958,
+          45.467777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6360380124,
+        "osm_type": "node",
+        "nom": "Mairie de Villemontais",
+        "adresse": "158 Rue Antonin Vergiat 42155 Villemontais",
+        "telephone": "+33477631015",
+        "email": "mairie@villemontais.fr",
+        "website": "https://www.villemontais.fr",
+        "horaires": "Mo 08:00-12:00; Tu 08:00-12:00,13:30-17:30; We-Th 08:00-12:00; Fr 08:00-12:00,13:30-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9504507,
+          45.979284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1891892350,
+        "osm_type": "node",
+        "nom": "Mairie de Villerest",
+        "adresse": "7 Rue du Clos 42300 Villerest",
+        "telephone": "+33477696666",
+        "email": "mairie@villerest.fr",
+        "website": "https://www.villerest.fr/",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0368522,
+          45.9964193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5119159401,
+        "osm_type": "node",
+        "nom": "Mairie de Villers",
+        "telephone": "+33477605077",
+        "email": "mairie@villers42.fr",
+        "website": "https://villersloire.e-monsite.com/",
+        "horaires": "Mo 10:30-12:00; Tu 10:30-12:00,16:30-18:30; We-Fr 10:30-12:00; Sa 10:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2214182,
+          46.1222551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6147047327,
+        "osm_type": "node",
+        "nom": "Mairie de Violay",
+        "adresse": "154 Rue Célestin Linder 42780 Violay",
+        "telephone": "+33474639092",
+        "email": "mairie@violay.fr",
+        "website": "https://www.violay.fr",
+        "horaires": "Mo 08:30-12:30,13:30-17:30; Tu-Th 08:30-12:30; Fr 08:30-12:30,13:30-17:30; Sa 08:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3580281,
+          45.8523026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5119179279,
+        "osm_type": "node",
+        "nom": "Mairie de Viricelles",
+        "adresse": "Place de la Mairie 42140 Viricelles",
+        "telephone": "+33477542499",
+        "email": "accueil@viricelles.fr",
+        "horaires": "Tu 09:00-12:00; Fr 09:00-12:00,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3731653,
+          45.6519358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5119185577,
+        "osm_type": "node",
+        "nom": "Mairie de Virigneux",
+        "telephone": "+33477944341",
+        "email": "mairie@virigneux.fr",
+        "website": "https://virigneux.fr",
+        "horaires": "Mo 09:30-12:00; We 14:00-16:00; Th 14:00-18:30; Sa 09:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3524063,
+          45.6886004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5724208286,
+        "osm_type": "node",
+        "nom": "Mairie de Vivans",
+        "telephone": "+33477643114",
+        "email": "mairie.vivans@wanadoo.fr",
+        "horaires": "Mo 14:00-16:30; Th 08:30-12:00; Fr 14:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9436215,
+          46.189036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6360579831,
+        "osm_type": "node",
+        "nom": "Mairie de Vougy",
+        "telephone": "+33477653046",
+        "email": "mairie@vougy42.fr",
+        "website": "https://vougy42.fr/",
+        "horaires": "Mo-Fr 08:30-12:00,13:30-17:00; Sa 09:30-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1177339,
+          46.1020819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 266218141,
+        "osm_type": "way",
+        "nom": "Mairie de Véranne",
+        "adresse": "Place de la Mairie 42520 Véranne",
+        "telephone": "+33474873752",
+        "email": "mairie@veranne.fr",
+        "website": "https://veranne.fr",
+        "horaires": "Mo 14:00-17:00; Tu 09:00-12:00; Th 09:00-12:00; Fr 14:00-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6626965,
+          45.3684115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5118323237,
+        "osm_type": "node",
+        "nom": "Mairie de Vérin",
+        "telephone": "+33474595178",
+        "email": "mairiedeverin@wanadoo.fr",
+        "website": "https://mairiedeverin.wixsite.com/commune-de-verin",
+        "horaires": "Mo 14:00-18:30; Tu 08:00-12:00; Th 08:00-12:00,14:30-18:30; Fr 08:00-12:00,15:00-18:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7533126,
+          45.4553837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6274565536,
+        "osm_type": "node",
+        "nom": "Mairie de Çaloire",
+        "adresse": "10 Chemin de la Mairie 42240 Çaloire",
+        "telephone": "+33477357106",
+        "email": "mairie-caloire@orange.fr",
+        "website": "https://www.caloire.fr/",
+        "horaires": "Mo-Th 08:00-12:00; Sa 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2426132,
+          45.4187192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4389388313,
+        "osm_type": "node",
+        "nom": "Mairie des Noës",
+        "telephone": "+33477644324",
+        "email": "mairie-des-noes@wanadoo.fr",
+        "horaires": "Mo 14:00-19:00; Th 11:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8526799,
+          46.0410261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6352345264,
+        "osm_type": "node",
+        "nom": "Mairie des Salles",
+        "adresse": "1 Place de la Mairie 42440 Les Salles",
+        "telephone": "+33477247266",
+        "email": "mairie.les.salles.42@wanadoo.fr",
+        "website": "https://www.lessalles42.fr/",
+        "horaires": "Mo-Tu 09:00-12:30,13:30-17:00; Th-Fr 09:00-12:30,13:30-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7935058,
+          45.8480719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6273757823,
+        "osm_type": "node",
+        "nom": "Mairie du Bessat",
+        "adresse": "50 Rue du Féria 42660 Le Bessat",
+        "telephone": "+33477204077",
+        "email": "secretariat@mairie-le-bessat.fr",
+        "website": "https://www.mairie-le-bessat.fr/",
+        "horaires": "Tu 10:00-12:00; Th 14:00-17:00; Fr 17:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5160468,
+          45.3690624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6275319278,
+        "osm_type": "node",
+        "nom": "Mairie du Cergne",
+        "telephone": "+33474897754",
+        "email": "mairie@lecergne.fr",
+        "website": "https://www.lecergne.fr",
+        "horaires": "Mo-Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3059051,
+          46.1205537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6285787384,
+        "osm_type": "node",
+        "nom": "Mairie du Coteau",
+        "telephone": "+33477670511",
+        "email": "contact@mairie-lecoteau.fr",
+        "website": "https://www.lecoteau.fr/",
+        "horaires": "Mo-Fr 08:00-12:00,13:30-17:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0895361,
+          46.0292398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5138951842,
+        "osm_type": "node",
+        "nom": "Mairie du Crozet",
+        "adresse": "30 Place Mario Meunier 42310 Le Crozet",
+        "telephone": "+33477643157",
+        "email": "commune.le.crozet@wanadoo.fr",
+        "website": "http://www.le-crozet.com",
+        "horaires": "Mo 09:00-12:00; We 09:00-12:00; Fr 09:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8552774,
+          46.1701727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6285794732,
+        "osm_type": "node",
+        "nom": "Mairie déléguée - La Côte-en-Couzan",
+        "telephone": "+33 4 77 97 96 14",
+        "email": "coteencouzan.mairie@wanadoo.fr",
+        "horaires": "Mo 09:30-15:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8422776,
+          45.7820929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4571960734,
+        "osm_type": "node",
+        "nom": "Mairie déléguée de Saint-Thurin",
+        "telephone": "+33477979110",
+        "email": "communesaintthurin@wanadoo.fr",
+        "website": "https://www.saint-thurin.ovh",
+        "horaires": "Tu,Fr 08:30-12:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8719203,
+          45.8163916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 355146522,
+        "osm_type": "way",
+        "nom": "Mairie Saint-Denis de Cabanne",
+        "telephone": "+33477600821",
+        "email": "mairie@saintdenisdecabanne.fr",
+        "website": "https://www.saintdenisdecabanne.fr",
+        "horaires": "Mo-Tu,Th-Fr 09:00-12:30; We,Sa 09:00-11:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.207849,
+          46.173208
+        ]
+      }
+    }
+  ]
+}

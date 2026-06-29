@@ -1,0 +1,641 @@
+{
+  "type": "FeatureCollection",
+  "name": "gendarmerie_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2016869376,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Saint-Bonnet-le-Château",
+        "telephone": "+33 4 77 50 09 58",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Fr 08:00-12:00,14:00-18:00; Sa 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0634539,
+          45.4266513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2069625149,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "adresse": "65 Rue du Président Wilson 42400 Saint-Chamond",
+        "operateur": "Gendarmerie nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5032198,
+          45.4718402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3151410918,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Boën-sur-Lignon",
+        "adresse": "Rue Alsace-Lorraine",
+        "telephone": "+33 4 77 24 08 29",
+        "email": "cob.boen@gendarmerie.interieur.gouv.fr",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.008475,
+          45.744503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3558432054,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Roanne",
+        "telephone": "+33 4 77 67 06 22",
+        "operateur": "Gendarmerie nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0775424,
+          46.046573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3913698774,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Balbigny",
+        "telephone": "+33 4 77 28 10 36",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-We 08:00-12:00,14:00-18:00; Th 14:00-18:00; Fr 08:00-12:00; Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1937158,
+          45.8183066
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4043770498,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Belmont-de-la-Loire",
+        "adresse": "Route de Chauffailles 42670 Belmont-de-la-Loire",
+        "telephone": "+33 4 77 63 60 24",
+        "operateur": "Gendarmerie nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3467677,
+          46.1679175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4110017392,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Montbrison",
+        "adresse": "3 Boulevard de l'Église 42600 Montbrison",
+        "telephone": "+33 4 77 58 12 88",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0756796,
+          45.5933487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4318207189,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Saint-Genest-Malifaux",
+        "adresse": "32 Rue du Forez 42660",
+        "telephone": "+33 4 77 51 20 84",
+        "email": "cob-st.genest.malifaux@gendarmerie.interieur.gouv.fr",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo 08:00-12:00,14:00-18:00; We 08:00-12:00,14:00-18:00; Fr 08:00-12:00,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4207876,
+          45.343594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5142381619,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie d'Andrézieux-Bouthéon",
+        "telephone": "+33 4 77 55 02 52",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2727009,
+          45.5218495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5749652276,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Chazelles-sur-Lyon",
+        "telephone": "+33 4 77 54 20 17",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Fr 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3803971,
+          45.6355941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6035359002,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Saint-Just-Saint-Rambert",
+        "telephone": "+33 4 77 52 34 77",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2254093,
+          45.4985067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6080467623,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Saint-Paul-en-Jarez",
+        "telephone": "+33 4 77 73 22 07",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.57623,
+          45.48806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6080624406,
+        "osm_type": "node",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Feurs",
+        "adresse": "1 Route Bleue 42110 Feurs",
+        "telephone": "+33 4 77 27 07 80",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2206808,
+          45.7511175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63278104,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Saint-Étienne",
+        "telephone": "+33 4 77 92 81 00",
+        "operateur": "Gendarmerie nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3848685,
+          45.4591628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 79205398,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Sorbiers",
+        "adresse": "41 Rue de l'Entente 42290 Sorbiers",
+        "telephone": "+33 4 77 53 60 58",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "We 08:00-12:00,14:00-18:00; Sa 08:00-12:00,14:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4398963,
+          45.4916545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 94255081,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Montrond-les-Bains",
+        "telephone": "+33 4 77 54 41 35",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Tu 08:00-12:00; Sa 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2350893,
+          45.6414266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164084717,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Saint-Georges-en-Couzan",
+        "telephone": "+33 4 77 24 85 44",
+        "operateur": "Gendarmerie nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.931791,
+          45.705322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164163047,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de La-Fouillouse",
+        "telephone": "+33 4 77 30 10 08",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo 08:00-12:00,14:00-18:00; Th 08:00-12:00,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3226515,
+          45.494542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 173192018,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Saint-Jean-Soleymieux",
+        "telephone": "+33 4 77 76 71 88",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Tu 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.040189,
+          45.5013288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 179949096,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Saint-Galmier",
+        "adresse": "26",
+        "telephone": "+33 4 77 54 01 21",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Th 08:00-12:00,14:00-18:00; Fr 14:00-18:00; Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.308862,
+          45.5957015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 246526956,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Renaison",
+        "adresse": "295 Rue de l'Annexe 42370 Renaison",
+        "telephone": "+33 4 77 64 40 52",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9327794,
+          46.053904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 277670662,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Pélussin",
+        "telephone": "+33 4 74 87 60 01",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6816965,
+          45.4190037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 278487037,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Saint-Héand",
+        "telephone": "+33 4 77 30 42 05",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Tu 08:00-12:00,14:00-18:00; Fr 08:00-12:00,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.369278,
+          45.5282375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 292356405,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Charlieu",
+        "telephone": "+33 4 77 60 04 44",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:30-12:00,14:30-18:30; PH,Su 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1784373,
+          46.1606491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319186615,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Bourg-Argental",
+        "telephone": "+33 4 77 39 60 20",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Tu 08:00-12:00,14:00-18:00; Th 08:00-12:00,14:00-18:00; Sa 08:00-12:00,14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.557958,
+          45.2955335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319498062,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Noirétable",
+        "telephone": "+33 4 77 24 77 11",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo 14:00-18:00; Th 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7620135,
+          45.821265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 323141239,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Saint-Germain-Laval",
+        "telephone": "+33 4 77 65 45 11",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo 08:00-12:00,14:00-18:00; Tu 14:00-18:00; We 08:00-12:00,14:00-18:00; Th 14:00-18:00; Fr-Sa 08:00-12:00,14:00-18:00; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0206577,
+          45.8327959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 337983852,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Saint-Symphorien-de-Lay",
+        "telephone": "+33 4 77 64 70 14",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Th 08:00-12:00; Fr 14:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2035495,
+          45.948743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366995073,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de la Pacaudière",
+        "telephone": "+33 4 77 64 30 06",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Sa 08:30-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8703895,
+          46.1755075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 371557927,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Peloton motorisé de Feurs",
+        "telephone": "+33 4 77 27 15 70",
+        "operateur": "Gendarmerie nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.185116,
+          45.738154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 407968594,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Brigade de gendarmerie de Saint-Just-en-Chevalet",
+        "telephone": "+33 4 77 65 00 37",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Tu 08:00-12:00; Th 08:00-12:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.844263,
+          45.9191115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 563150733,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Peloton motorisé de Noirétable",
+        "telephone": "+33 4 77 96 25 90",
+        "operateur": "Gendarmerie nationale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7941023,
+          45.8499716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 640681825,
+        "osm_type": "way",
+        "nom": "Gendarmerie nationale",
+        "nom_officiel": "Gendarmerie - Brigade de Villerest",
+        "telephone": "+33 4 77 68 16 44",
+        "operateur": "Gendarmerie nationale",
+        "horaires": "Mo-Sa 08:30-12:00,14:30-18:30; Su 09:00-12:00,15:00-18:00; PH 09:00-12:00,15:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0429521,
+          45.9869171
+        ]
+      }
+    }
+  ]
+}

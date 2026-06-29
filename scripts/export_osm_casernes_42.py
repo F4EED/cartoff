@@ -38,8 +38,7 @@ def osm_to_geojson(elements: list) -> dict:
         props = {
             "osm_id": el["id"],
             "osm_type": el["type"],
-            "nom": tags.get("name", tags.get("operator", "")),
-            "type_cis": tags.get("fire_station:type:FR", ""),
+            "nom": tags.get("name", ""),
             "adresse": tags.get("addr:full")
             or " ".join(
                 filter(
@@ -53,7 +52,6 @@ def osm_to_geojson(elements: list) -> dict:
                 )
             ),
             "telephone": tags.get("phone", tags.get("contact:phone", "")),
-            "operateur": tags.get("operator", ""),
             "website": tags.get("website", tags.get("contact:website", "")),
         }
         props = {k: v for k, v in props.items() if v}

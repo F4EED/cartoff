@@ -1,0 +1,1557 @@
+{
+  "type": "FeatureCollection",
+  "name": "services_publics_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11215887537,
+        "osm_type": "node",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0922568,
+          45.4877741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 124621370,
+        "osm_type": "way",
+        "nom": "Antenne du Département de la Loire",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0665714,
+          46.0339584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11758382157,
+        "osm_type": "node",
+        "nom": "Antenne Régionale des Transports Interurbains et Scolaires de la Loire",
+        "telephone": "+33 4 26 73 55 55",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3943784,
+          45.436576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1474391550,
+        "osm_type": "node",
+        "nom": "Archives départementales de la Loire",
+        "adresse": "6 rue Barrouin 42000 Saint-Etienne",
+        "telephone": "+33 4 77 93 58 78",
+        "operateur": "Conseil Départemental de la Loire",
+        "type": "archive"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3850783,
+          45.4535449
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2497332451,
+        "osm_type": "node",
+        "nom": "Archives municipales",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6200903,
+          45.5295134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13289612946,
+        "osm_type": "node",
+        "nom": "Banque de France",
+        "adresse": "22 Avenue Denfert Rochereau 42000 Saint-Étienne",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3992389,
+          45.4424905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9055319251,
+        "osm_type": "node",
+        "nom": "Caf de la Loire",
+        "adresse": "7 Montée des Visitandines",
+        "operateur": "Caisse d'Allocations Familiales",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0657547,
+          45.6098801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12077984680,
+        "osm_type": "node",
+        "nom": "Caf de la Loire",
+        "telephone": "+33 8 10 25 42 80",
+        "operateur": "Caisse d'Allocations Familiales",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.403349,
+          45.4415872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 124619741,
+        "osm_type": "way",
+        "nom": "Caf de la Loire",
+        "operateur": "Caisse d'Allocations Familiales",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0661121,
+          46.0407067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5961498089,
+        "osm_type": "node",
+        "nom": "Caisse d'Allocations Familiales de Loire",
+        "adresse": "3 Rue Lafontaine 42400 Saint-Chamond",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5105504,
+          45.472525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 124614670,
+        "osm_type": "way",
+        "nom": "caisse primaire d'assurance maladie",
+        "operateur": "Caisse Primaire d'Assurance Maladie",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0658118,
+          46.0350176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 722857244,
+        "osm_type": "way",
+        "nom": "Caisse primaire d'assurance maladie de la Loire",
+        "adresse": "1 Parvis Pierre Laroque 42000 Saint-Étienne",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3994865,
+          45.4419734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6181444786,
+        "osm_type": "node",
+        "nom": "Caisse Primaire d’Assurance Maladie",
+        "adresse": "23 Avenue de la Libération 42400 Saint-Chamond",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5162163,
+          45.4733211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63330270,
+        "osm_type": "way",
+        "nom": "Centre administratif municipal Tarentaize",
+        "operateur": "Ville de Saint-Étienne",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3814462,
+          45.4372515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 124646394,
+        "osm_type": "way",
+        "nom": "Centre Administratif Paul Pillet",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0723042,
+          46.0341023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2824724101,
+        "osm_type": "node",
+        "nom": "Centre Communal d'Action Sociale",
+        "adresse": "1 Square Docteur José Pierre Simon 42400 Saint-Chamond",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5134002,
+          45.4771197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5123468371,
+        "osm_type": "node",
+        "nom": "Centre d'information et d'orientation",
+        "adresse": "56 Boulevard Waldeck Rousseau 42400 Saint-Chamond",
+        "telephone": "+33 4 77222288",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5062088,
+          45.4771332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12887055625,
+        "osm_type": "node",
+        "nom": "Centre de gestion de la fonction publique territoriale de la Loire",
+        "telephone": "+33 477 426 720",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3830737,
+          45.4402746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6015818084,
+        "osm_type": "node",
+        "nom": "Centre des Finances Publiques",
+        "adresse": "17 Rue Victor Hugo 42400 Saint-Chamond",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.515628,
+          45.4748874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7182685837,
+        "osm_type": "node",
+        "nom": "Centre des finances publiques",
+        "adresse": "8 Rue de la Convention",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4079499,
+          45.424983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8967700384,
+        "osm_type": "node",
+        "nom": "Centre des Finances Publiques",
+        "adresse": "13 Rue des Docteurs Charcot",
+        "telephone": "+33 477818779",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.392736,
+          45.4214598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11684956193,
+        "osm_type": "node",
+        "nom": "Centre des Finances Publiques",
+        "telephone": "+33 4 77 43 46 70",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3924596,
+          45.436474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13329074470,
+        "osm_type": "node",
+        "nom": "Centre des finances publiques",
+        "adresse": "26 bis Boulevard Lachèze 42608 Montbrison",
+        "telephone": "+33477963131",
+        "operateur": "Direction générale des Finances publiques",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0666637,
+          45.6041005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 124645326,
+        "osm_type": "way",
+        "nom": "Centre des Finances Publiques",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0720658,
+          46.0464679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 343055484,
+        "osm_type": "way",
+        "nom": "Centre des Impôts",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.219604,
+          45.7447291
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6900916535,
+        "osm_type": "node",
+        "nom": "Centre régional de dédouanement",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4092833,
+          45.4532035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6278106298,
+        "osm_type": "node",
+        "nom": "Centre Technique Communautaire du Gier - Saint-Etienne Métropole",
+        "adresse": "1 Rue des Martinets 42400 Saint-Chamond",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5381777,
+          45.4737075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 65633304,
+        "osm_type": "way",
+        "nom": "Centre Technique Municipal",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4416135,
+          45.4434751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13958692355,
+        "osm_type": "node",
+        "nom": "Centre Technique Municipal et Métropolitain du Soleil",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4052417,
+          45.4542846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9003326957,
+        "osm_type": "node",
+        "nom": "Chambre d'Agriculture Loire",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0972286,
+          46.0312856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63288157,
+        "osm_type": "way",
+        "nom": "Chambre de Commerce et d'Industrie de Saint-Étienne et Montbrison",
+        "adresse": "57 Cours Fauriel",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4043942,
+          45.4272455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11999196470,
+        "osm_type": "node",
+        "nom": "Chambre d’Agriculture de la Loire",
+        "telephone": "+33477921212",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3711116,
+          45.473414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 292359307,
+        "osm_type": "way",
+        "nom": "Charlieu Belmont Communauté",
+        "telephone": "+33477690306",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1755295,
+          46.1583173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10132477509,
+        "osm_type": "node",
+        "nom": "CNFPT - Maison de la Fonction publique territoriale",
+        "adresse": "24 Rue d'Arcole 42000 Saint-Étienne",
+        "telephone": "+33 4 77 49 68 30",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3830404,
+          45.4402556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12350660483,
+        "osm_type": "node",
+        "nom": "Communauté de communes de FOREZ-EST",
+        "adresse": "6 Place Paul Larue 42110 Feurs",
+        "telephone": "+33 4 77 28 29 30",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2274972,
+          45.7422828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7822781286,
+        "osm_type": "node",
+        "nom": "Communauté de communes du Pays d'Urfé",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8454549,
+          45.9138791
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2420995751,
+        "osm_type": "node",
+        "nom": "Communauté des communes des Monts du Pilat",
+        "adresse": "Place de l'Hôtel de Ville 42220 Bourg-Argental",
+        "telephone": "+33477396921",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5605857,
+          45.2964881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 676323774,
+        "osm_type": "way",
+        "nom": "Conseil général de la Loire - Délégation au Développement Durable",
+        "telephone": "+33477602022",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1739753,
+          46.163608
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2824723901,
+        "osm_type": "node",
+        "nom": "Conseil général de la Loire - Délégation à la vie sociale",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.51385,
+          45.4773371
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6527838909,
+        "osm_type": "node",
+        "nom": "Conseil Général de la Loire - Développement Durable",
+        "adresse": "70 Route du Coin 42400 Saint-Chamond",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5349549,
+          45.4676068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11270916552,
+        "osm_type": "node",
+        "nom": "Conservatoire et enseignement artistique",
+        "adresse": "133 Boulevard Baron du Marais 42300 Roanne",
+        "telephone": "+33477710174",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0640351,
+          46.0402753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9419320511,
+        "osm_type": "node",
+        "nom": "Conservatoire et enseignement artistique Site du coteau",
+        "adresse": "9 Rue des Écoles 42120 Le Coteau",
+        "telephone": "+33477710174",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0846625,
+          46.0305311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3177917963,
+        "osm_type": "node",
+        "nom": "CPAM",
+        "operateur": "CPAM",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3220768,
+          45.3964829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3484164916,
+        "osm_type": "node",
+        "nom": "Direction Départementale de la Protection des Populations",
+        "telephone": "+33 4 77 43 44 44",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3956305,
+          45.4217379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63255155,
+        "osm_type": "way",
+        "nom": "Direction départementale des finances publiques de la Loire",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.385419,
+          45.4378341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7829580272,
+        "osm_type": "node",
+        "nom": "Direction Départementale des Territoires",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3990628,
+          45.4401388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6497172615,
+        "osm_type": "node",
+        "nom": "Direction Interdépartementale Routes Centre Est",
+        "adresse": "55 Route de la Varizelle 42400 Saint-Chamond",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4850849,
+          45.4594715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13944583646,
+        "osm_type": "node",
+        "nom": "Direction police et sécurité civile municipales",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3846232,
+          45.4356323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12136082870,
+        "osm_type": "node",
+        "nom": "Direction territoriale de la protection judiciaire de la jeunesse - Loire",
+        "adresse": "3 Rue Dormoy",
+        "telephone": "+33 4 77 49 22 60",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3849791,
+          45.4420654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10058155647,
+        "osm_type": "node",
+        "nom": "DSDEN",
+        "adresse": "11 Rue des Docteurs Charcot 42100 Saint-Étienne",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3924695,
+          45.4224244
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4366358222,
+        "osm_type": "node",
+        "nom": "Département de la Loire",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.409844,
+          45.4228284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63275981,
+        "osm_type": "way",
+        "nom": "Département de la Loire",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3869657,
+          45.4437185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63293809,
+        "osm_type": "way",
+        "nom": "Département de la Loire",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3802534,
+          45.4400514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 592475250,
+        "osm_type": "way",
+        "nom": "Département de la Loire - Antenne de Montbrison",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0742497,
+          45.6066601
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7067353699,
+        "osm_type": "node",
+        "nom": "Epora",
+        "adresse": "2 Avenue Gruner",
+        "telephone": "+334 77 47 47 50",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3984343,
+          45.4402837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 243905992,
+        "osm_type": "way",
+        "nom": "France Services",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4478567,
+          45.4519859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6198981752,
+        "osm_type": "node",
+        "nom": "France Travail",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5120328,
+          45.473045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9695303389,
+        "osm_type": "node",
+        "nom": "France Travail",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6021346,
+          45.5242693
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9857971267,
+        "osm_type": "node",
+        "nom": "France Travail",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0721159,
+          46.0405832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11196039117,
+        "osm_type": "node",
+        "nom": "France Travail",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0954654,
+          45.5999511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11277240910,
+        "osm_type": "node",
+        "nom": "France Travail",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3792241,
+          45.4376273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63242454,
+        "osm_type": "way",
+        "nom": "France Travail",
+        "adresse": "59",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3928239,
+          45.457667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63247584,
+        "osm_type": "way",
+        "nom": "France Travail",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3885993,
+          45.4179322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63326627,
+        "osm_type": "way",
+        "nom": "France Travail",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3994948,
+          45.4398441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3609131341,
+        "osm_type": "node",
+        "nom": "Greffe du Tribunal de Commerce",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.386496,
+          45.4374192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3660467909,
+        "osm_type": "node",
+        "nom": "Hôtel du Département de la Loire",
+        "telephone": "+33 4 77 48 42 42",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3864867,
+          45.4422398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63330509,
+        "osm_type": "way",
+        "nom": "Immeuble de La Loire Républicaine",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3874872,
+          45.4419547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8480258506,
+        "osm_type": "node",
+        "nom": "Inspection de l'Education Nationale",
+        "adresse": "3 Place d'Armes 42400 Saint-Chamond",
+        "telephone": "+33 4 77 22 61 86",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5265443,
+          45.4815038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6528042194,
+        "osm_type": "node",
+        "nom": "Loire Forez agglomération",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0616344,
+          45.6086525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63340852,
+        "osm_type": "way",
+        "nom": "Maison de l'Emploi et de la Formation Loire Sud",
+        "adresse": "18 Avenue Augustin Dupré",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3790986,
+          45.4376003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11737710945,
+        "osm_type": "node",
+        "nom": "Maison des Projets",
+        "adresse": "1 Rue Claude Drivon 42800 Rive de Gier",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6139048,
+          45.5285251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1674579619,
+        "osm_type": "node",
+        "nom": "Maison des projets Tarentaize Beaubrun Couriot",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3851214,
+          45.4361142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2568007739,
+        "osm_type": "node",
+        "nom": "Maison des Projets Urbains",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4029744,
+          45.4411897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3960588504,
+        "osm_type": "node",
+        "nom": "Maison des Services",
+        "operateur": "Charlieu-Belmont Communauté",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1711617,
+          46.1601352
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8708895843,
+        "osm_type": "node",
+        "nom": "Maison du Parc",
+        "adresse": "2 Rue Michel Laval 42340 Veauche",
+        "telephone": "+33 4 77 94 14 14",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2742052,
+          45.5626869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6579645040,
+        "osm_type": "node",
+        "nom": "Maison du Projet",
+        "operateur": "Ville de Saint-Étienne",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3888892,
+          45.4392837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10278495632,
+        "osm_type": "node",
+        "nom": "Maison Départementale de l'Habitat et du Logement - ADIL 42",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3868207,
+          45.443417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5875711834,
+        "osm_type": "node",
+        "nom": "Maison départementale des personnes handicapées",
+        "telephone": "+33 4 77 29 27 58",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5065289,
+          45.4765339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7193460383,
+        "osm_type": "node",
+        "nom": "Maison France Service de Chazelles-sur-Lyon",
+        "operateur": "Communauté de Communes de Forez-Est",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3932631,
+          45.6382574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3145911738,
+        "osm_type": "node",
+        "nom": "Maison France Services",
+        "adresse": "17 Rue de Roanne 42130 Boën-sur-Lignon",
+        "telephone": "+33 4 77 97 72 48",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0035147,
+          45.7467476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9867614929,
+        "osm_type": "node",
+        "nom": "Maison France Services",
+        "telephone": "+33 7 55 67 24 77",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1085146,
+          46.1443911
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3617526052,
+        "osm_type": "node",
+        "nom": "Office du Commerce",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3867037,
+          45.4404804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1000783,
+        "osm_type": "relation",
+        "nom": "Préfecture de la Loire",
+        "adresse": "2 Rue Charles de Gaulle",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3866672,
+          45.4424152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13715485876,
+        "osm_type": "node",
+        "nom": "Pôle Vie Sociale",
+        "operateur": "Département de la Loire",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3870896,
+          45.4439617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4417371883,
+        "osm_type": "node",
+        "nom": "Roannais agglomération",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0709079,
+          46.0356927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3233291659,
+        "osm_type": "node",
+        "nom": "Saint-Étienne Métropole",
+        "telephone": "+33 4 77 49 21 49",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3983105,
+          45.4400064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 863187801,
+        "osm_type": "way",
+        "nom": "Service départemental d'incendie et de secours de la Loire",
+        "telephone": "+33 4 77 91 08 00",
+        "operateur": "SDIS 42",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.384952,
+          45.4652718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 163997978,
+        "osm_type": "way",
+        "nom": "Sous-préfecture de la Loire",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0633525,
+          45.609507
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4169981473,
+        "osm_type": "node",
+        "nom": "Sous-Préfecture de Roanne",
+        "adresse": "Rue Joseph-Déchelette 42300 Roanne",
+        "telephone": "+33 4 77 23 64 64",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0693526,
+          46.0355056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1332677068,
+        "osm_type": "way",
+        "nom": "SYMISOA - Syndicat des rivières du Sornin",
+        "telephone": "+33 4 77 60 97 91",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1082031,
+          46.1489749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 65638368,
+        "osm_type": "way",
+        "nom": "Territoire d'énergie Loire",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.377893,
+          45.4681284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63252886,
+        "osm_type": "way",
+        "nom": "Urssaf",
+        "type": "government"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3903364,
+          45.4509533
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,4929 @@
+{
+  "type": "FeatureCollection",
+  "name": "centres_communaux_loire_42",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3058894874,
+        "osm_type": "node",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2478015,
+          45.5854843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3563380824,
+        "osm_type": "node",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8865758,
+          46.0115638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4110017490,
+        "osm_type": "node",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.066491,
+          45.5895394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4169981980,
+        "osm_type": "node",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0736845,
+          46.0393732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9235629756,
+        "osm_type": "node",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.399991,
+          45.589033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9429284535,
+        "osm_type": "node",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0378385,
+          45.5076696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9429362887,
+        "osm_type": "node",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0432976,
+          45.5090703
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9967388734,
+        "osm_type": "node",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2358149,
+          45.8938245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13532978097,
+        "osm_type": "node",
+        "adresse": "2 Rue Fernand Léger 42600 Montbrison",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0552067,
+          45.6119666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 127119458,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8526205,
+          45.703413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164072028,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0837981,
+          45.5690894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164182214,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.010767,
+          45.587685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 175612994,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0108744,
+          45.4157151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 175992522,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.083155,
+          45.608017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 224258737,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4656581,
+          45.5949624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 235837149,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3306945,
+          45.450473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 249240968,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0850683,
+          46.1502306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 266205585,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.653584,
+          45.342103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 315019482,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6711635,
+          45.3872785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 317084513,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6316525,
+          45.537397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319286692,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3108088,
+          45.7446721
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319557838,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7638345,
+          45.811762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319587404,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9412432,
+          45.386951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 321640069,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1262245,
+          45.5554054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 322082058,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0663512,
+          45.7152049
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 340416386,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.113191,
+          45.50311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366187676,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3770975,
+          46.2022695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 379172681,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0911484,
+          45.5476307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 407924237,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.801401,
+          45.945737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 407968552,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.843239,
+          45.914243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 413713383,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0368196,
+          45.6955465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 431534128,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3066324,
+          46.1223668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 432812650,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2666832,
+          46.1285721
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 434376568,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2824666,
+          46.1373595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 434376704,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.282066,
+          46.1377971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 434724408,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2062108,
+          46.1517371
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 440629935,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0559703,
+          45.7339942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 480312078,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9802392,
+          45.7734875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 480312579,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9801751,
+          45.7735647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 480312617,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.980156,
+          45.7736016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 480312762,
+        "osm_type": "way",
+        "adresse": "Saint-Sixte",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9801179,
+          45.773676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 490647120,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8915293,
+          45.8823463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 505391967,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9423821,
+          45.7595615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 617244724,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9719062,
+          45.7527906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 673053680,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1970506,
+          45.5936133
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 878404513,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0296823,
+          45.6637513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1059699630,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.236985,
+          45.4412014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1356170180,
+        "osm_type": "way",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0679519,
+          45.6699722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8071975302,
+        "osm_type": "node",
+        "nom": "Accueil périscolaire Les P'tites Crapules",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1844452,
+          46.1212025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9995237010,
+        "osm_type": "node",
+        "nom": "Agora",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7474626,
+          45.3866485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 150410288,
+        "osm_type": "way",
+        "nom": "Amicale de la Baraillère",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.432371,
+          45.444952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2935523959,
+        "osm_type": "node",
+        "nom": "Amicale Laïque Chapelon",
+        "adresse": "16 Place Jacquard 42000",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3826084,
+          45.4421843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5236613614,
+        "osm_type": "node",
+        "nom": "Amicale Laïque Côte-Chaude",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.362043,
+          45.4437674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1744042605,
+        "osm_type": "node",
+        "nom": "Amicale Laïque de Beaulieu",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4116432,
+          45.4276165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63295441,
+        "osm_type": "way",
+        "nom": "Amicale Laïque de Tardy",
+        "adresse": "86 Rue Vaillant-Couturier",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3840171,
+          45.4282946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63318022,
+        "osm_type": "way",
+        "nom": "Amicale Laïque de Terrenoire",
+        "adresse": "2 Rue Anatole France",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4381823,
+          45.4334379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63265496,
+        "osm_type": "way",
+        "nom": "Amicale Laïque Dormand",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3963623,
+          45.4333048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1820343183,
+        "osm_type": "node",
+        "nom": "Amicale Laïque du Crêt de Roch",
+        "adresse": "16 Rue Royet",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3912987,
+          45.4414261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4020308040,
+        "osm_type": "node",
+        "nom": "Amicale Laïque Michelet",
+        "telephone": "+33 4 77 57 16 64",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3971912,
+          45.4195919
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5236613615,
+        "osm_type": "node",
+        "nom": "Amicale Laïque Richelandière",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4073898,
+          45.4369067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13176494614,
+        "osm_type": "node",
+        "nom": "Amicale Laïque Villeboeuf-le-Haut",
+        "telephone": "+33 4 77 38 55 03",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4022692,
+          45.4313056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 342052435,
+        "osm_type": "way",
+        "nom": "Annexe de la Halle des sports",
+        "operateur": "Mairie de Saint-André-d'Apchon",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9341585,
+          46.033274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 541064481,
+        "osm_type": "way",
+        "nom": "APIJ",
+        "adresse": "25 Rue Alsace-Lorraine 42130 Boën-sur-Lignon",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.00601,
+          45.7441831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5941044094,
+        "osm_type": "node",
+        "nom": "Association Familiale laïque de Montplaisir",
+        "adresse": "8 Rue du Docteur Zamenhof 42100 Saint-Étienne",
+        "telephone": "+33 4 77 33 83 50",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4161584,
+          45.4345823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4161903506,
+        "osm_type": "node",
+        "nom": "Association Familiale Laïque Solaure-Jomayère-Croix-de-l’Orme",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3818251,
+          45.4105737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3461141680,
+        "osm_type": "node",
+        "nom": "Au fil de la Rivière",
+        "adresse": "16 Rue Bonnassieux 42100 Saint-Étienne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4003963,
+          45.4130046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 87559214,
+        "osm_type": "way",
+        "nom": "Bourse du Travail",
+        "operateur": "Ville de Firminy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2856675,
+          45.3866005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1488973537,
+        "osm_type": "way",
+        "nom": "Carré d'Urfé",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0372104,
+          45.9934087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3660464371,
+        "osm_type": "node",
+        "nom": "Centre Al Qalam",
+        "adresse": "58 Rue Balaÿ 42000 Saint-Étienne",
+        "telephone": "+33 4 77 32 98 67",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3859201,
+          45.4466643
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11969093250,
+        "osm_type": "node",
+        "nom": "Centre aéré de Longiron",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4209783,
+          45.4685793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3715329664,
+        "osm_type": "node",
+        "nom": "Centre communautaire Arménien",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4043131,
+          45.4386025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2360850692,
+        "osm_type": "node",
+        "nom": "Centre d'Animation de Firminy Vert",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2850061,
+          45.3814972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 622799455,
+        "osm_type": "way",
+        "nom": "Centre de loisirs Armand Charnay",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1741954,
+          46.1590578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 177136147,
+        "osm_type": "way",
+        "nom": "Centre Jéro Jacquemond",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3730579,
+          45.5317689
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 87569379,
+        "osm_type": "way",
+        "nom": "Centre Laïc Culturel et Sportif",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.287886,
+          45.37923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5203755789,
+        "osm_type": "node",
+        "nom": "Centre social et culturel Henri Matisse",
+        "adresse": "Rue de la République 42800 Rive-de-Gier",
+        "telephone": "+33 4 77 75 07 55",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6123857,
+          45.5296443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6503268477,
+        "osm_type": "node",
+        "nom": "Centre social Le Soleil Levant",
+        "adresse": "20 Rue des Aubépines 42700 Firminy",
+        "telephone": "+33 4 77 56 23 09",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2974964,
+          45.3840688
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 144804243,
+        "osm_type": "way",
+        "nom": "Centre socio-culturel L'Horizon",
+        "adresse": "3 Rue Georges Clemenceau 42350 La Talaudière",
+        "operateur": "L'Horizon",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4384787,
+          45.4812644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4162895415,
+        "osm_type": "node",
+        "nom": "Cercle",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3608376,
+          45.3140663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10892671535,
+        "osm_type": "node",
+        "nom": "Château du Bourg",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1212198,
+          46.0476466
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 321638913,
+        "osm_type": "way",
+        "nom": "Club de l'amitié - François Moritel",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.120914,
+          45.5562675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3958594936,
+        "osm_type": "node",
+        "nom": "Club de l'Amitié de Montplaisir",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4154592,
+          45.4340474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5905871338,
+        "osm_type": "node",
+        "nom": "Club Suzanne Lacore",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0668812,
+          46.0277954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 154269508,
+        "osm_type": "way",
+        "nom": "Complexe d’animation des Bords de Loire",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2542345,
+          45.5353175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 156473437,
+        "osm_type": "way",
+        "nom": "Espace 1004",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3526913,
+          45.8513541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6964513319,
+        "osm_type": "node",
+        "nom": "Espace Barbara",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2183557,
+          45.5195883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1024272307,
+        "osm_type": "way",
+        "nom": "Espace de la Galoche",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.673548,
+          45.4643532
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5904338175,
+        "osm_type": "node",
+        "nom": "Espace de la Tour",
+        "operateur": "Ville de Mably",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0635648,
+          46.0861528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 163997874,
+        "osm_type": "way",
+        "nom": "Espace Guy Poirieux",
+        "operateur": "Ville de Montbrison",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.067176,
+          45.6172515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6396299585,
+        "osm_type": "node",
+        "nom": "Espace Jean Dessagne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2356459,
+          45.5375566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1771593335,
+        "osm_type": "node",
+        "nom": "Espace Jeunesse",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4433283,
+          45.4481727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6150007053,
+        "osm_type": "node",
+        "nom": "Espace Marguerite Gonon",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1999054,
+          45.592755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7558619187,
+        "osm_type": "node",
+        "nom": "Espace Maurice Desplaces",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2271048,
+          45.7533612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 657930491,
+        "osm_type": "way",
+        "nom": "Espace Oxygène",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0471022,
+          46.0171397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 896302918,
+        "osm_type": "way",
+        "nom": "Familles Rurales - Accueil de Loisirs",
+        "telephone": "+33 6 76 32 80 00",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1075296,
+          46.1439949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1744383210,
+        "osm_type": "node",
+        "nom": "Foyer Culturel Turc",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3781239,
+          45.4398715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13643165667,
+        "osm_type": "node",
+        "nom": "Grabots Grabottes",
+        "adresse": "38 Rue des Docteurs Charcot",
+        "operateur": "Secours Catholique",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3922473,
+          45.4208023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1486398896,
+        "osm_type": "way",
+        "nom": "L'Esplanade",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0589796,
+          46.000061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 328167940,
+        "osm_type": "way",
+        "nom": "l'Eveil",
+        "adresse": "65",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.274919,
+          45.760292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4051640281,
+        "osm_type": "node",
+        "nom": "La Bricoleuse",
+        "adresse": "27 Rue de la Ville",
+        "operateur": "Crefad Loire",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3862228,
+          45.4362141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2940413372,
+        "osm_type": "node",
+        "nom": "La Cale",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3911543,
+          45.4415602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2016879508,
+        "osm_type": "node",
+        "nom": "La Galinière",
+        "operateur": "Kafasso Cacamerlot",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0665638,
+          45.4226432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2969077130,
+        "osm_type": "node",
+        "nom": "La Gueule Noire",
+        "adresse": "16 Rue du Mont",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3894584,
+          45.4181839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1305777181,
+        "osm_type": "way",
+        "nom": "La Halle Bistanclaque",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2823406,
+          46.076353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1285336288,
+        "osm_type": "way",
+        "nom": "La Papeterie",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0336121,
+          45.9849829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9316620256,
+        "osm_type": "node",
+        "nom": "La Source",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.17133,
+          46.1585695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63274148,
+        "osm_type": "way",
+        "nom": "Le Babet Centre Social",
+        "adresse": "10 Rue Félix Pyat",
+        "telephone": "+33 4 77 33 33 92",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3816515,
+          45.4352334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 277952953,
+        "osm_type": "way",
+        "nom": "Le Chambosco",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.32043,
+          45.5777035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13818357960,
+        "osm_type": "node",
+        "nom": "Le Clos de La Crinoline",
+        "telephone": "+33638011031",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0862098,
+          45.4546454
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 661744481,
+        "osm_type": "way",
+        "nom": "Le Kiosque",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2719211,
+          45.5238189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2297351193,
+        "osm_type": "node",
+        "nom": "Le Mixeur",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3861895,
+          45.4496151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63325762,
+        "osm_type": "way",
+        "nom": "Le Paradou",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3869278,
+          45.4162242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1788358411,
+        "osm_type": "node",
+        "nom": "Le Pied des Marches",
+        "adresse": "16 Rue Roger Salengro 42000 Saint-Étienne",
+        "operateur": "Rues du Développement Durable",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3890253,
+          45.4423489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1385659748,
+        "osm_type": "way",
+        "nom": "Le Pré'O",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3998348,
+          45.5894194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366189852,
+        "osm_type": "way",
+        "nom": "Les Arcades",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3451657,
+          46.1658128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5336509379,
+        "osm_type": "node",
+        "nom": "Local de l'Aube",
+        "adresse": "61 Rue Antoine Durafour",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.393787,
+          45.4298537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12018268549,
+        "osm_type": "node",
+        "nom": "Local jeunes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.827153,
+          45.8876739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6396299596,
+        "osm_type": "node",
+        "nom": "Maison communale Marcelle Zyber",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2360529,
+          45.5376872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 436319341,
+        "osm_type": "way",
+        "nom": "Maison commune",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2979785,
+          46.1607199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 277953008,
+        "osm_type": "way",
+        "nom": "Maison d'animation",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.319993,
+          45.577237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63288820,
+        "osm_type": "way",
+        "nom": "Maison d'animation de la Métare",
+        "adresse": "96 Boulevard Alexandre de Fraissinette 42100 Saint-Étienne",
+        "telephone": "+33 4 77 25 81 68",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4210351,
+          45.4191523
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6342679323,
+        "osm_type": "node",
+        "nom": "Maison de l'Avenir",
+        "operateur": "Diocèse de Saint-Étienne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3858045,
+          45.4091959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 95051341,
+        "osm_type": "way",
+        "nom": "Maison de quartier Billodière",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0714984,
+          46.0733439
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 119185199,
+        "osm_type": "way",
+        "nom": "Maison de quartier de la Croix-Berthaud",
+        "adresse": "15BIS Square Henri Dunant 42400 Saint-Chamond",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5144929,
+          45.4650764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 65638627,
+        "osm_type": "way",
+        "nom": "Maison de quartier du Fay",
+        "adresse": "43 Rue du Puits Lucy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4457463,
+          45.4691868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 71643133,
+        "osm_type": "way",
+        "nom": "Maison de Quartier du Pontet",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0603336,
+          46.0526368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3502983646,
+        "osm_type": "node",
+        "nom": "Maison de Quartier du Soleil",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4031034,
+          45.4477194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 119184337,
+        "osm_type": "way",
+        "nom": "Maison de Quartier Jean-Baptiste Jacquier",
+        "adresse": "42400 Saint-Chamond",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4691143,
+          45.4389468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 95054486,
+        "osm_type": "way",
+        "nom": "Maison de quartier Pierre Corneille",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0593677,
+          46.0624317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6606114898,
+        "osm_type": "node",
+        "nom": "Maison de Quartier Vincent Goujon",
+        "adresse": "21 Place Nationale 42400 Saint-Chamond",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5030815,
+          45.4634942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2324493734,
+        "osm_type": "node",
+        "nom": "Maison des Associations",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3697799,
+          45.4431078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6337431858,
+        "osm_type": "node",
+        "nom": "Maison des Associations",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6770796,
+          45.4206722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 158861925,
+        "osm_type": "way",
+        "nom": "Maison des Associations",
+        "adresse": "19bis Rue Joannès Beaulieu",
+        "operateur": "Ville de Saint-Just-Saint-Rambert",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.261088,
+          45.5029175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 213112849,
+        "osm_type": "way",
+        "nom": "Maison des associations",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3213877,
+          45.3961331
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 292318923,
+        "osm_type": "way",
+        "nom": "Maison des associations",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2997576,
+          45.6477688
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1228258720,
+        "osm_type": "way",
+        "nom": "Maison des associations",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.17488,
+          46.1570679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6329207058,
+        "osm_type": "node",
+        "nom": "Maison des associations de Tardy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3833841,
+          45.4276645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10200516214,
+        "osm_type": "node",
+        "nom": "Maison des Associations et la Citoyenneté",
+        "adresse": "44 Rue Gambetta",
+        "telephone": "+334 77 40 58 23",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.289021,
+          45.3903692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2382629185,
+        "osm_type": "node",
+        "nom": "Maison des Associations Sainte-Catherine",
+        "operateur": "Ville de Saint-Étienne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3862664,
+          45.4367365
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4120684494,
+        "osm_type": "node",
+        "nom": "Maison des Associations Solaure",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3867859,
+          45.4086551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 102411286,
+        "osm_type": "way",
+        "nom": "Maison des Jeunes et de la Culture de Charlieu",
+        "telephone": "+33 4 77 60 05 97",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1747153,
+          46.157359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3271333024,
+        "osm_type": "node",
+        "nom": "Maison des permanences",
+        "adresse": "16 Rue de Lyon",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0051743,
+          45.7439677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1885019269,
+        "osm_type": "node",
+        "nom": "Maison des Sociétés",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4503691,
+          45.487277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4181974949,
+        "osm_type": "node",
+        "nom": "Maison du Combattant et des Associations",
+        "adresse": "4 Rue André Malraux",
+        "telephone": "+33 4 77 25 88 50",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3850494,
+          45.439789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2344146068,
+        "osm_type": "node",
+        "nom": "Maison du Crêt de Roch",
+        "adresse": "65 Rue de l'Éternité",
+        "telephone": "+33 4 77 33 15 90",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3896386,
+          45.4441212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6314988704,
+        "osm_type": "node",
+        "nom": "Maison du Temps Libre",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0117386,
+          46.1357012
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7562095333,
+        "osm_type": "node",
+        "nom": "Maison du temps libre",
+        "adresse": "42122 Saint-Marcel-de-Félines",
+        "operateur": "Mairie de Saint Marcel de Félines",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1928502,
+          45.8661109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 146564166,
+        "osm_type": "way",
+        "nom": "Maison du Temps Libre",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5697515,
+          45.4877293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 312334639,
+        "osm_type": "way",
+        "nom": "Maison Gaston Baty",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6825575,
+          45.419877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 312333300,
+        "osm_type": "way",
+        "nom": "Maison montagne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.677109,
+          45.420728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164008713,
+        "osm_type": "way",
+        "nom": "Maison Saint Joseph",
+        "adresse": "41 Rue du Faubourg de la Croix 42600 Montbrison",
+        "telephone": "+33 4 77 96 12 90",
+        "operateur": "diocèse de Saint-Étienne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.061976,
+          45.6103295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 225620224,
+        "osm_type": "way",
+        "nom": "Mille Club",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3897987,
+          45.4443812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4162895427,
+        "osm_type": "node",
+        "nom": "Mille clubs",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3606231,
+          45.3135665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4996645752,
+        "osm_type": "node",
+        "nom": "MJC de Briennon",
+        "telephone": "+33477607315",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0870723,
+          46.149517
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 163997772,
+        "osm_type": "way",
+        "nom": "MJC du Montbrisonnais",
+        "adresse": "42600",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0683085,
+          45.616835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 311965258,
+        "osm_type": "way",
+        "nom": "Mjc Saint Romain Loisirs",
+        "adresse": "11 Place du Plâtre",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.534358,
+          45.5556385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 783631401,
+        "osm_type": "way",
+        "nom": "MJC Saint-Denis de Cabanne",
+        "telephone": "+33477603491",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2084365,
+          46.1729969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 119192529,
+        "osm_type": "way",
+        "nom": "Moulin Combat",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.504891,
+          45.4504385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164182312,
+        "osm_type": "way",
+        "nom": "Nul Bard Ailleurs",
+        "adresse": "116 Route Nouvelle 42600 Bard",
+        "telephone": "+33 7 71 20 60 99",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.042206,
+          45.606781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 440650894,
+        "osm_type": "way",
+        "nom": "Petite salle de la Bouteresse",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0247664,
+          45.7398734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12716974323,
+        "osm_type": "node",
+        "nom": "pôle associatif Jacques-Clavier",
+        "adresse": "1c Rue des Grands Jardins 42450 Sury-le-Comtal",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1846902,
+          45.5370968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1511550975,
+        "osm_type": "way",
+        "nom": "Pôle culturel",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7321523,
+          45.4141383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1425658136,
+        "osm_type": "way",
+        "nom": "Pôle enfance jeunesse",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0541461,
+          45.6114783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 144804352,
+        "osm_type": "way",
+        "nom": "Pôle Festif",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.435344,
+          45.479338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 290268096,
+        "osm_type": "way",
+        "nom": "Pôle festif l'Onyx",
+        "adresse": "155 Chemin des Chartonnes 42450 Sury-le-Comtal",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.180708,
+          45.5431167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3073228377,
+        "osm_type": "node",
+        "nom": "Saint-Étienne Handisport",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3951985,
+          45.4595055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5864978704,
+        "osm_type": "node",
+        "nom": "Salle Alain Prost",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5126583,
+          45.4754682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319219560,
+        "osm_type": "way",
+        "nom": "Salle André Jamet",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5582565,
+          45.294171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 866041550,
+        "osm_type": "way",
+        "nom": "Salle André Précloux",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1831888,
+          46.1219823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 121354797,
+        "osm_type": "way",
+        "nom": "Salle Artistide Briand",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.168703,
+          45.4987625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 121362412,
+        "osm_type": "way",
+        "nom": "Salle Bernard Rouby",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.170788,
+          45.496762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 124631125,
+        "osm_type": "way",
+        "nom": "Salle Bonnefille",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0721229,
+          46.0440954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 505393106,
+        "osm_type": "way",
+        "nom": "Salle Bussière",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0930464,
+          45.9133667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4073547095,
+        "osm_type": "node",
+        "nom": "Salle Chanoupa",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.38832,
+          45.4418164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164063706,
+        "osm_type": "way",
+        "nom": "Salle Christian Dumas",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9991204,
+          45.6183246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 266219324,
+        "osm_type": "way",
+        "nom": "Salle communale",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6632564,
+          45.3687803
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 355146308,
+        "osm_type": "way",
+        "nom": "Salle Communale",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2098151,
+          46.1750559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 355473507,
+        "osm_type": "way",
+        "nom": "Salle communale",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9804932,
+          45.9986775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 434723261,
+        "osm_type": "way",
+        "nom": "Salle communale",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2123662,
+          46.1493397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 448368710,
+        "osm_type": "way",
+        "nom": "Salle communale",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0863483,
+          45.7345222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3527783403,
+        "osm_type": "node",
+        "nom": "Salle communale de Poncins",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1615378,
+          45.7282385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5864978705,
+        "osm_type": "node",
+        "nom": "Salle Condorcet",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5124385,
+          45.4759124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 246527128,
+        "osm_type": "way",
+        "nom": "Salle culturelle",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9475884,
+          46.0569656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1230608246,
+        "osm_type": "way",
+        "nom": "Salle culturelle",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1206819,
+          46.1541176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 95052317,
+        "osm_type": "way",
+        "nom": "Salle culturelle Pierre Hénon",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0710603,
+          46.0680495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 290270136,
+        "osm_type": "way",
+        "nom": "Salle d'Activités Oxygène",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1811344,
+          45.54312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5540868275,
+        "osm_type": "node",
+        "nom": "Salle d'animation",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9312802,
+          45.7031491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9939791192,
+        "osm_type": "node",
+        "nom": "Salle d'animation",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3613749,
+          45.5975308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 166543724,
+        "osm_type": "way",
+        "nom": "Salle d'animation",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.070007,
+          46.011237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 414668993,
+        "osm_type": "way",
+        "nom": "Salle d'animation",
+        "adresse": "Doillat 42370 Saint Haon Le Vieux",
+        "telephone": "+33 4 77 64 42 81",
+        "operateur": "Mairie de Saint Haon Le Vieux",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.904853,
+          46.074874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 435691614,
+        "osm_type": "way",
+        "nom": "Salle d'Animation",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0452702,
+          46.154684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 437963581,
+        "osm_type": "way",
+        "nom": "Salle d'animation",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3043919,
+          45.9245211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 318399620,
+        "osm_type": "way",
+        "nom": "Salle d'Animation Rurale",
+        "adresse": "101 Route de l’Hôpital 42140 Virigneux",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3562572,
+          45.6884007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 443106889,
+        "osm_type": "way",
+        "nom": "Salle d'animation rurale",
+        "operateur": "Commune",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2630653,
+          46.0260452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 615628236,
+        "osm_type": "way",
+        "nom": "Salle d'animation rurale",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0070357,
+          45.7320302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 432812616,
+        "osm_type": "way",
+        "nom": "Salle de l'Aquarium",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2664198,
+          46.1271537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 158862257,
+        "osm_type": "way",
+        "nom": "Salle de l'Embarcadère",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.248585,
+          45.4999435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 65633663,
+        "osm_type": "way",
+        "nom": "Salle de l'Espérance",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4468922,
+          45.4499292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 53255446,
+        "osm_type": "way",
+        "nom": "Salle de L'Éden",
+        "telephone": "+33 4 77 27 49 70",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.225524,
+          45.7443325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 442296047,
+        "osm_type": "way",
+        "nom": "Salle de la Cantine",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2214709,
+          46.1220504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 322034697,
+        "osm_type": "way",
+        "nom": "Salle de la fraternelle laïque",
+        "adresse": "2 Rue de la Roue 42610 Saint-Romain-le-Puy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1192115,
+          45.5583185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6396299586,
+        "osm_type": "node",
+        "nom": "Salle de la Garenne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2375442,
+          45.5380375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63487611,
+        "osm_type": "way",
+        "nom": "Salle de la Libération",
+        "operateur": "Ville de Villars",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3537274,
+          45.4677813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 682071608,
+        "osm_type": "way",
+        "nom": "Salle de la Varizelle",
+        "adresse": "Rue Andrée Jeantet 42400 Saint-Chamond",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4837423,
+          45.4545433
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 292318925,
+        "osm_type": "way",
+        "nom": "Salle de la Verchère",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2972557,
+          45.6478039
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 119190595,
+        "osm_type": "way",
+        "nom": "Salle de Loisirs Bujarret",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4850605,
+          45.4546975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 312329748,
+        "osm_type": "way",
+        "nom": "Salle Denise Éparvier",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6759978,
+          45.4186382
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9893903483,
+        "osm_type": "node",
+        "nom": "Salle des associations",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7632853,
+          45.817198
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11822936116,
+        "osm_type": "node",
+        "nom": "Salle des Boiseries",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1203844,
+          46.1539616
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3137369435,
+        "osm_type": "node",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3003996,
+          45.647959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3143428629,
+        "osm_type": "node",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3015074,
+          45.7083994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3159556361,
+        "osm_type": "node",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2124418,
+          45.6845291
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6037078613,
+        "osm_type": "node",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4397056,
+          45.5661448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6150007054,
+        "osm_type": "node",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2002005,
+          45.5927925
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6276232887,
+        "osm_type": "node",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7586541,
+          45.7557885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6396299604,
+        "osm_type": "node",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2351155,
+          45.5380591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6911379970,
+        "osm_type": "node",
+        "nom": "Salle des Fêtes",
+        "adresse": "109 Place du 8 Mai 1945 42520 Maclas",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6821829,
+          45.3658981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8985820283,
+        "osm_type": "node",
+        "nom": "Salle des Fêtes",
+        "operateur": "Mairie de St-Julien-Molin-Molette",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6147431,
+          45.3234387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12676174282,
+        "osm_type": "node",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8293875,
+          45.8877578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 47512244,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0573601,
+          45.5662772
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 134704448,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2112535,
+          45.619482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 163460416,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9051945,
+          45.6724185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164035749,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9820542,
+          45.6377185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164063038,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9964705,
+          45.6186135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164099761,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0512225,
+          45.5909725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 180294265,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3076667,
+          45.8375458
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 267551018,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "adresse": "Rue de l'église 42220 Saint-Sauveur-en-Rue",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4959172,
+          45.2701802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 305182693,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2988196,
+          45.6776172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 308543315,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.004548,
+          45.7462065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 311320642,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1075029,
+          46.1443675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 319426551,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "adresse": "42155 Lentigny",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9817878,
+          45.9962031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 345542832,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes",
+        "adresse": "Moulin Cherier Cherier",
+        "operateur": "Mairie Moulin Cherier",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9085244,
+          45.964983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366152336,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9201545,
+          45.743082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 436320044,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3012298,
+          46.1605701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 442959990,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1631835,
+          46.0974829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 505115834,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9351578,
+          45.8804727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 566338512,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9316142,
+          46.1256856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 655706759,
+        "osm_type": "way",
+        "nom": "Salle des fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1267082,
+          45.8503409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 675108807,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0628468,
+          45.8305828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3019862305,
+        "osm_type": "node",
+        "nom": "Salle des Fêtes de Chenereilles",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1007485,
+          45.4870893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 432117726,
+        "osm_type": "way",
+        "nom": "Salle des fêtes de Marcoux",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.012588,
+          45.709182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 339874404,
+        "osm_type": "way",
+        "nom": "Salle des fêtes de Pinay",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.135554,
+          45.87309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2330587030,
+        "osm_type": "node",
+        "nom": "Salle des Fêtes de Pouilly les Feurs",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2292531,
+          45.795065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366200568,
+        "osm_type": "way",
+        "nom": "Salle des Fêtes de Vougy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1173725,
+          46.1024713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 95051486,
+        "osm_type": "way",
+        "nom": "Salle des fêtes des Tuileries",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0477133,
+          46.0695341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1460340783,
+        "osm_type": "way",
+        "nom": "Salle des fêtes Paganini",
+        "operateur": "Ville de Saint-Étienne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4035722,
+          45.4721052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1040314472,
+        "osm_type": "way",
+        "nom": "Salle des Garets",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9205147,
+          45.8363906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12802646890,
+        "osm_type": "node",
+        "nom": "Salle des Platanes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1199285,
+          46.1024385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3431228321,
+        "osm_type": "node",
+        "nom": "Salle Descours",
+        "operateur": "Ville de Saint-Étienne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3807936,
+          45.4341435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1449592274,
+        "osm_type": "way",
+        "nom": "Salle Deverchère",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3800737,
+          45.4335281
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7562078964,
+        "osm_type": "node",
+        "nom": "Salle du Chevalard",
+        "adresse": "71 Rue du Chevalard 42110 Mizérieux",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1625763,
+          45.7948583
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1157932244,
+        "osm_type": "way",
+        "nom": "Salle du Marronnier",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.117177,
+          46.1021231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 65632643,
+        "osm_type": "way",
+        "nom": "Salle du Pinson",
+        "adresse": "Rue Emile Vital André",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4466409,
+          45.4516876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3701853564,
+        "osm_type": "node",
+        "nom": "Salle du Port",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0842079,
+          46.1482228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 65633997,
+        "osm_type": "way",
+        "nom": "Salle du Puits Lucy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4459652,
+          45.4692763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8301768171,
+        "osm_type": "node",
+        "nom": "Salle du Tilleul",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5665842,
+          45.2709339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 361764621,
+        "osm_type": "way",
+        "nom": "Salle d’animation",
+        "operateur": "Commune de Verrières-en-Forez",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9949765,
+          45.5719495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5704477183,
+        "osm_type": "node",
+        "nom": "Salle Emilie",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0465388,
+          46.0195439
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 122654180,
+        "osm_type": "way",
+        "nom": "Salle ERA",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.152075,
+          45.4445243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 85018492,
+        "osm_type": "way",
+        "nom": "Salle Fernand Montagnon",
+        "adresse": "Avenue Maurice Thorez 42150 La Ricamarie",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3626186,
+          45.4054728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 426843812,
+        "osm_type": "way",
+        "nom": "Salle Fontalon",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0496258,
+          46.0313146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 833655864,
+        "osm_type": "way",
+        "nom": "Salle Fréry",
+        "adresse": "2 Rue du Collège 42610 Saint-Romain-le-Puy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1296281,
+          45.5525794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 89123226,
+        "osm_type": "way",
+        "nom": "Salle Gabriel Crepet",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.262291,
+          45.3980585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 323141241,
+        "osm_type": "way",
+        "nom": "Salle Greyzolon-Duluth",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.020726,
+          45.833606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 657330378,
+        "osm_type": "way",
+        "nom": "Salle Gérard Clavelloux",
+        "adresse": "5 Rue du Collège 42610 Saint-Romain-le-Puy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1305368,
+          45.5532558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 436262197,
+        "osm_type": "way",
+        "nom": "Salle Henri Corneloup",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2455267,
+          46.1770556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4069667803,
+        "osm_type": "node",
+        "nom": "Salle Jacques Brel",
+        "operateur": "Ville de Saint-Étienne",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4366728,
+          45.4347975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 266229680,
+        "osm_type": "way",
+        "nom": "Salle Jean Dasté",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7043595,
+          45.3729325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1460340821,
+        "osm_type": "way",
+        "nom": "Salle Jean Ferrat",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7055453,
+          45.3730238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9108553464,
+        "osm_type": "node",
+        "nom": "Salle Jean Plainard",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2136079,
+          46.176556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 323712309,
+        "osm_type": "way",
+        "nom": "Salle Jeanne d'Arc",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.156807,
+          45.806329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5864978706,
+        "osm_type": "node",
+        "nom": "Salle Lamartine",
+        "adresse": "2 Square du Souvenir Français 42400 Saint-Chamond",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5125948,
+          45.4746975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1469326421,
+        "osm_type": "way",
+        "nom": "Salle Louis Richard",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3342754,
+          45.4484028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 355145725,
+        "osm_type": "way",
+        "nom": "Salle Maurice de Gatelier",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2067508,
+          46.1719736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6630712195,
+        "osm_type": "node",
+        "nom": "Salle Municipale La Nef",
+        "adresse": "9 Rue Jean Rivaud 42400 Saint-Chamond",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5024007,
+          45.4641682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 119199878,
+        "osm_type": "way",
+        "nom": "Salle Municipale Roger Baudy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5045221,
+          45.4578869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10073914769,
+        "osm_type": "node",
+        "nom": "Salle Pablo Neruda",
+        "telephone": "+33 4 77 31 05 61",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5334664,
+          45.4690872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63487403,
+        "osm_type": "way",
+        "nom": "Salle paroissiale",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3528877,
+          45.4672966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 335216358,
+        "osm_type": "way",
+        "nom": "Salle paroissiale",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3625955,
+          45.596414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 362418340,
+        "osm_type": "way",
+        "nom": "Salle Paul Laurencery",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.980013,
+          46.039098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 145840948,
+        "osm_type": "way",
+        "nom": "Salle Pian Di Sco",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5396615,
+          45.486751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2995383864,
+        "osm_type": "node",
+        "nom": "Salle Polyvalente",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4449479,
+          45.2833451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4947155952,
+        "osm_type": "node",
+        "nom": "Salle Polyvalente",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8811618,
+          45.7301197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 170218631,
+        "osm_type": "way",
+        "nom": "Salle Polyvalente",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3629405,
+          45.3132965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 201393177,
+        "osm_type": "way",
+        "nom": "Salle polyvalente",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3437075,
+          45.7880245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164182454,
+        "osm_type": "way",
+        "nom": "Salle Polyvalente de Bard",
+        "operateur": "Commune de Bard",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0128725,
+          45.5875565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13592177002,
+        "osm_type": "node",
+        "nom": "Salle polyvalente du Bourg",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0618027,
+          46.0869499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 265746571,
+        "osm_type": "way",
+        "nom": "Salle Polyvalente Marie Badard",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5168609,
+          45.4142719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2377251891,
+        "osm_type": "node",
+        "nom": "Salle Regina",
+        "operateur": "Ville De Saint-Galmier",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.318056,
+          45.5908322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 342114072,
+        "osm_type": "way",
+        "nom": "Salle Robert Nicolas",
+        "adresse": "Rue de Faimes 42820 Ambierle",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8974411,
+          46.1030048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 431534793,
+        "osm_type": "way",
+        "nom": "Salle Roger Dupré",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.306163,
+          46.1222023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6233511963,
+        "osm_type": "node",
+        "nom": "Salle Roger Eyraud",
+        "operateur": "Mairie de Saint-André-le-Puy",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2592004,
+          45.6457658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 442086158,
+        "osm_type": "way",
+        "nom": "Salle Ruillière",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2822931,
+          46.0749701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 372125531,
+        "osm_type": "way",
+        "nom": "Salle réception",
+        "adresse": "Route Communale n°9 Cherier",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9137771,
+          45.9646652
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 438339260,
+        "osm_type": "way",
+        "nom": "Salle Saint-Pierre",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2324593,
+          46.1105634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6733382441,
+        "osm_type": "node",
+        "nom": "Salle Sylvestre",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.328998,
+          45.5433624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 85007299,
+        "osm_type": "way",
+        "nom": "Salle Valette",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3637717,
+          45.4049239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 164005191,
+        "osm_type": "way",
+        "nom": "Salle Volle",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.052077,
+          45.6129265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 710072904,
+        "osm_type": "way",
+        "nom": "Salles de Carillon",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1200381,
+          46.1540625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 154269661,
+        "osm_type": "way",
+        "nom": "Salles de réception Andréna",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2824485,
+          45.53327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4055850634,
+        "osm_type": "node",
+        "nom": "Salles des Fêtes",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4829864,
+          45.5718737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63300839,
+        "osm_type": "way",
+        "nom": "Union Fraternelle de Montaud",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3804227,
+          45.4455869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63265684,
+        "osm_type": "way",
+        "nom": "Étoile de Montaud",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3814318,
+          45.4487582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 63309038,
+        "osm_type": "way",
+        "nom": "Étoile de Montaud",
+        "type": "community_centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3781712,
+          45.4340072
+        ]
+      }
+    }
+  ]
+}

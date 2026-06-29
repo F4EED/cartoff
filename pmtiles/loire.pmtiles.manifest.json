@@ -1,0 +1,16 @@
+{
+  "source": "loire.pmtiles",
+  "size": 137957897,
+  "sha256": "f3c3bafe6a149fb0086a7b1268c4a767542092ea666afbd3f94782469224687a",
+  "chunk_size": 83886080,
+  "chunks": [
+    {
+      "name": "loire.pmtiles.part001",
+      "size": 83886080
+    },
+    {
+      "name": "loire.pmtiles.part002",
+      "size": 54071817
+    }
+  ]
+}
