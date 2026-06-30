@@ -35,7 +35,7 @@ Le binaire `loire_elev.bin` n'est pas versionné (`.gitignore`, ~58 Mo). Voir `e
 |-----------|--------|-------|
 | `js/coords-utils.js` | Implémentation Cartoff | UTM (WGS84), DFCI (Lambert II étendu), point-dans-polygone pour la commune, interpolation bilinéaire sur la grille d'altitude |
 | [proj4js](https://github.com/proj4js/proj4js) (`js/proj4-src.js`) | MIT | Conversion WGS84 → UTM |
-| Carroyage DFCI | Spécification publique « Défense des Forêts Contre les Incendies » sur **Lambert II étendu** | Jeux de référence : [Carroyage DFCI 100 km](https://www.data.gouv.fr/datasets/carroyage-dfci-100-km), [20 km](https://www.data.gouv.fr/datasets/carroyage-dfci-20-km), [2 km](https://www.data.gouv.fr/datasets/carroyage-dfci-2-km) (Licence Ouverte). Présentation : [IGN / Iphigénie — systèmes de coordonnées](https://www.iphigen.ie/blog-posts/les-systemes-de-coordonnees-carte-ing). |
+| Carroyage DFCI (calques carte) | `geojson/D42/dfci_2km_42.geojson`, `dfci_20km_42.geojson`, `dfci_100km_42.geojson` | Découpe départementale via `scripts/build_dfci_loire.py` à partir des jeux nationaux [2 km](https://www.data.gouv.fr/datasets/carroyage-dfci-2-km), [20 km](https://www.data.gouv.fr/datasets/carroyage-dfci-20-km), [100 km](https://www.data.gouv.fr/datasets/carroyage-dfci-100-km) (Licence Ouverte, Lambert 93). Affichés dans « Urgence & industrie (OSM) ». |
 | Contours communaux | `geojson/D42/communes_contours_osm_42.geojson` | Nom de commune affiché au survol (calque « Contours communes (OSM) ») |
 
 **Algorithme DFCI** (`latLngToDfci` dans `coords-utils.js`) :
@@ -45,6 +45,15 @@ Le binaire `loire_elev.bin` n'est pas versionné (`.gitignore`, ~58 Mo). Voir `e
 3. Découpage en carreaux 100 km / 20 km / 2 km selon la numérotation DFCI (6 caractères de base ; sous-division `.1`–`.5` calculée mais non affichée dans l'interface).
 
 **Remarque :** le DFCI historique repose sur Lambert II étendu ; depuis 2009 des référentiels officiels existent aussi en Lambert 93. L'implémentation suit la grille Lambert II étendu pour compatibilité avec les usages pompiers / feux de forêt.
+
+**Régénération des calques DFCI :**
+
+```bash
+pip install geopandas py7zr shapely
+python scripts/build_dfci_loire.py
+```
+
+Emprise de découpe : 45,0°–46,5° N, 3,5°–5,0° E (bbox Loire). Archives nationales mises en cache sous `scripts/.cache/dfci/`. Le calque 2 km (~5 000 mailles, ~1,6 Mo) est chargé à la demande (lazy) pour limiter l'impact au démarrage.
 
 ---
 
@@ -71,6 +80,9 @@ Tous les calques ci-dessous sont listés dans `geojsonFiles` (`index.html`).
 | Zones d'habitation (OSM) | `zones_habitation_osm_42.json` | `export_osm_toponymie_42.py` | `landuse=residential` |
 | Aérodromes (OSM) | `aerodromes_osm_42.geojson` | `export_osm_aerodromes_42.py` | `aeroway=aerodrome` |
 | Héliports (OSM) | `helipads_osm_42.geojson` | `export_osm_helipads_42.py` | `aeroway=helipad` |
+| Carroyage DFCI 100 km (42) | `dfci_100km_42.geojson` | `build_dfci_loire.py` | [Carroyage DFCI 100 km](https://www.data.gouv.fr/datasets/carroyage-dfci-100-km) (Licence Ouverte) |
+| Carroyage DFCI 20 km (42) | `dfci_20km_42.geojson` | `build_dfci_loire.py` | [Carroyage DFCI 20 km](https://www.data.gouv.fr/datasets/carroyage-dfci-20-km) (Licence Ouverte) |
+| Carroyage DFCI 2 km (42) | `dfci_2km_42.geojson` | `build_dfci_loire.py` | [Carroyage DFCI 2 km](https://www.data.gouv.fr/datasets/carroyage-dfci-2-km) (Licence Ouverte) |
 | Points de rassemblement (OSM) | `points_rassemblement_osm_42.json` | `export_osm_risques_42.py` | `emergency=assembly_point` |
 | Bouches à incendie (OSM) | `bouches_incendie_osm_42.json` | `export_osm_risques_42.py` | `emergency=fire_hydrant` |
 | Abris (OSM) | `abris_osm_42.json` | `export_osm_risques_42.py` | `amenity=shelter` |
@@ -92,6 +104,18 @@ Tous les calques ci-dessous sont listés dans `geojsonFiles` (`index.html`).
 | Puits / mines (OSM) | `puits_mines_osm_42.json` | `export_osm_contexte_42.py` | `man_made=mineshaft` |
 | Carrières (OSM) | `carrieres_osm_42.json` | `export_osm_contexte_42.py` | `landuse=quarry` |
 | Antennes / relais (OSM) | `antennes_osm_42.json` | `export_osm_contexte_42.py` | `man_made=mast`, `communications_tower`, … |
+
+---
+
+## Constats / événements de situation
+
+| Élément | Source | Licence / remarques |
+|---------|--------|----------------------|
+| `geojson/situation_constats.geojson` | Fichier source **vide** par défaut (`features: []`) | Non issues d'OSM ; les constats sont saisis via l'interface (`created_by`, `statut`, `gravite`, etc.) |
+| `js/poi-types.js` | Registre Cartoff des types de constats | Associe `sous_type` → panneau SVG (`images/*.svg`) |
+| Panneaux SVG | Signaux routiers / pictogrammes locaux (`images/KC1_*.svg`, `images/KD22*.svg`, `images/panneau_vierge_à_compléter.svg`, …) | Usage interne POC ; pas de calque OSM mélangé |
+
+Les constats de situation sont un calque **autonome** (section « Situation » dans la barre latérale). Les points peuvent être ajoutés, modifiés et supprimés via l'interface ; la persistance locale utilise `localStorage` (`cartoff_situation_constats`), avec export GeoJSON. Au premier chargement (sans `localStorage`), le fichier GeoJSON vide est utilisé ; pour repartir de zéro après des essais, vider le stockage navigateur : `localStorage.removeItem('cartoff_situation_constats')`.
 
 ---
 

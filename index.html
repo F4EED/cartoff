@@ -175,6 +175,255 @@
       margin: 10px auto 0 auto;
       max-width: 28%;
     }
+    .layer-search {
+      margin-bottom: 8px;
+    }
+    .layer-search select {
+      width: 100%;
+      padding: 6px 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      background: white;
+    }
+    .layer-search select:disabled {
+      background: #f5f5f5;
+      color: #888;
+    }
+    .dfci-search-label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: #4527a0;
+      font-weight: bold;
+    }
+    .dfci-search-row {
+      display: flex;
+      gap: 6px;
+    }
+    .dfci-search-row input {
+      flex: 1;
+      min-width: 0;
+      padding: 6px 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+    }
+    .dfci-search-row input:disabled {
+      background: #f5f5f5;
+      color: #888;
+    }
+    .dfci-search-row button {
+      padding: 6px 12px;
+      font-size: 14px;
+      border: 1px solid #4527a0;
+      border-radius: 4px;
+      background: #4527a0;
+      color: #fff;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    }
+    .dfci-search-row button:disabled {
+      background: #b39ddb;
+      border-color: #b39ddb;
+      cursor: default;
+    }
+    .dfci-search-msg {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #c62828;
+    }
+    .dfci-search-msg[hidden] {
+      display: none;
+    }
+    .search-section {
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .search-section .layer-search-group {
+      margin-top: 4px;
+    }
+    .search-section .layer-search:last-child {
+      margin-bottom: 0;
+    }
+    .situation-hint {
+      margin: 0 0 6px 0;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+    .situation-error {
+      margin: 0 0 6px 0;
+      font-size: 12px;
+      color: #c62828;
+      line-height: 1.4;
+    }
+    .situation-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .situation-btn {
+      flex: 1 1 auto;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #f5f5f5;
+      cursor: pointer;
+    }
+    .situation-btn:hover { background: #eee; }
+    .situation-btn-primary {
+      background: #3949ab;
+      color: #fff;
+      border-color: #303f9f;
+    }
+    .situation-btn-primary:hover { background: #303f9f; }
+    .situation-panel {
+      position: fixed;
+      z-index: 3100;
+      background: white;
+      padding: 10px 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      width: min(280px, calc(100vw - 20px));
+    }
+    .situation-panel[hidden] { display: none !important; }
+    .situation-panel-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .situation-panel label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: default;
+    }
+    .situation-panel select,
+    .situation-panel input[type="text"] {
+      display: block;
+      width: 100%;
+      margin-top: 3px;
+      padding: 5px 7px;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+    }
+    .situation-panel-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .situation-panel-actions button {
+      flex: 1 1 auto;
+      padding: 6px 10px;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #f5f5f5;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    }
+    .situation-panel-actions button:hover { background: #eee; }
+    .situation-panel-actions .situation-btn-save {
+      background: #3949ab;
+      color: #fff;
+      border-color: #303f9f;
+    }
+    .situation-panel-actions .situation-btn-save:hover { background: #303f9f; }
+    .situation-panel-actions .situation-btn-delete {
+      background: #c62828;
+      color: #fff;
+      border-color: #b71c1c;
+      flex-basis: 100%;
+    }
+    .situation-panel-actions .situation-btn-delete:hover { background: #b71c1c; }
+    .map-context-menu {
+      position: fixed;
+      z-index: 3200;
+      min-width: 200px;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      padding: 4px 0;
+      user-select: none;
+    }
+    .map-context-menu[hidden] { display: none !important; }
+    .map-context-menu-section {
+      padding: 4px 12px 2px;
+      font-size: 11px;
+      font-weight: bold;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .map-context-menu-item {
+      display: block;
+      width: 100%;
+      padding: 7px 12px;
+      border: none;
+      background: none;
+      text-align: left;
+      font-family: inherit;
+      font-size: 13px;
+      color: #333;
+      cursor: pointer;
+    }
+    .map-context-menu-item:hover { background: #f0f0f0; }
+    .map-context-menu-item-danger { color: #c62828; }
+    .map-context-menu-item-danger:hover { background: #ffebee; }
+    .situation-filter {
+      display: block;
+      margin: 0 0 8px 0;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .leaflet-marker-icon.situation-marker-inactif {
+      opacity: 0.45;
+      filter: grayscale(1);
+    }
+    .situation-line-draw-banner {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3000;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      max-width: calc(100vw - 20px);
+    }
+    .situation-line-draw-banner[hidden] { display: none !important; }
+    .situation-line-draw-banner span {
+      flex: 1 1 auto;
+      color: #333;
+    }
+    .leaflet-container.situation-line-drawing {
+      cursor: crosshair;
+    }
+    @media (max-width: 768px) {
+      .situation-panel {
+        max-width: calc(100vw - 20px);
+      }
+    }
     @media (max-width: 768px) {
       .sidebar {
         top: auto;
@@ -187,6 +436,7 @@
         padding: 8px;
       }
       .sidebar-header { font-size: 13px; }
+      .layer-search select { font-size: 13px; }
       .leaflet-control-attribution { font-size: 10px !important; max-width: calc(100vw - 20px); }
       .leaflet-control-zoom a { width: 34px; height: 34px; line-height: 34px; }
     }
@@ -196,6 +446,45 @@
 
   <div class="sidebar" id="layerMenu">
     <div class="sidebar-header" id="dragHandle">Calques GeoJSON (déplacer ici)</div>
+
+    <details class="search-section">
+      <summary>Recherche</summary>
+      <div class="layer-search-group">
+        <div class="layer-search" id="dfciSearch">
+          <label class="dfci-search-label" for="dfciSearchInput">Carroyage DFCI</label>
+          <div class="dfci-search-row">
+            <input type="text" id="dfciSearchInput" placeholder="Code DFCI (ex. HF26H4, HF)" autocomplete="off" spellcheck="false" disabled>
+            <button type="button" id="dfciSearchBtn" disabled>Aller</button>
+          </div>
+          <div class="dfci-search-msg" id="dfciSearchMsg" hidden></div>
+        </div>
+        <div class="layer-search" id="communeSearch">
+          <select id="communeSearchSelect" disabled>
+            <option value="" disabled selected>— Choisir une commune —</option>
+          </select>
+        </div>
+        <div class="layer-search" id="zonesIndustriellesSearch">
+          <select id="zonesIndustriellesSearchSelect" disabled>
+            <option value="" disabled selected>— Choisir une zone industrielle —</option>
+          </select>
+        </div>
+        <div class="layer-search" id="sitesIndustrielsSearch">
+          <select id="sitesIndustrielsSearchSelect" disabled>
+            <option value="" disabled selected>— Choisir un site industriel —</option>
+          </select>
+        </div>
+        <div class="layer-search" id="zonesHabitationSearch">
+          <select id="zonesHabitationSearchSelect" disabled>
+            <option value="" disabled selected>— Choisir une zone d'habitation —</option>
+          </select>
+        </div>
+        <div class="layer-search" id="situationConstatsSearch">
+          <select id="situationConstatsSearchSelect" disabled>
+            <option value="" disabled selected>— Choisir un constat —</option>
+          </select>
+        </div>
+      </div>
+    </details>
 
     <details>
       <summary>Département de la Loire (OSM)</summary>
@@ -232,6 +521,18 @@
       <div id="servicesLayers"></div>
     </details>
 
+    <details open>
+      <summary>Situation</summary>
+      <p class="situation-hint" id="situationHint">Clic droit sur la carte pour ajouter ou modifier un constat. Cochez le calque ci-dessous pour l'affichage.</p>
+      <div class="situation-toolbar">
+        <button type="button" id="situationExportBtn" class="situation-btn">Exporter GeoJSON</button>
+      </div>
+      <label class="situation-filter" id="situationShowInactifsLabel">
+        <input type="checkbox" id="situationShowInactifs"> Afficher les inactifs
+      </label>
+      <div id="situationLayers"></div>
+    </details>
+
     <div id="legend"><b>Légende :</b><br>– aucun calque actif –</div>
     <img src="images/Logo_F4EED.png" id="sidebarLogo" alt="Logo D42">
   </div>
@@ -239,15 +540,39 @@
   <div id="map"></div>
   <div id="coords">Déplacez la souris sur la carte...</div>
 
+  <div id="mapContextMenu" class="map-context-menu" hidden></div>
+
+  <div id="situationLineDrawBanner" class="situation-line-draw-banner" hidden>
+    <span>Cliquez pour placer les points du tronçon — double-clic pour terminer</span>
+    <button type="button" id="situationLineDrawFinish" class="situation-btn situation-btn-primary" disabled>Terminer</button>
+    <button type="button" id="situationLineDrawCancel" class="situation-btn">Annuler</button>
+  </div>
+
+  <div id="situationPanel" class="situation-panel" hidden>
+    <div class="situation-panel-title" id="situationPanelTitle">Constat</div>
+    <label>Type
+      <select id="situationPanelType"></select>
+    </label>
+    <label>Libellé
+      <input type="text" id="situationPanelLibelle" placeholder="Description courte…" maxlength="120">
+    </label>
+    <div class="situation-panel-actions">
+      <button type="button" id="situationPanelSave" class="situation-btn-save">Enregistrer</button>
+      <button type="button" id="situationPanelCancel">Annuler</button>
+      <button type="button" id="situationPanelDelete" class="situation-btn-delete" hidden>Supprimer</button>
+    </div>
+  </div>
+
   <script src="js/leaflet.js"></script>
   <script src="js/proj4-src.js"></script>
   <script src="js/coords-utils.js"></script>
+  <script src="js/poi-types.js"></script>
   <script src="js/protomaps-leaflet.js"></script>
 
   <script>
     const LOIRE_BOUNDS = L.latLngBounds([45.0, 3.5], [46.5, 5.0]);
     const PMTILES_MIN_ZOOM = 9;
-    const PMTILES_MAX_ZOOM = 14;
+    const PMTILES_MAX_ZOOM = 15;
     const map = L.map('map', { minZoom: PMTILES_MIN_ZOOM, maxZoom: PMTILES_MAX_ZOOM });
     map.setView([45.7885, 4.1830], 9);
     map.setMaxBounds(LOIRE_BOUNDS.pad(0.05));
@@ -268,11 +593,37 @@
       'MNT <a href="https://spacedata.copernicus.eu/" title="Copernicus DEM GLO-30">Copernicus DEM</a>'
     );
 
+    map.createPane('situationPane');
+    map.getPane('situationPane').style.zIndex = 610;
+
     // Sidebar draggable
     const sidebar = document.getElementById('layerMenu');
     const dragHandle = document.getElementById('dragHandle');
     const coordsDiv = document.getElementById('coords');
     let communeIndex = [];
+    let communeSearchEntries = [];
+    let searchHighlightOverlay = null;
+    let searchHighlightTimer = null;
+    const SEARCH_HIGHLIGHT_MS = 4000;
+    const COMMUNE_LAYER_NAME = 'Contours communes (OSM)';
+    const ZONES_INDUSTRIELLES_LAYER = 'Zones industrielles (OSM)';
+    const SITES_INDUSTRIELS_LAYER = 'Sites industriels (OSM)';
+    const ZONES_HABITATION_LAYER = 'Zones d\'habitation (OSM)';
+    const SITUATION_LAYER_NAME = 'Constats / événements';
+    const DFCI_SEARCH_SPECS = [
+      { resolution: 2, file: 'geojson/D42/dfci_2km_42.geojson', layerName: 'Carroyage DFCI 2 km (42)' },
+      { resolution: 20, file: 'geojson/D42/dfci_20km_42.geojson', layerName: 'Carroyage DFCI 20 km (42)' },
+      { resolution: 100, file: 'geojson/D42/dfci_100km_42.geojson', layerName: 'Carroyage DFCI 100 km (42)' }
+    ];
+    const DFCI_HIGHLIGHT_STYLE = { color: '#4527a0', weight: 3, fillColor: '#7e57c2', fillOpacity: 0.35 };
+    let dfciSearchIndex = new Map();
+    let dfciSearchReady = false;
+    let dfciSearchMsgTimer = null;
+    const SITUATION_HIGHLIGHT = { color: '#c62828', weight: 3, fillColor: '#ef5350', fillOpacity: 0.55 };
+    const COMMUNE_HIGHLIGHT_STYLE = { color: '#3949ab', weight: 3, fillColor: '#5c6bc0', fillOpacity: 0.35 };
+    const ZONES_INDUSTRIELLES_HIGHLIGHT = { color: '#546e7a', weight: 3, fillColor: '#b0bec5', fillOpacity: 0.45 };
+    const SITES_INDUSTRIELS_HIGHLIGHT = { color: '#4e342e', weight: 3, fillColor: '#8d6e63', fillOpacity: 0.45 };
+    const ZONES_HABITATION_HIGHLIGHT = { color: '#ef6c00', weight: 3, fillColor: '#ffb74d', fillOpacity: 0.4 };
     let lastPointer = null;
     let coordsUpdateTimer = null;
     let elevationReady = false;
@@ -306,7 +657,7 @@
       clearTimeout(coordsUpdateTimer);
       coordsUpdateTimer = setTimeout(() => {
         if (lastPointer) renderCoordsBox(lastPointer);
-      }, 40);
+      }, 80);
     }
 
     function refreshCoordsFromMap() {
@@ -318,16 +669,22 @@
       return window.innerWidth <= 768;
     }
 
+    function getMapFitPadding() {
+      return {
+        paddingTopLeft: L.point(10, 10),
+        paddingBottomRight: L.point(
+          isMobileLayout() ? sidebar.offsetHeight + 16 : coordsDiv.offsetHeight + 16,
+          isMobileLayout() ? 10 : sidebar.offsetWidth + 16
+        )
+      };
+    }
+
     function fitMapToArea() {
       map.invalidateSize({ animate: false });
       const size = map.getSize();
       if (!size || size.x < 50 || size.y < 50) return;
       map.fitBounds(LOIRE_BOUNDS, {
-        paddingTopLeft: L.point(10, 10),
-        paddingBottomRight: L.point(
-          isMobileLayout() ? sidebar.offsetHeight + 16 : coordsDiv.offsetHeight + 16,
-          isMobileLayout() ? 10 : sidebar.offsetWidth + 16
-        ),
+        ...getMapFitPadding(),
         maxZoom: PMTILES_MAX_ZOOM,
         animate: false
       });
@@ -442,6 +799,7 @@
     function updateCoords(latlng) {
       scheduleCoordsUpdate(latlng);
     }
+
     map.on('mousemove', e => updateCoords(e.latlng));
     map.on('touchmove', e => { if (e.latlng) updateCoords(e.latlng); });
     map.on('zoomend', refreshCoordsFromMap);
@@ -598,6 +956,16 @@
       "Ets_SEVESO": L.icon({iconUrl:'images/SEVEZO.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]}),
       "PR_Routier": L.icon({iconUrl:'images/PR.png', iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-32]})
     };
+    const situationIconCache = {};
+    let situationLegendEntries = [];
+    let situationFeatures = [];
+    const SITUATION_STORAGE_KEY = 'cartoff_situation_constats';
+    const SITUATION_META_KEY = 'cartoff_situation_meta';
+    let situationPanelState = null;
+    let lineDrawState = null;
+    let mapContextMenuState = null;
+    let situationShowInactifs = false;
+    const situationLineDrawBanner = document.getElementById('situationLineDrawBanner');
     const squareLegendLayers = {
       "Casernes sapeurs-pompiers (OSM)": "red",
       "Police nationale (OSM)": "blue",
@@ -638,6 +1006,9 @@
         { name:"Héliports (OSM)", file:"geojson/D42/helipads_osm_42.geojson", style:{color:"#f57c00",weight:2} }
       ],
       "urgence":[
+        { name:"Carroyage DFCI 100 km (42)", file:"geojson/D42/dfci_100km_42.geojson", style:{color:"#4527a0",weight:3,fill:false,fillOpacity:0} },
+        { name:"Carroyage DFCI 20 km (42)", file:"geojson/D42/dfci_20km_42.geojson", style:{color:"#bf360c",weight:2,fill:false,fillOpacity:0} },
+        { name:"Carroyage DFCI 2 km (42)", file:"geojson/D42/dfci_2km_42.geojson", style:{color:"#ff7043",weight:1,fill:false,fillOpacity:0} },
         { name:"Points de rassemblement (OSM)", file:"geojson/D42/points_rassemblement_osm_42.json", style:{color:"#e64a19",weight:2} },
         { name:"Bouches à incendie (OSM)", file:"geojson/D42/bouches_incendie_osm_42.json", style:{color:"#ff6f00",weight:2} },
         { name:"Abris (OSM)", file:"geojson/D42/abris_osm_42.json", style:{color:"#689f38",weight:2} }
@@ -674,6 +1045,765 @@
     const layerStyles = {}; // pour mémoriser les styles des calques
     const legendDiv = document.getElementById("legend");
 
+    function isSituationInactif(props) {
+      return !!(props && props.statut === 'inactif');
+    }
+
+    function isLocallyCreatedSituationFeature(feature) {
+      const props = feature && feature.properties;
+      return !!(props && props.created_by === 'terrain');
+    }
+
+    function clearSituationStorage() {
+      localStorage.removeItem(SITUATION_STORAGE_KEY);
+      localStorage.removeItem(SITUATION_META_KEY);
+    }
+
+    function readSituationMeta() {
+      try {
+        const raw = localStorage.getItem(SITUATION_META_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (err) {
+        console.warn('Métadonnées constats invalides :', err);
+        return null;
+      }
+    }
+
+    function writeSituationMeta(fileFeatureCount) {
+      localStorage.setItem(SITUATION_META_KEY, JSON.stringify({
+        fileFeatureCount,
+        syncedAt: new Date().toISOString()
+      }));
+    }
+
+    function updateSituationInactifsFilterUI() {
+      const label = document.getElementById('situationShowInactifsLabel');
+      const checkbox = document.getElementById('situationShowInactifs');
+      if (!label || !checkbox) return;
+      const hasInactifs = situationFeatures.some((f) => isSituationInactif(f.properties));
+      const showFilter = situationFeatures.length > 0 && hasInactifs;
+      label.hidden = !showFilter;
+      if (!showFilter && checkbox.checked) {
+        checkbox.checked = false;
+        situationShowInactifs = false;
+      }
+    }
+
+    function situationStatutLabel(props) {
+      return isSituationInactif(props) ? 'Inactif' : 'Actif';
+    }
+
+    function getSituationFeaturesForDisplay() {
+      if (situationShowInactifs) return situationFeatures;
+      return situationFeatures.filter((f) => !isSituationInactif(f.properties));
+    }
+
+    function getSituationIcon(imagePath, inactif) {
+      const resolved = imagePath || CartoffPoi.DEFAULT_IMAGE;
+      const iconUrl = encodeURI(resolved);
+      const cacheKey = iconUrl + (inactif ? '|inactif' : '');
+      if (!situationIconCache[cacheKey]) {
+        situationIconCache[cacheKey] = L.icon({
+          iconUrl: iconUrl,
+          iconSize: [32, 32],
+          iconAnchor: [16, 32],
+          popupAnchor: [0, -32],
+          className: inactif ? 'situation-marker-inactif' : ''
+        });
+      }
+      return situationIconCache[cacheKey];
+    }
+
+    function buildSituationPopupContent(props) {
+      const type = CartoffPoi.getType(props.sous_type);
+      const typeLabel = (type && type.label) || props.sous_type || 'Constat';
+      const libelle = props.libelle || typeLabel;
+      let html = `<b>${libelle}</b><br>`;
+      html += `<b>Type :</b> ${typeLabel}<br>`;
+      html += `<b>Statut :</b> ${situationStatutLabel(props)}<br>`;
+      if (props.commune) html += `<b>Commune :</b> ${props.commune}<br>`;
+      if (props.dfci) html += `<b>DFCI :</b> ${props.dfci}<br>`;
+      if (props.description) html += `<b>Description :</b> ${props.description}<br>`;
+      return html;
+    }
+
+    function situationLegendLabel(props) {
+      const type = CartoffPoi.getType(props.sous_type);
+      const base = (type && type.label) || props.sous_type || 'Constat';
+      const variante = props.variante;
+      if (variante) {
+        const suffix = (CartoffPoi.VARIANT_LABELS && CartoffPoi.VARIANT_LABELS[variante]) || variante;
+        return `${base} (${suffix})`;
+      }
+      return base;
+    }
+
+    function collectSituationLegendEntries(features) {
+      if (!features || !features.length) return [];
+      const seen = new Map();
+      features.forEach((feature) => {
+        const props = feature.properties || {};
+        const imagePath = CartoffPoi.resolveImagePath(props);
+        const key = [props.sous_type || '', props.panneau || '', props.variante || '', imagePath].join('|');
+        if (seen.has(key)) return;
+        seen.set(key, { imagePath, label: situationLegendLabel(props) });
+      });
+      return Array.from(seen.values()).sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+    }
+
+    function panneauBasenameFromType(typeId) {
+      const path = CartoffPoi.resolveImagePath({ sous_type: typeId });
+      const base = path.replace(/^images\//, '').split('/').pop();
+      return base || 'panneau_vierge_à_compléter.png';
+    }
+
+    function newSituationId() {
+      if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+      return 'sit-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9);
+    }
+
+    function findSituationFeature(id) {
+      return situationFeatures.find(f => f.properties && f.properties.id === id) || null;
+    }
+
+    function buildSituationTypeSelect(selectEl, geometryKind) {
+      selectEl.innerHTML = '';
+      const types = geometryKind === 'line'
+        ? CartoffPoi.getTypesForGeometry('line')
+        : CartoffPoi.getTypesForGeometry('point');
+      const byCat = {};
+      types.forEach((t) => {
+        if (!byCat[t.categorie]) byCat[t.categorie] = [];
+        byCat[t.categorie].push(t);
+      });
+      ['secteur_routier', 'incendie_atmosphere', 'autre'].forEach((catId) => {
+        const catTypes = byCat[catId];
+        if (!catTypes || !catTypes.length) return;
+        const og = document.createElement('optgroup');
+        og.label = CartoffPoi.CATEGORIES[catId] || catId;
+        catTypes.sort((a, b) => a.label.localeCompare(b.label, 'fr')).forEach((t) => {
+          const opt = document.createElement('option');
+          opt.value = t.id;
+          opt.textContent = t.label;
+          og.appendChild(opt);
+        });
+        selectEl.appendChild(og);
+      });
+    }
+
+    function getSituationLineStyle(props) {
+      const base = CartoffPoi.getLineStyle(props && props.sous_type);
+      const inactif = isSituationInactif(props);
+      return {
+        ...base,
+        opacity: inactif ? 0.45 : 1
+      };
+    }
+
+    function bindSituationFeatureContextMenu(layer, feature) {
+      const showMenu = (domEvent, clickLatLng) => {
+        L.DomEvent.stop(domEvent);
+        const geom = feature.geometry || {};
+        const isLine = geom.type === 'LineString';
+        let latlng = clickLatLng || (layer.getLatLng ? layer.getLatLng() : null);
+        if (!latlng && isLine && geom.coordinates && geom.coordinates.length) {
+          const c = geom.coordinates[0];
+          latlng = L.latLng(c[1], c[0]);
+        }
+        openMapContextMenu(domEvent.clientX, domEvent.clientY, {
+          type: isLine ? 'line' : 'marker',
+          feature,
+          latlng
+        });
+      };
+      layer.on('contextmenu', (e) => {
+        if (e.originalEvent) showMenu(e.originalEvent, e.latlng);
+      });
+      layer.on('add', () => {
+        if (layer._icon) {
+          L.DomEvent.on(layer._icon, 'contextmenu', showMenu);
+        }
+        if (layer._path) {
+          L.DomEvent.on(layer._path, 'contextmenu', showMenu);
+        }
+      });
+      layer.on('remove', () => {
+        if (layer._icon) {
+          L.DomEvent.off(layer._icon, 'contextmenu', showMenu);
+        }
+        if (layer._path) {
+          L.DomEvent.off(layer._path, 'contextmenu', showMenu);
+        }
+      });
+      if (layer._icon) {
+        L.DomEvent.on(layer._icon, 'contextmenu', showMenu);
+      }
+      if (layer._path) {
+        L.DomEvent.on(layer._path, 'contextmenu', showMenu);
+      }
+    }
+
+    function buildSituationLayerFromFeatures(features) {
+      const displayFeatures = features || [];
+      const group = L.layerGroup([], { pane: 'situationPane' });
+
+      displayFeatures.forEach((feature) => {
+        const props = feature.properties || {};
+        const geom = feature.geometry;
+        if (!geom) return;
+
+        if (geom.type === 'Point' && geom.coordinates) {
+          const latlng = L.latLng(geom.coordinates[1], geom.coordinates[0]);
+          const imagePath = CartoffPoi.resolveImagePath(props);
+          const marker = L.marker(latlng, {
+            icon: getSituationIcon(imagePath, isSituationInactif(props)),
+            pane: 'situationPane'
+          });
+          marker._cartoffSituationFeature = feature;
+          marker.bindPopup(buildSituationPopupContent(props));
+          bindSituationFeatureContextMenu(marker, feature);
+          group.addLayer(marker);
+        } else if (geom.type === 'LineString' && geom.coordinates && geom.coordinates.length >= 2) {
+          const latlngs = geom.coordinates.map((c) => L.latLng(c[1], c[0]));
+          const lineStyle = getSituationLineStyle(props);
+          const polyline = L.polyline(latlngs, {
+            ...lineStyle,
+            pane: 'situationPane'
+          });
+          polyline._cartoffSituationFeature = feature;
+          polyline.bindPopup(buildSituationPopupContent(props));
+          bindSituationFeatureContextMenu(polyline, feature);
+          group.addLayer(polyline);
+
+          const imagePath = CartoffPoi.resolveImagePath(props);
+          const iconMarker = L.marker(latlngs[0], {
+            icon: getSituationIcon(imagePath, isSituationInactif(props)),
+            pane: 'situationPane'
+          });
+          iconMarker._cartoffSituationFeature = feature;
+          iconMarker.bindPopup(buildSituationPopupContent(props));
+          bindSituationFeatureContextMenu(iconMarker, feature);
+          group.addLayer(iconMarker);
+        }
+      });
+
+      group._cartoffFeatures = situationFeatures;
+      return group;
+    }
+
+    async function loadSituationFeatures() {
+      const res = await fetch(encodeURI('geojson/situation_constats.geojson'));
+      if (!res.ok) throw new Error('Erreur chargement situation_constats.geojson');
+      const geojson = await res.json();
+      const fileFeatures = geojson.features || [];
+      const fileCount = fileFeatures.length;
+      const meta = readSituationMeta();
+
+      let storedFeatures = null;
+      try {
+        const stored = localStorage.getItem(SITUATION_STORAGE_KEY);
+        if (stored) {
+          const data = JSON.parse(stored);
+          if (data && Array.isArray(data.features)) storedFeatures = data.features;
+        }
+      } catch (err) {
+        console.warn('Constats localStorage invalides :', err);
+        clearSituationStorage();
+      }
+
+      if (fileCount === 0) {
+        const fileWasEmptied = meta && meta.fileFeatureCount > 0;
+        const legacyImportedData = storedFeatures && storedFeatures.length > 0
+          && !storedFeatures.every(isLocallyCreatedSituationFeature);
+        if (fileWasEmptied || legacyImportedData) {
+          clearSituationStorage();
+          writeSituationMeta(0);
+          return [];
+        }
+        writeSituationMeta(0);
+        return storedFeatures || [];
+      }
+
+      writeSituationMeta(fileCount);
+      if (storedFeatures !== null) return storedFeatures;
+      return fileFeatures;
+    }
+
+    function persistSituationFeatures() {
+      localStorage.setItem(SITUATION_STORAGE_KEY, JSON.stringify({
+        type: 'FeatureCollection',
+        features: situationFeatures
+      }));
+    }
+
+    function rebuildSituationLayer() {
+      const oldLayer = layers[SITUATION_LAYER_NAME];
+      const checkbox = document.getElementById(checkboxIdForLayer(SITUATION_LAYER_NAME));
+      const wasVisible = oldLayer && map.hasLayer(oldLayer);
+
+      if (oldLayer) {
+        if (map.hasLayer(oldLayer)) map.removeLayer(oldLayer);
+        if (typeof oldLayer.clearLayers === 'function') oldLayer.clearLayers();
+      }
+
+      const displayFeatures = getSituationFeaturesForDisplay();
+      const newLayer = buildSituationLayerFromFeatures(displayFeatures);
+      layers[SITUATION_LAYER_NAME] = newLayer;
+      situationLegendEntries = collectSituationLegendEntries(displayFeatures);
+      updateSituationInactifsFilterUI();
+
+      if (wasVisible || (checkbox && checkbox.checked)) newLayer.addTo(map);
+      updateLegend();
+      layerSelectRefreshers.forEach((fn) => fn());
+    }
+
+    const situationPanelEl = document.getElementById('situationPanel');
+    const situationPanelTitle = document.getElementById('situationPanelTitle');
+    const situationPanelType = document.getElementById('situationPanelType');
+    const situationPanelLibelle = document.getElementById('situationPanelLibelle');
+    const situationHintEl = document.getElementById('situationHint');
+    const mapContextMenuEl = document.getElementById('mapContextMenu');
+    buildSituationTypeSelect(situationPanelType, 'point');
+
+    function resetSituationHint() {
+      if (situationHintEl) {
+        situationHintEl.textContent = 'Clic droit sur la carte pour ajouter ou modifier un constat. Cochez le calque ci-dessous pour l\'affichage.';
+      }
+    }
+
+    function getSituationLayerFromDomEvent(domEvent) {
+      const situationLayer = layers[SITUATION_LAYER_NAME];
+      if (!situationLayer || !map.hasLayer(situationLayer)) return null;
+      let el = domEvent.target;
+      const container = map.getContainer();
+      while (el && el !== container) {
+        const layer = map._targets && map._targets[L.Util.stamp(el)];
+        if (layer && layer._cartoffSituationFeature) return layer;
+        el = el.parentNode;
+      }
+      return null;
+    }
+
+    function updateLineDrawUI() {
+      const finishBtn = document.getElementById('situationLineDrawFinish');
+      if (finishBtn) finishBtn.disabled = !lineDrawState || lineDrawState.vertices.length < 2;
+    }
+
+    function onLineDrawClick(e) {
+      if (!lineDrawState) return;
+      lineDrawState.vertices.push(e.latlng);
+      lineDrawState.previewLine.setLatLngs(lineDrawState.vertices);
+      updateLineDrawUI();
+    }
+
+    function onLineDrawDblClick(e) {
+      if (!lineDrawState || lineDrawState.vertices.length < 2) return;
+      L.DomEvent.stop(e);
+      finishLineDraw(e.originalEvent.clientX, e.originalEvent.clientY);
+    }
+
+    function cancelLineDrawMode() {
+      if (!lineDrawState) return;
+      map.removeLayer(lineDrawState.previewLine);
+      lineDrawState = null;
+      map.getContainer().classList.remove('situation-line-drawing');
+      if (situationLineDrawBanner) situationLineDrawBanner.hidden = true;
+      map.off('click', onLineDrawClick);
+      map.off('dblclick', onLineDrawDblClick);
+      map.doubleClickZoom.enable();
+      resetSituationHint();
+    }
+
+    function finishLineDraw(clientX, clientY) {
+      if (!lineDrawState || lineDrawState.vertices.length < 2) return;
+      const coordinates = lineDrawState.vertices.map((ll) => [ll.lng, ll.lat]);
+      const draftLine = lineDrawState.previewLine;
+      draftLine.setStyle({ dashArray: null, opacity: 0.65, color: '#3949ab' });
+
+      lineDrawState = null;
+      map.getContainer().classList.remove('situation-line-drawing');
+      if (situationLineDrawBanner) situationLineDrawBanner.hidden = true;
+      map.off('click', onLineDrawClick);
+      map.off('dblclick', onLineDrawDblClick);
+      map.doubleClickZoom.enable();
+
+      const latlng = L.latLng(coordinates[0][1], coordinates[0][0]);
+      situationPanelState = {
+        mode: 'add',
+        geometry: 'LineString',
+        coordinates,
+        latlng,
+        draftLine
+      };
+      buildSituationTypeSelect(situationPanelType, 'line');
+      showSituationPanel({ mode: 'add', geometry: 'line', sousType: 'route_barree', libelle: '' });
+      positionSituationPanel(clientX, clientY);
+    }
+
+    function startLineDrawMode(initialLatLng) {
+      cancelLineDrawMode();
+      closeSituationPanel();
+      closeMapContextMenu();
+
+      const vertices = initialLatLng ? [initialLatLng] : [];
+      const previewLine = L.polyline(vertices, {
+        color: '#3949ab',
+        weight: 4,
+        dashArray: '8 6',
+        opacity: 0.85,
+        pane: 'situationPane'
+      }).addTo(map);
+
+      lineDrawState = { vertices, previewLine };
+      map.getContainer().classList.add('situation-line-drawing');
+      if (situationLineDrawBanner) situationLineDrawBanner.hidden = false;
+      updateLineDrawUI();
+      map.doubleClickZoom.disable();
+      map.on('click', onLineDrawClick);
+      map.on('dblclick', onLineDrawDblClick);
+
+      if (situationHintEl) {
+        situationHintEl.textContent = 'Mode tronçon — cliquez pour ajouter des points, double-clic ou Terminer pour valider.';
+      }
+    }
+
+    function clampPopupPosition(el, clientX, clientY, margin) {
+      const m = margin || 8;
+      const rect = el.getBoundingClientRect();
+      const w = rect.width || el.offsetWidth || 200;
+      const h = rect.height || el.offsetHeight || 120;
+      let x = clientX;
+      let y = clientY;
+      if (x + w + m > window.innerWidth) x = window.innerWidth - w - m;
+      if (y + h + m > window.innerHeight) y = window.innerHeight - h - m;
+      if (x < m) x = m;
+      if (y < m) y = m;
+      return { x, y };
+    }
+
+    function positionSituationPanel(clientX, clientY) {
+      situationPanelEl.style.left = clientX + 'px';
+      situationPanelEl.style.top = clientY + 'px';
+      situationPanelEl.hidden = false;
+      const pos = clampPopupPosition(situationPanelEl, clientX, clientY, 10);
+      situationPanelEl.style.left = pos.x + 'px';
+      situationPanelEl.style.top = pos.y + 'px';
+    }
+
+    function closeMapContextMenu() {
+      mapContextMenuEl.hidden = true;
+      mapContextMenuEl.innerHTML = '';
+      mapContextMenuState = null;
+    }
+
+    function addMapContextMenuItem(label, onClick, options) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'map-context-menu-item' + (options && options.danger ? ' map-context-menu-item-danger' : '');
+      btn.textContent = label;
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeMapContextMenu();
+        onClick();
+      });
+      mapContextMenuEl.appendChild(btn);
+    }
+
+    function openMapContextMenu(clientX, clientY, target) {
+      closeMapContextMenu();
+      mapContextMenuState = { clientX, clientY, target };
+
+      const section = document.createElement('div');
+      section.className = 'map-context-menu-section';
+      section.textContent = 'Constat / événement';
+      mapContextMenuEl.appendChild(section);
+
+      if (target.type === 'marker' || target.type === 'line') {
+        const props = target.feature.properties || {};
+        const inactif = isSituationInactif(props);
+        const isLine = target.type === 'line';
+        addMapContextMenuItem(isLine ? 'Modifier ce tronçon' : 'Modifier ce constat', () => {
+          openSituationPanelEdit(target.feature, target.latlng, clientX, clientY);
+        });
+        if (inactif) {
+          addMapContextMenuItem('Réactiver', () => {
+            setSituationFeatureStatut(target.feature, 'actif');
+          });
+        } else {
+          addMapContextMenuItem('Marquer comme inactif', () => {
+            setSituationFeatureStatut(target.feature, 'inactif');
+          });
+        }
+        addMapContextMenuItem('Supprimer', () => {
+          deleteSituationFeature(target.feature);
+        }, { danger: true });
+      } else {
+        addMapContextMenuItem('Point (panneau)', () => {
+          openSituationPanelAdd(target.latlng, clientX, clientY);
+        });
+        addMapContextMenuItem('Tronçon (ligne)', () => {
+          startLineDrawMode(target.latlng);
+        });
+      }
+
+      mapContextMenuEl.style.left = clientX + 'px';
+      mapContextMenuEl.style.top = clientY + 'px';
+      mapContextMenuEl.hidden = false;
+      const pos = clampPopupPosition(mapContextMenuEl, clientX, clientY, 4);
+      mapContextMenuEl.style.left = pos.x + 'px';
+      mapContextMenuEl.style.top = pos.y + 'px';
+    }
+
+    function closeSituationPanel() {
+      if (situationPanelState && situationPanelState.draftMarker) {
+        map.removeLayer(situationPanelState.draftMarker);
+      }
+      if (situationPanelState && situationPanelState.draftLine) {
+        map.removeLayer(situationPanelState.draftLine);
+      }
+      situationPanelState = null;
+      situationPanelEl.hidden = true;
+      resetSituationHint();
+    }
+
+    function showSituationPanel({ mode, geometry, sousType, libelle }) {
+      const isLine = geometry === 'line' || geometry === 'LineString';
+      if (mode === 'edit') {
+        situationPanelTitle.textContent = isLine ? 'Modifier le tronçon' : 'Modifier le constat';
+      } else {
+        situationPanelTitle.textContent = isLine ? 'Nouveau tronçon' : 'Nouveau constat';
+      }
+      const defaultType = isLine ? 'route_barree' : 'incident_generique';
+      situationPanelType.value = sousType || defaultType;
+      situationPanelLibelle.value = libelle || '';
+      document.getElementById('situationPanelDelete').hidden = mode !== 'edit';
+      situationPanelEl.hidden = false;
+    }
+
+    function openSituationPanelAdd(latlng, clientX, clientY) {
+      cancelLineDrawMode();
+      closeSituationPanel();
+      buildSituationTypeSelect(situationPanelType, 'point');
+      const draftMarker = L.marker(latlng, {
+        icon: getSituationIcon(CartoffPoi.DEFAULT_IMAGE),
+        pane: 'situationPane',
+        interactive: false
+      }).addTo(map);
+      situationPanelState = { mode: 'add', geometry: 'Point', latlng, draftMarker };
+      showSituationPanel({ mode: 'add', geometry: 'point', sousType: 'incident_generique', libelle: '' });
+      positionSituationPanel(clientX, clientY);
+    }
+
+    function openSituationPanelEdit(feature, latlng, clientX, clientY) {
+      cancelLineDrawMode();
+      closeSituationPanel();
+      const props = feature.properties || {};
+      const geom = feature.geometry || {};
+      const isLine = geom.type === 'LineString';
+      buildSituationTypeSelect(situationPanelType, isLine ? 'line' : 'point');
+      situationPanelState = {
+        mode: 'edit',
+        featureId: props.id,
+        geometry: geom.type || 'Point',
+        coordinates: geom.coordinates,
+        latlng
+      };
+      showSituationPanel({
+        mode: 'edit',
+        geometry: isLine ? 'line' : 'point',
+        sousType: props.sous_type,
+        libelle: props.libelle || ''
+      });
+      positionSituationPanel(clientX, clientY);
+    }
+
+    function deleteSituationFeature(feature) {
+      const id = feature.properties && feature.properties.id;
+      if (!id) return;
+      situationFeatures = situationFeatures.filter(
+        (f) => !f.properties || f.properties.id !== id
+      );
+      persistSituationFeatures();
+      closeSituationPanel();
+      rebuildSituationLayer();
+    }
+
+    function setSituationFeatureStatut(feature, statut) {
+      const id = feature.properties && feature.properties.id;
+      if (!id) return;
+      const existing = findSituationFeature(id);
+      if (!existing || !existing.properties) return;
+      existing.properties.statut = statut;
+      persistSituationFeatures();
+      closeSituationPanel();
+      rebuildSituationLayer();
+    }
+
+    function saveSituationPanel() {
+      if (!situationPanelState) return;
+      const typeId = situationPanelType.value;
+      const type = CartoffPoi.getType(typeId);
+      const libelle = situationPanelLibelle.value.trim();
+      const isLine = situationPanelState.geometry === 'LineString';
+      let lat;
+      let lon;
+      if (isLine && situationPanelState.coordinates && situationPanelState.coordinates.length) {
+        lon = situationPanelState.coordinates[0][0];
+        lat = situationPanelState.coordinates[0][1];
+      } else if (situationPanelState.latlng) {
+        lat = situationPanelState.latlng.lat;
+        lon = situationPanelState.latlng.lng;
+      } else {
+        return;
+      }
+      const commune = CartoffCoords.findCommune(lat, lon, communeIndex);
+      const dfci = CartoffCoords.latLngToDfci(lat, lon);
+
+      let props;
+      if (situationPanelState.mode === 'edit') {
+        const existing = findSituationFeature(situationPanelState.featureId);
+        const prev = (existing && existing.properties) || {};
+        props = {
+          ...prev,
+          sous_type: typeId,
+          panneau: panneauBasenameFromType(typeId),
+          libelle: libelle || (type ? type.label : ''),
+          statut: prev.statut || 'actif',
+          gravite: prev.gravite || 'majeur'
+        };
+      } else {
+        props = {
+          id: newSituationId(),
+          sous_type: typeId,
+          panneau: panneauBasenameFromType(typeId),
+          libelle: libelle || (type ? type.label : ''),
+          statut: 'actif',
+          gravite: 'majeur',
+          created_at: new Date().toISOString(),
+          created_by: 'terrain'
+        };
+      }
+      if (commune) props.commune = commune;
+      if (dfci && dfci.base) props.dfci = dfci.base;
+
+      let geometry;
+      if (isLine) {
+        geometry = { type: 'LineString', coordinates: situationPanelState.coordinates.slice() };
+      } else if (situationPanelState.mode === 'edit') {
+        const existing = findSituationFeature(situationPanelState.featureId);
+        geometry = (existing && existing.geometry) || { type: 'Point', coordinates: [lon, lat] };
+      } else {
+        geometry = { type: 'Point', coordinates: [lon, lat] };
+      }
+
+      const feature = {
+        type: 'Feature',
+        geometry,
+        properties: props
+      };
+
+      if (situationPanelState.mode === 'edit') {
+        const idx = situationFeatures.findIndex((f) => f.properties && f.properties.id === situationPanelState.featureId);
+        if (idx >= 0) situationFeatures[idx] = feature;
+      } else {
+        situationFeatures.push(feature);
+      }
+
+      persistSituationFeatures();
+      closeSituationPanel();
+      rebuildSituationLayer();
+    }
+
+    function deleteSituationPanel() {
+      if (!situationPanelState || situationPanelState.mode !== 'edit') return;
+      situationFeatures = situationFeatures.filter(
+        (f) => !f.properties || f.properties.id !== situationPanelState.featureId
+      );
+      persistSituationFeatures();
+      closeSituationPanel();
+      rebuildSituationLayer();
+    }
+
+    function exportSituationGeoJSON() {
+      const json = JSON.stringify({ type: 'FeatureCollection', features: situationFeatures }, null, 2);
+      const blob = new Blob([json], { type: 'application/geo+json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'situation_constats.geojson';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    document.getElementById('situationShowInactifs').addEventListener('change', (e) => {
+      situationShowInactifs = e.target.checked;
+      rebuildSituationLayer();
+    });
+    document.getElementById('situationExportBtn').addEventListener('click', exportSituationGeoJSON);
+    document.getElementById('situationPanelSave').addEventListener('click', saveSituationPanel);
+    document.getElementById('situationPanelCancel').addEventListener('click', closeSituationPanel);
+    document.getElementById('situationPanelDelete').addEventListener('click', deleteSituationPanel);
+    document.getElementById('situationLineDrawFinish').addEventListener('click', () => {
+      if (!lineDrawState || lineDrawState.vertices.length < 2) return;
+      const rect = situationLineDrawBanner.getBoundingClientRect();
+      finishLineDraw(rect.left + rect.width / 2, rect.bottom + 8);
+    });
+    document.getElementById('situationLineDrawCancel').addEventListener('click', cancelLineDrawMode);
+
+    map.getContainer().addEventListener('contextmenu', (e) => {
+      if (lineDrawState) return;
+      if (e.target.closest('.sidebar') || e.target.closest('.situation-panel') || e.target.closest('.map-context-menu') || e.target.closest('.situation-line-draw-banner')) return;
+      e.preventDefault();
+      const situationLayer = getSituationLayerFromDomEvent(e);
+      if (situationLayer) {
+        const feature = situationLayer._cartoffSituationFeature;
+        const geom = feature.geometry || {};
+        const isLine = geom.type === 'LineString';
+        let latlng = situationLayer.getLatLng ? situationLayer.getLatLng() : null;
+        if (!latlng && isLine && geom.coordinates && geom.coordinates.length) {
+          const c = geom.coordinates[0];
+          latlng = L.latLng(c[1], c[0]);
+        }
+        openMapContextMenu(e.clientX, e.clientY, {
+          type: isLine ? 'line' : 'marker',
+          feature,
+          latlng
+        });
+        return;
+      }
+      const latlng = map.mouseEventToLatLng(e);
+      openMapContextMenu(e.clientX, e.clientY, { type: 'map', latlng });
+    });
+
+    document.addEventListener('mousedown', (e) => {
+      if (!mapContextMenuEl.hidden && !mapContextMenuEl.contains(e.target)) {
+        closeMapContextMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if (!mapContextMenuEl.hidden) closeMapContextMenu();
+      else if (lineDrawState) cancelLineDrawMode();
+      else if (situationPanelState) closeSituationPanel();
+    });
+
+    async function loadSituationLayer() {
+      try {
+        situationFeatures = await loadSituationFeatures();
+        const displayFeatures = getSituationFeaturesForDisplay();
+        const layer = buildSituationLayerFromFeatures(displayFeatures);
+        situationLegendEntries = collectSituationLegendEntries(displayFeatures);
+        updateSituationInactifsFilterUI();
+        return layer;
+      } catch (err) {
+        console.error(err);
+        situationFeatures = [];
+        situationLegendEntries = [];
+        return null;
+      }
+    }
+
     async function loadGeoJSON(name,file,style){
       try{
         const res = await fetch(encodeURI(file));
@@ -696,20 +1826,29 @@
           }
         });
         layerStyles[name] = style;
+        layer._cartoffFeatures = geojson.features;
         return layer;
       } catch(err){ console.error(err); alert(err); return null; }
     }
 
-    function addCheckbox(div, name, layer){
-      const id="chk_"+name;
+    function checkboxIdForLayer(name) {
+      return 'chk_' + name.replace(/[^a-zA-Z0-9_-]/g, '_');
+    }
+
+    function addCheckbox(div, name, layer, options){
+      const opts = options || {};
+      const id = checkboxIdForLayer(name);
       const label=document.createElement("label");
       label.htmlFor=id;
       const checkbox=document.createElement("input");
-      checkbox.type="checkbox"; checkbox.id=id; checkbox.checked=false; // décoché par défaut
+      checkbox.type="checkbox"; checkbox.id=id;
+      checkbox.checked = !!opts.checkedDefault;
       checkbox.addEventListener("change", e=>{
         if(e.target.checked){ 
           layer.addTo(map); 
-          if(layer.getBounds) map.fitBounds(layer.getBounds(), {padding: [20,20]});
+          if(opts.fitOnEnable !== false && layer.getBounds) {
+            map.fitBounds(layer.getBounds(), {padding: [20,20]});
+          }
         } else { 
           map.removeLayer(layer); 
         }
@@ -718,12 +1857,51 @@
       label.appendChild(checkbox);
       label.appendChild(document.createTextNode(" "+name));
       div.appendChild(label);
+      if (checkbox.checked) {
+        layer.addTo(map);
+      }
+    }
+
+    function addLazyCheckbox(div, item, options) {
+      const opts = options || {};
+      const name = item.name;
+      const id = checkboxIdForLayer(name);
+      const label = document.createElement('label');
+      label.htmlFor = id;
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = id;
+      checkbox.checked = !!opts.checkedDefault;
+      checkbox.addEventListener('change', async e => {
+        if (e.target.checked) {
+          if (!layers[name]) {
+            checkbox.disabled = true;
+            const layer = await loadGeoJSON(name, item.file, item.style);
+            checkbox.disabled = false;
+            if (!layer) {
+              checkbox.checked = false;
+              return;
+            }
+            layers[name] = layer;
+          }
+          layers[name].addTo(map);
+          if (opts.fitOnEnable !== false && layers[name].getBounds) {
+            map.fitBounds(layers[name].getBounds(), { padding: [20, 20] });
+          }
+        } else if (layers[name]) {
+          map.removeLayer(layers[name]);
+        }
+        updateLegend();
+      });
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(' ' + name));
+      div.appendChild(label);
     }
 
     function updateLegend(){
       let active = [];
       for(const name in layers){
-        const chk = document.getElementById("chk_"+name);
+        const chk = document.getElementById(checkboxIdForLayer(name));
         if(chk && chk.checked){ active.push(name); }
       }
       if(active.length===0){ legendDiv.innerHTML="<b>Légende :</b><br>– aucun calque actif –"; }
@@ -734,6 +1912,14 @@
             html += `<span class="squareBox ${squareLegendLayers[name]}"></span> ${name}<br>`;
           } else if(name in icons && icons[name].options.iconUrl){
             html += `<img src="${icons[name].options.iconUrl}" class="icon"> ${name}<br>`;
+          } else if(name === SITUATION_LAYER_NAME){
+            if (situationLegendEntries.length) {
+              situationLegendEntries.forEach((entry) => {
+                html += `<img src="${encodeURI(entry.imagePath)}" class="icon" alt=""> ${entry.label}<br>`;
+              });
+            } else {
+              html += `${name} — aucun panneau<br>`;
+            }
           } else {
             const style = layerStyles[name] || {};
             let color = style.color || "#000";
@@ -745,43 +1931,461 @@
       }
     }
 
+    function buildCommuneSearchEntries(index) {
+      return index
+        .map(entry => ({
+          label: entry.nom,
+          sublabel: entry.code_insee || '',
+          bounds: entry.bounds,
+          geometry: entry.geometry,
+          layer: entry.layer,
+          searchKey: CartoffCoords.normalizeSearchText(
+            entry.nom + ' ' + (entry.code_insee || '')
+          )
+        }))
+        .sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+    }
+
+    function clearSearchHighlight() {
+      if (searchHighlightTimer) {
+        clearTimeout(searchHighlightTimer);
+        searchHighlightTimer = null;
+      }
+      if (searchHighlightOverlay) {
+        map.removeLayer(searchHighlightOverlay);
+        searchHighlightOverlay = null;
+      }
+    }
+
+    function showSearchHighlight(entry, highlightStyle) {
+      clearSearchHighlight();
+      if (!entry || !entry.geometry) return;
+      const geom = entry.geometry;
+      if (geom.type === 'Point') {
+        searchHighlightOverlay = L.circleMarker(
+          [geom.coordinates[1], geom.coordinates[0]],
+          { radius: 12, color: highlightStyle.color, weight: highlightStyle.weight,
+            fillColor: highlightStyle.fillColor, fillOpacity: highlightStyle.fillOpacity || 0.6,
+            interactive: false }
+        ).addTo(map);
+      } else {
+        searchHighlightOverlay = L.geoJSON(geom, {
+          style: highlightStyle,
+          interactive: false
+        }).addTo(map);
+      }
+      if (searchHighlightOverlay.bringToFront) searchHighlightOverlay.bringToFront();
+      searchHighlightTimer = setTimeout(clearSearchHighlight, SEARCH_HIGHLIGHT_MS);
+    }
+
+    function zoomToSearchResult(entry, highlightStyle) {
+      if (!entry || !entry.bounds) return;
+      const bounds = entry.bounds;
+      const isPoint = entry.geometry && entry.geometry.type === 'Point';
+      const isTiny = bounds.getNorthEast && bounds.getSouthWest &&
+        bounds.getNorthEast().equals(bounds.getSouthWest());
+      if (isPoint || isTiny) {
+        map.setView(bounds.getCenter(), Math.max(map.getZoom(), 15), { animate: true });
+      } else {
+        map.fitBounds(bounds, {
+          ...getMapFitPadding(),
+          maxZoom: PMTILES_MAX_ZOOM,
+          animate: true
+        });
+      }
+      showSearchHighlight(entry, highlightStyle);
+    }
+
+    function normalizeDfciSearchCode(str) {
+      return (str || '').replace(/\s+/g, '').toUpperCase();
+    }
+
+    function preferredDfciResolution(codeLength) {
+      if (codeLength >= 6) return 2;
+      if (codeLength >= 4) return 20;
+      if (codeLength >= 2) return 100;
+      return null;
+    }
+
+    function findDfciSearchMatch(rawCode) {
+      const code = normalizeDfciSearchCode(rawCode);
+      if (!code) return null;
+      const matches = dfciSearchIndex.get(code);
+      if (!matches || !matches.length) return null;
+      if (matches.length === 1) return matches[0];
+      const preferred = preferredDfciResolution(code.length);
+      const exact = matches.find(m => m.resolution === preferred);
+      if (exact) return exact;
+      return matches.slice().sort((a, b) => a.resolution - b.resolution)[0];
+    }
+
+    function showDfciSearchMessage(text) {
+      const msg = document.getElementById('dfciSearchMsg');
+      if (!msg) return;
+      clearTimeout(dfciSearchMsgTimer);
+      if (!text) {
+        msg.hidden = true;
+        msg.textContent = '';
+        return;
+      }
+      msg.hidden = false;
+      msg.textContent = text;
+      dfciSearchMsgTimer = setTimeout(() => showDfciSearchMessage(''), 3500);
+    }
+
+    async function ensureDfciLayerVisible(layerName) {
+      const chk = document.getElementById(checkboxIdForLayer(layerName));
+      if (!chk) return;
+      if (chk.checked && layers[layerName]) return;
+      if (!layers[layerName]) {
+        const item = geojsonFiles.urgence.find(i => i.name === layerName);
+        if (!item) return;
+        chk.disabled = true;
+        const layer = await loadGeoJSON(item.name, item.file, item.style);
+        chk.disabled = false;
+        if (!layer) return;
+        layers[layerName] = layer;
+      }
+      if (!chk.checked) chk.checked = true;
+      if (!map.hasLayer(layers[layerName])) layers[layerName].addTo(map);
+      updateLegend();
+    }
+
+    async function zoomToDfciSearchResult(entry) {
+      if (!entry) return;
+      await ensureDfciLayerVisible(entry.layerName);
+      zoomToSearchResult(entry, DFCI_HIGHLIGHT_STYLE);
+    }
+
+    function runDfciSearch() {
+      if (!dfciSearchReady) {
+        showDfciSearchMessage('Index DFCI en cours de chargement…');
+        return;
+      }
+      const input = document.getElementById('dfciSearchInput');
+      const raw = input ? input.value : '';
+      const match = findDfciSearchMatch(raw);
+      if (!match) {
+        showDfciSearchMessage('Code DFCI introuvable');
+        return;
+      }
+      showDfciSearchMessage('');
+      zoomToDfciSearchResult(match);
+    }
+
+    function setupDfciSearch() {
+      const input = document.getElementById('dfciSearchInput');
+      const btn = document.getElementById('dfciSearchBtn');
+      if (!input || !btn) return;
+      input.disabled = false;
+      btn.disabled = false;
+      btn.addEventListener('click', runDfciSearch);
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          runDfciSearch();
+        }
+      });
+      input.addEventListener('input', () => showDfciSearchMessage(''));
+    }
+
+    async function loadDfciSearchIndex() {
+      const index = new Map();
+      for (const spec of DFCI_SEARCH_SPECS) {
+        try {
+          const resp = await fetch(spec.file);
+          if (!resp.ok) {
+            console.warn('DFCI search:', spec.file, resp.status);
+            continue;
+          }
+          const geojson = await resp.json();
+          for (const feature of geojson.features || []) {
+            const props = feature.properties || {};
+            const code = normalizeDfciSearchCode(props.dfci);
+            if (!code || !feature.geometry) continue;
+            const bounds = L.geoJSON(feature).getBounds();
+            if (!bounds || !bounds.isValid()) continue;
+            const entry = {
+              label: props.label || ('DFCI ' + code),
+              code,
+              resolution: spec.resolution,
+              geometry: feature.geometry,
+              bounds,
+              layerName: spec.layerName
+            };
+            if (!index.has(code)) index.set(code, []);
+            index.get(code).push(entry);
+          }
+        } catch (err) {
+          console.warn('DFCI search index:', spec.file, err);
+        }
+      }
+      dfciSearchIndex = index;
+      dfciSearchReady = index.size > 0;
+      setupDfciSearch();
+      if (!dfciSearchReady) {
+        showDfciSearchMessage('Impossible de charger l\'index DFCI');
+      }
+    }
+
+    function entryInViewport(entry) {
+      if (!entry || !entry.bounds) return false;
+      const viewport = map.getBounds();
+      if (entry.geometry && entry.geometry.type === 'Point') {
+        return viewport.contains(entry.bounds.getCenter());
+      }
+      return CartoffCoords.boundsIntersectViewport(entry.bounds, viewport);
+    }
+
+    function formatSelectOptionLabel(entry) {
+      return entry.sublabel ? `${entry.label} (${entry.sublabel})` : entry.label;
+    }
+
+    const layerSelectRefreshers = [];
+    let layerSelectRefreshTimer = null;
+    const LAYER_SELECT_DEBOUNCE_MS = 250;
+
+    function scheduleLayerSelectRefresh() {
+      clearTimeout(layerSelectRefreshTimer);
+      layerSelectRefreshTimer = setTimeout(() => {
+        layerSelectRefreshers.forEach(fn => fn());
+      }, LAYER_SELECT_DEBOUNCE_MS);
+    }
+
+    map.on('moveend', scheduleLayerSelectRefresh);
+
+    function setupLayerSelect({ selectId, entries, getEntries, placeholder, emptyMessage, highlightStyle, viewportFilter = true }) {
+      const select = document.getElementById(selectId);
+      let visibleEntries = [];
+
+      function resolveEntries() {
+        return getEntries ? getEntries() : (entries || []);
+      }
+
+      function populateOptions() {
+        const allEntries = resolveEntries();
+        visibleEntries = (viewportFilter ? allEntries.filter(entryInViewport) : allEntries.slice())
+          .sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+
+        select.innerHTML = '';
+        if (!allEntries.length) {
+          const emptyOpt = document.createElement('option');
+          emptyOpt.value = '';
+          emptyOpt.disabled = true;
+          emptyOpt.selected = true;
+          emptyOpt.textContent = emptyMessage || 'Aucun élément';
+          select.appendChild(emptyOpt);
+          select.disabled = true;
+          return;
+        }
+        if (!visibleEntries.length) {
+          const emptyOpt = document.createElement('option');
+          emptyOpt.value = '';
+          emptyOpt.disabled = true;
+          emptyOpt.selected = true;
+          emptyOpt.textContent = 'Aucun élément dans la zone affichée';
+          select.appendChild(emptyOpt);
+          select.disabled = true;
+          return;
+        }
+
+        select.disabled = false;
+        const placeholderOpt = document.createElement('option');
+        placeholderOpt.value = '';
+        placeholderOpt.disabled = true;
+        placeholderOpt.selected = true;
+        placeholderOpt.textContent = placeholder;
+        select.appendChild(placeholderOpt);
+
+        visibleEntries.forEach((entry, index) => {
+          const opt = document.createElement('option');
+          opt.value = String(index);
+          opt.textContent = formatSelectOptionLabel(entry);
+          select.appendChild(opt);
+        });
+      }
+
+      select.addEventListener('change', () => {
+        const index = select.value;
+        if (!index) return;
+        const entry = visibleEntries[Number(index)];
+        if (entry) zoomToSearchResult(entry, highlightStyle);
+        select.selectedIndex = 0;
+      });
+
+      if (viewportFilter || getEntries) {
+        layerSelectRefreshers.push(populateOptions);
+      }
+      select.disabled = false;
+      populateOptions();
+    }
+
+    function setupCommuneSearch() {
+      setupLayerSelect({
+        selectId: 'communeSearchSelect',
+        entries: communeSearchEntries,
+        placeholder: '— Choisir une commune —',
+        highlightStyle: COMMUNE_HIGHLIGHT_STYLE
+      });
+    }
+
+    function setupDepartementSearches() {
+      const communesLayer = layers[COMMUNE_LAYER_NAME];
+      if (communesLayer) {
+        communeIndex = CartoffCoords.buildCommuneIndex(communesLayer);
+        communeSearchEntries = buildCommuneSearchEntries(communeIndex);
+        setupCommuneSearch();
+        if (lastPointer) refreshCoordsFromMap();
+      }
+      const zonesIndLayer = layers[ZONES_INDUSTRIELLES_LAYER];
+      if (zonesIndLayer) {
+        setupLayerSelect({
+          selectId: 'zonesIndustriellesSearchSelect',
+          entries: CartoffCoords.buildFeatureSearchIndex(zonesIndLayer, {
+            labelFields: ['nom', 'operateur', 'adresse'],
+            searchFields: ['nom', 'operateur', 'adresse', 'telephone'],
+            sublabelFields: ['operateur', 'adresse'],
+            fallbackLabel: 'Zone industrielle'
+          }),
+          placeholder: '— Choisir une zone industrielle —',
+          highlightStyle: ZONES_INDUSTRIELLES_HIGHLIGHT
+        });
+      }
+      const sitesIndLayer = layers[SITES_INDUSTRIELS_LAYER];
+      if (sitesIndLayer) {
+        setupLayerSelect({
+          selectId: 'sitesIndustrielsSearchSelect',
+          entries: CartoffCoords.buildFeatureSearchIndex(sitesIndLayer, {
+            labelFields: ['nom', 'operateur', 'adresse'],
+            searchFields: ['nom', 'operateur', 'adresse', 'telephone'],
+            sublabelFields: ['operateur', 'adresse'],
+            fallbackLabel: 'Site industriel'
+          }),
+          placeholder: '— Choisir un site industriel —',
+          highlightStyle: SITES_INDUSTRIELS_HIGHLIGHT
+        });
+      }
+      const zonesHabLayer = layers[ZONES_HABITATION_LAYER];
+      if (zonesHabLayer) {
+        setupLayerSelect({
+          selectId: 'zonesHabitationSearchSelect',
+          entries: CartoffCoords.buildFeatureSearchIndex(zonesHabLayer, {
+            labelFields: ['nom', 'commune'],
+            searchFields: ['nom', 'commune', 'code_postal'],
+            sublabelFields: ['commune', 'code_postal'],
+            fallbackLabel: 'Zone résidentielle',
+            requireSearchable: true
+          }),
+          placeholder: '— Choisir une zone d\'habitation —',
+          highlightStyle: ZONES_HABITATION_HIGHLIGHT
+        });
+      }
+    }
+
+    function buildSituationSearchEntries() {
+      const source = getSituationFeaturesForDisplay();
+      if (!source.length) return [];
+      return source
+        .filter((f) => f && f.geometry)
+        .map((feature) => {
+          const props = feature.properties || {};
+          const type = CartoffPoi.getType(props.sous_type);
+          const typeLabel = (type && type.label) || props.sous_type || '';
+          const libelle = props.libelle || typeLabel || 'Constat';
+          const inactif = isSituationInactif(props);
+          const geom = feature.geometry;
+          let bounds = null;
+          if (geom.type === 'Point') {
+            const ll = L.latLng(geom.coordinates[1], geom.coordinates[0]);
+            bounds = L.latLngBounds(ll, ll);
+          } else if (geom.type === 'LineString' && geom.coordinates.length >= 2) {
+            const latlngs = geom.coordinates.map((c) => L.latLng(c[1], c[0]));
+            bounds = L.latLngBounds(latlngs);
+          }
+          const isLine = geom.type === 'LineString';
+          const searchKey = CartoffCoords.normalizeSearchText(
+            [libelle, typeLabel, isLine ? 'tronçon' : '', props.description, props.commune, props.dfci, props.statut]
+              .filter(Boolean)
+              .join(' ')
+          );
+          return {
+            label: libelle + (inactif ? ' (inactif)' : ''),
+            sublabel: [typeLabel, isLine ? 'Tronçon' : '', inactif ? 'Inactif' : ''].filter(Boolean).join(' · '),
+            bounds,
+            geometry: geom,
+            layer: null,
+            searchKey
+          };
+        })
+        .filter((entry) => entry.bounds)
+        .sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+    }
+
+    function setupSituationSearch() {
+      const situationLayer = layers[SITUATION_LAYER_NAME];
+      if (!situationLayer) return;
+      setupLayerSelect({
+        selectId: 'situationConstatsSearchSelect',
+        getEntries: () => buildSituationSearchEntries(),
+        placeholder: '— Choisir un constat —',
+        emptyMessage: '— Aucun constat —',
+        highlightStyle: SITUATION_HIGHLIGHT,
+        viewportFilter: false
+      });
+    }
+
+    function showSituationLoadError(message) {
+      const div = document.getElementById('situationLayers');
+      const hint = document.getElementById('situationHint');
+      if (hint) hint.hidden = true;
+      if (!div) return;
+      const err = document.createElement('p');
+      err.className = 'situation-error';
+      err.textContent = message;
+      div.appendChild(err);
+    }
+
     async function setupLayers(){
+      const situationPromise = loadSituationLayer();
+
       for(const item of geojsonFiles.departement){
         const layer = await loadGeoJSON(item.name,item.file,item.style);
         if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("departementLayers"), item.name, layer); }
       }
-      for(const item of geojsonFiles.aviation){
-        const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("aviationLayers"), item.name, layer); }
+      setupDepartementSearches();
+      const lazyLayerGroups = [
+        ['aviation', 'aviationLayers'],
+        ['urgence', 'urgenceLayers'],
+        ['sante', 'santeLayers'],
+        ['services', 'servicesLayers'],
+        ['toponymie', 'toponymieLayers'],
+        ['contexte', 'contexteLayers']
+      ];
+      for (const [category, containerId] of lazyLayerGroups) {
+        const container = document.getElementById(containerId);
+        for (const item of geojsonFiles[category]) {
+          addLazyCheckbox(container, item);
+        }
       }
-      for(const item of geojsonFiles.urgence){
-        const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("urgenceLayers"), item.name, layer); }
-      }
-      for(const item of geojsonFiles.sante){
-        const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("santeLayers"), item.name, layer); }
-      }
-      for(const item of geojsonFiles.services){
-        const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("servicesLayers"), item.name, layer); }
-      }
-      for(const item of geojsonFiles.toponymie){
-        const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("toponymieLayers"), item.name, layer); }
-      }
-      for(const item of geojsonFiles.contexte){
-        const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("contexteLayers"), item.name, layer); }
-      }
-      const communesLayer = layers['Contours communes (OSM)'];
-      if (communesLayer) {
-        communeIndex = CartoffCoords.buildCommuneIndex(communesLayer);
-        if (lastPointer) refreshCoordsFromMap();
+      const situationLayer = await situationPromise;
+      if (situationLayer) {
+        layers[SITUATION_LAYER_NAME] = situationLayer;
+        addCheckbox(document.getElementById('situationLayers'), SITUATION_LAYER_NAME, situationLayer, {
+          checkedDefault: true,
+          fitOnEnable: false
+        });
+        setupSituationSearch();
+        updateLegend();
+      } else {
+        showSituationLoadError(
+          'Impossible de charger les constats (geojson/situation_constats.geojson). ' +
+          'Servez l\'application via http://localhost:8000, pas en fichier local.'
+        );
       }
     }
 
     setupLayers();
+    loadDfciSearchIndex();
   </script>
 </body>
 </html>

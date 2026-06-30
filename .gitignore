@@ -2,3 +2,4 @@ pmtiles/node_modules/
 pmtiles/loire.pmtiles
 elevation/loire_elev.bin
 scripts/__pycache__/
+scripts/.cache/

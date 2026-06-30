@@ -163,34 +163,169 @@
     return false;
   }
 
+  function normalizeSearchText(str) {
+    return (str || '').normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+  }
+
   function buildCommuneIndex(geojsonLayer) {
     const entries = [];
     if (!geojsonLayer) return entries;
     geojsonLayer.eachLayer(layer => {
       if (!layer.feature || !layer.getBounds) return;
+      const props = layer.feature.properties || {};
       entries.push({
-        nom: layer.feature.properties.nom || '—',
+        nom: props.nom || '—',
+        code_insee: props.code_insee || '',
         bounds: layer.getBounds(),
-        geometry: layer.feature.geometry
+        geometry: layer.feature.geometry,
+        layer
       });
     });
     return entries;
   }
 
+  function boundsFromGeometry(geometry) {
+    if (!geometry || !geometry.coordinates) return null;
+    let minLat = Infinity;
+    let minLon = Infinity;
+    let maxLat = -Infinity;
+    let maxLon = -Infinity;
+
+    function visit(lon, lat) {
+      if (lat < minLat) minLat = lat;
+      if (lon < minLon) minLon = lon;
+      if (lat > maxLat) maxLat = lat;
+      if (lon > maxLon) maxLon = lon;
+    }
+
+    function walkCoords(coords, type) {
+      if (type === 'Point') {
+        visit(coords[0], coords[1]);
+      } else if (type === 'MultiPoint' || type === 'LineString') {
+        coords.forEach(c => visit(c[0], c[1]));
+      } else if (type === 'MultiLineString') {
+        coords.forEach(line => line.forEach(c => visit(c[0], c[1])));
+      } else if (type === 'Polygon') {
+        coords.forEach(ring => ring.forEach(c => visit(c[0], c[1])));
+      } else if (type === 'MultiPolygon') {
+        coords.forEach(poly => walkCoords(poly, 'Polygon'));
+      }
+    }
+
+    walkCoords(geometry.coordinates, geometry.type);
+    if (!isFinite(minLat)) return null;
+    return L.latLngBounds([minLat, minLon], [maxLat, maxLon]);
+  }
+
+  function buildFeatureSearchIndex(geojsonLayer, options) {
+    const {
+      labelFields = ['nom'],
+      searchFields = labelFields,
+      sublabelFields = [],
+      fallbackLabel = '—',
+      requireSearchable = false
+    } = options || {};
+    const entries = [];
+    if (!geojsonLayer) return entries;
+
+    const features = geojsonLayer._cartoffFeatures;
+    const indexedFeatures = Array.isArray(features) && features.length
+      ? features
+      : null;
+
+    function pushEntry(feature, bounds, layer) {
+      const props = feature.properties || {};
+      let label = '';
+      for (const f of labelFields) {
+        if (props[f]) {
+          label = String(props[f]);
+          break;
+        }
+      }
+      if (!label) {
+        for (const f of searchFields) {
+          if (props[f] && f !== 'type') {
+            label = String(props[f]);
+            break;
+          }
+        }
+      }
+      if (!label) {
+        label = fallbackLabel + (props.osm_id ? ' #' + props.osm_id : '');
+      }
+      const sublabel = sublabelFields.map(f => props[f]).filter(Boolean).join(' · ');
+      const searchableParts = searchFields
+        .filter(f => f !== 'type')
+        .map(f => props[f])
+        .filter(v => v != null && v !== '');
+      if (requireSearchable && !searchableParts.length) return;
+      const searchKey = normalizeSearchText(
+        [
+          ...searchableParts,
+          label,
+          props.osm_id != null ? String(props.osm_id) : ''
+        ].filter(Boolean).join(' ')
+      );
+      entries.push({
+        label,
+        sublabel,
+        bounds,
+        geometry: feature.geometry,
+        layer: layer || null,
+        searchKey
+      });
+    }
+
+    if (indexedFeatures) {
+      indexedFeatures.forEach(feature => {
+        if (!feature || !feature.geometry) return;
+        const bounds = boundsFromGeometry(feature.geometry);
+        if (!bounds) return;
+        pushEntry(feature, bounds, null);
+      });
+    } else {
+      geojsonLayer.eachLayer(layer => {
+        if (!layer.feature || !layer.getBounds) return;
+        pushEntry(layer.feature, layer.getBounds(), layer);
+      });
+    }
+
+    return entries.sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+  }
+
+  function boundsIntersectViewport(featureBounds, viewportBounds) {
+    if (!featureBounds || !viewportBounds) return false;
+    if (featureBounds.intersects) return viewportBounds.intersects(featureBounds);
+    return false;
+  }
+
+  let communeLookupCache = { key: '', result: null };
+
   function findCommune(lat, lon, communeIndex) {
     if (!communeIndex || !communeIndex.length) return null;
+    const key = Math.round(lat * 1e5) + '|' + Math.round(lon * 1e5);
+    if (communeLookupCache.key === key) return communeLookupCache.result;
     const ll = L.latLng(lat, lon);
+    let result = null;
     for (const entry of communeIndex) {
       if (!entry.bounds.contains(ll)) continue;
-      if (pointInGeoJSON(lat, lon, entry.geometry)) return entry.nom;
+      if (pointInGeoJSON(lat, lon, entry.geometry)) {
+        result = entry.nom;
+        break;
+      }
     }
-    return null;
+    communeLookupCache = { key, result };
+    return result;
   }
 
   global.CartoffCoords = {
     latLngToUtm,
     latLngToDfci,
+    pointInGeoJSON,
+    normalizeSearchText,
     buildCommuneIndex,
+    buildFeatureSearchIndex,
+    boundsIntersectViewport,
     findCommune,
     loadElevationGrid,
     getElevation,

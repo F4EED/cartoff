@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Découpe un gros fichier en morceaux <= 80 Mo pour contourner la limite GitHub (100 Mo)."""
+"""Découpe un gros fichier en morceaux <= 70 Mo pour contourner la limite GitHub (100 Mo)."""
 
 import argparse
 import hashlib
@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-DEFAULT_CHUNK_SIZE = 80 * 1024 * 1024  # 80 Mo
+DEFAULT_CHUNK_SIZE = 70 * 1024 * 1024  # 70 Mo
 BUFFER_SIZE = 8 * 1024 * 1024
 
 
@@ -25,6 +25,9 @@ def pack(source: Path, chunk_size: int, output_dir: Path | None) -> Path:
 
     out_dir = output_dir or source.parent
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    for old_part in out_dir.glob(f"{source.name}.part*"):
+        old_part.unlink()
 
     total_size = source.stat().st_size
     if total_size <= chunk_size:
@@ -63,7 +66,7 @@ def pack(source: Path, chunk_size: int, output_dir: Path | None) -> Path:
 def main() -> int:
     root = Path(__file__).resolve().parent.parent
     parser = argparse.ArgumentParser(
-        description="Découpe un fichier volumineux en morceaux de 80 Mo max (limite GitHub)."
+        description="Découpe un fichier volumineux en morceaux de 70 Mo max (limite GitHub)."
     )
     parser.add_argument(
         "source",
@@ -82,8 +85,8 @@ def main() -> int:
     parser.add_argument(
         "--chunk-size-mb",
         type=int,
-        default=80,
-        help="Taille max de chaque morceau en Mo (défaut : 80)",
+        default=70,
+        help="Taille max de chaque morceau en Mo (défaut : 70)",
     )
     args = parser.parse_args()
 
