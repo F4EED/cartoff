@@ -1,99 +1,208 @@
-# Cartoff
+# 🚨 Cartoff
 
-Cartographie **hors ligne** pour l'aide à la gestion de crise — département de la Loire (42) et environs.
+  
 
-Le manque d'un outil pour la gestion de crise est à l'origine du projet. Une veille technologique autour de Leaflet a permis d'assembler fond de carte vectoriel, calques GeoJSON (OpenStreetMap) et outils de localisation (UTM, DFCI, altitude).
 
-## Démarrage rapide
+## Comprendre le terrain, décider plus vite.
 
-**Prérequis :** Python 3 (aucune dépendance pour le serveur).
+  
 
-1. **Reconstituer le fond PMTiles** (fichier > 100 Mo, découpé pour GitHub) :
 
-   ```bash
-   python scripts/unpack_large_file.py
-   ```
+**Cartoff** est un outil de cartographie open source dédié à la **gestion de crise**, conçu pour fonctionner **100% hors ligne**.
 
-   Voir [pmtiles/README.md](pmtiles/README.md) pour le détail.
+  
 
-2. **(Optionnel) Générer la grille d'altitude** Copernicus DEM (~58 Mo, non versionnée) :
 
-   ```bash
-   pip install rasterio numpy shapely
-   python scripts/build_elevation_loire.py
-   ```
+> ✅ Pensé pour les environnements dégradés 
 
-   Voir [elevation/README.md](elevation/README.md).
+> ✅ Fonctionne sans aucune connexion réseau 
 
-3. **Lancer la carte** (obligatoire : serveur HTTP, pas `file://`) :
+> ✅ Basé sur Leaflet 
 
-   ```bash
-   python serve.py
-   ```
+  
 
-   Ouvrir http://localhost:8000/ — le serveur gère les requêtes **HTTP Range** requises par PMTiles.
 
-## Fonctionnalités
+---
 
-| Élément | Description |
-|---------|-------------|
-| Fond de carte | `pmtiles/loire.pmtiles` via [protomaps-leaflet](https://github.com/protomaps/PMTiles) (`flavor: light`, `lang: fr`) |
-| Calques | GeoJSON OSM (urgence, santé, aviation, toponymie, etc.) — cases à cocher dans la barre latérale |
-| Boîte de coordonnées | Commune (contours OSM), lat/lon, zoom, **UTM**, **DFCI** (carreau 2 km), **altitude** (MNT offline) |
-| Emprise | 45,0°–46,5° N, 3,5°–5,0° E (zoom 9–14) |
+  
 
-Algorithmes de coordonnées : `js/coords-utils.js` (proj4 pour UTM ; DFCI sur grille Lambert II étendu — voir [sources.md](sources.md)).
 
-## Les étapes pour adapter le projet
+## 🌍 Pourquoi Cartoff ?
 
-- Une vraie analyse de vos besoins.
-- Une recherche des données : une partie est fournie ici (OSM, Copernicus DEM) ; d'autres peuvent provenir de l'IGN (BDTOPO, etc.).
-- Une mise en forme GeoJSON — tester vos fichiers `.geojson`.
-- Adapter `index.html` (liste `geojsonFiles`, styles, légende).
-- Placer le PMTiles dans `pmtiles/` (voir [Valentin Saugnier / map.gaulix.fr](https://github.com/valentintintin)).
-- Servir via un serveur web (`python serve.py`, nginx, etc.).
+  
 
-## Fichiers volumineux
 
-| Fichier | Taille typique | Dans Git ? | Restauration |
-|---------|----------------|------------|--------------|
-| `pmtiles/loire.pmtiles` | ~132 Mo | Non (morceaux `.part*`) | `python scripts/unpack_large_file.py` |
-| `elevation/loire_elev.bin` | ~58 Mo | Non (`.gitignore`) | `python scripts/build_elevation_loire.py` |
-| `elevation/loire_elev.meta.json` | quelques Ko | Oui | — |
+En situation de crise (inondation, catastrophe naturelle, incident industriel), 
 
-Scripts : `scripts/pack_large_file.py`, `scripts/unpack_large_file.py`.
+les réseaux sont souvent indisponibles.
 
-## Sources et licences
+  
 
-Recensement détaillé : **[sources.md](sources.md)** (OSM, Copernicus DEM, DFCI, IGN, bibliothèques).
 
-Attributions affichées dans la carte : OpenStreetMap, Copernicus DEM (altitude).
+👉 Mais les décisions, elles, ne peuvent pas attendre.
 
-## Votre attention
+  
 
-Je ne suis ni :
 
-- Développeur
-- Informaticien
-- Cartographe
+Cartoff répond à ce besoin :
 
-Juste curieux de nature et à la recherche de solutions libres, open source, qui peuvent accompagner collectivités, associations et citoyens dans la gestion de crise — avec un investissement financier modeste et un investissement de temps plus long qu'une solution sur étagère.
+  
 
-## Ils m'ont bien aidé
 
-- [Valentin Saugnier](https://github.com/valentintintin)
-- ChatGPT (oui je sais ce n'est pas bien, mais quand tu n'es pas développeur ça aide — la preuve)
+- fournir une **cartographie opérationnelle**
 
-## Inspirations
+- disponible **sans internet**
 
-- [map.gaulix.fr](https://github.com/valentintintin)
+- simple, rapide et utilisable sur le terrain
 
-## Conclusion
+  
 
-- Ce projet évoluera, mais pas forcément beaucoup ni rapidement.
-- Je vous mets le projet à disposition tel quel, sans garantie.
-- Si vous en faites un vrai outil de gestion de crise, je suis éventuellement preneur d'un retour (frederic.f4eed at gmail.com).
 
-Bref amusez-vous, apprenez et partagez — finalement cela fait plaisir !
+---
 
-<img width="1913" height="1034" alt="image" src="https://github.com/user-attachments/assets/c4573301-cb96-4a46-9c80-a29d211f9a8f" />
+  
+
+
+## 🌊 Cas concret : inondation de la Loire
+
+  
+
+
+Crue soudaine :
+
+  
+
+
+- 🌊 zones inondées 
+
+- 🚧 routes coupées 
+
+- 📡 réseau indisponible 
+
+  
+
+
+👉 Les équipes terrain doivent malgré tout :
+
+- comprendre la situation 
+
+- se coordonner 
+
+- continuer à intervenir 
+
+  
+
+
+### ✅ Avec Cartoff
+
+  
+
+
+- 🗺️ visualiser immédiatement les zones impactées 
+
+- 🚧 identifier les routes impraticables 
+
+- 📍 positionner des points critiques 
+
+- ⚡ travailler **100% hors ligne** 
+
+  
+
+
+💥 Résultat : décisions plus rapides, meilleure coordination.
+
+  
+
+
+---
+
+  
+
+
+## ⚙️ Fonctionnalités
+
+  
+
+
+- 🗺️ Visualisation de données cartographiques (Leaflet)
+
+- ⚡ Interface légère et rapide
+
+- 🔌 Fonctionnement entièrement offline
+
+- 📍 Ajout de points d’intérêt (incidents, zones, repères)
+
+- 🧩 Architecture simple et extensible
+
+  
+
+
+---
+
+  
+
+
+## 🚨 Cas d’usage
+
+  
+
+
+Cartoff est conçu pour :
+
+  
+
+
+- 🚒 Services de secours (pompiers, sécurité civile)
+
+- 🏛️ Collectivités locales
+
+- 🌍 ONG / humanitaire
+
+- 🛠️ Cellules de gestion de crise
+
+- 🧭 Équipes terrain sans connectivité
+
+  
+
+
+---
+
+  
+
+
+## 🧠 Philosophie
+
+  
+
+
+Cartoff repose sur trois principes :
+
+  
+
+
+👉 **Simplicité** 
+
+👉 **Robustesse en conditions dégradées** 
+
+👉 **Ouverture (open source)** 
+
+  
+
+
+---
+
+  
+
+
+## 🚀 Démarrage
+
+  
+
+
+```bash
+
+git clone [https://github.com/F4EED/cartoff.git](https://github.com/F4EED/cartoff.git)
+
+cd cartoff
+
+# lancer l'application (à adapter)
