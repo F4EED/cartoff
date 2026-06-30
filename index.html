@@ -9,40 +9,83 @@
   <link rel="stylesheet" href="css/leaflet.css" />
   
   <style>
-    html, body { margin:0; height:100%; }
-    #map { width:100%; height:100vh; background:#ccc; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    #map {
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      background: #ccc;
+    }
     .sidebar {
       position: absolute;
-      top:10px;
-      right:10px;
-      z-index:2000;
-      background:white;
-      padding:10px;
-      border-radius:8px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.3);
-      max-width:300px;
-      font-family:Arial,sans-serif;
-      font-size:14px;
-      user-select:none;
+      top: 10px;
+      right: 10px;
+      z-index: 2000;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      width: min(300px, calc(100vw - 20px));
+      max-height: calc(100dvh - 20px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      user-select: none;
     }
-    .sidebar-header { cursor: grab; font-weight:bold; margin-bottom:8px; }
+    .sidebar-header {
+      cursor: grab;
+      font-weight:bold;
+      margin-bottom:8px;
+      position:sticky;
+      top:0;
+      background:white;
+      z-index:1;
+      padding-bottom:4px;
+    }
     details summary { cursor:pointer; font-weight:bold; }
     details { margin-bottom:5px; }
     label { cursor:pointer; display:block; }
     #coords {
-      position:absolute;
-      bottom:10px;
-      left:10px;
-      z-index:3000;
-      background:rgba(255,255,255,0.9);
-      padding:6px 10px;
-      border-radius:6px;
-      font-family:Arial,sans-serif;
-      font-size:13px;
-      box-shadow:0 1px 4px rgba(0,0,0,0.3);
-      min-width:260px;
-      user-select:none;
-      pointer-events:none;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 3000;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.45;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      min-width: 280px;
+      max-width: min(420px, calc(100vw - 20px));
+      user-select: none;
+      pointer-events: none;
+    }
+    #coords .coords-commune {
+      font-weight: bold;
+      color: #3949ab;
+      margin-bottom: 2px;
+    }
+    #coords .coords-line {
+      white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+      #coords {
+        top: 10px;
+        bottom: auto;
+        left: 10px;
+        right: 10px;
+        min-width: 0;
+        font-size: 11px;
+        padding: 6px 8px;
+      }
     }
     #legend {
       margin-top:10px;
@@ -128,9 +171,24 @@
     .osm-aerodrome-marker div { background: #388e3c; border: 1px solid #1b5e20; }
     .osm-helipad-marker div { background: #f57c00; border: 1px solid #e65100; }
     #sidebarLogo {
-      display:block;
-      margin:10px auto 0 auto;
-      max-width:100%;
+      display: block;
+      margin: 10px auto 0 auto;
+      max-width: 28%;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        top: auto;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        width: auto;
+        max-height: min(45dvh, 320px);
+        font-size: 13px;
+        padding: 8px;
+      }
+      .sidebar-header { font-size: 13px; }
+      .leaflet-control-attribution { font-size: 10px !important; max-width: calc(100vw - 20px); }
+      .leaflet-control-zoom a { width: 34px; height: 34px; line-height: 34px; }
     }
   </style>
 </head>
@@ -139,37 +197,37 @@
   <div class="sidebar" id="layerMenu">
     <div class="sidebar-header" id="dragHandle">Calques GeoJSON (déplacer ici)</div>
 
-    <details open>
-      <summary>Département de la Loire</summary>
+    <details>
+      <summary>Département de la Loire (OSM)</summary>
       <div id="departementLayers"></div>
     </details>
 
-    <details open>
-      <summary>Gestion des risques</summary>
-      <div id="riskLayers"></div>
+    <details>
+      <summary>Aviation (OSM)</summary>
+      <div id="aviationLayers"></div>
     </details>
 
-    <details open>
+    <details>
       <summary>Urgence &amp; industrie (OSM)</summary>
       <div id="urgenceLayers"></div>
     </details>
 
-    <details open>
+    <details>
       <summary>Contexte terrain (OSM)</summary>
       <div id="contexteLayers"></div>
     </details>
 
-    <details open>
+    <details>
       <summary>Toponymie (OSM)</summary>
       <div id="toponymieLayers"></div>
     </details>
 
-    <details open>
+    <details>
       <summary>Santé (OSM)</summary>
       <div id="santeLayers"></div>
     </details>
 
-    <details open>
+    <details>
       <summary>Services publics (OSM)</summary>
       <div id="servicesLayers"></div>
     </details>
@@ -182,10 +240,17 @@
   <div id="coords">Déplacez la souris sur la carte...</div>
 
   <script src="js/leaflet.js"></script>
+  <script src="js/proj4-src.js"></script>
+  <script src="js/coords-utils.js"></script>
   <script src="js/protomaps-leaflet.js"></script>
 
   <script>
-    const map = L.map('map').setView([45.7885, 4.1830], 9);
+    const LOIRE_BOUNDS = L.latLngBounds([45.0, 3.5], [46.5, 5.0]);
+    const PMTILES_MIN_ZOOM = 9;
+    const PMTILES_MAX_ZOOM = 14;
+    const map = L.map('map', { minZoom: PMTILES_MIN_ZOOM, maxZoom: PMTILES_MAX_ZOOM });
+    map.setView([45.7885, 4.1830], 9);
+    map.setMaxBounds(LOIRE_BOUNDS.pad(0.05));
     /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:'&copy; OpenStreetMap contributors'
     }).addTo(map);*/
@@ -196,44 +261,190 @@
       flavor: "light",
       lang: "fr",
     }).addTo(map);
+    map.attributionControl.addAttribution(
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributeurs'
+    );
+    map.attributionControl.addAttribution(
+      'MNT <a href="https://spacedata.copernicus.eu/" title="Copernicus DEM GLO-30">Copernicus DEM</a>'
+    );
 
     // Sidebar draggable
     const sidebar = document.getElementById('layerMenu');
     const dragHandle = document.getElementById('dragHandle');
-    let isDragging=false, startX, startY;
-    const savedX = localStorage.getItem('sidebarX');
-    const savedY = localStorage.getItem('sidebarY');
-    if(savedX && savedY){
-      sidebar.style.right='auto';
-      sidebar.style.left = savedX + 'px';
-      sidebar.style.top = savedY + 'px';
+    const coordsDiv = document.getElementById('coords');
+    let communeIndex = [];
+    let lastPointer = null;
+    let coordsUpdateTimer = null;
+    let elevationReady = false;
+
+    CartoffCoords.loadElevationGrid('elevation').then(ok => {
+      elevationReady = ok;
+      if (lastPointer) refreshCoordsFromMap();
+    });
+
+    function renderCoordsBox(latlng) {
+      const lat = latlng.lat;
+      const lon = latlng.lng;
+      const zoom = map.getZoom();
+      const utm = CartoffCoords.latLngToUtm(lat, lon);
+      const dfci = CartoffCoords.latLngToDfci(lat, lon);
+      const commune = CartoffCoords.findCommune(lat, lon, communeIndex);
+      const communeLabel = commune || (communeIndex.length ? 'Hors commune' : 'Communes…');
+      const dfciLabel = dfci.base;
+      const alt = CartoffCoords.getElevation(lat, lon);
+      const altLabel = alt !== null ? `${alt} m` : (elevationReady ? '—' : '…');
+
+      coordsDiv.innerHTML =
+        `<div class="coords-commune">${communeLabel}</div>` +
+        `<div class="coords-line">Lat ${lat.toFixed(5)} · Lon ${lon.toFixed(5)}</div>` +
+        `<div class="coords-line">Zoom ${zoom} · UTM ${utm.zone}${utm.hemisphere} E ${utm.easting} N ${utm.northing}</div>` +
+        `<div class="coords-line">DFCI ${dfciLabel} · Alt. ${altLabel}</div>`;
     }
-    dragHandle.addEventListener('mousedown', e=>{
-      isDragging=true;
-      startX = e.clientX - sidebar.offsetLeft;
-      startY = e.clientY - sidebar.offsetTop;
-      dragHandle.style.cursor='grabbing';
+
+    function scheduleCoordsUpdate(latlng) {
+      lastPointer = latlng;
+      clearTimeout(coordsUpdateTimer);
+      coordsUpdateTimer = setTimeout(() => {
+        if (lastPointer) renderCoordsBox(lastPointer);
+      }, 40);
+    }
+
+    function refreshCoordsFromMap() {
+      if (lastPointer) renderCoordsBox(lastPointer);
+    }
+    let isDragging = false, startX, startY;
+
+    function isMobileLayout() {
+      return window.innerWidth <= 768;
+    }
+
+    function fitMapToArea() {
+      map.invalidateSize({ animate: false });
+      const size = map.getSize();
+      if (!size || size.x < 50 || size.y < 50) return;
+      map.fitBounds(LOIRE_BOUNDS, {
+        paddingTopLeft: L.point(10, 10),
+        paddingBottomRight: L.point(
+          isMobileLayout() ? sidebar.offsetHeight + 16 : coordsDiv.offsetHeight + 16,
+          isMobileLayout() ? 10 : sidebar.offsetWidth + 16
+        ),
+        maxZoom: PMTILES_MAX_ZOOM,
+        animate: false
+      });
+      if (map.getZoom() < PMTILES_MIN_ZOOM) {
+        map.setView([45.7885, 4.1830], PMTILES_MIN_ZOOM);
+      }
+    }
+
+    function applySidebarLayout() {
+      if (isMobileLayout()) {
+        sidebar.style.left = '';
+        sidebar.style.top = '';
+        sidebar.style.right = '';
+        sidebar.style.bottom = '';
+      } else {
+        const savedX = localStorage.getItem('sidebarX');
+        const savedY = localStorage.getItem('sidebarY');
+        if (savedX && savedY) {
+          sidebar.style.right = 'auto';
+          sidebar.style.left = savedX + 'px';
+          sidebar.style.top = savedY + 'px';
+          const pos = clampSidebarPosition();
+          if (pos) {
+            localStorage.setItem('sidebarX', pos.x);
+            localStorage.setItem('sidebarY', pos.y);
+          }
+        }
+      }
+    }
+
+    function clampSidebarPosition() {
+      if (isMobileLayout()) return null;
+      let x = sidebar.offsetLeft;
+      let y = sidebar.offsetTop;
+      x = Math.min(Math.max(0, x), window.innerWidth - sidebar.offsetWidth);
+      y = Math.min(Math.max(0, y), window.innerHeight - sidebar.offsetHeight);
+      sidebar.style.left = x + 'px';
+      sidebar.style.top = y + 'px';
+      sidebar.style.right = 'auto';
+      sidebar.style.bottom = 'auto';
+      return { x, y };
+    }
+
+    function applyResponsiveLayout() {
+      applySidebarLayout();
+      map.invalidateSize({ animate: false });
+      fitMapToArea();
+    }
+
+    applyResponsiveLayout();
+
+    function startDrag(clientX, clientY) {
+      if (isMobileLayout()) return;
+      isDragging = true;
+      startX = clientX - sidebar.offsetLeft;
+      startY = clientY - sidebar.offsetTop;
+      dragHandle.style.cursor = 'grabbing';
+    }
+
+    function moveDrag(clientX, clientY) {
+      if (!isDragging || isMobileLayout()) return;
+      let x = clientX - startX;
+      let y = clientY - startY;
+      x = Math.min(Math.max(0, x), window.innerWidth - sidebar.offsetWidth);
+      y = Math.min(Math.max(0, y), window.innerHeight - sidebar.offsetHeight);
+      sidebar.style.left = x + 'px';
+      sidebar.style.top = y + 'px';
+      sidebar.style.right = 'auto';
+      sidebar.style.bottom = 'auto';
+      localStorage.setItem('sidebarX', x);
+      localStorage.setItem('sidebarY', y);
+    }
+
+    function endDrag() {
+      if (!isDragging) return;
+      isDragging = false;
+      dragHandle.style.cursor = 'grab';
+      if (!isMobileLayout()) fitMapToArea();
+    }
+
+    dragHandle.addEventListener('mousedown', e => {
+      startDrag(e.clientX, e.clientY);
       e.preventDefault();
     });
-    document.addEventListener('mousemove', e=>{
-      if(!isDragging) return;
-      let x = e.clientX - startX;
-      let y = e.clientY - startY;
-      x = Math.min(Math.max(0,x), window.innerWidth - sidebar.offsetWidth);
-      y = Math.min(Math.max(0,y), window.innerHeight - sidebar.offsetHeight);
-      sidebar.style.left = x+'px';
-      sidebar.style.top = y+'px';
-      sidebar.style.right = 'auto';
-      localStorage.setItem('sidebarX',x);
-      localStorage.setItem('sidebarY',y);
-    });
-    document.addEventListener('mouseup', ()=>{ if(isDragging){isDragging=false; dragHandle.style.cursor='grab';}});
+    dragHandle.addEventListener('touchstart', e => {
+      const touch = e.touches[0];
+      startDrag(touch.clientX, touch.clientY);
+    }, { passive: true });
+    document.addEventListener('mousemove', e => moveDrag(e.clientX, e.clientY));
+    document.addEventListener('touchmove', e => {
+      if (!isDragging) return;
+      const touch = e.touches[0];
+      moveDrag(touch.clientX, touch.clientY);
+    }, { passive: true });
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('touchend', endDrag);
 
-    // Coordonnées souris
-    const coordsDiv = document.getElementById('coords');
-    map.on('mousemove', e=>{
-      coordsDiv.innerHTML = `Lat: ${e.latlng.lat.toFixed(5)}, Lon: ${e.latlng.lng.toFixed(5)}`;
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(applyResponsiveLayout, 150);
     });
+    window.addEventListener('orientationchange', () => {
+      setTimeout(applyResponsiveLayout, 200);
+    });
+
+    map.whenReady(() => {
+      lastPointer = map.getCenter();
+      refreshCoordsFromMap();
+    });
+
+    function updateCoords(latlng) {
+      scheduleCoordsUpdate(latlng);
+    }
+    map.on('mousemove', e => updateCoords(e.latlng));
+    map.on('touchmove', e => { if (e.latlng) updateCoords(e.latlng); });
+    map.on('zoomend', refreshCoordsFromMap);
 
     // Icônes personnalisées
     const icons = {
@@ -417,27 +628,19 @@
     // GeoJSON
     const geojsonFiles = {
       "departement":[
-        { name:"Communes de La Loire", file:"geojson/D42/communes-42-loire.geojson", style:{color:"darkred",weight:3} },
         { name:"Contours communes (OSM)", file:"geojson/D42/communes_contours_osm_42.geojson", style:{color:"#3949ab",weight:2,fillColor:"#3949ab",fillOpacity:0.08} },
-        { name:"Habitation", file:"geojson/D42/Zone_habitation.geojson", style:{color:"darkred",weight:3} },
-        { name:"Lieu dit :: non habitable", file:"geojson/D42/Lieu_dit_non_habite.geojson", style:{color:"darkred",weight:3} },
-        { name:"Lieu dit :: habitable", file:"geojson/D42/Toponyme.geojson", style:{color:"darkred",weight:3} }
-        
+        { name:"Zones industrielles (OSM)", file:"geojson/D42/zones_industrielles_osm_42.json", style:{color:"#78909c",weight:2,fillColor:"#78909c",fillOpacity:0.15} },
+        { name:"Sites industriels (OSM)", file:"geojson/D42/sites_industriels_osm_42.json", style:{color:"#5d4037",weight:2,fillColor:"#5d4037",fillOpacity:0.2} },
+        { name:"Zones d'habitation (OSM)", file:"geojson/D42/zones_habitation_osm_42.json", style:{color:"#ff8f00",weight:2,fillColor:"#ff8f00",fillOpacity:0.12} }
       ],
-      "risks":[
-        { name:"Casernes sapeurs-pompiers (OSM)", file:"geojson/D42/casernes_osm_42.geojson", style:{color:"red",weight:2} },
-        { name:"Police nationale (OSM)", file:"geojson/D42/police_nationale_osm_42.geojson", style:{color:"#003399",weight:2} },
+      "aviation":[
         { name:"Aérodromes (OSM)", file:"geojson/D42/aerodromes_osm_42.geojson", style:{color:"#388e3c",weight:2} },
         { name:"Héliports (OSM)", file:"geojson/D42/helipads_osm_42.geojson", style:{color:"#f57c00",weight:2} }
       ],
       "urgence":[
         { name:"Points de rassemblement (OSM)", file:"geojson/D42/points_rassemblement_osm_42.json", style:{color:"#e64a19",weight:2} },
         { name:"Bouches à incendie (OSM)", file:"geojson/D42/bouches_incendie_osm_42.json", style:{color:"#ff6f00",weight:2} },
-        { name:"Centres communaux (OSM)", file:"geojson/D42/centres_communaux_osm_42.json", style:{color:"#8e24aa",weight:2} },
-        { name:"Écoles (OSM)", file:"geojson/D42/ecoles_osm_42.json", style:{color:"#039be5",weight:2} },
-        { name:"Abris (OSM)", file:"geojson/D42/abris_osm_42.json", style:{color:"#689f38",weight:2} },
-        { name:"Zones industrielles (OSM)", file:"geojson/D42/zones_industrielles_osm_42.json", style:{color:"#78909c",weight:2,fillColor:"#78909c",fillOpacity:0.15} },
-        { name:"Sites industriels (OSM)", file:"geojson/D42/sites_industriels_osm_42.json", style:{color:"#5d4037",weight:2,fillColor:"#5d4037",fillOpacity:0.2} }
+        { name:"Abris (OSM)", file:"geojson/D42/abris_osm_42.json", style:{color:"#689f38",weight:2} }
       ],
       "sante":[
         { name:"Hôpitaux (OSM)", file:"geojson/D42/hopitaux_osm_42.geojson", style:{color:"#c2185b",weight:2} },
@@ -446,21 +649,24 @@
       ],
       "services":[
         { name:"Mairies (OSM)", file:"geojson/D42/Maire42.json", style:{color:"#8d6e63",weight:2} },
-        { name:"Gendarmerie (OSM)", file:"geojson/D42/gendarmerie 42.json", style:{color:"#455a64",weight:2} }
+        { name:"Gendarmerie (OSM)", file:"geojson/D42/gendarmerie 42.json", style:{color:"#455a64",weight:2} },
+        { name:"Casernes sapeurs-pompiers (OSM)", file:"geojson/D42/casernes_osm_42.geojson", style:{color:"red",weight:2} },
+        { name:"Police nationale (OSM)", file:"geojson/D42/police_nationale_osm_42.geojson", style:{color:"#003399",weight:2} },
+        { name:"Cimetières (OSM)", file:"geojson/D42/cimetieres_osm_42.json", style:{color:"#757575",weight:2,fillColor:"#bdbdbd",fillOpacity:0.25} },
+        { name:"Administrations (OSM)", file:"geojson/D42/services_publics_osm_42.json", style:{color:"#1565c0",weight:2} },
+        { name:"Déchèteries (OSM)", file:"geojson/D42/decheteries_osm_42.json", style:{color:"#33691e",weight:2} },
+        { name:"Décharges (OSM)", file:"geojson/D42/decharges_osm_42.json", style:{color:"#558b2f",weight:2,fillColor:"#558b2f",fillOpacity:0.2} },
+        { name:"Centres communaux (OSM)", file:"geojson/D42/centres_communaux_osm_42.json", style:{color:"#8e24aa",weight:2} },
+        { name:"Écoles (OSM)", file:"geojson/D42/ecoles_osm_42.json", style:{color:"#039be5",weight:2} }
       ],
       "toponymie":[
         { name:"Toponymes (OSM)", file:"geojson/D42/toponymes_osm_42.json", style:{color:"#a1887f",weight:2} },
-        { name:"Lieux-dits (OSM)", file:"geojson/D42/lieux_dits_osm_42.json", style:{color:"#bcaaa4",weight:2} },
-        { name:"Zones d'habitation (OSM)", file:"geojson/D42/zones_habitation_osm_42.json", style:{color:"#ff8f00",weight:2,fillColor:"#ff8f00",fillOpacity:0.12} }
+        { name:"Lieux-dits (OSM)", file:"geojson/D42/lieux_dits_osm_42.json", style:{color:"#bcaaa4",weight:2} }
       ],
       "contexte":[
         { name:"Puits / mines (OSM)", file:"geojson/D42/puits_mines_osm_42.json", style:{color:"#6d4c41",weight:2} },
         { name:"Carrières (OSM)", file:"geojson/D42/carrieres_osm_42.json", style:{color:"#8d6e63",weight:2,fillColor:"#8d6e63",fillOpacity:0.2} },
-        { name:"Déchèteries (OSM)", file:"geojson/D42/decheteries_osm_42.json", style:{color:"#33691e",weight:2} },
-        { name:"Décharges (OSM)", file:"geojson/D42/decharges_osm_42.json", style:{color:"#558b2f",weight:2,fillColor:"#558b2f",fillOpacity:0.2} },
-        { name:"Cimetières (OSM)", file:"geojson/D42/cimetieres_osm_42.json", style:{color:"#757575",weight:2,fillColor:"#bdbdbd",fillOpacity:0.25} },
-        { name:"Antennes / relais (OSM)", file:"geojson/D42/antennes_osm_42.json", style:{color:"#00838f",weight:2} },
-        { name:"Administrations (OSM)", file:"geojson/D42/services_publics_osm_42.json", style:{color:"#1565c0",weight:2} }
+        { name:"Antennes / relais (OSM)", file:"geojson/D42/antennes_osm_42.json", style:{color:"#00838f",weight:2} }
       ]
     };
 
@@ -480,7 +686,11 @@
           onEachFeature:(feature,l)=>{
             if(feature.properties){
               let popup="";
-              for(const key in feature.properties){ popup+=`<b>${key}:</b> ${feature.properties[key]}<br>`; }
+              const hiddenKeys = new Set(["osm_id", "osm_type"]);
+              for(const key in feature.properties){
+                if(hiddenKeys.has(key)) continue;
+                popup+=`<b>${key}:</b> ${feature.properties[key]}<br>`;
+              }
               l.bindPopup(popup);
             }
           }
@@ -540,9 +750,9 @@
         const layer = await loadGeoJSON(item.name,item.file,item.style);
         if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("departementLayers"), item.name, layer); }
       }
-      for(const item of geojsonFiles.risks){
+      for(const item of geojsonFiles.aviation){
         const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("riskLayers"), item.name, layer); }
+        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("aviationLayers"), item.name, layer); }
       }
       for(const item of geojsonFiles.urgence){
         const layer = await loadGeoJSON(item.name,item.file,item.style);
@@ -563,6 +773,11 @@
       for(const item of geojsonFiles.contexte){
         const layer = await loadGeoJSON(item.name,item.file,item.style);
         if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("contexteLayers"), item.name, layer); }
+      }
+      const communesLayer = layers['Contours communes (OSM)'];
+      if (communesLayer) {
+        communeIndex = CartoffCoords.buildCommuneIndex(communesLayer);
+        if (lastPointer) refreshCoordsFromMap();
       }
     }
 

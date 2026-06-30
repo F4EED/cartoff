@@ -1,5 +1,7 @@
 # go-pmtiles
 
+> **Cartoff :** binaire Windows `pmtiles.exe` fourni pour manipuler les archives PMTiles du projet. Documentation générale ci-dessous (anglais, amont [protomaps/go-pmtiles](https://github.com/protomaps/go-pmtiles)). Voir aussi [README PMTiles](../README.md) pour la restauration de `loire.pmtiles`.
+
 The single-file utility for creating and working with [PMTiles](https://github.com/protomaps/PMTiles) archives.
 
 ## Installation

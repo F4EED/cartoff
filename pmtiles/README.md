@@ -1,5 +1,7 @@
 # Base carto PMTiles — fichiers découpés
 
+Sources et attributions : fond **OpenStreetMap** (PMTiles + calques GeoJSON), altitude **Copernicus DEM** — voir [sources.md](../sources.md).
+
 Le fichier `loire.pmtiles` (~132 Mo) dépasse la limite GitHub de **100 Mo par fichier**. Il n’est donc **pas versionné** tel quel (voir `.gitignore`).
 
 À la place, le dépôt contient :
@@ -59,15 +61,21 @@ python scripts/unpack_large_file.py -o chemin/vers/sortie.pmtiles
 
 ## Lancer la carte
 
-`loire.pmtiles` doit être présent dans `pmtiles/` pour que la fond de carte s’affiche dans `index.html`.
+`loire.pmtiles` doit être présent dans `pmtiles/` pour que le fond de carte s’affiche dans `index.html`.
 
-Servez le projet via un serveur web (pas en `file://`) — par exemple :
+Servez le projet via un serveur web (pas en `file://`) :
 
 ```bash
 python serve.py
 ```
 
-Le serveur `serve.py` gère les requêtes HTTP Range nécessaires au format PMTiles.
+Depuis la racine du dépôt — voir aussi [README.md](../README.md).
+
+Le serveur `serve.py` gère les requêtes **HTTP Range** nécessaires au format PMTiles (port 8000 par défaut, option `-p`).
+
+### Autre gros fichier : altitude
+
+Le MNT Copernicus (`elevation/loire_elev.bin`, ~58 Mo) suit le même principe : non versionné, à générer avec `python scripts/build_elevation_loire.py` — voir [elevation/README.md](../elevation/README.md).
 
 ---
 
