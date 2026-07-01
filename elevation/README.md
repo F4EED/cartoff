@@ -38,8 +38,9 @@ Si les fichiers existent déjà, le script s'arrête sauf avec `--force`.
 ## Utilisation dans Cartoff
 
 1. Générer la grille (ci-dessus) ou copier `loire_elev.bin` depuis une autre installation.
-2. Lancer **`python serve.py`** à la racine du projet (le chargement via `fetch` ne fonctionne pas en `file://`).
-3. Déplacer la souris sur la carte : la boîte en bas à gauche affiche **Alt.** (interpolation bilinéaire sur la grille, via `js/coords-utils.js`).
+2. Lancer l'application via **`start.bat`** (Windows) ou **`python serve.py`** à la racine du projet — le chargement via `fetch` ne fonctionne pas en `file://`, et `python -m http.server` ne gère pas correctement PMTiles (HTTP Range).
+3. Ouvrir **http://localhost:8000/** dans le navigateur.
+4. Déplacer la souris sur la carte : la boîte en bas à gauche affiche **Alt.** (interpolation bilinéaire sur la grille, via `js/coords-utils.js`, debounce 250 ms).
 
 Hors emprise ou sans fichier binaire : affichage « — » ou « … » selon l'état de chargement.
 

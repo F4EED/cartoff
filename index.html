@@ -543,7 +543,7 @@
   <div id="mapContextMenu" class="map-context-menu" hidden></div>
 
   <div id="situationLineDrawBanner" class="situation-line-draw-banner" hidden>
-    <span>Cliquez pour placer les points du tronçon — double-clic pour terminer</span>
+    <span id="situationDrawBannerText">Cliquez pour placer les points — Terminer pour valider</span>
     <button type="button" id="situationLineDrawFinish" class="situation-btn situation-btn-primary" disabled>Terminer</button>
     <button type="button" id="situationLineDrawCancel" class="situation-btn">Annuler</button>
   </div>
@@ -1058,7 +1058,7 @@
     const SITUATION_STORAGE_KEY = 'cartoff_situation_constats';
     const SITUATION_META_KEY = 'cartoff_situation_meta';
     let situationPanelState = null;
-    let lineDrawState = null;
+    let drawState = null;
     let mapContextMenuState = null;
     let situationShowInactifs = false;
     const situationLineDrawBanner = document.getElementById('situationLineDrawBanner');
@@ -1264,9 +1264,7 @@
 
     function buildSituationTypeSelect(selectEl, geometryKind) {
       selectEl.innerHTML = '';
-      const types = geometryKind === 'line'
-        ? CartoffPoi.getTypesForGeometry('line')
-        : CartoffPoi.getTypesForGeometry('point');
+      const types = CartoffPoi.getTypesForGeometry(geometryKind);
       const byCat = {};
       types.forEach((t) => {
         if (!byCat[t.categorie]) byCat[t.categorie] = [];
@@ -1296,18 +1294,60 @@
       };
     }
 
+    function getSituationPolygonStyle(props) {
+      const base = CartoffPoi.getPolygonStyle(props && props.sous_type);
+      const inactif = isSituationInactif(props);
+      const fillOpacity = base.fillOpacity != null ? base.fillOpacity : 0.3;
+      return {
+        ...base,
+        opacity: inactif ? 0.45 : 1,
+        fillOpacity: inactif ? fillOpacity * 0.45 : fillOpacity
+      };
+    }
+
+    function polygonRingToLatLngs(ring) {
+      if (!ring || !ring.length) return [];
+      const coords = ring.slice();
+      if (coords.length > 1) {
+        const first = coords[0];
+        const last = coords[coords.length - 1];
+        if (first[0] === last[0] && first[1] === last[1]) coords.pop();
+      }
+      return coords.map((c) => L.latLng(c[1], c[0]));
+    }
+
+    function situationGeomAnchorLatLng(geom) {
+      if (!geom) return null;
+      if (geom.type === 'Point' && geom.coordinates) {
+        return L.latLng(geom.coordinates[1], geom.coordinates[0]);
+      }
+      if (geom.type === 'LineString' && geom.coordinates && geom.coordinates.length) {
+        const c = geom.coordinates[0];
+        return L.latLng(c[1], c[0]);
+      }
+      if (geom.type === 'Polygon' && geom.coordinates && geom.coordinates[0]) {
+        const latlngs = polygonRingToLatLngs(geom.coordinates[0]);
+        if (!latlngs.length) return null;
+        return L.polygon(latlngs).getBounds().getCenter();
+      }
+      if (geom.type === 'MultiPolygon' && geom.coordinates && geom.coordinates[0] && geom.coordinates[0][0]) {
+        const latlngs = polygonRingToLatLngs(geom.coordinates[0][0]);
+        if (!latlngs.length) return null;
+        return L.polygon(latlngs).getBounds().getCenter();
+      }
+      return null;
+    }
+
     function bindSituationFeatureContextMenu(layer, feature) {
       const showMenu = (domEvent, clickLatLng) => {
         L.DomEvent.stop(domEvent);
         const geom = feature.geometry || {};
         const isLine = geom.type === 'LineString';
+        const isPolygon = geom.type === 'Polygon' || geom.type === 'MultiPolygon';
         let latlng = clickLatLng || (layer.getLatLng ? layer.getLatLng() : null);
-        if (!latlng && isLine && geom.coordinates && geom.coordinates.length) {
-          const c = geom.coordinates[0];
-          latlng = L.latLng(c[1], c[0]);
-        }
+        if (!latlng) latlng = situationGeomAnchorLatLng(geom);
         openMapContextMenu(domEvent.clientX, domEvent.clientY, {
-          type: isLine ? 'line' : 'marker',
+          type: isLine ? 'line' : (isPolygon ? 'polygon' : 'marker'),
           feature,
           latlng
         });
@@ -1373,6 +1413,50 @@
 
           const imagePath = CartoffPoi.resolveImagePath(props);
           const iconMarker = L.marker(latlngs[0], {
+            icon: getSituationIcon(imagePath, isSituationInactif(props)),
+            pane: 'situationPane'
+          });
+          iconMarker._cartoffSituationFeature = feature;
+          iconMarker.bindPopup(buildSituationPopupContent(props));
+          bindSituationFeatureContextMenu(iconMarker, feature);
+          group.addLayer(iconMarker);
+        } else if (geom.type === 'Polygon' && geom.coordinates && geom.coordinates[0] && geom.coordinates[0].length >= 3) {
+          const latlngs = polygonRingToLatLngs(geom.coordinates[0]);
+          const polyStyle = getSituationPolygonStyle(props);
+          const polygon = L.polygon(latlngs, {
+            ...polyStyle,
+            pane: 'situationPane'
+          });
+          polygon._cartoffSituationFeature = feature;
+          polygon.bindPopup(buildSituationPopupContent(props));
+          bindSituationFeatureContextMenu(polygon, feature);
+          group.addLayer(polygon);
+
+          const imagePath = CartoffPoi.resolveImagePath(props);
+          const centroid = polygon.getBounds().getCenter();
+          const iconMarker = L.marker(centroid, {
+            icon: getSituationIcon(imagePath, isSituationInactif(props)),
+            pane: 'situationPane'
+          });
+          iconMarker._cartoffSituationFeature = feature;
+          iconMarker.bindPopup(buildSituationPopupContent(props));
+          bindSituationFeatureContextMenu(iconMarker, feature);
+          group.addLayer(iconMarker);
+        } else if (geom.type === 'MultiPolygon' && geom.coordinates && geom.coordinates.length) {
+          const rings = geom.coordinates.map((poly) => polygonRingToLatLngs(poly[0]));
+          const polyStyle = getSituationPolygonStyle(props);
+          const polygon = L.polygon(rings, {
+            ...polyStyle,
+            pane: 'situationPane'
+          });
+          polygon._cartoffSituationFeature = feature;
+          polygon.bindPopup(buildSituationPopupContent(props));
+          bindSituationFeatureContextMenu(polygon, feature);
+          group.addLayer(polygon);
+
+          const imagePath = CartoffPoi.resolveImagePath(props);
+          const centroid = polygon.getBounds().getCenter();
+          const iconMarker = L.marker(centroid, {
             icon: getSituationIcon(imagePath, isSituationInactif(props)),
             pane: 'situationPane'
           });
@@ -1507,87 +1591,147 @@
       return null;
     }
 
-    function updateLineDrawUI() {
+    function updateDrawUI() {
       const finishBtn = document.getElementById('situationLineDrawFinish');
-      if (finishBtn) finishBtn.disabled = !lineDrawState || lineDrawState.vertices.length < 2;
+      if (!finishBtn || !drawState) {
+        if (finishBtn) finishBtn.disabled = true;
+        return;
+      }
+      const minVerts = drawState.mode === 'polygon' ? 3 : 2;
+      finishBtn.disabled = drawState.vertices.length < minVerts;
     }
 
-    function onLineDrawClick(e) {
-      if (!lineDrawState) return;
-      lineDrawState.vertices.push(e.latlng);
-      lineDrawState.previewLine.setLatLngs(lineDrawState.vertices);
-      updateLineDrawUI();
+    function onDrawClick(e) {
+      if (!drawState) return;
+      drawState.vertices.push(e.latlng);
+      drawState.previewLayer.setLatLngs(
+        drawState.mode === 'polygon' ? [drawState.vertices] : drawState.vertices
+      );
+      updateDrawUI();
     }
 
-    function onLineDrawDblClick(e) {
-      if (!lineDrawState || lineDrawState.vertices.length < 2) return;
+    function onDrawDblClick(e) {
+      if (!drawState || drawState.mode !== 'line' || drawState.vertices.length < 2) return;
       L.DomEvent.stop(e);
-      finishLineDraw(e.originalEvent.clientX, e.originalEvent.clientY);
+      finishDraw(e.originalEvent.clientX, e.originalEvent.clientY);
     }
 
-    function cancelLineDrawMode() {
-      if (!lineDrawState) return;
-      map.removeLayer(lineDrawState.previewLine);
-      lineDrawState = null;
+    function cancelDrawMode() {
+      if (!drawState) return;
+      map.removeLayer(drawState.previewLayer);
+      drawState = null;
       map.getContainer().classList.remove('situation-line-drawing');
       if (situationLineDrawBanner) situationLineDrawBanner.hidden = true;
-      map.off('click', onLineDrawClick);
-      map.off('dblclick', onLineDrawDblClick);
+      map.off('click', onDrawClick);
+      map.off('dblclick', onDrawDblClick);
       map.doubleClickZoom.enable();
       resetSituationHint();
     }
 
-    function finishLineDraw(clientX, clientY) {
-      if (!lineDrawState || lineDrawState.vertices.length < 2) return;
-      const coordinates = lineDrawState.vertices.map((ll) => [ll.lng, ll.lat]);
-      const draftLine = lineDrawState.previewLine;
-      draftLine.setStyle({ dashArray: null, opacity: 0.65, color: '#3949ab' });
+    function finishDraw(clientX, clientY) {
+      if (!drawState) return;
+      const minVerts = drawState.mode === 'polygon' ? 3 : 2;
+      if (drawState.vertices.length < minVerts) return;
 
-      lineDrawState = null;
+      let coordinates;
+      let geometry;
+      let defaultType;
+      let geometryKind;
+      if (drawState.mode === 'polygon') {
+        const ring = drawState.vertices.map((ll) => [ll.lng, ll.lat]);
+        ring.push(ring[0].slice());
+        coordinates = [ring];
+        geometry = 'Polygon';
+        defaultType = 'zone_inondee';
+        geometryKind = 'polygon';
+      } else {
+        coordinates = drawState.vertices.map((ll) => [ll.lng, ll.lat]);
+        geometry = 'LineString';
+        defaultType = 'route_barree';
+        geometryKind = 'line';
+      }
+
+      const draftLayer = drawState.previewLayer;
+      const vertices = drawState.vertices.slice();
+      const drawMode = drawState.mode;
+      if (drawMode === 'polygon') {
+        draftLayer.setStyle({ dashArray: null, opacity: 0.65, fillOpacity: 0.25, color: '#3949ab', fillColor: '#3949ab' });
+      } else {
+        draftLayer.setStyle({ dashArray: null, opacity: 0.65, color: '#3949ab' });
+      }
+
+      drawState = null;
       map.getContainer().classList.remove('situation-line-drawing');
       if (situationLineDrawBanner) situationLineDrawBanner.hidden = true;
-      map.off('click', onLineDrawClick);
-      map.off('dblclick', onLineDrawDblClick);
+      map.off('click', onDrawClick);
+      map.off('dblclick', onDrawDblClick);
       map.doubleClickZoom.enable();
 
-      const latlng = L.latLng(coordinates[0][1], coordinates[0][0]);
+      const latlng = drawMode === 'polygon'
+        ? L.polygon(vertices).getBounds().getCenter()
+        : L.latLng(coordinates[0][1], coordinates[0][0]);
       situationPanelState = {
         mode: 'add',
-        geometry: 'LineString',
+        geometry,
         coordinates,
         latlng,
-        draftLine
+        draftLayer
       };
-      buildSituationTypeSelect(situationPanelType, 'line');
-      showSituationPanel({ mode: 'add', geometry: 'line', sousType: 'route_barree', libelle: '' });
+      buildSituationTypeSelect(situationPanelType, geometryKind);
+      showSituationPanel({ mode: 'add', geometry: geometryKind, sousType: defaultType, libelle: '' });
       positionSituationPanel(clientX, clientY);
     }
 
-    function startLineDrawMode(initialLatLng) {
-      cancelLineDrawMode();
+    function startDrawMode(mode, initialLatLng) {
+      cancelDrawMode();
       closeSituationPanel();
       closeMapContextMenu();
 
       const vertices = initialLatLng ? [initialLatLng] : [];
-      const previewLine = L.polyline(vertices, {
+      const isPolygon = mode === 'polygon';
+      const previewLayer = (isPolygon ? L.polygon([vertices], {
+        color: '#3949ab',
+        weight: 2,
+        dashArray: '8 6',
+        opacity: 0.85,
+        fillColor: '#3949ab',
+        fillOpacity: 0.15,
+        pane: 'situationPane'
+      }) : L.polyline(vertices, {
         color: '#3949ab',
         weight: 4,
         dashArray: '8 6',
         opacity: 0.85,
         pane: 'situationPane'
-      }).addTo(map);
+      })).addTo(map);
 
-      lineDrawState = { vertices, previewLine };
+      drawState = { mode, vertices, previewLayer };
       map.getContainer().classList.add('situation-line-drawing');
       if (situationLineDrawBanner) situationLineDrawBanner.hidden = false;
-      updateLineDrawUI();
+      const bannerText = document.getElementById('situationDrawBannerText');
+      if (bannerText) {
+        bannerText.textContent = isPolygon
+          ? 'Mode zone — cliquez pour le contour (min. 3 points), Terminer ferme le polygone'
+          : 'Mode tronçon — cliquez pour ajouter des points, double-clic ou Terminer pour valider';
+      }
+      updateDrawUI();
       map.doubleClickZoom.disable();
-      map.on('click', onLineDrawClick);
-      map.on('dblclick', onLineDrawDblClick);
+      map.on('click', onDrawClick);
+      if (!isPolygon) map.on('dblclick', onDrawDblClick);
 
       if (situationHintEl) {
-        situationHintEl.textContent = 'Mode tronçon — cliquez pour ajouter des points, double-clic ou Terminer pour valider.';
+        situationHintEl.textContent = isPolygon
+          ? 'Mode zone — cliquez pour le contour, Terminer pour fermer le polygone (min. 3 points).'
+          : 'Mode tronçon — cliquez pour ajouter des points, double-clic ou Terminer pour valider.';
       }
+    }
+
+    function startLineDrawMode(initialLatLng) {
+      startDrawMode('line', initialLatLng);
+    }
+
+    function startPolygonDrawMode(initialLatLng) {
+      startDrawMode('polygon', initialLatLng);
     }
 
     function clampPopupPosition(el, clientX, clientY, margin) {
@@ -1641,11 +1785,13 @@
       section.textContent = 'Constat / événement';
       mapContextMenuEl.appendChild(section);
 
-      if (target.type === 'marker' || target.type === 'line') {
+      if (target.type === 'marker' || target.type === 'line' || target.type === 'polygon') {
         const props = target.feature.properties || {};
         const inactif = isSituationInactif(props);
         const isLine = target.type === 'line';
-        addMapContextMenuItem(isLine ? 'Modifier ce tronçon' : 'Modifier ce constat', () => {
+        const isPolygon = target.type === 'polygon';
+        const editLabel = isLine ? 'Modifier ce tronçon' : (isPolygon ? 'Modifier cette zone' : 'Modifier ce constat');
+        addMapContextMenuItem(editLabel, () => {
           openSituationPanelEdit(target.feature, target.latlng, clientX, clientY);
         });
         if (inactif) {
@@ -1667,6 +1813,9 @@
         addMapContextMenuItem('Tronçon (ligne)', () => {
           startLineDrawMode(target.latlng);
         });
+        addMapContextMenuItem('Zone (surface)', () => {
+          startPolygonDrawMode(target.latlng);
+        });
       }
 
       mapContextMenuEl.style.left = clientX + 'px';
@@ -1681,8 +1830,8 @@
       if (situationPanelState && situationPanelState.draftMarker) {
         map.removeLayer(situationPanelState.draftMarker);
       }
-      if (situationPanelState && situationPanelState.draftLine) {
-        map.removeLayer(situationPanelState.draftLine);
+      if (situationPanelState && situationPanelState.draftLayer) {
+        map.removeLayer(situationPanelState.draftLayer);
       }
       situationPanelState = null;
       situationPanelEl.hidden = true;
@@ -1691,12 +1840,13 @@
 
     function showSituationPanel({ mode, geometry, sousType, libelle }) {
       const isLine = geometry === 'line' || geometry === 'LineString';
+      const isPolygon = geometry === 'polygon' || geometry === 'Polygon' || geometry === 'MultiPolygon';
       if (mode === 'edit') {
-        situationPanelTitle.textContent = isLine ? 'Modifier le tronçon' : 'Modifier le constat';
+        situationPanelTitle.textContent = isLine ? 'Modifier le tronçon' : (isPolygon ? 'Modifier la zone' : 'Modifier le constat');
       } else {
-        situationPanelTitle.textContent = isLine ? 'Nouveau tronçon' : 'Nouveau constat';
+        situationPanelTitle.textContent = isLine ? 'Nouveau tronçon' : (isPolygon ? 'Nouvelle zone' : 'Nouveau constat');
       }
-      const defaultType = isLine ? 'route_barree' : 'incident_generique';
+      const defaultType = isLine ? 'route_barree' : (isPolygon ? 'zone_inondee' : 'incident_generique');
       situationPanelType.value = sousType || defaultType;
       situationPanelLibelle.value = libelle || '';
       document.getElementById('situationPanelDelete').hidden = mode !== 'edit';
@@ -1704,7 +1854,7 @@
     }
 
     function openSituationPanelAdd(latlng, clientX, clientY) {
-      cancelLineDrawMode();
+      cancelDrawMode();
       closeSituationPanel();
       buildSituationTypeSelect(situationPanelType, 'point');
       const draftMarker = L.marker(latlng, {
@@ -1718,12 +1868,14 @@
     }
 
     function openSituationPanelEdit(feature, latlng, clientX, clientY) {
-      cancelLineDrawMode();
+      cancelDrawMode();
       closeSituationPanel();
       const props = feature.properties || {};
       const geom = feature.geometry || {};
       const isLine = geom.type === 'LineString';
-      buildSituationTypeSelect(situationPanelType, isLine ? 'line' : 'point');
+      const isPolygon = geom.type === 'Polygon' || geom.type === 'MultiPolygon';
+      const geometryKind = isLine ? 'line' : (isPolygon ? 'polygon' : 'point');
+      buildSituationTypeSelect(situationPanelType, geometryKind);
       situationPanelState = {
         mode: 'edit',
         featureId: props.id,
@@ -1733,7 +1885,7 @@
       };
       showSituationPanel({
         mode: 'edit',
-        geometry: isLine ? 'line' : 'point',
+        geometry: geometryKind,
         sousType: props.sous_type,
         libelle: props.libelle || ''
       });
@@ -1768,11 +1920,15 @@
       const type = CartoffPoi.getType(typeId);
       const libelle = situationPanelLibelle.value.trim();
       const isLine = situationPanelState.geometry === 'LineString';
+      const isPolygon = situationPanelState.geometry === 'Polygon' || situationPanelState.geometry === 'MultiPolygon';
       let lat;
       let lon;
       if (isLine && situationPanelState.coordinates && situationPanelState.coordinates.length) {
         lon = situationPanelState.coordinates[0][0];
         lat = situationPanelState.coordinates[0][1];
+      } else if (isPolygon && situationPanelState.latlng) {
+        lat = situationPanelState.latlng.lat;
+        lon = situationPanelState.latlng.lng;
       } else if (situationPanelState.latlng) {
         lat = situationPanelState.latlng.lat;
         lon = situationPanelState.latlng.lng;
@@ -1812,6 +1968,9 @@
       let geometry;
       if (isLine) {
         geometry = { type: 'LineString', coordinates: situationPanelState.coordinates.slice() };
+      } else if (isPolygon) {
+        const geomType = situationPanelState.geometry === 'MultiPolygon' ? 'MultiPolygon' : 'Polygon';
+        geometry = { type: geomType, coordinates: situationPanelState.coordinates.slice() };
       } else if (situationPanelState.mode === 'edit') {
         const existing = findSituationFeature(situationPanelState.featureId);
         geometry = (existing && existing.geometry) || { type: 'Point', coordinates: [lon, lat] };
@@ -1877,14 +2036,16 @@
     document.getElementById('situationPanelCancel').addEventListener('click', closeSituationPanel);
     document.getElementById('situationPanelDelete').addEventListener('click', deleteSituationPanel);
     document.getElementById('situationLineDrawFinish').addEventListener('click', () => {
-      if (!lineDrawState || lineDrawState.vertices.length < 2) return;
+      if (!drawState) return;
+      const minVerts = drawState.mode === 'polygon' ? 3 : 2;
+      if (drawState.vertices.length < minVerts) return;
       const rect = situationLineDrawBanner.getBoundingClientRect();
-      finishLineDraw(rect.left + rect.width / 2, rect.bottom + 8);
+      finishDraw(rect.left + rect.width / 2, rect.bottom + 8);
     });
-    document.getElementById('situationLineDrawCancel').addEventListener('click', cancelLineDrawMode);
+    document.getElementById('situationLineDrawCancel').addEventListener('click', cancelDrawMode);
 
     map.getContainer().addEventListener('contextmenu', (e) => {
-      if (lineDrawState) return;
+      if (drawState) return;
       if (e.target.closest('.sidebar') || e.target.closest('.situation-panel') || e.target.closest('.map-context-menu') || e.target.closest('.situation-line-draw-banner')) return;
       e.preventDefault();
       const situationLayer = getSituationLayerFromDomEvent(e);
@@ -1892,13 +2053,11 @@
         const feature = situationLayer._cartoffSituationFeature;
         const geom = feature.geometry || {};
         const isLine = geom.type === 'LineString';
+        const isPolygon = geom.type === 'Polygon' || geom.type === 'MultiPolygon';
         let latlng = situationLayer.getLatLng ? situationLayer.getLatLng() : null;
-        if (!latlng && isLine && geom.coordinates && geom.coordinates.length) {
-          const c = geom.coordinates[0];
-          latlng = L.latLng(c[1], c[0]);
-        }
+        if (!latlng) latlng = situationGeomAnchorLatLng(geom);
         openMapContextMenu(e.clientX, e.clientY, {
-          type: isLine ? 'line' : 'marker',
+          type: isLine ? 'line' : (isPolygon ? 'polygon' : 'marker'),
           feature,
           latlng
         });
@@ -1917,7 +2076,7 @@
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
       if (!mapContextMenuEl.hidden) closeMapContextMenu();
-      else if (lineDrawState) cancelLineDrawMode();
+      else if (drawState) cancelDrawMode();
       else if (situationPanelState) closeSituationPanel();
     });
 
@@ -2551,16 +2710,23 @@
           } else if (geom.type === 'LineString' && geom.coordinates.length >= 2) {
             const latlngs = geom.coordinates.map((c) => L.latLng(c[1], c[0]));
             bounds = L.latLngBounds(latlngs);
+          } else if (geom.type === 'Polygon' && geom.coordinates && geom.coordinates[0]) {
+            const latlngs = polygonRingToLatLngs(geom.coordinates[0]);
+            if (latlngs.length) bounds = L.latLngBounds(latlngs);
+          } else if (geom.type === 'MultiPolygon' && geom.coordinates && geom.coordinates[0]) {
+            const latlngs = polygonRingToLatLngs(geom.coordinates[0][0]);
+            if (latlngs.length) bounds = L.latLngBounds(latlngs);
           }
           const isLine = geom.type === 'LineString';
+          const isPolygon = geom.type === 'Polygon' || geom.type === 'MultiPolygon';
           const searchKey = CartoffCoords.normalizeSearchText(
-            [libelle, typeLabel, isLine ? 'tronçon' : '', props.description, props.commune, props.dfci, props.statut]
+            [libelle, typeLabel, isLine ? 'tronçon' : '', isPolygon ? 'zone' : '', props.description, props.commune, props.dfci, props.statut]
               .filter(Boolean)
               .join(' ')
           );
           return {
             label: libelle + (inactif ? ' (inactif)' : ''),
-            sublabel: [typeLabel, isLine ? 'Tronçon' : '', inactif ? 'Inactif' : ''].filter(Boolean).join(' · '),
+            sublabel: [typeLabel, isLine ? 'Tronçon' : '', isPolygon ? 'Zone' : '', inactif ? 'Inactif' : ''].filter(Boolean).join(' · '),
             bounds,
             geometry: geom,
             layer: null,

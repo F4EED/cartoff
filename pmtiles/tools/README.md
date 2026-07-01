@@ -1,6 +1,6 @@
 # go-pmtiles
 
-> **Cartoff :** binaire Windows `pmtiles.exe` fourni pour manipuler les archives PMTiles du projet. Documentation générale ci-dessous (anglais, amont [protomaps/go-pmtiles](https://github.com/protomaps/go-pmtiles)). Voir aussi [README PMTiles](../README.md) pour la restauration de `loire.pmtiles`.
+> **Cartoff :** binaire Windows `pmtiles.exe` fourni dans ce dossier pour manipuler les archives PMTiles du projet (extraction, inspection). Utilisé par `scripts/build_loire_pmtiles.py` pour regénérer `pmtiles/loire.pmtiles`. Voir [README PMTiles](../README.md) pour la restauration après `git clone`, le serveur `serve.py` / `start.bat`, et la configuration `levelDiff: 0` dans `index.html`.
 
 The single-file utility for creating and working with [PMTiles](https://github.com/protomaps/PMTiles) archives.
 

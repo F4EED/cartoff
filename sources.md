@@ -2,7 +2,7 @@
 
 Ce document recense les sources utilisées dans le projet **Cartoff** (cartographie hors ligne pour la gestion de crise, département de la Loire — 42).
 
-Dernière mise à jour : juin 2026.
+Dernière mise à jour : juillet 2026.
 
 ---
 
@@ -10,8 +10,10 @@ Dernière mise à jour : juin 2026.
 
 | Élément | Source | Licence / remarques |
 |---------|--------|----------------------|
-| `pmtiles/loire.pmtiles` | Tuiles vectorielles au format [PMTiles](https://github.com/protomaps/PMTiles), affichées via [protomaps-leaflet](https://github.com/protomaps/PMTiles) (`flavor: light`, `lang: fr`) | Données cartographiques issues d'[OpenStreetMap](https://www.openstreetmap.org/) ; approche inspirée de [map.gaulix.fr](https://github.com/valentintintin) (Valentin Saugnier). Fichier découpé pour GitHub — voir `pmtiles/README.md`. |
+| `pmtiles/loire.pmtiles` | Tuiles vectorielles au format [PMTiles](https://github.com/protomaps/PMTiles), affichées via [protomaps-leaflet](https://github.com/protomaps/PMTiles) (`flavor: light`, `lang: fr`, **`levelDiff: 0`**) | Données cartographiques issues d'[OpenStreetMap](https://www.openstreetmap.org/) ; zoom **9–15** uniquement. Approche inspirée de [map.gaulix.fr](https://github.com/valentintintin) (Valentin Saugnier). Fichier découpé pour GitHub — voir `pmtiles/README.md`. |
 | Tuiles OSM en ligne (alternative commentée) | [OpenStreetMap](https://www.openstreetmap.org/) — `tile.openstreetmap.org` | Non utilisée par défaut ; présente en commentaire dans `index.html`. |
+
+**Serveur requis :** `serve.py` ou `start.bat` (HTTP Range). Voir `pmtiles/README.md` pour `levelDiff: 0` et le dépannage fond gris.
 
 ---
 
@@ -33,10 +35,10 @@ Le binaire `loire_elev.bin` n'est pas versionné (`.gitignore`, ~58 Mo). Voir `e
 
 | Composant | Source | Usage |
 |-----------|--------|-------|
-| `js/coords-utils.js` | Implémentation Cartoff | UTM (WGS84), DFCI (Lambert II étendu), point-dans-polygone pour la commune, interpolation bilinéaire sur la grille d'altitude |
+| `js/coords-utils.js` | Implémentation Cartoff | UTM (WGS84), DFCI (Lambert II étendu), point-dans-polygone pour la commune, interpolation bilinéaire sur la grille d'altitude, normalisation texte recherche |
 | [proj4js](https://github.com/proj4js/proj4js) (`js/proj4-src.js`) | MIT | Conversion WGS84 → UTM |
-| Carroyage DFCI (calques carte) | `geojson/D42/dfci_2km_42.geojson`, `dfci_20km_42.geojson`, `dfci_100km_42.geojson` | Découpe départementale via `scripts/build_dfci_loire.py` à partir des jeux nationaux [2 km](https://www.data.gouv.fr/datasets/carroyage-dfci-2-km), [20 km](https://www.data.gouv.fr/datasets/carroyage-dfci-20-km), [100 km](https://www.data.gouv.fr/datasets/carroyage-dfci-100-km) (Licence Ouverte, Lambert 93). Affichés dans « Urgence & industrie (OSM) ». |
-| Contours communaux | `geojson/D42/communes_contours_osm_42.geojson` | Nom de commune affiché au survol (calque « Contours communes (OSM) ») |
+| Carroyage DFCI (calques carte) | `geojson/D42/dfci_2km_42.geojson`, `dfci_20km_42.geojson`, `dfci_100km_42.geojson` | Découpe départementale via `scripts/build_dfci_loire.py` à partir des jeux nationaux [2 km](https://www.data.gouv.fr/datasets/carroyage-dfci-2-km), [20 km](https://www.data.gouv.fr/datasets/carroyage-dfci-20-km), [100 km](https://www.data.gouv.fr/datasets/carroyage-dfci-100-km) (Licence Ouverte, Lambert 93). Section « Urgence & industrie (OSM) ». |
+| Contours communaux | `geojson/D42/communes_contours_osm_42.geojson` | Nom de commune affiché au survol ; index de recherche par commune |
 
 **Algorithme DFCI** (`latLngToDfci` dans `coords-utils.js`) :
 
@@ -53,7 +55,35 @@ pip install geopandas py7zr shapely
 python scripts/build_dfci_loire.py
 ```
 
-Emprise de découpe : 45,0°–46,5° N, 3,5°–5,0° E (bbox Loire). Archives nationales mises en cache sous `scripts/.cache/dfci/`. Le calque 2 km (~5 000 mailles, ~1,6 Mo) est chargé à la demande (lazy) pour limiter l'impact au démarrage.
+Emprise de découpe : 45,0°–46,5° N, 3,5°–5,0° E (bbox Loire). Archives nationales mises en cache sous `scripts/.cache/dfci/`.
+
+**Affichage et performance :**
+
+- Les trois calques DFCI sont en **chargement lazy** (cochés à la demande).
+- Le calque **2 km** (~5 012 mailles, ~1,6 Mo) est le plus lourd : rendu **canvas**, `smoothFactor: 2.5`, visible à partir du zoom 11, mention ⚠ lourd dans l'UI.
+- Calques 20 km et 100 km : contours plus légers, même lazy load.
+
+**Recherche DFCI** (section Recherche de `index.html`) :
+
+- Champ texte actif lorsqu'au moins un calque DFCI est coché.
+- Index construit à la volée depuis les GeoJSON (`props.dfci` / `props.label`).
+- Codes partiels acceptés (`HF`, `HF26`, `HF26H4`…) ; résolution préférée selon la longueur du code (100 km → 20 km → 2 km).
+- Zoom sur la maille + surbrillance violette ; active automatiquement le calque correspondant si besoin.
+
+---
+
+## Recherche (interface)
+
+| Cible | Calque source requis | Fichier / index |
+|-------|----------------------|-----------------|
+| Commune | Contours communes (OSM) | `communes_contours_osm_42.geojson` — index au chargement du calque |
+| Zone industrielle | Zones industrielles (OSM) | `zones_industrielles_osm_42.json` |
+| Site industriel | Sites industriels (OSM) | `sites_industriels_osm_42.json` |
+| Zone d'habitation | Zones d'habitation (OSM) | `zones_habitation_osm_42.json` |
+| Code DFCI | Au moins un calque DFCI actif | Index `dfciSearchIndex` (2 / 20 / 100 km) |
+| Constat | Constats / événements (coché) | Features en mémoire (`situationFeatures`) |
+
+Les listes déroulantes sont alimentées après chargement lazy du calque concerné. La recherche DFCI utilise un champ texte + bouton « Aller ».
 
 ---
 
@@ -70,7 +100,7 @@ Les calques suffixés `*_osm_42` sont extraits du département 42 (`area["ISO316
 
 ### Calques branchés dans `index.html`
 
-Tous les calques ci-dessous sont listés dans `geojsonFiles` (`index.html`).
+Tous les calques ci-dessous sont listés dans `geojsonFiles` (`index.html`). **Tous sont en lazy load** (sauf le fond PMTiles, toujours actif).
 
 | Calque (UI) | Fichier | Script d'export | Critères OSM principaux |
 |-------------|---------|-----------------|-------------------------|
@@ -105,17 +135,60 @@ Tous les calques ci-dessous sont listés dans `geojsonFiles` (`index.html`).
 | Carrières (OSM) | `carrieres_osm_42.json` | `export_osm_contexte_42.py` | `landuse=quarry` |
 | Antennes / relais (OSM) | `antennes_osm_42.json` | `export_osm_contexte_42.py` | `man_made=mast`, `communications_tower`, … |
 
+### Optimisations d'affichage (calques OSM)
+
+Pour les polygones denses (communes, zones industrielles / habitation, sites, DFCI), `index.html` utilise :
+
+- un rendu **canvas** partagé (`L.canvas`) ;
+- un `smoothFactor` adapté (jusqu'à 2,5 sur DFCI 2 km) ;
+- le chargement **uniquement à l'activation** de la case à cocher (`addLazyCheckbox`).
+
 ---
 
 ## Constats / événements de situation
 
 | Élément | Source | Licence / remarques |
 |---------|--------|----------------------|
-| `geojson/situation_constats.geojson` | Fichier source **vide** par défaut (`features: []`) | Non issues d'OSM ; les constats sont saisis via l'interface (`created_by`, `statut`, `gravite`, etc.) |
-| `js/poi-types.js` | Registre Cartoff des types de constats | Associe `sous_type` → panneau SVG (`images/*.svg`) |
-| Panneaux SVG | Signaux routiers / pictogrammes locaux (`images/KC1_*.svg`, `images/KD22*.svg`, `images/panneau_vierge_à_compléter.svg`, …) | Usage interne POC ; pas de calque OSM mélangé |
+| `geojson/situation_constats.geojson` | Fichier source **vide** par défaut (`features: []`) | Non issues d'OSM ; saisie via l'interface (`created_by`, `statut`, `gravite`, `sous_type`, etc.) |
+| `js/poi-types.js` | Registre Cartoff (`window.CartoffPoi`) | Types → géométries autorisées, panneaux (`images/*.png`, `*.svg`), styles ligne / polygone |
+| Panneaux | Signaux routiers / pictogrammes locaux (`images/KC1_*.png`, `images/KD22*.png`, `images/panneau_vierge_à_compléter.png`, …) | Usage interne POC ; calque autonome, pas mélangé aux données OSM |
 
-Les constats de situation sont un calque **autonome** (section « Situation » dans la barre latérale). Les points peuvent être ajoutés, modifiés et supprimés via l'interface ; la persistance locale utilise `localStorage` (`cartoff_situation_constats`), avec export GeoJSON. Au premier chargement (sans `localStorage`), le fichier GeoJSON vide est utilisé ; pour repartir de zéro après des essais, vider le stockage navigateur : `localStorage.removeItem('cartoff_situation_constats')`.
+### Géométries (phase 2–3)
+
+| Mode | Géométrie GeoJSON | Saisie |
+|------|-------------------|--------|
+| Point (panneau) | `Point` | Clic droit → « Point (panneau) » |
+| Tronçon | `LineString` | Clic droit → « Tronçon (ligne) » — clics, double-clic ou **Terminer** (min. 2 sommets) |
+| Zone | `Polygon` | Clic droit → « Zone (surface) » — contour, **Terminer** ferme le polygone (min. 3 sommets) |
+
+Pendant le dessin : bannière **Terminer** / **Annuler**, touche **Échap** pour annuler. Clic droit sur un constat existant : modifier, marquer inactif, réactiver, supprimer.
+
+### Types avec polygone (`js/poi-types.js`)
+
+Types acceptant une **zone** (propriété `geometry` incluant `'polygon'`) :
+
+| `sous_type` | Libellé | Remarque |
+|-------------|---------|----------|
+| `coulee_debris` | Coulée de boue/débris | point ou zone |
+| `route_inondee` | Route inondée | point, tronçon ou zone |
+| `zone_inondee` | Zone inondée | **zone uniquement** (défaut à la création) |
+| `incendie` | Incendie | point ou zone |
+| `grele` | Grêle | point ou zone |
+| `fumee` | Fumée | point ou zone |
+| `incident_generique` | Incident générique | point ou zone |
+| `perimetre` | Périmètre | **zone uniquement** |
+
+Les tronçons (`'line'`) couvrent notamment : travaux, route barrée, déviation, circulation alternée, obstacle, chaussée rétrécie, accès interdit, sens interdit, route inondée.
+
+### Persistance et export
+
+- **localStorage** : clé `cartoff_situation_constats` (features) ; métadonnées optionnelles `cartoff_situation_meta`.
+- Au premier chargement sans stockage local : lecture de `geojson/situation_constats.geojson`.
+- **Export** : bouton « Exporter GeoJSON » → téléchargement `situation_constats.geojson`.
+- **Lazy load** : le calque « Constats / événements » n'est chargé qu'une fois coché (`ensureSituationLayerReady`).
+- Réinitialiser après essais : `localStorage.removeItem('cartoff_situation_constats')` dans la console navigateur.
+
+Filtre « Afficher les inactifs » : masque les constats au statut inactif par défaut.
 
 ---
 
@@ -139,12 +212,13 @@ D'anciens calques issus de la **BDTOPO** de l'[IGN](https://www.ign.fr/) (retrai
 | Composant | Source | Usage |
 |-----------|--------|-------|
 | [Leaflet](https://leafletjs.com/) | BSD-2-Clause | Carte interactive |
-| [protomaps-leaflet](https://github.com/protomaps/PMTiles) | Protomaps LLC | Affichage du fond PMTiles |
+| [protomaps-leaflet](https://github.com/protomaps/PMTiles) | Protomaps LLC | Affichage du fond PMTiles (`levelDiff: 0`) |
 | [PMTiles](https://github.com/protomaps/PMTiles) | Protomaps LLC | Format de tuiles vectorielles monofichier |
 | [go-pmtiles](https://github.com/protomaps/go-pmtiles) | Protomaps LLC | Outil CLI (`pmtiles/tools/pmtiles.exe`) |
 | [proj4js](https://github.com/proj4js/proj4js) | MIT | Projections UTM |
-| Python 3 | — | `serve.py`, exports Overpass (`scripts/export_osm_*.py`), MNT (`build_elevation_loire.py`), découpage (`pack_large_file.py`) |
-| `serve.py` | Cartoff | Serveur statique avec support HTTP **Range** (requis pour PMTiles) |
+| Python 3 | — | `serve.py`, exports Overpass (`scripts/export_osm_*.py`), MNT (`build_elevation_loire.py`), DFCI (`build_dfci_loire.py`), découpage (`pack_large_file.py`) |
+| `serve.py` | Cartoff | Serveur statique avec HTTP **Range** (206) — requis pour PMTiles |
+| `start.bat` | Cartoff | Windows : libère le port 8000, vérifie `loire.pmtiles`, lance `serve.py` |
 | QGIS | — | Préparation / conversion des GeoJSON historiques (fichiers `.qmd` associés) |
 
 ---
@@ -152,9 +226,9 @@ D'anciens calques issus de la **BDTOPO** de l'[IGN](https://www.ign.fr/) (retrai
 ## Inspiration et ressources
 
 - [map.gaulix.fr](https://github.com/valentintintin) — modèle de carte hors ligne avec PMTiles (Valentin Saugnier)
-- [README.md](README.md) — démarrage rapide, fichiers volumineux
+- [README.md](README.md) — démarrage rapide, fonctionnalités
 - [elevation/README.md](elevation/README.md) — génération du MNT
-- [pmtiles/README.md](pmtiles/README.md) — découpage / restauration du fond
+- [pmtiles/README.md](pmtiles/README.md) — découpage / restauration du fond, `levelDiff`, dépannage
 
 ---
 

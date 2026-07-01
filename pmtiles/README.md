@@ -19,6 +19,8 @@ Les scripts de découpage et de restauration se trouvent dans `scripts/` :
 - `pack_large_file.py` — découpe un gros fichier en morceaux
 - `unpack_large_file.py` — reconstitue le fichier original
 
+Métadonnées d’emprise : `loire.json` (`min_zoom: 9`, `max_zoom: 15`, bbox 45,0°–46,5° N × 3,5°–5,0° E).
+
 ---
 
 ## Restauration après `git clone`
@@ -68,12 +70,41 @@ python scripts/unpack_large_file.py -o chemin/vers/sortie.pmtiles
 Servez le projet via un serveur web (pas en `file://`) :
 
 ```bash
-python serve.py
+# Windows (recommandé) : libère le port 8000, vérifie loire.pmtiles, lance serve.py
+start.bat
+
+# Ou manuellement
+python serve.py -p 8000
 ```
 
 Depuis la racine du dépôt — voir aussi [README.md](../README.md).
 
-Le serveur `serve.py` gère les requêtes **HTTP Range** nécessaires au format PMTiles (port 8000 par défaut, option `-p`).
+Le serveur `serve.py` gère les requêtes **HTTP Range** (réponse 206) nécessaires au format PMTiles (port 8000 par défaut, option `-p`). Au démarrage, il avertit si `loire.pmtiles` est absent.
+
+⚠️ **Ne pas utiliser** `python -m http.server` : pas de support HTTP Range → fond gris.
+
+### Configuration Leaflet (`levelDiff`)
+
+Le fichier `loire.pmtiles` ne contient **aucune tuile en dessous du zoom 9** (`min_zoom: 9` dans `loire.json`).
+
+Dans `index.html`, le fond est créé ainsi :
+
+```javascript
+protomapsL.leafletLayer({
+  url: pmtilesUrl,
+  flavor: "light",
+  lang: "fr",
+  levelDiff: 0   // obligatoire — le défaut (1) demande z8 à l'affichage z9
+});
+```
+
+Sans `levelDiff: 0`, protomaps-leaflet demande des tuiles au niveau **z8** lorsque la carte est au zoom **9** ; ces tuiles n’existent pas dans l’archive → **fond gris** même avec un serveur correct.
+
+La carte impose aussi `minZoom: 9` et `maxZoom: 15` (`PMTILES_MIN_ZOOM` / `PMTILES_MAX_ZOOM`).
+
+### Vérification automatique
+
+Au chargement, `index.html` teste une requête `Range: bytes=0-16383` sur `pmtiles/loire.pmtiles`. Si la réponse n’est pas **206** avec `Accept-Ranges: bytes`, un message d’erreur s’affiche dans la boîte de coordonnées.
 
 ### Autre gros fichier : altitude
 
@@ -138,8 +169,12 @@ git add pmtiles/loire.pmtiles.part* pmtiles/loire.pmtiles.manifest.json
 | `Morceau manquant` | Vérifiez que tous les fichiers `.part00X` listés dans le manifeste sont présents (clone incomplet ?). |
 | `Contrôle d'intégrité SHA-256 échoué` | Un morceau est corrompu ou tronqué ; retéléchargez depuis le dépôt ou regénérez avec `pack_large_file.py`. |
 | `existe déjà` | Utilisez `--force` ou supprimez l’ancien `loire.pmtiles` avant de relancer. |
-| Fond de carte vide | Confirmez que `pmtiles/loire.pmtiles` existe et que vous utilisez un serveur web (`python serve.py`). |
-| Zoom trop faible (fond gris) | Les tuiles détaillées commencent au zoom **9** (`PMTILES_MIN_ZOOM` dans `index.html`). |
+| Fond gris, protocole `file://` | Ouvrez **http://localhost:8000/** — lancez `start.bat` ou `python serve.py`. |
+| Fond gris, `python -m http.server` | Fermez ce serveur ; utilisez `serve.py` (HTTP Range requis). |
+| Fond gris, bon serveur Cartoff | Vérifiez `levelDiff: 0` dans `index.html` ; confirmez que `loire.pmtiles` existe (`unpack_large_file.py`). |
+| Message « HTTP Range requis » | Le serveur ne renvoie pas 206 ; utilisez `serve.py` ou `start.bat`. |
+| Zoom trop faible (fond gris) | Les tuiles détaillées commencent au zoom **9** ; la carte ne descend pas en dessous. |
+| Port 8000 occupé | `start.bat` tue les processus sur ce port ; sinon `netstat -ano \| findstr :8000`. |
 
 ---
 
