@@ -389,6 +389,64 @@
       font-size: 13px;
       cursor: pointer;
     }
+    .import-hint {
+      margin: 0 0 6px 0;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+    .import-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .import-fit-label {
+      display: block;
+      margin: 0 0 8px 0;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .import-layers-list {
+      margin-bottom: 6px;
+    }
+    .import-layer-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+    .import-color-swatch {
+      flex: 0 0 12px;
+      width: 12px;
+      height: 12px;
+      border: 1px solid rgba(0,0,0,0.25);
+      border-radius: 2px;
+    }
+    .import-layer-label {
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .import-remove-btn {
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      padding: 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fafafa;
+      color: #c62828;
+      font-size: 16px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .import-remove-btn:hover { background: #ffebee; }
+    #importError { white-space: pre-wrap; }
     .leaflet-marker-icon.situation-marker-inactif {
       opacity: 0.45;
       filter: grayscale(1);
@@ -521,6 +579,21 @@
       <div id="servicesLayers"></div>
     </details>
 
+    <details>
+      <summary>Importer données externes (kml,kmz, geojson)</summary>
+      <p class="import-hint">Fichiers locaux : GeoJSON (.geojson, .json), KML, KMZ. Analyse 100&nbsp;% hors ligne dans le navigateur.</p>
+      <input type="file" id="importFileInput" accept=".geojson,.json,.kml,.kmz,application/geo+json,application/vnd.google-earth.kml+xml,application/vnd.google-earth.kmz" multiple hidden>
+      <div class="import-toolbar">
+        <button type="button" id="importFileBtn" class="situation-btn">Choisir un fichier…</button>
+      </div>
+      <label class="import-fit-label">
+        <input type="checkbox" id="importFitBounds" checked> Zoomer sur le calque à l'import
+      </label>
+      <div id="importLayersList" class="import-layers-list"></div>
+      <p class="import-hint">Les imports sont conservés pour la session du navigateur (rechargement de page OK ; fermeture de l'onglet = perte). Limite ~4&nbsp;Mo au total.</p>
+      <div id="importError" class="situation-error" hidden></div>
+    </details>
+
     <details open>
       <summary>Situation</summary>
       <p class="situation-hint" id="situationHint">Clic droit sur la carte pour ajouter ou modifier un constat. Cochez le calque ci-dessous pour l'affichage.</p>
@@ -567,6 +640,9 @@
   <script src="js/proj4-src.js"></script>
   <script src="js/coords-utils.js"></script>
   <script src="js/poi-types.js"></script>
+  <script src="js/jszip.min.js"></script>
+  <script src="js/togeojson.js"></script>
+  <script src="js/file-import.js"></script>
   <script src="js/protomaps-leaflet.js"></script>
 
   <script>
@@ -1412,14 +1488,17 @@
           group.addLayer(polyline);
 
           const imagePath = CartoffPoi.resolveImagePath(props);
-          const iconMarker = L.marker(latlngs[0], {
-            icon: getSituationIcon(imagePath, isSituationInactif(props)),
-            pane: 'situationPane'
+          const inactif = isSituationInactif(props);
+          [latlngs[0], latlngs[latlngs.length - 1]].forEach((ll) => {
+            const iconMarker = L.marker(ll, {
+              icon: getSituationIcon(imagePath, inactif),
+              pane: 'situationPane'
+            });
+            iconMarker._cartoffSituationFeature = feature;
+            iconMarker.bindPopup(buildSituationPopupContent(props));
+            bindSituationFeatureContextMenu(iconMarker, feature);
+            group.addLayer(iconMarker);
           });
-          iconMarker._cartoffSituationFeature = feature;
-          iconMarker.bindPopup(buildSituationPopupContent(props));
-          bindSituationFeatureContextMenu(iconMarker, feature);
-          group.addLayer(iconMarker);
         } else if (geom.type === 'Polygon' && geom.coordinates && geom.coordinates[0] && geom.coordinates[0].length >= 3) {
           const latlngs = polygonRingToLatLngs(geom.coordinates[0]);
           const polyStyle = getSituationPolygonStyle(props);
@@ -2785,6 +2864,21 @@
         }
       }
       addSituationLazyCheckbox(document.getElementById('situationLayers'));
+
+      if (typeof CartoffFileImport !== 'undefined') {
+        CartoffFileImport.init({
+          map: map,
+          listContainer: document.getElementById('importLayersList'),
+          fileInput: document.getElementById('importFileInput'),
+          pickBtn: document.getElementById('importFileBtn'),
+          fitBoundsCheckbox: document.getElementById('importFitBounds'),
+          errorEl: document.getElementById('importError'),
+          layers: layers,
+          layerStyles: layerStyles,
+          updateLegend: updateLegend,
+          polygonCanvasRenderer: polygonCanvasRenderer
+        });
+      }
     }
 
     setupLayers();

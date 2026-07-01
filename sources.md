@@ -192,6 +192,56 @@ Filtre « Afficher les inactifs » : masque les constats au statut inactif par d
 
 ---
 
+## Import de fichiers locaux (GeoJSON, KML, KMZ)
+
+| Élément | Source | Licence / remarques |
+|---------|--------|----------------------|
+| `js/file-import.js` | Module Cartoff | Parsing 100 % hors ligne via `FileReader` ; aucun appel réseau |
+| [JSZip](https://stuk.github.io/jszip/) (`js/jszip.min.js`) | MIT / GPL-3.0 | Décompression KMZ (archive ZIP contenant un KML) |
+| [@mapbox/togeojson](https://github.com/mapbox/togeojson) (`js/togeojson.js`) | BSD-2-Clause | Conversion KML → GeoJSON côté navigateur |
+
+### Formats acceptés
+
+| Extension | Contenu attendu |
+|-----------|-----------------|
+| `.geojson`, `.json` | GeoJSON (`FeatureCollection`, `Feature` ou géométrie seule) |
+| `.kml` | Keyhole Markup Language (placemarks, lignes, polygones) |
+| `.kmz` | Archive ZIP contenant au moins un fichier `.kml` |
+
+Géométries prises en charge : `Point`, `LineString`, `Polygon` et variantes `Multi*`. Pas de prise en charge des modèles 3D, extrusions KML ou réseaux temporels.
+
+### Interface
+
+Section **Importer données externes (kml,kmz, geojson)** (`index.html`) :
+
+- Bouton « Choisir un fichier… » (`input type=file`, `multiple`)
+- Liste des calques importés : visibilité (case), pastille couleur, suppression (×)
+- Option « Zoomer sur le calque à l'import » (`fitBounds`)
+- Messages d'erreur en français si fichier invalide ou vide
+
+Les calques apparaissent sur la carte avec une couleur cyclique (palette dédiée) et dans la légende sous le préfixe `[Import] nom_fichier`.
+
+### Persistance
+
+| Clé | Stockage | Comportement |
+|-----|----------|--------------|
+| `cartoff_imported_layers` | **`sessionStorage`** | Conserve métadonnées + GeoJSON pour la session du navigateur |
+
+- **Rechargement de page** (F5) : les imports sont restaurés si le total reste sous ~4 Mo.
+- **Fermeture de l'onglet / du navigateur** : les imports sont perdus (choix volontaire pour éviter de saturer `localStorage` et de mélanger données terrain éphémères et calques OSM).
+- Les constats terrain restent dans `localStorage` (`cartoff_situation_constats`) — mécanisme distinct.
+
+Pour effacer manuellement : `sessionStorage.removeItem('cartoff_imported_layers')` dans la console.
+
+### Limitations connues
+
+- Taille totale session ~4 Mo (limite pratique `sessionStorage`) ; au-delà, les imports restent visibles mais ne sont plus sauvegardés au rechargement.
+- Fichiers très denses (milliers de polygones) : rendu canvas automatique au-delà d'un seuil, mais performances variables selon la machine.
+- KML avec styles complexes, réseaux (`NetworkLink`) ou coordonnées non WGS84 peuvent être ignorés ou mal positionnés.
+- Pas d'export des calques importés depuis l'interface (utiliser l'outil source ou ré-importer).
+
+---
+
 ## IGN — BDTOPO et données administratives (historique)
 
 D'anciens calques issus de la **BDTOPO** de l'[IGN](https://www.ign.fr/) (retraités en GeoJSON sous QGIS, Lambert-93 / EPSG:2154) ont pu être utilisés en amont du projet :
@@ -216,6 +266,8 @@ D'anciens calques issus de la **BDTOPO** de l'[IGN](https://www.ign.fr/) (retrai
 | [PMTiles](https://github.com/protomaps/PMTiles) | Protomaps LLC | Format de tuiles vectorielles monofichier |
 | [go-pmtiles](https://github.com/protomaps/go-pmtiles) | Protomaps LLC | Outil CLI (`pmtiles/tools/pmtiles.exe`) |
 | [proj4js](https://github.com/proj4js/proj4js) | MIT | Projections UTM |
+| [JSZip](https://stuk.github.io/jszip/) | MIT / GPL-3.0 | Décompression KMZ (`js/jszip.min.js`) |
+| [@mapbox/togeojson](https://github.com/mapbox/togeojson) | BSD-2-Clause | KML → GeoJSON (`js/togeojson.js`) |
 | Python 3 | — | `serve.py`, exports Overpass (`scripts/export_osm_*.py`), MNT (`build_elevation_loire.py`), DFCI (`build_dfci_loire.py`), découpage (`pack_large_file.py`) |
 | `serve.py` | Cartoff | Serveur statique avec HTTP **Range** (206) — requis pour PMTiles |
 | `start.bat` | Cartoff | Windows : libère le port 8000, vérifie `loire.pmtiles`, lance `serve.py` |

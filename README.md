@@ -99,6 +99,24 @@ Calque autonome pour saisir l’état opérationnel sur le terrain :
 - Persistance **`localStorage`** (`cartoff_situation_constats`) + **export GeoJSON**
 - Calque chargé à la demande (cocher « Constats / événements »)
 
+### Import de fichiers locaux
+
+Section **Importer données externes (kml,kmz, geojson)** de la barre latérale — ajout de vos propres données **sans réseau** :
+
+| Format | Extensions | Traitement |
+|--------|------------|------------|
+| **GeoJSON** | `.geojson`, `.json` | `JSON.parse` + validation |
+| **KML** | `.kml` | Conversion client via `@mapbox/togeojson` |
+| **KMZ** | `.kmz` | Décompression `JSZip` puis conversion KML → GeoJSON |
+
+- Sélecteur de fichiers (plusieurs imports possibles)
+- Chaque calque : nom du fichier, case visibilité, bouton supprimer, couleur distincte
+- Option **Zoomer sur le calque à l'import**
+- Persistance **`sessionStorage`** (~4 Mo max) : survit au rechargement de page, perdu à la fermeture de l'onglet
+- Bibliothèques locales : `js/jszip.min.js`, `js/togeojson.js`, `js/file-import.js`
+
+**Limites :** pas de KML 3D / extrusions ; fichiers très volumineux peuvent ralentir la carte ; au-delà de ~4 Mo les imports ne sont plus sauvegardés en session.
+
 ### Recherche
 
 Section **Recherche** de la barre latérale :
