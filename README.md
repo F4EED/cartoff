@@ -108,9 +108,12 @@ pip install rasterio numpy shapely
 python scripts/build_elevation_loire.py
 
 # Serveur web local (HTTP Range requis pour PMTiles, port 8000 par défaut)
+# Windows : double-clic sur start.bat (arrête les anciens serveurs puis lance serve.py)
 python serve.py -p 8000
 ```
 
-👉 Ouvrir **http://localhost:8000** dans le navigateur.
+👉 Ouvrir **http://localhost:8000** dans le navigateur (pas `index.html` en `file://`).
+
+⚠️ **Ne pas utiliser** `python -m http.server` : pas de support HTTP Range → fond de carte gris.
 
 Détails : [pmtiles/README.md](pmtiles/README.md) (fond de carte), [elevation/README.md](elevation/README.md) (MNT).

@@ -184,6 +184,25 @@
     return entries;
   }
 
+  function buildCommuneIndexFromFeatures(features) {
+    const entries = [];
+    if (!features || !features.length) return entries;
+    for (const feature of features) {
+      if (!feature || !feature.geometry) continue;
+      const props = feature.properties || {};
+      const bounds = boundsFromGeometry(feature.geometry);
+      if (!bounds) continue;
+      entries.push({
+        nom: props.nom || '—',
+        code_insee: props.code_insee || '',
+        bounds,
+        geometry: feature.geometry,
+        layer: null
+      });
+    }
+    return entries;
+  }
+
   function boundsFromGeometry(geometry) {
     if (!geometry || !geometry.coordinates) return null;
     let minLat = Infinity;
@@ -324,7 +343,9 @@
     pointInGeoJSON,
     normalizeSearchText,
     buildCommuneIndex,
+    buildCommuneIndexFromFeatures,
     buildFeatureSearchIndex,
+    boundsFromGeometry,
     boundsIntersectViewport,
     findCommune,
     loadElevationGrid,

@@ -450,7 +450,7 @@
     <details class="search-section">
       <summary>Recherche</summary>
       <div class="layer-search-group">
-        <div class="layer-search" id="dfciSearch">
+        <div class="layer-search" id="dfciSearch" hidden>
           <label class="dfci-search-label" for="dfciSearchInput">Carroyage DFCI</label>
           <div class="dfci-search-row">
             <input type="text" id="dfciSearchInput" placeholder="Code DFCI (ex. HF26H4, HF)" autocomplete="off" spellcheck="false" disabled>
@@ -573,7 +573,14 @@
     const LOIRE_BOUNDS = L.latLngBounds([45.0, 3.5], [46.5, 5.0]);
     const PMTILES_MIN_ZOOM = 9;
     const PMTILES_MAX_ZOOM = 15;
-    const map = L.map('map', { minZoom: PMTILES_MIN_ZOOM, maxZoom: PMTILES_MAX_ZOOM });
+    const COORDS_DEBOUNCE_MS = 250;
+    const map = L.map('map', {
+      minZoom: PMTILES_MIN_ZOOM,
+      maxZoom: PMTILES_MAX_ZOOM,
+      zoomAnimation: false,
+      fadeAnimation: false,
+      markerZoomAnimation: false
+    });
     map.setView([45.7885, 4.1830], 9);
     map.setMaxBounds(LOIRE_BOUNDS.pad(0.05));
     /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -581,17 +588,61 @@
     }).addTo(map);*/
 	
     const pmtilesUrl = new URL("pmtiles/loire.pmtiles", window.location.href).href;
-    protomapsL.leafletLayer({
+    const pmtilesLayer = protomapsL.leafletLayer({
       url: pmtilesUrl,
       flavor: "light",
       lang: "fr",
+      /* levelDiff 0 obligatoire : le défaut (1) demande z8 à l'affichage z9, absent du PMTiles (min zoom 9). */
+      levelDiff: 0
     }).addTo(map);
+
+    map.whenReady(() => {
+      map.invalidateSize({ animate: false });
+    });
     map.attributionControl.addAttribution(
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributeurs'
     );
     map.attributionControl.addAttribution(
       'MNT <a href="https://spacedata.copernicus.eu/" title="Copernicus DEM GLO-30">Copernicus DEM</a>'
     );
+
+    (async function checkPmtilesRangeSupport() {
+      const box = document.getElementById('coords');
+      function showPmtilesError(msg) {
+        console.error('PMTiles : ' + msg);
+        if (box) {
+          box.innerHTML =
+            '<span style="color:#c62828;font-weight:bold">' + msg + '</span>';
+        }
+      }
+      if (window.location.protocol === 'file:') {
+        showPmtilesError(
+          'Carte fond gris : ouvrez http://localhost:8000/ (pas le fichier index.html directement). Lancez start.bat ou python serve.py.'
+        );
+        return;
+      }
+      try {
+        const resp = await fetch(pmtilesUrl, { headers: { Range: 'bytes=0-16383' } });
+        const server = resp.headers.get('server') || '(inconnu)';
+        const acceptRanges = resp.headers.get('accept-ranges');
+        if (resp.status === 206 && acceptRanges === 'bytes') {
+          console.log('PMTiles OK — HTTP Range 206, Server:', server);
+          return;
+        }
+        const hint = server.includes('Cartoff')
+          ? 'le fichier tuiles est peut-être absent ou corrompu (python scripts/unpack_large_file.py)'
+          : 'mauvais serveur détecté (« ' + server + ' »). Fermez python -m http.server et lancez start.bat ou python serve.py';
+        showPmtilesError(
+          'Carte fond gris : HTTP Range requis (réponse ' + resp.status + ', Accept-Ranges=' +
+          acceptRanges + '). ' + hint
+        );
+      } catch (err) {
+        showPmtilesError(
+          'Carte fond gris : impossible de charger pmtiles/loire.pmtiles — lancez start.bat ou python serve.py puis ouvrez http://localhost:8000/'
+        );
+        console.error(err);
+      }
+    })();
 
     map.createPane('situationPane');
     map.getPane('situationPane').style.zIndex = 610;
@@ -610,6 +661,14 @@
     const SITES_INDUSTRIELS_LAYER = 'Sites industriels (OSM)';
     const ZONES_HABITATION_LAYER = 'Zones d\'habitation (OSM)';
     const SITUATION_LAYER_NAME = 'Constats / événements';
+    const DFCI_2KM_LAYER_NAME = 'Carroyage DFCI 2 km (42)';
+    const DFCI_LAYER_NAMES = new Set([
+      'Carroyage DFCI 100 km (42)',
+      'Carroyage DFCI 20 km (42)',
+      DFCI_2KM_LAYER_NAME
+    ]);
+    const polygonCanvasRenderer = L.canvas({ padding: 0.5 });
+    const layerSearchSetupDone = new Set();
     const DFCI_SEARCH_SPECS = [
       { resolution: 2, file: 'geojson/D42/dfci_2km_42.geojson', layerName: 'Carroyage DFCI 2 km (42)' },
       { resolution: 20, file: 'geojson/D42/dfci_20km_42.geojson', layerName: 'Carroyage DFCI 20 km (42)' },
@@ -618,6 +677,7 @@
     const DFCI_HIGHLIGHT_STYLE = { color: '#4527a0', weight: 3, fillColor: '#7e57c2', fillOpacity: 0.35 };
     let dfciSearchIndex = new Map();
     let dfciSearchReady = false;
+    let dfciSearchLoadPromise = null;
     let dfciSearchMsgTimer = null;
     const SITUATION_HIGHLIGHT = { color: '#c62828', weight: 3, fillColor: '#ef5350', fillOpacity: 0.55 };
     const COMMUNE_HIGHLIGHT_STYLE = { color: '#3949ab', weight: 3, fillColor: '#5c6bc0', fillOpacity: 0.35 };
@@ -626,14 +686,29 @@
     const ZONES_HABITATION_HIGHLIGHT = { color: '#ef6c00', weight: 3, fillColor: '#ffb74d', fillOpacity: 0.4 };
     let lastPointer = null;
     let coordsUpdateTimer = null;
+    let mapIsInteracting = false;
     let elevationReady = false;
+    let elevationLoadStarted = false;
+    let communeIndexLoadScheduled = false;
+    let situationDataLoaded = false;
 
-    CartoffCoords.loadElevationGrid('elevation').then(ok => {
-      elevationReady = ok;
-      if (lastPointer) refreshCoordsFromMap();
-    });
+    function ensureElevationLoaded() {
+      if (elevationLoadStarted) return;
+      elevationLoadStarted = true;
+      CartoffCoords.loadElevationGrid('elevation').then(ok => {
+        elevationReady = ok;
+        if (lastPointer && !mapIsInteracting) refreshCoordsFromMap();
+      });
+    }
 
-    function renderCoordsBox(latlng) {
+    function scheduleCommuneIndexLoad() {
+      if (communeIndexLoadScheduled || communeIndex.length) return;
+      communeIndexLoadScheduled = true;
+      runWhenIdle(() => loadCommuneIndexOnly());
+    }
+
+    function renderCoordsBox(latlng, options) {
+      const opts = options || {};
       const lat = latlng.lat;
       const lon = latlng.lng;
       const zoom = map.getZoom();
@@ -642,8 +717,11 @@
       const commune = CartoffCoords.findCommune(lat, lon, communeIndex);
       const communeLabel = commune || (communeIndex.length ? 'Hors commune' : 'Communes…');
       const dfciLabel = dfci.base;
-      const alt = CartoffCoords.getElevation(lat, lon);
-      const altLabel = alt !== null ? `${alt} m` : (elevationReady ? '—' : '…');
+      let altLabel = '…';
+      if (!opts.skipAltitude) {
+        const alt = CartoffCoords.getElevation(lat, lon);
+        altLabel = alt !== null ? `${alt} m` : (elevationReady ? '—' : '…');
+      }
 
       coordsDiv.innerHTML =
         `<div class="coords-commune">${communeLabel}</div>` +
@@ -654,14 +732,25 @@
 
     function scheduleCoordsUpdate(latlng) {
       lastPointer = latlng;
+      ensureElevationLoaded();
+      scheduleCommuneIndexLoad();
+      if (mapIsInteracting) return;
       clearTimeout(coordsUpdateTimer);
       coordsUpdateTimer = setTimeout(() => {
-        if (lastPointer) renderCoordsBox(lastPointer);
-      }, 80);
+        if (lastPointer && !mapIsInteracting) renderCoordsBox(lastPointer);
+      }, COORDS_DEBOUNCE_MS);
     }
 
     function refreshCoordsFromMap() {
       if (lastPointer) renderCoordsBox(lastPointer);
+    }
+
+    function runWhenIdle(fn) {
+      if (typeof requestIdleCallback === 'function') {
+        requestIdleCallback(() => fn(), { timeout: 2500 });
+      } else {
+        setTimeout(fn, 150);
+      }
     }
     let isDragging = false, startX, startY;
 
@@ -728,13 +817,13 @@
       return { x, y };
     }
 
-    function applyResponsiveLayout() {
+    function applyResponsiveLayout(options) {
       applySidebarLayout();
       map.invalidateSize({ animate: false });
-      fitMapToArea();
+      if (!(options && options.skipFit)) fitMapToArea();
     }
 
-    applyResponsiveLayout();
+    applyResponsiveLayout({ skipFit: true });
 
     function startDrag(clientX, clientY) {
       if (isMobileLayout()) return;
@@ -802,7 +891,14 @@
 
     map.on('mousemove', e => updateCoords(e.latlng));
     map.on('touchmove', e => { if (e.latlng) updateCoords(e.latlng); });
-    map.on('zoomend', refreshCoordsFromMap);
+    map.on('movestart zoomstart', () => { mapIsInteracting = true; });
+    map.on('moveend zoomend', () => {
+      mapIsInteracting = false;
+      if (lastPointer) {
+        ensureElevationLoaded();
+        renderCoordsBox(lastPointer);
+      }
+    });
 
     // Icônes personnalisées
     const icons = {
@@ -1336,10 +1432,37 @@
       }));
     }
 
+    function initSituationFromLocalStorage() {
+      try {
+        const stored = localStorage.getItem(SITUATION_STORAGE_KEY);
+        if (!stored) return;
+        const data = JSON.parse(stored);
+        if (data && Array.isArray(data.features)) {
+          situationFeatures = data.features;
+          updateSituationInactifsFilterUI();
+        }
+      } catch (err) {
+        console.warn('Constats localStorage invalides :', err);
+        clearSituationStorage();
+      }
+    }
+
+    function isSituationLayerVisible() {
+      const layer = layers[SITUATION_LAYER_NAME];
+      return !!(layer && map.hasLayer(layer));
+    }
+
     function rebuildSituationLayer() {
-      const oldLayer = layers[SITUATION_LAYER_NAME];
       const checkbox = document.getElementById(checkboxIdForLayer(SITUATION_LAYER_NAME));
-      const wasVisible = oldLayer && map.hasLayer(oldLayer);
+      const wasVisible = isSituationLayerVisible();
+
+      if (!wasVisible && !(checkbox && checkbox.checked)) {
+        updateSituationInactifsFilterUI();
+        layerSelectRefreshers.forEach((fn) => fn());
+        return;
+      }
+
+      const oldLayer = layers[SITUATION_LAYER_NAME];
 
       if (oldLayer) {
         if (map.hasLayer(oldLayer)) map.removeLayer(oldLayer);
@@ -1739,7 +1862,17 @@
       situationShowInactifs = e.target.checked;
       rebuildSituationLayer();
     });
-    document.getElementById('situationExportBtn').addEventListener('click', exportSituationGeoJSON);
+    document.getElementById('situationExportBtn').addEventListener('click', async () => {
+      if (!situationDataLoaded) {
+        try {
+          situationFeatures = await loadSituationFeatures();
+          situationDataLoaded = true;
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      exportSituationGeoJSON();
+    });
     document.getElementById('situationPanelSave').addEventListener('click', saveSituationPanel);
     document.getElementById('situationPanelCancel').addEventListener('click', closeSituationPanel);
     document.getElementById('situationPanelDelete').addEventListener('click', deleteSituationPanel);
@@ -1788,20 +1921,60 @@
       else if (situationPanelState) closeSituationPanel();
     });
 
-    async function loadSituationLayer() {
+    async function ensureSituationLayerReady() {
       try {
-        situationFeatures = await loadSituationFeatures();
-        const displayFeatures = getSituationFeaturesForDisplay();
-        const layer = buildSituationLayerFromFeatures(displayFeatures);
-        situationLegendEntries = collectSituationLegendEntries(displayFeatures);
-        updateSituationInactifsFilterUI();
-        return layer;
+        if (!situationDataLoaded) {
+          situationFeatures = await loadSituationFeatures();
+          situationDataLoaded = true;
+          updateSituationInactifsFilterUI();
+        }
+        if (!layers[SITUATION_LAYER_NAME]) {
+          const displayFeatures = getSituationFeaturesForDisplay();
+          layers[SITUATION_LAYER_NAME] = buildSituationLayerFromFeatures(displayFeatures);
+          situationLegendEntries = collectSituationLegendEntries(displayFeatures);
+          setupSituationSearch();
+        } else {
+          rebuildSituationLayer();
+        }
+        return layers[SITUATION_LAYER_NAME];
       } catch (err) {
         console.error(err);
-        situationFeatures = [];
-        situationLegendEntries = [];
+        showSituationLoadError(
+          'Impossible de charger les constats (geojson/situation_constats.geojson). ' +
+          'Servez l\'application via http://localhost:8000, pas en fichier local.'
+        );
         return null;
       }
+    }
+
+    function addSituationLazyCheckbox(div) {
+      const name = SITUATION_LAYER_NAME;
+      const id = checkboxIdForLayer(name);
+      const label = document.createElement('label');
+      label.htmlFor = id;
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = id;
+      checkbox.checked = false;
+      checkbox.addEventListener('change', async (e) => {
+        if (e.target.checked) {
+          checkbox.disabled = true;
+          const layer = await ensureSituationLayerReady();
+          checkbox.disabled = false;
+          if (!layer) {
+            checkbox.checked = false;
+            return;
+          }
+          if (!map.hasLayer(layer)) layer.addTo(map);
+          updateLegend();
+        } else if (layers[name]) {
+          map.removeLayer(layers[name]);
+          updateLegend();
+        }
+      });
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(' ' + name));
+      div.appendChild(label);
     }
 
     async function loadGeoJSON(name,file,style){
@@ -1810,10 +1983,19 @@
         if(!res.ok) throw new Error("Erreur chargement "+file);
         const geojson = await res.json();
         const useIcon = name in icons;
-        const layer = L.geoJSON(geojson,{
-          style:style,
+        const isDfci = DFCI_LAYER_NAMES.has(name);
+        const isDfci2km = name === DFCI_2KM_LAYER_NAME;
+        const useCanvas = isDfci || name === COMMUNE_LAYER_NAME ||
+          name === ZONES_INDUSTRIELLES_LAYER || name === SITES_INDUSTRIELS_LAYER ||
+          name === ZONES_HABITATION_LAYER;
+        const geoJsonOptions = {
+          style: style,
+          interactive: !isDfci,
+          smoothFactor: isDfci2km ? 2.5 : (useCanvas ? 1.5 : 1.0),
+          renderer: useCanvas ? polygonCanvasRenderer : undefined,
           pointToLayer:(feature,latlng)=> useIcon ? L.marker(latlng,{icon:icons[name]}) : L.circleMarker(latlng,style),
           onEachFeature:(feature,l)=>{
+            if(isDfci) return;
             if(feature.properties){
               let popup="";
               const hiddenKeys = new Set(["osm_id", "osm_type"]);
@@ -1824,7 +2006,9 @@
               l.bindPopup(popup);
             }
           }
-        });
+        };
+        if (isDfci2km) geoJsonOptions.minZoom = 11;
+        const layer = L.geoJSON(geojson, geoJsonOptions);
         layerStyles[name] = style;
         layer._cartoffFeatures = geojson.features;
         return layer;
@@ -1872,6 +2056,9 @@
       checkbox.type = 'checkbox';
       checkbox.id = id;
       checkbox.checked = !!opts.checkedDefault;
+      if (name === DFCI_2KM_LAYER_NAME) {
+        label.title = '5012 mailles — peut ralentir fortement la carte, surtout au zoom 15';
+      }
       checkbox.addEventListener('change', async e => {
         if (e.target.checked) {
           if (!layers[name]) {
@@ -1883,18 +2070,32 @@
               return;
             }
             layers[name] = layer;
+            registerDepartementLayerSearch(name);
           }
           layers[name].addTo(map);
           if (opts.fitOnEnable !== false && layers[name].getBounds) {
             map.fitBounds(layers[name].getBounds(), { padding: [20, 20] });
           }
+          if (DFCI_LAYER_NAMES.has(name)) {
+            onDfciLayerChange();
+          }
         } else if (layers[name]) {
           map.removeLayer(layers[name]);
+        }
+        if (DFCI_LAYER_NAMES.has(name)) {
+          onDfciLayerChange();
         }
         updateLegend();
       });
       label.appendChild(checkbox);
       label.appendChild(document.createTextNode(' ' + name));
+      if (name === DFCI_2KM_LAYER_NAME) {
+        const heavyNote = document.createElement('span');
+        heavyNote.style.color = '#c62828';
+        heavyNote.style.fontSize = '12px';
+        heavyNote.textContent = ' ⚠ lourd';
+        label.appendChild(heavyNote);
+      }
       div.appendChild(label);
     }
 
@@ -2019,6 +2220,35 @@
       return matches.slice().sort((a, b) => a.resolution - b.resolution)[0];
     }
 
+    function isAnyDfciLayerChecked() {
+      for (const layerName of DFCI_LAYER_NAMES) {
+        const chk = document.getElementById(checkboxIdForLayer(layerName));
+        if (chk && chk.checked) return true;
+      }
+      return false;
+    }
+
+    function updateDfciSearchVisibility() {
+      const block = document.getElementById('dfciSearch');
+      if (!block) return;
+      block.hidden = !isAnyDfciLayerChecked();
+    }
+
+    async function onDfciLayerChange() {
+      updateDfciSearchVisibility();
+      if (isAnyDfciLayerChecked()) {
+        await ensureDfciSearchIndex();
+      }
+    }
+
+    async function ensureDfciSearchIndex() {
+      if (dfciSearchReady) return;
+      if (!dfciSearchLoadPromise) {
+        dfciSearchLoadPromise = loadDfciSearchIndex();
+      }
+      await dfciSearchLoadPromise;
+    }
+
     function showDfciSearchMessage(text) {
       const msg = document.getElementById('dfciSearchMsg');
       if (!msg) return;
@@ -2049,6 +2279,7 @@
       if (!chk.checked) chk.checked = true;
       if (!map.hasLayer(layers[layerName])) layers[layerName].addTo(map);
       updateLegend();
+      if (DFCI_LAYER_NAMES.has(layerName)) onDfciLayerChange();
     }
 
     async function zoomToDfciSearchResult(entry) {
@@ -2057,10 +2288,15 @@
       zoomToSearchResult(entry, DFCI_HIGHLIGHT_STYLE);
     }
 
-    function runDfciSearch() {
+    async function runDfciSearch() {
       if (!dfciSearchReady) {
-        showDfciSearchMessage('Index DFCI en cours de chargement…');
-        return;
+        if (isAnyDfciLayerChecked()) {
+          showDfciSearchMessage('Index DFCI en cours de chargement…');
+          await ensureDfciSearchIndex();
+        } else {
+          showDfciSearchMessage('Activez un calque DFCI pour rechercher');
+          return;
+        }
       }
       const input = document.getElementById('dfciSearchInput');
       const raw = input ? input.value : '';
@@ -2089,36 +2325,40 @@
       input.addEventListener('input', () => showDfciSearchMessage(''));
     }
 
+    async function ingestDfciSearchFile(spec, index) {
+      try {
+        const resp = await fetch(spec.file);
+        if (!resp.ok) {
+          console.warn('DFCI search:', spec.file, resp.status);
+          return;
+        }
+        const geojson = await resp.json();
+        for (const feature of geojson.features || []) {
+          const props = feature.properties || {};
+          const code = normalizeDfciSearchCode(props.dfci);
+          if (!code || !feature.geometry) continue;
+          const bounds = CartoffCoords.boundsFromGeometry(feature.geometry);
+          if (!bounds || !bounds.isValid()) continue;
+          const entry = {
+            label: props.label || ('DFCI ' + code),
+            code,
+            resolution: spec.resolution,
+            geometry: feature.geometry,
+            bounds,
+            layerName: spec.layerName
+          };
+          if (!index.has(code)) index.set(code, []);
+          index.get(code).push(entry);
+        }
+      } catch (err) {
+        console.warn('DFCI search index:', spec.file, err);
+      }
+    }
+
     async function loadDfciSearchIndex() {
       const index = new Map();
       for (const spec of DFCI_SEARCH_SPECS) {
-        try {
-          const resp = await fetch(spec.file);
-          if (!resp.ok) {
-            console.warn('DFCI search:', spec.file, resp.status);
-            continue;
-          }
-          const geojson = await resp.json();
-          for (const feature of geojson.features || []) {
-            const props = feature.properties || {};
-            const code = normalizeDfciSearchCode(props.dfci);
-            if (!code || !feature.geometry) continue;
-            const bounds = L.geoJSON(feature).getBounds();
-            if (!bounds || !bounds.isValid()) continue;
-            const entry = {
-              label: props.label || ('DFCI ' + code),
-              code,
-              resolution: spec.resolution,
-              geometry: feature.geometry,
-              bounds,
-              layerName: spec.layerName
-            };
-            if (!index.has(code)) index.set(code, []);
-            index.get(code).push(entry);
-          }
-        } catch (err) {
-          console.warn('DFCI search index:', spec.file, err);
-        }
+        await ingestDfciSearchFile(spec, index);
       }
       dfciSearchIndex = index;
       dfciSearchReady = index.size > 0;
@@ -2143,7 +2383,7 @@
 
     const layerSelectRefreshers = [];
     let layerSelectRefreshTimer = null;
-    const LAYER_SELECT_DEBOUNCE_MS = 250;
+    const LAYER_SELECT_DEBOUNCE_MS = 400;
 
     function scheduleLayerSelectRefresh() {
       clearTimeout(layerSelectRefreshTimer);
@@ -2229,19 +2469,33 @@
       });
     }
 
-    function setupDepartementSearches() {
-      const communesLayer = layers[COMMUNE_LAYER_NAME];
-      if (communesLayer) {
-        communeIndex = CartoffCoords.buildCommuneIndex(communesLayer);
+    async function loadCommuneIndexOnly() {
+      const item = geojsonFiles.departement.find(i => i.name === COMMUNE_LAYER_NAME);
+      if (!item) return;
+      try {
+        const res = await fetch(encodeURI(item.file));
+        if (!res.ok) throw new Error('communes');
+        const geojson = await res.json();
+        communeIndex = CartoffCoords.buildCommuneIndexFromFeatures(geojson.features || []);
         communeSearchEntries = buildCommuneSearchEntries(communeIndex);
         setupCommuneSearch();
+        layerSearchSetupDone.add(COMMUNE_LAYER_NAME);
         if (lastPointer) refreshCoordsFromMap();
+      } catch (err) {
+        console.warn('Index communes:', err);
       }
-      const zonesIndLayer = layers[ZONES_INDUSTRIELLES_LAYER];
-      if (zonesIndLayer) {
+    }
+
+    function registerDepartementLayerSearch(name) {
+      if (layerSearchSetupDone.has(name)) return;
+      const layer = layers[name];
+      if (!layer) return;
+      layerSearchSetupDone.add(name);
+
+      if (name === ZONES_INDUSTRIELLES_LAYER) {
         setupLayerSelect({
           selectId: 'zonesIndustriellesSearchSelect',
-          entries: CartoffCoords.buildFeatureSearchIndex(zonesIndLayer, {
+          entries: CartoffCoords.buildFeatureSearchIndex(layer, {
             labelFields: ['nom', 'operateur', 'adresse'],
             searchFields: ['nom', 'operateur', 'adresse', 'telephone'],
             sublabelFields: ['operateur', 'adresse'],
@@ -2250,12 +2504,10 @@
           placeholder: '— Choisir une zone industrielle —',
           highlightStyle: ZONES_INDUSTRIELLES_HIGHLIGHT
         });
-      }
-      const sitesIndLayer = layers[SITES_INDUSTRIELS_LAYER];
-      if (sitesIndLayer) {
+      } else if (name === SITES_INDUSTRIELS_LAYER) {
         setupLayerSelect({
           selectId: 'sitesIndustrielsSearchSelect',
-          entries: CartoffCoords.buildFeatureSearchIndex(sitesIndLayer, {
+          entries: CartoffCoords.buildFeatureSearchIndex(layer, {
             labelFields: ['nom', 'operateur', 'adresse'],
             searchFields: ['nom', 'operateur', 'adresse', 'telephone'],
             sublabelFields: ['operateur', 'adresse'],
@@ -2264,12 +2516,10 @@
           placeholder: '— Choisir un site industriel —',
           highlightStyle: SITES_INDUSTRIELS_HIGHLIGHT
         });
-      }
-      const zonesHabLayer = layers[ZONES_HABITATION_LAYER];
-      if (zonesHabLayer) {
+      } else if (name === ZONES_HABITATION_LAYER) {
         setupLayerSelect({
           selectId: 'zonesHabitationSearchSelect',
-          entries: CartoffCoords.buildFeatureSearchIndex(zonesHabLayer, {
+          entries: CartoffCoords.buildFeatureSearchIndex(layer, {
             labelFields: ['nom', 'commune'],
             searchFields: ['nom', 'commune', 'code_postal'],
             sublabelFields: ['commune', 'code_postal'],
@@ -2346,13 +2596,14 @@
     }
 
     async function setupLayers(){
-      const situationPromise = loadSituationLayer();
+      initSituationFromLocalStorage();
 
-      for(const item of geojsonFiles.departement){
-        const layer = await loadGeoJSON(item.name,item.file,item.style);
-        if(layer){ layers[item.name]=layer; addCheckbox(document.getElementById("departementLayers"), item.name, layer); }
+      const departementContainer = document.getElementById('departementLayers');
+      for (const item of geojsonFiles.departement) {
+        addLazyCheckbox(departementContainer, item, {
+          fitOnEnable: item.name !== COMMUNE_LAYER_NAME
+        });
       }
-      setupDepartementSearches();
       const lazyLayerGroups = [
         ['aviation', 'aviationLayers'],
         ['urgence', 'urgenceLayers'],
@@ -2367,25 +2618,10 @@
           addLazyCheckbox(container, item);
         }
       }
-      const situationLayer = await situationPromise;
-      if (situationLayer) {
-        layers[SITUATION_LAYER_NAME] = situationLayer;
-        addCheckbox(document.getElementById('situationLayers'), SITUATION_LAYER_NAME, situationLayer, {
-          checkedDefault: true,
-          fitOnEnable: false
-        });
-        setupSituationSearch();
-        updateLegend();
-      } else {
-        showSituationLoadError(
-          'Impossible de charger les constats (geojson/situation_constats.geojson). ' +
-          'Servez l\'application via http://localhost:8000, pas en fichier local.'
-        );
-      }
+      addSituationLazyCheckbox(document.getElementById('situationLayers'));
     }
 
     setupLayers();
-    loadDfciSearchIndex();
   </script>
 </body>
 </html>

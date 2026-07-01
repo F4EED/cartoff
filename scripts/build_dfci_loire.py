@@ -13,6 +13,13 @@ from pathlib import Path
 # Même emprise que pmtiles/loire.json et build_elevation_loire.py
 SOUTH, WEST, NORTH, EAST = 45.0, 3.5, 46.5, 5.0
 
+# Simplification WGS84 (degrés) pour l'affichage Leaflet — recherche DFCI inchangée côté app.
+DFCI_SIMPLIFY_TOLERANCE_DEG = {
+    2: 0.00008,
+    20: 0.0,
+    100: 0.0,
+}
+
 DATASETS = {
     "2km": {
         "url": (
@@ -117,9 +124,13 @@ def build_layer(
 
         col = code_column(list(clipped.columns))
         clipped = clipped.to_crs("EPSG:4326")
+        simplify_tol = DFCI_SIMPLIFY_TOLERANCE_DEG.get(meta["resolution_km"], 0.0)
         features = []
         for _, row in clipped.iterrows():
             code = str(row[col]).strip().upper()
+            geom = row.geometry
+            if simplify_tol > 0:
+                geom = geom.simplify(simplify_tol, preserve_topology=True)
             features.append(
                 {
                     "type": "Feature",
@@ -128,7 +139,7 @@ def build_layer(
                         "resolution_km": meta["resolution_km"],
                         "label": f"DFCI {code} ({meta['resolution_km']} km)",
                     },
-                    "geometry": json.loads(gpd.GeoSeries([row.geometry]).to_json())[
+                    "geometry": json.loads(gpd.GeoSeries([geom]).to_json())[
                         "features"
                     ][0]["geometry"],
                 }
