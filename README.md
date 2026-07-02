@@ -2,6 +2,8 @@
 
 ## Comprendre le terrain, décider plus vite.
 
+![Solution de cartographie Cartoff](images/Solution_de_cartographie_Cartoff.png)
+
 **Cartoff** est un outil de cartographie open source dédié à la **gestion de crise**, conçu pour fonctionner **100 % hors ligne**.
 
 > ✅ Pensé pour les environnements dégradés  
@@ -98,6 +100,41 @@ Calque autonome pour saisir l’état opérationnel sur le terrain :
 - Types définis dans `js/poi-types.js` (panneaux, styles ligne/polygone)
 - Persistance **`localStorage`** (`cartoff_situation_constats`) + **export GeoJSON**
 - Calque chargé à la demande (cocher « Constats / événements »)
+
+### Missions SAR (recherche et sauvetage)
+
+Section **Missions SAR** pour structurer une opération de recherche :
+
+#### Mission personne (SAR-1)
+
+| Élément | Saisie | Rôles |
+|---------|--------|-------|
+| **Point** | Mode SAR + clic droit ou bouton barre latérale | LKP, Indice, Waypoint |
+| **Polyligne** | Clics + **Terminer** (comme les tronçons constats) | Axe probable |
+| **Polygone** | Clics + **Terminer** (min. 3 points, comme les zones constats) | Fouilles (zone fouillée) |
+
+#### Mission aéronef — DF / balise (SAR-2)
+
+| Élément | Saisie | Rôle |
+|---------|--------|------|
+| **Station DF** | Bouton **Station DF**, clic droit carte ou clic sur la carte | Point `station_df` (marqueur ▲ orange) |
+| **Relèvement** | Bouton **Relèvement**, menu contextuel sur une station, ou clic sur station si plusieurs | Paire de lignes `relevement_df` |
+
+Workflow aéronef :
+
+1. Créer une mission type **Aéronef**, activer **Mode SAR**
+2. Placer une **station DF** (libellé, notes, horodatage optionnel)
+3. Ajouter un **relèvement** : azimut (0–360°, 1 décimale), portée en km (défaut 30 km)
+4. Carte : **ligne réception** (pleine, orange) vers l’azimut saisi ; **ligne réciproque** (pointillée, +180°)
+5. Modifier ou supprimer station / relèvement via panneau ou menu contextuel (suppression station → relèvements liés)
+
+- Création de missions : nom, type **personne** ou **aéronef**
+- Mission active, statut **active** / **clôturée**, suppression
+- Métadonnées par élément : libellé, notes, horodatage automatique (modifiable pour station DF)
+- Symbologie distincte des constats (marqueurs colorés, zone verte remplie, axe violet, DF orange)
+- Persistance **`localStorage`** (`cartoff_sar_missions`) + **export GeoJSON** (mission ou tout)
+- Propriétés GeoJSON : `sar:mission_id`, `sar:role`, `sar:mission_type`, `sar:azimuth`, `sar:range_km`, `sar:bearing_reciprocal`, `sar:station_id`, `sar:bearing_group_id`
+- **SAR-3 (à venir)** : intersection de relèvements, rapport d’export enrichi
 
 ### Import de fichiers locaux
 

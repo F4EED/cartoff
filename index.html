@@ -477,6 +477,67 @@
     .leaflet-container.situation-line-drawing {
       cursor: crosshair;
     }
+    .sar-marker {
+      background: transparent;
+      border: none;
+      text-align: center;
+    }
+    .sar-marker div {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: bold;
+      line-height: 22px;
+      color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    }
+    .sar-marker-lkp div { background: #d84315; border: 2px solid #bf360c; border-radius: 4px; transform: rotate(45deg); line-height: 18px; }
+    .sar-marker-indice div { background: #f9a825; border: 2px solid #f57f17; color: #333; }
+    .sar-marker-waypoint div { background: #1565c0; border: 2px solid #0d47a1; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); border-radius: 0; line-height: 26px; }
+    .sar-marker-station-df div {
+      background: #ff6f00;
+      border: 2px solid #e65100;
+      clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+      border-radius: 0;
+      line-height: 24px;
+      font-size: 10px;
+    }
+    .sar-marker-closed div { opacity: 0.45; filter: grayscale(0.6); }
+    .sar-mission-form label { display: block; margin-bottom: 6px; font-size: 13px; }
+    .sar-mission-form input[type="text"],
+    .sar-mission-form select { width: 100%; padding: 6px 8px; margin-top: 2px; font-size: 13px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    .sar-mission-form { margin-bottom: 8px; }
+    .sar-mission-list-wrap { margin-bottom: 8px; }
+    .sar-mission-list-wrap select { width: 100%; padding: 6px 8px; font-size: 13px; border: 1px solid #ccc; border-radius: 4px; }
+    .sar-mission-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .sar-draw-tools { margin-bottom: 8px; }
+    .sar-draw-label { display: block; font-size: 12px; font-weight: bold; color: #555; margin: 4px 0 2px; }
+  #legend span.sar-legend-icon {
+      display: inline-block;
+      min-width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    #legend span.sar-legend-lkp { background: #d84315; border-radius: 4px; transform: rotate(45deg); }
+    #legend span.sar-legend-indice { background: #f9a825; color: #333; }
+    #legend span.sar-legend-waypoint { background: #1565c0; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); border-radius: 0; }
+    #legend span.sar-legend-station-df { background: #ff6f00; clip-path: polygon(50% 0%, 15% 100%, 85% 100%); border-radius: 0; }
+    #legend span.sar-legend-polygon {
+      display: inline-block;
+      width: 18px;
+      height: 14px;
+      margin-right: 6px;
+      vertical-align: middle;
+      box-sizing: border-box;
+    }
     @media (max-width: 768px) {
       .situation-panel {
         max-width: calc(100vw - 20px);
@@ -594,6 +655,11 @@
       <div id="importError" class="situation-error" hidden></div>
     </details>
 
+    <details>
+      <summary>Missions SAR</summary>
+      <div id="sarSidebar"></div>
+    </details>
+
     <details open>
       <summary>Situation</summary>
       <p class="situation-hint" id="situationHint">Clic droit sur la carte pour ajouter ou modifier un constat. Cochez le calque ci-dessous pour l'affichage.</p>
@@ -621,6 +687,40 @@
     <button type="button" id="situationLineDrawCancel" class="situation-btn">Annuler</button>
   </div>
 
+  <div id="sarLineDrawBanner" class="situation-line-draw-banner" hidden>
+    <span id="sarDrawBannerText">Cliquez pour placer les points — Terminer pour valider</span>
+    <button type="button" id="sarLineDrawFinish" class="situation-btn situation-btn-primary" disabled>Terminer</button>
+    <button type="button" id="sarLineDrawCancel" class="situation-btn">Annuler</button>
+  </div>
+
+  <div id="sarPanel" class="situation-panel" hidden>
+    <div class="situation-panel-title" id="sarPanelTitle">Élément SAR</div>
+    <label>Libellé
+      <input type="text" id="sarPanelLabel" placeholder="Description courte…" maxlength="120">
+    </label>
+    <label>Notes
+      <input type="text" id="sarPanelNotes" placeholder="Observations…" maxlength="500">
+    </label>
+    <div id="sarPanelDfFields" hidden>
+      <label>Horodatage (optionnel)
+        <input type="datetime-local" id="sarPanelTimestamp">
+      </label>
+    </div>
+    <div id="sarPanelBearingFields" hidden>
+      <label>Azimut (°)
+        <input type="number" id="sarPanelAzimuth" min="0" max="360" step="0.1" value="0">
+      </label>
+      <label>Portée (km)
+        <input type="number" id="sarPanelRange" min="0.1" max="500" step="0.1" value="30">
+      </label>
+    </div>
+    <div class="situation-panel-actions">
+      <button type="button" id="sarPanelSave" class="situation-btn-save">Enregistrer</button>
+      <button type="button" id="sarPanelCancel">Annuler</button>
+      <button type="button" id="sarPanelDelete" class="situation-btn-delete" hidden>Supprimer</button>
+    </div>
+  </div>
+
   <div id="situationPanel" class="situation-panel" hidden>
     <div class="situation-panel-title" id="situationPanelTitle">Constat</div>
     <label>Type
@@ -643,6 +743,8 @@
   <script src="js/jszip.min.js"></script>
   <script src="js/togeojson.js"></script>
   <script src="js/file-import.js"></script>
+  <script src="js/sar-types.js"></script>
+  <script src="js/sar-missions.js"></script>
   <script src="js/protomaps-leaflet.js"></script>
 
   <script>
@@ -722,6 +824,8 @@
 
     map.createPane('situationPane');
     map.getPane('situationPane').style.zIndex = 610;
+    map.createPane('sarPane');
+    map.getPane('sarPane').style.zIndex = 620;
 
     // Sidebar draggable
     const sidebar = document.getElementById('layerMenu');
@@ -1855,46 +1959,59 @@
       mapContextMenuEl.appendChild(btn);
     }
 
+    function isSarFeature(feature) {
+      const props = feature && feature.properties;
+      return !!(props && props['sar:mission_id']);
+    }
+
     function openMapContextMenu(clientX, clientY, target) {
       closeMapContextMenu();
       mapContextMenuState = { clientX, clientY, target };
 
-      const section = document.createElement('div');
-      section.className = 'map-context-menu-section';
-      section.textContent = 'Constat / événement';
-      mapContextMenuEl.appendChild(section);
+      const isSar = target.feature && isSarFeature(target.feature);
 
-      if (target.type === 'marker' || target.type === 'line' || target.type === 'polygon') {
-        const props = target.feature.properties || {};
-        const inactif = isSituationInactif(props);
-        const isLine = target.type === 'line';
-        const isPolygon = target.type === 'polygon';
-        const editLabel = isLine ? 'Modifier ce tronçon' : (isPolygon ? 'Modifier cette zone' : 'Modifier ce constat');
-        addMapContextMenuItem(editLabel, () => {
-          openSituationPanelEdit(target.feature, target.latlng, clientX, clientY);
-        });
-        if (inactif) {
-          addMapContextMenuItem('Réactiver', () => {
-            setSituationFeatureStatut(target.feature, 'actif');
+      if (!isSar) {
+        const section = document.createElement('div');
+        section.className = 'map-context-menu-section';
+        section.textContent = 'Constat / événement';
+        mapContextMenuEl.appendChild(section);
+
+        if (target.type === 'marker' || target.type === 'line' || target.type === 'polygon') {
+          const props = target.feature.properties || {};
+          const inactif = isSituationInactif(props);
+          const isLine = target.type === 'line';
+          const isPolygon = target.type === 'polygon';
+          const editLabel = isLine ? 'Modifier ce tronçon' : (isPolygon ? 'Modifier cette zone' : 'Modifier ce constat');
+          addMapContextMenuItem(editLabel, () => {
+            openSituationPanelEdit(target.feature, target.latlng, clientX, clientY);
           });
+          if (inactif) {
+            addMapContextMenuItem('Réactiver', () => {
+              setSituationFeatureStatut(target.feature, 'actif');
+            });
+          } else {
+            addMapContextMenuItem('Marquer comme inactif', () => {
+              setSituationFeatureStatut(target.feature, 'inactif');
+            });
+          }
+          addMapContextMenuItem('Supprimer', () => {
+            deleteSituationFeature(target.feature);
+          }, { danger: true });
         } else {
-          addMapContextMenuItem('Marquer comme inactif', () => {
-            setSituationFeatureStatut(target.feature, 'inactif');
+          addMapContextMenuItem('Point (panneau)', () => {
+            openSituationPanelAdd(target.latlng, clientX, clientY);
+          });
+          addMapContextMenuItem('Tronçon (ligne)', () => {
+            startLineDrawMode(target.latlng);
+          });
+          addMapContextMenuItem('Zone (surface)', () => {
+            startPolygonDrawMode(target.latlng);
           });
         }
-        addMapContextMenuItem('Supprimer', () => {
-          deleteSituationFeature(target.feature);
-        }, { danger: true });
-      } else {
-        addMapContextMenuItem('Point (panneau)', () => {
-          openSituationPanelAdd(target.latlng, clientX, clientY);
-        });
-        addMapContextMenuItem('Tronçon (ligne)', () => {
-          startLineDrawMode(target.latlng);
-        });
-        addMapContextMenuItem('Zone (surface)', () => {
-          startPolygonDrawMode(target.latlng);
-        });
+      }
+
+      if (typeof CartoffSar !== 'undefined') {
+        CartoffSar.buildMapContextMenu(mapContextMenuEl, addMapContextMenuItem, target, clientX, clientY);
       }
 
       mapContextMenuEl.style.left = clientX + 'px';
@@ -2125,8 +2242,26 @@
 
     map.getContainer().addEventListener('contextmenu', (e) => {
       if (drawState) return;
+      if (typeof CartoffSar !== 'undefined' && CartoffSar.isDrawOrPanelActive()) return;
       if (e.target.closest('.sidebar') || e.target.closest('.situation-panel') || e.target.closest('.map-context-menu') || e.target.closest('.situation-line-draw-banner')) return;
       e.preventDefault();
+      if (typeof CartoffSar !== 'undefined') {
+        const sarLayerHit = CartoffSar.getFeatureFromDomEvent(e);
+        if (sarLayerHit) {
+          const feature = sarLayerHit._cartoffSarFeature;
+          const geom = feature.geometry || {};
+          const isLine = geom.type === 'LineString';
+          const isPolygon = geom.type === 'Polygon';
+          let latlng = sarLayerHit.getLatLng ? sarLayerHit.getLatLng() : null;
+          if (!latlng) latlng = situationGeomAnchorLatLng(geom);
+          openMapContextMenu(e.clientX, e.clientY, {
+            type: isLine ? 'line' : (isPolygon ? 'polygon' : 'marker'),
+            feature,
+            latlng
+          });
+          return;
+        }
+      }
       const situationLayer = getSituationLayerFromDomEvent(e);
       if (situationLayer) {
         const feature = situationLayer._cartoffSituationFeature;
@@ -2155,6 +2290,7 @@
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
       if (!mapContextMenuEl.hidden) closeMapContextMenu();
+      else if (typeof CartoffSar !== 'undefined' && CartoffSar.isDrawOrPanelActive()) CartoffSar.cancelInteractions();
       else if (drawState) cancelDrawMode();
       else if (situationPanelState) closeSituationPanel();
     });
@@ -2359,6 +2495,8 @@
             } else {
               html += `${name} — aucun panneau<br>`;
             }
+          } else if (typeof CartoffSar !== 'undefined' && name === CartoffSar.LAYER_NAME) {
+            html += CartoffSar.getLegendHtml();
           } else {
             const style = layerStyles[name] || {};
             let color = style.color || "#000";
@@ -2864,6 +3002,36 @@
         }
       }
       addSituationLazyCheckbox(document.getElementById('situationLayers'));
+
+      if (typeof CartoffSar !== 'undefined') {
+        window.openMapContextMenuForSar = function (clientX, clientY, target) {
+          openMapContextMenu(clientX, clientY, target);
+        };
+        CartoffSar.init({
+          map: map,
+          layers: layers,
+          updateLegend: updateLegend,
+          findCommune: (lat, lon) => CartoffCoords.findCommune(lat, lon, communeIndex),
+          latLngToDfci: (lat, lon) => CartoffCoords.latLngToDfci(lat, lon),
+          sidebarEl: document.getElementById('sarSidebar'),
+          panelEl: document.getElementById('sarPanel'),
+          panelTitleEl: document.getElementById('sarPanelTitle'),
+          panelLabelEl: document.getElementById('sarPanelLabel'),
+          panelNotesEl: document.getElementById('sarPanelNotes'),
+          panelSaveBtn: document.getElementById('sarPanelSave'),
+          panelCancelBtn: document.getElementById('sarPanelCancel'),
+          panelDeleteBtn: document.getElementById('sarPanelDelete'),
+          panelDfFieldsEl: document.getElementById('sarPanelDfFields'),
+          panelTimestampEl: document.getElementById('sarPanelTimestamp'),
+          panelBearingFieldsEl: document.getElementById('sarPanelBearingFields'),
+          panelAzimuthEl: document.getElementById('sarPanelAzimuth'),
+          panelRangeEl: document.getElementById('sarPanelRange'),
+          drawBannerEl: document.getElementById('sarLineDrawBanner'),
+          drawBannerTextEl: document.getElementById('sarDrawBannerText'),
+          drawFinishBtn: document.getElementById('sarLineDrawFinish'),
+          drawCancelBtn: document.getElementById('sarLineDrawCancel')
+        });
+      }
 
       if (typeof CartoffFileImport !== 'undefined') {
         CartoffFileImport.init({

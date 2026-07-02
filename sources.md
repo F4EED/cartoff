@@ -192,6 +192,68 @@ Filtre « Afficher les inactifs » : masque les constats au statut inactif par d
 
 ---
 
+## Missions SAR
+
+| Élément | Source | Licence / remarques |
+|---------|--------|----------------------|
+| `js/sar-types.js` | Registre Cartoff (`window.CartoffSarTypes`) | Rôles géométriques, types de mission, propriétés `sar:*`, `destinationPoint` |
+| `js/sar-missions.js` | Module Cartoff (`window.CartoffSar`) | Missions, saisie, rendu, persistance, export |
+| Panneau `sarPane` (z-index 620) | `index.html` | Calque au-dessus des constats (`situationPane` 610) |
+
+### Types de mission
+
+| `type` | Disponible | Remarque |
+|--------|------------|----------|
+| `personne` | Oui (SAR-1) | LKP, indices, waypoints, tracés |
+| `aeronef` | Oui (SAR-2) | Station DF, relèvements réception / réciproque |
+
+### Rôles (`sar:role`)
+
+| Rôle | Géométrie | Mission | Symbole |
+|------|-----------|---------|---------|
+| `lkp` | Point | personne | Losange orange |
+| `indice` | Point | personne | Cercle jaune |
+| `waypoint` | Point | personne | Triangle bleu |
+| `trace_fouille` | Polygon | personne | Zone verte remplie |
+| `axe_probable` | LineString | personne | Ligne violette pointillée |
+| `station_df` | Point | aéronef | Triangle orange (antenne DF) |
+| `relevement_df` | LineString | aéronef | Ligne orange pleine (réception) ou pointillée (réciproque) |
+
+### Propriétés GeoJSON (`sar:*`)
+
+| Propriété | Usage |
+|-----------|--------|
+| `sar:mission_id`, `sar:role`, `sar:mission_type` | Tous les éléments |
+| `sar:azimuth` | Azimut du relèvement (°) |
+| `sar:range_km` | Portée affichée (km) |
+| `sar:bearing_reciprocal` | `false` = ligne réception, `true` = ligne réciproque (+180°) |
+| `sar:station_id` | ID de la feature `station_df` parente |
+| `sar:bearing_group_id` | Lie la paire réception / réciproque (même UUID) |
+
+Géométrie des relèvements : calcul sphérique offline (`destinationPoint` dans `sar-types.js`).
+
+### Saisie
+
+- **Mode SAR** (mission active) : menu contextuel carte + boutons barre latérale
+- **Personne** : points immédiats ; polylignes / polygones avec **Terminer** / **Annuler** / **Échap**
+- **Aéronef** : **Station DF** (point + panneau) ; **Relèvement** (azimut + portée → 2 lignes auto)
+- Mission **clôturée** : consultation seule (opacité réduite, pas de nouvelle saisie)
+
+### Persistance et export
+
+- **localStorage** : clé `cartoff_sar_missions` (tableau `missions`, chaque mission avec `features[]`)
+- **Export** : « Exporter mission » ou « Exporter tout » → GeoJSON
+- Réinitialiser : `localStorage.removeItem('cartoff_sar_missions')`
+
+### Différé SAR-3
+
+- Intersection de relèvements multi-stations (point d’émission estimé)
+- Rapport d’export enrichi (synthèse DF)
+- Calculs de probabilité, zones de recherche, corrélations multi-missions
+- Import / synchronisation externe des missions SAR
+
+---
+
 ## Import de fichiers locaux (GeoJSON, KML, KMZ)
 
 | Élément | Source | Licence / remarques |
