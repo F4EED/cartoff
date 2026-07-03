@@ -513,6 +513,47 @@
     .sar-mission-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
     .sar-draw-tools { margin-bottom: 8px; }
     .sar-draw-label { display: block; font-size: 12px; font-weight: bold; color: #555; margin: 4px 0 2px; }
+    .sar-intersection-panel { margin: 8px 0; padding: 8px; background: #fafafa; border: 1px solid #e0e0e0; border-radius: 4px; }
+    .sar-intersection-hint { margin: 4px 0 8px; font-size: 12px; }
+    .sar-uncertainty-label { display: block; font-size: 12px; margin-bottom: 6px; }
+    .sar-uncertainty-label input { width: 100%; padding: 4px 6px; margin-top: 2px; box-sizing: border-box; font-size: 13px; border: 1px solid #ccc; border-radius: 4px; }
+    .sar-fix-details { font-size: 12px; margin: 8px 0; line-height: 1.45; }
+    .sar-fix-line { margin: 2px 0; }
+    .sar-fix-stations ul { margin: 4px 0 0; padding-left: 18px; }
+    .sar-fix-candidates { margin: 8px 0; }
+    .sar-fix-checklist-wrap { margin: 8px 0; }
+    .sar-fix-checklist { list-style: none; margin: 6px 0 0; padding: 0; }
+    .sar-fix-check-row {
+      font-size: 12px; line-height: 1.45; margin-bottom: 6px; padding: 6px 8px;
+      background: #fff; border: 1px solid #e0e0e0; border-radius: 4px;
+    }
+    .sar-fix-check-row-best { border-color: #c8e6c9; background: #f1f8e9; }
+    .sar-fix-check-label { display: flex; align-items: flex-start; gap: 6px; cursor: pointer; }
+    .sar-fix-check-label input { margin-top: 3px; flex-shrink: 0; }
+    .sar-fix-check-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .sar-fix-check-title { font-weight: bold; }
+    .sar-fix-check-meta { color: #555; font-size: 11px; }
+    .sar-fix-toggle-all { margin-bottom: 4px; }
+    .sar-fix-candidate {
+      font-size: 12px; line-height: 1.45; margin-bottom: 8px; padding: 6px 8px;
+      background: #fff; border: 1px solid #e0e0e0; border-radius: 4px;
+    }
+    .sar-fix-candidate-best { border-color: #c62828; border-width: 2px; }
+    .sar-fix-candidate-header { margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+    .sar-fix-swatch {
+      display: inline-block; width: 14px; height: 14px; border-radius: 3px;
+      border: 1px solid rgba(0,0,0,0.2); flex-shrink: 0;
+    }
+    .sar-fix-best-badge {
+      font-size: 10px; font-weight: bold; color: #2e7d32; background: #e8f5e9;
+      padding: 1px 5px; border-radius: 3px; margin-left: 4px; vertical-align: middle;
+    }
+    .sar-marker-fixe-estime div {
+      background: transparent; border: none; font-size: 20px; font-weight: bold;
+      line-height: 26px; text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff;
+    }
+    .sar-marker-fixe-best div { font-size: 24px; }
+    #legend span.sar-legend-fixe-estime { background: transparent; color: #c62828; font-weight: bold; font-size: 14px; }
   #legend span.sar-legend-icon {
       display: inline-block;
       min-width: 20px;
@@ -707,6 +748,7 @@
       </label>
     </div>
     <div id="sarPanelBearingFields" hidden>
+      <p class="situation-hint">Aperçu — validez pour enregistrer</p>
       <label>Azimut (°)
         <input type="number" id="sarPanelAzimuth" min="0" max="360" step="0.1" value="0">
       </label>
@@ -3013,6 +3055,7 @@
           updateLegend: updateLegend,
           findCommune: (lat, lon) => CartoffCoords.findCommune(lat, lon, communeIndex),
           latLngToDfci: (lat, lon) => CartoffCoords.latLngToDfci(lat, lon),
+          latLngToUtm: (lat, lon) => CartoffCoords.latLngToUtm(lat, lon),
           sidebarEl: document.getElementById('sarSidebar'),
           panelEl: document.getElementById('sarPanel'),
           panelTitleEl: document.getElementById('sarPanelTitle'),

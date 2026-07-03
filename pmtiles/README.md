@@ -112,6 +112,75 @@ Le MNT Copernicus (`elevation/loire_elev.bin`, ~58 Mo) suit le même principe : 
 
 ---
 
+## Créer un PMTiles pour votre région
+
+La procédure ci-dessous généralise l’exemple Loire. Le dépôt fournit `scripts/build_loire_pmtiles.py` et `pmtiles/tools/pmtiles.exe` (go-pmtiles).
+
+### 1. Emprise et niveaux de zoom
+
+1. **BBox** : `ouest,sud,est,nord` en degrés décimaux WGS84 (ex. Loire : `3.5,45.0,5.0,46.5` — voir `pmtiles/loire.json`).
+2. **`minzoom`** : premier niveau de tuiles **inclus** dans l’archive. Plus il est bas, plus le fichier grossit. Pour une région départementale, **9** est un bon compromis (comme Loire).
+3. **`maxzoom`** : dernier niveau inclus. Le build Protomaps actuel s’arrête à **15** (pas de z16).
+
+Documentez ces valeurs dans un fichier JSON (ex. `pmtiles/ma-region.json`) : `bounds`, `min_zoom`, `max_zoom`.
+
+### 2. Extraction
+
+**Script** (détecte le dernier build sur `build.protomaps.com`) — adapter d’abord `WEST,SOUTH,EAST,NORTH` dans `scripts/build_loire_pmtiles.py` (L14), ou passer par le CLI :
+
+```bash
+python scripts/build_loire_pmtiles.py --min-zoom 9 --max-zoom 15 -o pmtiles/ma-region.pmtiles --force
+```
+
+**CLI manuel** (bbox libre sans modifier le script) :
+
+```bash
+pmtiles/tools/pmtiles.exe extract https://build.protomaps.com/YYYYMMDD.pmtiles pmtiles/ma-region.pmtiles ^
+  --bbox=OUEST,SUD,EST,NORD --minzoom=9 --maxzoom=15 --download-threads=8
+```
+
+Dates récentes : [maps.protomaps.com/builds](https://maps.protomaps.com/builds/).
+
+### 3. Fichier > 100 Mo (GitHub)
+
+```bash
+python scripts/pack_large_file.py pmtiles/ma-region.pmtiles
+```
+
+Génère `ma-region.pmtiles.part001`, … et `ma-region.pmtiles.manifest.json`. Versionnez les morceaux et le manifeste (pas le `.pmtiles` complet). Restauration :
+
+```bash
+python scripts/unpack_large_file.py pmtiles/ma-region.pmtiles.manifest.json
+```
+
+### 4. Checklist — remplacer `loire.pmtiles`
+
+| Fichier | À modifier |
+|---------|------------|
+| **`index.html`** (~L810) | URL `pmtiles/loire.pmtiles` → votre fichier |
+| **`index.html`** (~L793–795) | `LOIRE_BOUNDS`, `PMTILES_MIN_ZOOM`, `PMTILES_MAX_ZOOM` (alignés sur bbox et zooms de l’archive) |
+| **`index.html`** (~L816) | `levelDiff: 0` si `minzoom ≥ 9` (voir ci-dessous) |
+| **`serve.py`** (L118) | Chemin du PMTiles vérifié au démarrage |
+| **`start.bat`** (L13–17) | Test d’existence + appel `unpack_large_file.py` avec le bon manifeste |
+| **`.gitignore`** | Ignorer le `.pmtiles` complet (ex. `pmtiles/ma-region.pmtiles`) |
+| **Manifeste** | Régénéré par `pack_large_file.py` (`source`, noms `.part*`) |
+
+Scripts optionnels (défauts ou arguments) : `pack_large_file.py`, `unpack_large_file.py`, `build_loire_pmtiles.py` (`-o`).
+
+Pour une **autre emprise** (pas seulement le nom) : adapter aussi `scripts/build_elevation_loire.py`, les calques `geojson/`, et le centre initial dans `index.html` (~L1003).
+
+### 5. `levelDiff: 0` quand `minzoom ≥ 9`
+
+Un extrait régional sans tuiles sous le zoom **N** doit utiliser **`levelDiff: 0`** dans `protomapsL.leafletLayer` : au zoom carte **Z**, les tuiles demandées sont au zoom **Z**.
+
+Le défaut protomaps-leaflet (`levelDiff: 1`) demande des tuiles **z8** à l’affichage **z9** — absentes d’un extrait `minzoom=9` → **fond gris**.
+
+Règle : `PMTILES_MIN_ZOOM` = `minzoom` de l’archive + **`levelDiff: 0`**.
+
+Servez via `start.bat` ou `python serve.py` → **http://localhost:8000/** (HTTP Range requis).
+
+---
+
 ## Regénérer `loire.pmtiles` (zoom 15)
 
 Le fond est extrait du **build quotidien Protomaps** (basemap OSM v4) pour l’emprise **45,0°–46,5° N**, **3,5°–5,0° E** — identique à `pmtiles/loire.json`.

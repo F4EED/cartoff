@@ -14,7 +14,8 @@
 
  *   sar:station_id, sar:bearing_group_id — liaison station / paire réception-réciproque
 
- *   SAR-3 (différé) : intersection de relèvements, rapport d'export enrichi
+ *   sar:quality_angle, sar:uncertainty_km, sar:fix_station_ids — fixe estimé (SAR-3)
+ *   sar:fix_index, sar:fix_is_best, sar:fix_color — candidats multiples (SAR-3)
 
  */
 
@@ -40,11 +41,49 @@
 
   const PROP_BEARING_GROUP_ID = 'sar:bearing_group_id';
 
+  const PROP_QUALITY_ANGLE = 'sar:quality_angle';
+
+  const PROP_UNCERTAINTY_KM = 'sar:uncertainty_km';
+
+  const PROP_FIX_STATION_IDS = 'sar:fix_station_ids';
+
+  const PROP_FIX_INDEX = 'sar:fix_index';
+
+  const PROP_FIX_IS_BEST = 'sar:fix_is_best';
+
+  const PROP_FIX_COLOR = 'sar:fix_color';
+
 
 
   const DEFAULT_RANGE_KM = 30;
 
+  const DEFAULT_UNCERTAINTY_KM = 2;
+
   const EARTH_RADIUS_KM = 6371;
+
+
+
+  /** Palette pour les fixe estimés candidats (jusqu'à 8 paires). */
+
+  const FIX_COLOR_PALETTE = [
+
+    '#c62828',
+
+    '#1565c0',
+
+    '#2e7d32',
+
+    '#6a1b9a',
+
+    '#00838f',
+
+    '#ef6c00',
+
+    '#5d4037',
+
+    '#ad1457'
+
+  ];
 
 
 
@@ -210,6 +249,44 @@
 
       legendClass: 'sar-legend-relevement'
 
+    },
+
+    fixe_estime: {
+
+      id: 'fixe_estime',
+
+      label: 'Fixe estimé (intersection DF)',
+
+      shortLabel: 'Fix',
+
+      geometry: 'point',
+
+      missionTypes: ['aeronef'],
+
+      markerClass: 'sar-marker-fixe-estime',
+
+      markerHtml: '<div>+</div>',
+
+      legendClass: 'sar-legend-fixe-estime'
+
+    },
+
+    incertitude_fix: {
+
+      id: 'incertitude_fix',
+
+      label: 'Incertitude fixe estimé',
+
+      shortLabel: 'Inc.',
+
+      geometry: 'polygon',
+
+      missionTypes: ['aeronef'],
+
+      polygonStyle: { color: '#c62828', weight: 1, fillColor: '#ef5350', fillOpacity: 0.12, dashArray: '4 4' },
+
+      legendClass: 'sar-legend-incertitude-fix'
+
     }
 
   };
@@ -348,6 +425,344 @@
 
 
 
+  function toRad(deg) {
+
+    return (deg * Math.PI) / 180;
+
+  }
+
+
+
+  function toDeg(rad) {
+
+    return (rad * 180) / Math.PI;
+
+  }
+
+
+
+  /** Bearing initial (degrés) de (lat1,lon1) vers (lat2,lon2). */
+
+  function initialBearing(lat1, lon1, lat2, lon2) {
+
+    const φ1 = toRad(lat1);
+
+    const φ2 = toRad(lat2);
+
+    const Δλ = toRad(lon2 - lon1);
+
+    const y = Math.sin(Δλ) * Math.cos(φ2);
+
+    const x = Math.cos(φ1) * Math.sin(φ2) - Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
+
+    return normalizeAzimuth(toDeg(Math.atan2(y, x)));
+
+  }
+
+
+
+  /**
+
+   * Intersection de deux grands cercles (stations + azimuts de relèvement).
+
+   * Retourne { lat, lon } ou null (parallèles, ambigu, ou pas d'intersection avant).
+
+   */
+
+  function intersectBearings(lat1, lon1, brng1, lat2, lon2, brng2) {
+
+    const φ1 = toRad(lat1);
+
+    const λ1 = toRad(lon1);
+
+    const φ2 = toRad(lat2);
+
+    const λ2 = toRad(lon2);
+
+    const θ13 = toRad(brng1);
+
+    const θ23 = toRad(brng2);
+
+    const Δφ = φ2 - φ1;
+
+    const Δλ = λ2 - λ1;
+
+    const sinHalfΔφ = Math.sin(Δφ / 2);
+
+    const sinHalfΔλ = Math.sin(Δλ / 2);
+
+    const a = sinHalfΔφ * sinHalfΔφ + Math.cos(φ1) * Math.cos(φ2) * sinHalfΔλ * sinHalfΔλ;
+
+    const δ12 = 2 * Math.asin(Math.min(1, Math.sqrt(a)));
+
+    if (δ12 < 1e-12) return null;
+
+    const cosδ12 = Math.cos(δ12);
+
+    const sinδ12 = Math.sin(δ12);
+
+    const θa = Math.acos(Math.min(1, Math.max(-1, (Math.sin(φ2) - Math.sin(φ1) * cosδ12) / (sinδ12 * Math.cos(φ1)))));
+
+    const θb = Math.acos(Math.min(1, Math.max(-1, (Math.sin(φ1) - Math.sin(φ2) * cosδ12) / (sinδ12 * Math.cos(φ2)))));
+
+    const θ12 = Math.sin(Δλ) > 0 ? θa : (2 * Math.PI - θa);
+
+    const θ21 = Math.sin(Δλ) > 0 ? (2 * Math.PI - θb) : θb;
+
+    const α1 = ((θ13 - θ12) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+
+    const α2 = ((θ21 - θ23) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+
+    if (Math.abs(Math.sin(α1)) < 1e-10 && Math.abs(Math.sin(α2)) < 1e-10) return null;
+
+    if (Math.sin(α1) * Math.sin(α2) < 0) return null;
+
+    const cosα1 = Math.cos(α1);
+
+    const sinα1 = Math.sin(α1);
+
+    const cosα2 = Math.cos(α2);
+
+    const sinα2 = Math.sin(α2);
+
+    const cosα3 = -cosα1 * cosα2 + sinα1 * sinα2 * cosδ12;
+
+    const δ13 = Math.atan2(sinδ12 * sinα1 * sinα2, cosα2 + cosα1 * cosα3);
+
+    const φ3 = Math.asin(Math.min(1, Math.max(-1, Math.sin(φ1) * Math.cos(δ13) + Math.cos(φ1) * Math.sin(δ13) * Math.cos(θ13))));
+
+    const λ3 = λ1 + Math.atan2(Math.sin(θ13) * Math.sin(δ13) * Math.cos(φ1), Math.cos(δ13) - Math.sin(φ1) * Math.sin(φ3));
+
+    return {
+
+      lat: toDeg(φ3),
+
+      lon: ((toDeg(λ3) + 540) % 360) - 180
+
+    };
+
+  }
+
+
+
+  /** Angle de coupe au fixe (0–180°) — proche de 90° = meilleure qualité. */
+
+  function cutAngleAtFix(latA, lonA, latB, lonB, latFix, lonFix) {
+
+    const bA = initialBearing(latA, lonA, latFix, lonFix);
+
+    const bB = initialBearing(latB, lonB, latFix, lonFix);
+
+    let diff = Math.abs(bA - bB);
+
+    if (diff > 180) diff = 360 - diff;
+
+    return Math.round(diff * 10) / 10;
+
+  }
+
+
+
+  function qualityLabel(angleDeg) {
+
+    if (angleDeg == null || !isFinite(angleDeg)) return '—';
+
+    const a = Math.abs(angleDeg - 90);
+
+    if (a <= 15) return 'Excellente';
+
+    if (a <= 30) return 'Bonne';
+
+    if (a <= 45) return 'Moyenne';
+
+    return 'Faible';
+
+  }
+
+
+
+  /** Anneau polygonal approximant un cercle géodésique (km). */
+
+  function circlePolygonCoordinates(centerLat, centerLon, radiusKm, segments) {
+
+    const n = segments || 48;
+
+    const ring = [];
+
+    for (let i = 0; i < n; i++) {
+
+      const az = (360 * i) / n;
+
+      const pt = destinationPoint(centerLat, centerLon, az, radiusKm);
+
+      ring.push([pt.lon, pt.lat]);
+
+    }
+
+    ring.push(ring[0].slice());
+
+    return [ring];
+
+  }
+
+
+
+  /** Écart angulaire minimal entre deux azimuts (0–180°). */
+
+  function bearingSeparation(deg1, deg2) {
+
+    let d = Math.abs(deg1 - deg2);
+
+    if (d > 180) d = 360 - d;
+
+    return d;
+
+  }
+
+
+
+  /** Le fixe est-il devant chaque station le long de son azimut de relèvement ? */
+
+  function isFixAlongBearings(latA, lonA, azA, latB, lonB, azB, latFix, lonFix, maxDiffDeg) {
+
+    const tol = maxDiffDeg != null ? maxDiffDeg : 45;
+
+    const toFixA = initialBearing(latA, lonA, latFix, lonFix);
+
+    const toFixB = initialBearing(latB, lonB, latFix, lonFix);
+
+    return bearingSeparation(toFixA, azA) <= tol && bearingSeparation(toFixB, azB) <= tol;
+
+  }
+
+
+
+  /** Clé stable pour une paire de relèvements (pas les coordonnées — plusieurs paires peuvent converger au même fixe). */
+
+  function bearingPairKey(a, b) {
+
+    const idA = a.stationId + ':' + (a.groupId != null ? a.groupId : a.azimuth);
+
+    const idB = b.stationId + ':' + (b.groupId != null ? b.groupId : b.azimuth);
+
+    return idA < idB ? idA + '|' + idB : idB + '|' + idA;
+
+  }
+
+
+
+  function tryIntersectionPair(a, b) {
+
+    if (a.stationId === b.stationId) return null;
+
+    const pt = intersectBearings(a.stationLat, a.stationLon, a.azimuth, b.stationLat, b.stationLon, b.azimuth);
+
+    if (!pt) return null;
+
+    if (!isFixAlongBearings(a.stationLat, a.stationLon, a.azimuth, b.stationLat, b.stationLon, b.azimuth, pt.lat, pt.lon)) {
+
+      return null;
+
+    }
+
+    const qualityAngle = cutAngleAtFix(a.stationLat, a.stationLon, b.stationLat, b.stationLon, pt.lat, pt.lon);
+
+    if (qualityAngle < 15) return null;
+
+    return {
+
+      lat: Math.round(pt.lat * 1e6) / 1e6,
+
+      lon: Math.round(pt.lon * 1e6) / 1e6,
+
+      qualityAngle,
+
+      qualityLabel: qualityLabel(qualityAngle),
+
+      score: Math.abs(qualityAngle - 90),
+
+      stations: [
+
+        { stationId: a.stationId, azimuth: a.azimuth, groupId: a.groupId },
+
+        { stationId: b.stationId, azimuth: b.azimuth, groupId: b.groupId }
+
+      ]
+
+    };
+
+  }
+
+
+
+  /**
+
+   * Toutes les intersections valides entre paires de stations distinctes.
+
+   * Retourne { candidates: [...], best: {...} | null } triés par qualité (meilleur en premier).
+
+   */
+
+  function computeAllIntersections(receptions) {
+
+    const list = receptions || [];
+
+    if (list.length < 2) return { candidates: [], best: null };
+
+    const raw = [];
+
+    const seenPairs = new Set();
+
+    for (let i = 0; i < list.length; i++) {
+
+      for (let j = i + 1; j < list.length; j++) {
+
+        const pairKey = bearingPairKey(list[i], list[j]);
+
+        if (seenPairs.has(pairKey)) continue;
+
+        const candidate = tryIntersectionPair(list[i], list[j]);
+
+        if (!candidate) continue;
+
+        seenPairs.add(pairKey);
+
+        raw.push(candidate);
+
+      }
+
+    }
+
+    raw.sort((a, b) => a.score - b.score);
+
+    const candidates = raw.map((c, idx) => ({
+
+      ...c,
+
+      index: idx + 1,
+
+      color: FIX_COLOR_PALETTE[idx % FIX_COLOR_PALETTE.length],
+
+      isBest: idx === 0
+
+    }));
+
+    return { candidates, best: candidates.length ? candidates[0] : null };
+
+  }
+
+
+
+  /** Meilleur fixe seul (rétrocompatibilité). */
+
+  function computeBestIntersection(receptions) {
+
+    return computeAllIntersections(receptions).best;
+
+  }
+
+
+
   function buildFeatureProps(mission, roleId, extra) {
 
     const role = getRole(roleId);
@@ -400,6 +815,42 @@
 
     }
 
+    if (extra && extra[PROP_QUALITY_ANGLE] != null) {
+
+      props[PROP_QUALITY_ANGLE] = extra[PROP_QUALITY_ANGLE];
+
+    }
+
+    if (extra && extra[PROP_UNCERTAINTY_KM] != null) {
+
+      props[PROP_UNCERTAINTY_KM] = extra[PROP_UNCERTAINTY_KM];
+
+    }
+
+    if (extra && extra[PROP_FIX_STATION_IDS] != null) {
+
+      props[PROP_FIX_STATION_IDS] = extra[PROP_FIX_STATION_IDS];
+
+    }
+
+    if (extra && extra[PROP_FIX_INDEX] != null) {
+
+      props[PROP_FIX_INDEX] = extra[PROP_FIX_INDEX];
+
+    }
+
+    if (extra && extra[PROP_FIX_IS_BEST] != null) {
+
+      props[PROP_FIX_IS_BEST] = extra[PROP_FIX_IS_BEST];
+
+    }
+
+    if (extra && extra[PROP_FIX_COLOR] != null) {
+
+      props[PROP_FIX_COLOR] = extra[PROP_FIX_COLOR];
+
+    }
+
     return props;
 
   }
@@ -424,7 +875,23 @@
 
     PROP_BEARING_GROUP_ID,
 
+    PROP_QUALITY_ANGLE,
+
+    PROP_UNCERTAINTY_KM,
+
+    PROP_FIX_STATION_IDS,
+
+    PROP_FIX_INDEX,
+
+    PROP_FIX_IS_BEST,
+
+    PROP_FIX_COLOR,
+
+    FIX_COLOR_PALETTE,
+
     DEFAULT_RANGE_KM,
+
+    DEFAULT_UNCERTAINTY_KM,
 
     MISSION_TYPES,
 
@@ -449,6 +916,24 @@
     destinationPoint,
 
     bearingLineCoordinates,
+
+    initialBearing,
+
+    intersectBearings,
+
+    cutAngleAtFix,
+
+    bearingSeparation,
+
+    isFixAlongBearings,
+
+    qualityLabel,
+
+    circlePolygonCoordinates,
+
+    computeAllIntersections,
+
+    computeBestIntersection,
 
     buildFeatureProps
 

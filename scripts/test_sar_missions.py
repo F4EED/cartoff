@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 SAR_ROLES_PERSONNE = {"lkp", "indice", "waypoint", "trace_fouille", "axe_probable"}
 
-SAR_ROLES_AERONEF = {"station_df", "relevement_df"}
+SAR_ROLES_AERONEF = {"station_df", "relevement_df", "fixe_estime", "incertitude_fix"}
 
 SAR_ROLES = SAR_ROLES_PERSONNE | SAR_ROLES_AERONEF
 
@@ -39,6 +39,18 @@ SAR_PROPS = {
     "sar:station_id",
 
     "sar:bearing_group_id",
+
+    "sar:quality_angle",
+
+    "sar:uncertainty_km",
+
+    "sar:fix_station_ids",
+
+    "sar:fix_index",
+
+    "sar:fix_is_best",
+
+    "sar:fix_color",
 
 }
 
@@ -80,6 +92,18 @@ def test_types_file_roles():
 
     assert "bearingLineCoordinates" in text
 
+    assert "intersectBearings" in text
+
+    assert "computeAllIntersections" in text
+
+    assert "computeBestIntersection" in text
+
+    assert "bearingPairKey" in text
+
+    assert "FIX_COLOR_PALETTE" in text
+
+    assert "fixe_estime" in text
+
     print("OK sar-types.js roles, props et géométrie DF")
 
 
@@ -101,6 +125,16 @@ def test_aeronef_enabled_not_stubbed():
     assert "relevement_df" in missions or "addBearing" in missions
 
     assert "bearing_group_id" in missions or "PROP_BEARING_GROUP_ID" in missions
+
+    assert "computeAndApplyIntersection" in missions
+
+    assert "visibleFixIds" in missions
+
+    assert "sar-fix-visibility-cb" in missions
+
+    assert "getEstimatedFixFeatures" in missions
+
+    assert "exportSarReport" in missions
 
     print("OK aéronef activé et workflow DF dans sar-missions.js")
 
@@ -354,6 +388,126 @@ def test_store_roundtrip_aeronef_bearing_pair():
 
 
 
+def test_store_roundtrip_aeronef_fix():
+
+    fix_id = "fix-1"
+
+    unc_id = "unc-1"
+
+    store = {
+
+        "version": 1,
+
+        "activeMissionId": "m3",
+
+        "missions": [
+
+            {
+
+                "id": "m3",
+
+                "name": "Fix test",
+
+                "type": "aeronef",
+
+                "status": "active",
+
+                "created_at": "2026-07-01T12:00:00.000Z",
+
+                "features": [
+
+                    {
+
+                        "type": "Feature",
+
+                        "geometry": {"type": "Point", "coordinates": [4.9, 45.78]},
+
+                        "properties": {
+
+                            "id": fix_id,
+
+                            "sar:mission_id": "m3",
+
+                            "sar:role": "fixe_estime",
+
+                            "sar:mission_type": "aeronef",
+
+                            "sar:quality_angle": 87.5,
+
+                            "sar:uncertainty_km": 2,
+
+                            "sar:fix_station_ids": "st-a,st-b",
+
+                            "label": "Fixe estimé",
+
+                            "notes": "",
+
+                            "created_at": "2026-07-01T12:10:00.000Z",
+
+                        },
+
+                    },
+
+                    {
+
+                        "type": "Feature",
+
+                        "geometry": {
+
+                            "type": "Polygon",
+
+                            "coordinates": [[[4.89, 45.77], [4.91, 45.77], [4.9, 45.79], [4.89, 45.77]]],
+
+                        },
+
+                        "properties": {
+
+                            "id": unc_id,
+
+                            "sar:mission_id": "m3",
+
+                            "sar:role": "incertitude_fix",
+
+                            "sar:mission_type": "aeronef",
+
+                            "sar:uncertainty_km": 2,
+
+                            "sar:fix_station_ids": fix_id,
+
+                            "label": "Incertitude",
+
+                            "notes": "",
+
+                            "created_at": "2026-07-01T12:10:00.000Z",
+
+                        },
+
+                    },
+
+                ],
+
+            }
+
+        ],
+
+    }
+
+    data = json.loads(json.dumps(store))
+
+    feats = data["missions"][0]["features"]
+
+    fix = next(f for f in feats if f["properties"]["sar:role"] == "fixe_estime")
+
+    assert fix["properties"]["sar:quality_angle"] == 87.5
+
+    assert fix["geometry"]["type"] == "Point"
+
+    print("OK store JSON roundtrip aéronef (fixe SAR-3)")
+
+
+
+
+
 def test_index_wiring():
 
     html = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -374,9 +528,55 @@ def test_index_wiring():
 
     assert "sar-marker-station-df" in html
 
+    assert "sar-marker-fixe-estime" in html
+
+    assert "sarComputeIntersectionBtn" in (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+
     assert re.search(r"cartoff_sar_missions", (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8"))
 
     print("OK index.html branchement SAR et panneau DF")
+
+
+
+
+
+def test_three_station_intersections():
+
+    """3 stations × 1 relèvement → 3 paires distinctes (pas de fusion par coordonnées)."""
+
+    import subprocess
+
+    script = ROOT / "scripts" / "_test_intersections.mjs"
+
+    assert script.is_file(), script
+
+    node = Path(r"C:\Program Files\nodejs\node.exe")
+
+    if not node.is_file():
+
+        import shutil
+
+        node = shutil.which("node") or "node"
+
+    out = subprocess.run(
+
+        [str(node), str(script)],
+
+        capture_output=True,
+
+        text=True,
+
+        cwd=str(ROOT),
+
+        timeout=30,
+
+    )
+
+    assert out.returncode == 0, out.stderr or out.stdout
+
+    assert "3 candidate(s)" in out.stdout, out.stdout
+
+    print("OK 3 stations -> 3 candidats intersection (dedup par paire)")
 
 
 
@@ -394,7 +594,11 @@ if __name__ == "__main__":
 
     test_store_roundtrip_aeronef_bearing_pair()
 
+    test_store_roundtrip_aeronef_fix()
+
     test_index_wiring()
+
+    test_three_station_intersections()
 
     print("Tous les tests SAR OK")
 

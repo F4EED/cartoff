@@ -103,6 +103,8 @@ Calque autonome pour saisir l’état opérationnel sur le terrain :
 
 ### Missions SAR (recherche et sauvetage)
 
+📖 **Guide opérationnel complet : [SAR.md](SAR.md)** (personne, aéronef, intersection DF multi-fixes, export, dépannage)
+
 Section **Missions SAR** pour structurer une opération de recherche :
 
 #### Mission personne (SAR-1)
@@ -125,16 +127,37 @@ Workflow aéronef :
 1. Créer une mission type **Aéronef**, activer **Mode SAR**
 2. Placer une **station DF** (libellé, notes, horodatage optionnel)
 3. Ajouter un **relèvement** : azimut (0–360°, 1 décimale), portée en km (défaut 30 km)
-4. Carte : **ligne réception** (pleine, orange) vers l’azimut saisi ; **ligne réciproque** (pointillée, +180°)
-5. Modifier ou supprimer station / relèvement via panneau ou menu contextuel (suppression station → relèvements liés)
+4. **Aperçu en direct** sur la carte pendant la saisie (lignes réception + réciproque semi-transparentes)
+5. Carte : **ligne réception** (pleine, orange) vers l’azimut saisi ; **ligne réciproque** (pointillée, +180°)
+6. Modifier ou supprimer station / relèvement via panneau ou menu contextuel (suppression station → relèvements liés)
 
 - Création de missions : nom, type **personne** ou **aéronef**
 - Mission active, statut **active** / **clôturée**, suppression
 - Métadonnées par élément : libellé, notes, horodatage automatique (modifiable pour station DF)
 - Symbologie distincte des constats (marqueurs colorés, zone verte remplie, axe violet, DF orange)
 - Persistance **`localStorage`** (`cartoff_sar_missions`) + **export GeoJSON** (mission ou tout)
-- Propriétés GeoJSON : `sar:mission_id`, `sar:role`, `sar:mission_type`, `sar:azimuth`, `sar:range_km`, `sar:bearing_reciprocal`, `sar:station_id`, `sar:bearing_group_id`
-- **SAR-3 (à venir)** : intersection de relèvements, rapport d’export enrichi
+- Propriétés GeoJSON : `sar:mission_id`, `sar:role`, `sar:mission_type`, … `sar:fix_index`, `sar:fix_is_best`, `sar:fix_color` (candidats multiples)
+
+#### Mission aéronef — intersection DF (SAR-3)
+
+| Élément | Description |
+|---------|-------------|
+| **Calcul intersection** | Bouton **Calculer intersection** (ou recalcul auto à chaque relèvement) — toutes les paires valides |
+| **Fixe(s) estimé(s)** | Marqueurs numérotés en couleurs distinctes (★ = meilleur candidat) |
+| **Incertitude** | Cercle semi-transparent par candidat (rayon configurable, défaut 2 km) |
+| **Visibilité carte** | Liste à cases à cocher (mode SAR ou affichage actif) — **Tout afficher** / **Tout masquer** |
+| **Qualité** | Angle de coupe au fixe (proche de 90° = meilleur) |
+| **Rapport** | **Exporter rapport SAR** (.txt) ou **Copier rapport** |
+
+Workflow intersection :
+
+1. Placer ≥ 2 stations DF avec relèvements réception (lignes pleines, stations **distinctes**)
+2. Section **Intersection DF (SAR-3)** : ajuster l’incertitude (km) si besoin, cliquer **Calculer intersection**
+3. Cocher/décocher les candidats à superposer ; consulter qualité et paires station/azimut
+4. Exporter le rapport ou la mission GeoJSON (inclut tous les `fixe_estime` + `incertitude_fix`)
+5. **Effacer fixe(s)** si les relèvements changent ; suppression d’une station ou d’un relèvement recalcule ou efface les fixe(s)
+
+- **SAR-3** : intersections géodésiques offline (multi-candidats), `visibleFixIds` par mission dans `localStorage`, export rapport texte (meilleur fixe)
 
 ### Import de fichiers locaux
 
@@ -204,6 +227,8 @@ cd cartoff
 # Reconstituer le fond de carte PMTiles (morceaux versionnés → loire.pmtiles)
 python scripts/unpack_large_file.py
 
+# Autre région : voir pmtiles/README.md#créer-un-pmtiles-pour-votre-région
+
 # (Optionnel) Grille d'altitude Copernicus — voir elevation/README.md
 pip install rasterio numpy shapely
 python scripts/build_elevation_loire.py
@@ -235,7 +260,8 @@ Le PMTiles Loire commence au **zoom 9**. Dans `index.html`, `protomapsL.leafletL
 
 | Fichier | Contenu |
 |---------|---------|
-| [sources.md](sources.md) | Provenance des données, calques, constats, DFCI |
-| [pmtiles/README.md](pmtiles/README.md) | Fond PMTiles, découpage GitHub, dépannage |
+| **[SAR.md](SAR.md)** | **Guide opérationnel Missions SAR** (personne, DF aéronef, SAR-3, export, dépannage) |
+| [sources.md](sources.md) | Provenance des données, calques, constats, DFCI, SAR technique |
+| [pmtiles/README.md](pmtiles/README.md) | Fond PMTiles, [créer un PMTiles pour votre région](pmtiles/README.md#créer-un-pmtiles-pour-votre-région), découpage GitHub, dépannage |
 | [elevation/README.md](elevation/README.md) | MNT Copernicus offline |
 | [pmtiles/tools/README.md](pmtiles/tools/README.md) | CLI go-pmtiles (`pmtiles.exe`) |

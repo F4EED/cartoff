@@ -194,10 +194,12 @@ Filtre « Afficher les inactifs » : masque les constats au statut inactif par d
 
 ## Missions SAR
 
+**Guide opérationnel (procédures terrain) :** [SAR.md](SAR.md)
+
 | Élément | Source | Licence / remarques |
 |---------|--------|----------------------|
-| `js/sar-types.js` | Registre Cartoff (`window.CartoffSarTypes`) | Rôles géométriques, types de mission, propriétés `sar:*`, `destinationPoint` |
-| `js/sar-missions.js` | Module Cartoff (`window.CartoffSar`) | Missions, saisie, rendu, persistance, export |
+| `js/sar-types.js` | Registre Cartoff (`window.CartoffSarTypes`) | Rôles géométriques, types de mission, propriétés `sar:*`, géodésie (`destinationPoint`, `computeAllIntersections`) |
+| `js/sar-missions.js` | Module Cartoff (`window.CartoffSar`) | Missions, saisie, aperçu relèvement, rendu multi-fixes, checklist visibilité, persistance, export |
 | Panneau `sarPane` (z-index 620) | `index.html` | Calque au-dessus des constats (`situationPane` 610) |
 
 ### Types de mission
@@ -216,8 +218,10 @@ Filtre « Afficher les inactifs » : masque les constats au statut inactif par d
 | `waypoint` | Point | personne | Triangle bleu |
 | `trace_fouille` | Polygon | personne | Zone verte remplie |
 | `axe_probable` | LineString | personne | Ligne violette pointillée |
-| `station_df` | Point | aéronef | Triangle orange (antenne DF) |
+| `station_df` | Point | aéronef | Triangle orange ▲ (marqueur DF) |
 | `relevement_df` | LineString | aéronef | Ligne orange pleine (réception) ou pointillée (réciproque) |
+| `fixe_estime` | Point | aéronef | Croix colorée par candidat (intersection SAR-3, ★ = meilleur) |
+| `incertitude_fix` | Polygon | aéronef | Cercle semi-transparent (couleur du candidat) |
 
 ### Propriétés GeoJSON (`sar:*`)
 
@@ -229,28 +233,40 @@ Filtre « Afficher les inactifs » : masque les constats au statut inactif par d
 | `sar:bearing_reciprocal` | `false` = ligne réception, `true` = ligne réciproque (+180°) |
 | `sar:station_id` | ID de la feature `station_df` parente |
 | `sar:bearing_group_id` | Lie la paire réception / réciproque (même UUID) |
+| `sar:quality_angle` | Angle de coupe au fixe (°) — SAR-3 |
+| `sar:uncertainty_km` | Rayon d’incertitude du fixe (km) — SAR-3 |
+| `sar:fix_station_ids` | IDs des stations utilisées pour le fixe (virgules) — SAR-3 |
+| `sar:fix_index` | Numéro du candidat (1, 2, …) — SAR-3 multi-fixes |
+| `sar:fix_is_best` | `true` pour le meilleur candidat (angle ~90°) — SAR-3 |
+| `sar:fix_color` | Couleur hex du candidat sur la carte — SAR-3 |
 
-Géométrie des relèvements : calcul sphérique offline (`destinationPoint` dans `sar-types.js`).
+Géométrie des relèvements et intersections : calcul sphérique offline (`destinationPoint`, `intersectBearings`, `computeAllIntersections` dans `sar-types.js`).
+
+Champ mission : `visibleFixIds[]` — IDs des fixes affichés sur la carte (persistance `cartoff_sar_missions`).
 
 ### Saisie
 
 - **Mode SAR** (mission active) : menu contextuel carte + boutons barre latérale
 - **Personne** : points immédiats ; polylignes / polygones avec **Terminer** / **Annuler** / **Échap**
-- **Aéronef** : **Station DF** (point + panneau) ; **Relèvement** (azimut + portée → 2 lignes auto)
+- **Aéronef** : **Station DF** (point + panneau, horodatage modifiable) ; **Relèvement** (azimut + portée → 2 lignes auto, **aperçu carte** pendant la saisie) ; **Intersection SAR-3** (multi-candidats, checklist visibilité, rapport)
 - Mission **clôturée** : consultation seule (opacité réduite, pas de nouvelle saisie)
 
 ### Persistance et export
 
-- **localStorage** : clé `cartoff_sar_missions` (tableau `missions`, chaque mission avec `features[]`)
-- **Export** : « Exporter mission » ou « Exporter tout » → GeoJSON
+- **localStorage** : clé `cartoff_sar_missions` (tableau `missions`, chaque mission avec `features[]` et `visibleFixIds[]` pour les fixes affichés)
+- **Export** : « Exporter mission » ou « Exporter tout » → GeoJSON (inclut fixe SAR-3 si calculé)
+- **Rapport SAR-3** : « Exporter rapport SAR » (.txt) ou copie presse-papiers
 - Réinitialiser : `localStorage.removeItem('cartoff_sar_missions')`
 
-### Différé SAR-3
+### Limitations SAR-3
 
-- Intersection de relèvements multi-stations (point d’émission estimé)
-- Rapport d’export enrichi (synthèse DF)
-- Calculs de probabilité, zones de recherche, corrélations multi-missions
-- Import / synchronisation externe des missions SAR
+- Intersection **par paires** de relèvements réception (stations distinctes) ; toutes les paires valides deviennent des candidats numérotés et colorés (meilleur = angle de coupe le plus proche de 90°)
+- Rejets : azimuts parallèles, angle de coupe &lt; 15°, fixe incohérent avec les azimuts (~45°), même station sur les deux relèvements
+- Pas de fusion statistique ni triangulation multi-points au-delà des paires
+- Cercle d’incertitude **indicatif** (rayon saisi, défaut 2 km — pas dérivé de la GDOP ni de la précision instrumentale)
+- Outil **non certifié** DF ; voir avertissements dans [SAR.md](SAR.md) et le rapport exporté
+- Calculs de probabilité, zones de recherche probabilistes, corrélations multi-missions : hors périmètre POC
+- Import / synchronisation cloud des missions SAR : non implémenté (export GeoJSON / rapport .txt manuel)
 
 ---
 
@@ -341,6 +357,7 @@ D'anciens calques issus de la **BDTOPO** de l'[IGN](https://www.ign.fr/) (retrai
 
 - [map.gaulix.fr](https://github.com/valentintintin) — modèle de carte hors ligne avec PMTiles (Valentin Saugnier)
 - [README.md](README.md) — démarrage rapide, fonctionnalités
+- [SAR.md](SAR.md) — guide opérationnel Missions SAR (personne, DF, SAR-3, dépannage)
 - [elevation/README.md](elevation/README.md) — génération du MNT
 - [pmtiles/README.md](pmtiles/README.md) — découpage / restauration du fond, `levelDiff`, dépannage
 
