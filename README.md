@@ -240,6 +240,8 @@ python serve.py -p 8000
 
 👉 Ouvrir **http://localhost:8000** dans le navigateur (pas `index.html` en `file://`).
 
+📖 Depuis la carte, le bouton **Documentation** (panneau latéral) ouvre la documentation complète dans une nouvelle fenêtre (`docs.html` — `readme.html` redirige pour les anciens signets).
+
 ### Serveur obligatoire
 
 | Méthode | HTTP Range | Fond de carte |

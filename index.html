@@ -246,6 +246,23 @@
     .search-section .layer-search-group {
       margin-top: 4px;
     }
+    .doc-section {
+      margin: 8px 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .doc-section .doc-btn {
+      width: 100%;
+      padding: 7px 10px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      border: 1px solid #3949ab;
+      border-radius: 4px;
+      background: #3949ab;
+      color: #fff;
+      cursor: pointer;
+    }
+    .doc-section .doc-btn:hover { background: #303f9f; }
     .search-section .layer-search:last-child {
       margin-bottom: 0;
     }
@@ -607,6 +624,10 @@
   <div class="sidebar" id="layerMenu">
     <div class="sidebar-header" id="dragHandle">Calques GeoJSON (déplacer ici)</div>
 
+    <div class="doc-section">
+      <button type="button" class="doc-btn" id="openDocBtn" title="Guides et références Cartoff">Documentation</button>
+    </div>
+
     <details class="search-section">
       <summary>Recherche</summary>
       <div class="layer-search-group">
@@ -872,6 +893,9 @@
     // Sidebar draggable
     const sidebar = document.getElementById('layerMenu');
     const dragHandle = document.getElementById('dragHandle');
+    document.getElementById('openDocBtn').addEventListener('click', () => {
+      window.open('docs.html', '_blank', 'noopener');
+    });
     const coordsDiv = document.getElementById('coords');
     let communeIndex = [];
     let communeSearchEntries = [];
