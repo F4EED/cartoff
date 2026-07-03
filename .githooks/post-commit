@@ -1,0 +1,28 @@
+#!/bin/sh
+# Enregistre le hash du commit dans version.json puis amend (une seule fois).
+cd "$(git rev-parse --show-toplevel)" || exit 1
+. "$(dirname "$0")/run-python.sh"
+
+GUARD=".git/cartoff-version-amend"
+if [ -f "$GUARD" ]; then
+  rm -f "$GUARD"
+  exit 0
+fi
+
+if ! git diff-tree --no-commit-id --name-only -r HEAD | grep -qx 'version.json'; then
+  exit 0
+fi
+
+if run_cartoff_python scripts/bump_version.py --commit-matches-head; then
+  exit 0
+fi
+
+run_cartoff_python scripts/bump_version.py --sync-commit-only || exit 1
+
+if git diff --quiet version.json; then
+  exit 0
+fi
+
+touch "$GUARD"
+git add version.json
+git commit --amend --no-edit --no-verify

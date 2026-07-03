@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Met à jour version.json (semver, hash git, date). Appelé par le hook pre-commit."""
+"""Met à jour version.json (semver, hash git, date). Appelé par les hooks pre/post-commit."""
 
 import json
 import os
@@ -84,9 +84,27 @@ def write_version(data: dict) -> None:
     )
 
 
+def commit_matches_head(data: dict) -> bool:
+    head = git_short_hash()
+    return head != "unknown" and data.get("commit") == head
+
+
 def main() -> int:
     init_only = "--init" in sys.argv
+    sync_commit_only = "--sync-commit-only" in sys.argv
+    skip_commit_hash = "--skip-commit-hash" in sys.argv
+    check_matches = "--commit-matches-head" in sys.argv
+
     data = load_or_default()
+
+    if check_matches:
+        return 0 if commit_matches_head(data) else 1
+
+    if sync_commit_only:
+        data["commit"] = git_short_hash()
+        write_version(data)
+        print(f"version.json commit -> {data['commit']}")
+        return 0
 
     if not init_only:
         level = os.environ.get("BUMP", "patch").lower()
@@ -94,12 +112,15 @@ def main() -> int:
             level = "patch"
         data["version"] = bump(data["version"], level)
 
-    data["commit"] = git_short_hash()
     data["date"] = date.today().isoformat()
     data["build"] = date.today().isoformat()
 
+    if not skip_commit_hash:
+        data["commit"] = git_short_hash()
+
     write_version(data)
-    print(f"version.json -> v{data['version']} ({data['commit']}, {data['date']})")
+    commit = data.get("commit", "?")
+    print(f"version.json -> v{data['version']} ({commit}, {data['date']})")
     return 0
 
 

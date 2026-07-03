@@ -268,18 +268,23 @@ Chaque commit peut incrémenter automatiquement la version (patch semver) dans `
 git config core.hooksPath .githooks
 ```
 
-Sous Windows (PowerShell ou Git Bash), la même commande fonctionne. Le hook `.githooks/pre-commit` appelle `scripts/bump_version.py` puis ajoute `version.json` au commit.
+Git exécute les hooks via **sh** (Git Bash sous Windows). Le hook `pre-commit` incrémente la version ; le hook `post-commit` enregistre le hash du commit dans `version.json` puis amende ce fichier dans le même commit (sans relancer pre-commit).
+
+**Python sous Windows** — ordre de recherche : `py -3`, `python`, `python3`, puis `.git-hook-bin/python.exe` (copie locale optionnelle). Voir [.git-hook-bin/README](.git-hook-bin/README) si « Python introuvable ».
 
 ### Incrément manuel
 
 ```bash
+py -3 scripts/bump_version.py          # patch (+1), Windows recommandé
 python scripts/bump_version.py          # patch (+1)
-set BUMP=minor && python scripts/bump_version.py   # Windows cmd
-$env:BUMP="minor"; python scripts/bump_version.py  # PowerShell
+set BUMP=minor && py -3 scripts/bump_version.py   # Windows cmd
+$env:BUMP="minor"; py -3 scripts/bump_version.py  # PowerShell
 BUMP=major python scripts/bump_version.py          # Git Bash / Linux
 ```
 
-Création initiale sans incrément : `python scripts/bump_version.py --init`
+Création initiale sans incrément : `py -3 scripts/bump_version.py --init`
+
+Options internes aux hooks : `--skip-commit-hash` (pre-commit), `--sync-commit-only` et `--commit-matches-head` (post-commit).
 
 ---
 

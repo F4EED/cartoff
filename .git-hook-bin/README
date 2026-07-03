@@ -1,0 +1,17 @@
+# Python local pour les hooks Git (optionnel)
+
+Sur Windows, les hooks Cartoff cherchent Python dans cet ordre :
+
+1. `py -3` (lanceur Python Windows)
+2. `python` / `python3` dans le PATH
+3. `.git-hook-bin/python.exe` ou `python3.exe` (copie locale)
+
+Si `git commit` échoue avec « Python introuvable », installez [Python](https://www.python.org/downloads/) en cochant « Add to PATH », ou copiez `python.exe` ici :
+
+```powershell
+Copy-Item (Get-Command py).Source ..\.git-hook-bin\python.exe
+# ou, selon l'installation :
+Copy-Item "$env:LOCALAPPDATA\Programs\Python\Python3*\python.exe" .git-hook-bin\python.exe
+```
+
+Ce dossier est ignoré par git (binaire non versionné).
