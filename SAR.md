@@ -38,7 +38,7 @@ Sans mission active, seuls la création et l’export global sont disponibles.
 | **Personne** | `personne` | SAR-1 | LKP, Indice, Waypoint, Axe probable, Fouilles (zone) |
 | **Aéronef** | `aeronef` | SAR-2 + SAR-3 | Station DF, Relèvement DF, Fixe estimé, Incertitude |
 
-Une mission a un **nom**, un **statut** (`active` ou `closed`) et une date de création. Une seule mission est **active** à la fois (sélecteur « Mission active »).
+Une mission a un **nom** (préfixe `SAR` + date `JJMMYYYY` + `_` à la création, puis libellé libre), un **statut** (`active` ou `closed`) et une date de création. Une seule mission est **active** à la fois (sélecteur « Mission active »).
 
 ---
 
@@ -46,7 +46,7 @@ Une mission a un **nom**, un **statut** (`active` ou `closed`) et une date de cr
 
 ### 4.1 Créer une mission
 
-1. Saisir un **nom** (ex. « Disparition RD512 — 03/07 »).
+1. Saisir un **libellé libre** dans le champ nom (ex. `Personne disparue secteur X`). Le préfixe `SAR` + `JJMMYYYY` + `_` (date locale **au moment du clic sur Créer mission**, ex. `SAR03072026_`) est ajouté automatiquement (ex. `SAR03072026_Personne disparue secteur X`). Si le champ est vide, le nom par défaut sera `…_Mission`. Un ancien préfixe `SAR` + date saisi manuellement est ignoré et remplacé.
 2. Choisir le **type** : Personne ou Aéronef.
 3. Cliquer **Créer mission**.
 

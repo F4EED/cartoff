@@ -136,6 +136,16 @@
     .status.error { background: #ffebee; border-color: #ef9a9a; color: #b71c1c; }
     .status code { background: #fff; padding: 2px 6px; border-radius: 3px; }
     .loading { color: #666; font-style: italic; }
+    .version-banner {
+      margin-top: auto;
+      padding: 12px 14px;
+      border-top: 1px solid #e8eaf6;
+      font-size: 12px;
+      line-height: 1.45;
+      color: #5c6bc0;
+      background: #fafafa;
+    }
+    .version-banner strong { color: #3949ab; }
     @media (max-width: 720px) {
       .layout { flex-direction: column; }
       .sidebar {
@@ -166,6 +176,7 @@
         <a class="back" href="index.html">← Retour à la carte</a>
       </div>
       <nav class="nav" id="docNav" aria-label="Documents"></nav>
+      <div class="version-banner" id="versionInfo" aria-live="polite">Chargement de la version…</div>
     </aside>
 
     <main class="main">
@@ -376,7 +387,27 @@
       loadDoc('README.md');
     }
 
+    async function loadVersionInfo() {
+      const el = document.getElementById('versionInfo');
+      if (!el || isFileProtocol()) {
+        if (el) el.textContent = '';
+        return;
+      }
+      try {
+        const res = await fetch('version.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const v = await res.json();
+        el.innerHTML =
+          '<strong>Cartoff v' + escapeHtml(v.version || '?') + '</strong><br>' +
+          'commit ' + escapeHtml(v.commit || '—') +
+          ' (' + escapeHtml(v.date || '—') + ')';
+      } catch {
+        el.textContent = 'Version indisponible';
+      }
+    }
+
     initFromLocation();
+    loadVersionInfo();
   </script>
 </body>
 </html>

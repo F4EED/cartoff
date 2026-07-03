@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+"""Hook pre-commit : incrémente version.json et l'ajoute au commit."""
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+BUMP_SCRIPT = ROOT / "scripts" / "bump_version.py"
+
+r = subprocess.run([sys.executable, str(BUMP_SCRIPT)], cwd=ROOT)
+if r.returncode != 0:
+    sys.exit(r.returncode)
+
+r = subprocess.run(["git", "add", "version.json"], cwd=ROOT)
+sys.exit(r.returncode)

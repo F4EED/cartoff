@@ -177,6 +177,19 @@
     return status === 'closed' ? 'Clôturée' : 'Active';
   }
 
+  /** Préfixe obligatoire : SAR + JJMMYYYY + _ (date locale). */
+  function buildMissionNamePrefix(date) {
+    const d = date || new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    return 'SAR' + pad(d.getDate()) + pad(d.getMonth() + 1) + d.getFullYear() + '_';
+  }
+
+  function finalizeMissionName(raw, creationDate) {
+    const prefix = buildMissionNamePrefix(creationDate || new Date());
+    const suffix = (raw || '').trim().replace(/^SAR\d{8}_?/, '').trim();
+    return suffix ? prefix + suffix : prefix + 'Mission';
+  }
+
   function clampPopupPosition(el, clientX, clientY, margin) {
     const m = margin || 8;
     const rect = el.getBoundingClientRect();
@@ -773,7 +786,8 @@
     html += '</p>';
 
     html += '<div class="sar-mission-form">';
-    html += '<label>Nouvelle mission<input type="text" id="sarNewMissionName" placeholder="Nom de la mission…" maxlength="80"></label>';
+    html += '<label>Nouvelle mission<input type="text" id="sarNewMissionName" placeholder="Ex. Personne disparue secteur X" maxlength="80"></label>';
+    html += '<p class="situation-hint sar-mission-name-hint">Le préfixe SAR + date du jour sera ajouté à la création.</p>';
     html += '<label>Type<select id="sarNewMissionType">';
     Object.keys(T.MISSION_TYPES).forEach((id) => {
       const mt = T.MISSION_TYPES[id];
@@ -956,17 +970,14 @@
       createBtn.addEventListener('click', () => {
         const nameEl = document.getElementById('sarNewMissionName');
         const typeEl = document.getElementById('sarNewMissionType');
-        const name = (nameEl && nameEl.value || '').trim();
         const type = (typeEl && typeEl.value) || 'personne';
-        if (!name) {
-          alert('Indiquez un nom de mission.');
-          return;
-        }
         const mt = T.getMissionType(type);
         if (!mt || !mt.enabled) {
           alert('Ce type de mission n\'est pas encore disponible.');
           return;
         }
+        const creationDate = new Date();
+        const name = finalizeMissionName(nameEl && nameEl.value, creationDate);
         createMission(name, type);
         if (nameEl) nameEl.value = '';
       });
@@ -1126,6 +1137,7 @@
         }
       });
     }
+
   }
 
   function createMission(name, type) {

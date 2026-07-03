@@ -175,6 +175,13 @@
       margin: 10px auto 0 auto;
       max-width: 28%;
     }
+    #appVersion {
+      text-align: center;
+      font-size: 10px;
+      color: #888;
+      margin: 6px 8px 10px;
+      line-height: 1.3;
+    }
     .layer-search {
       margin-bottom: 8px;
     }
@@ -736,6 +743,7 @@
 
     <div id="legend"><b>Légende :</b><br>– aucun calque actif –</div>
     <img src="images/Logo_F4EED.png" id="sidebarLogo" alt="Logo D42">
+    <div id="appVersion" hidden></div>
   </div>
 
   <div id="map"></div>
@@ -3117,6 +3125,18 @@
     }
 
     setupLayers();
+
+    (async function loadAppVersion() {
+      const el = document.getElementById('appVersion');
+      if (!el || location.protocol === 'file:') return;
+      try {
+        const res = await fetch('version.json');
+        if (!res.ok) return;
+        const v = await res.json();
+        el.textContent = 'v' + (v.version || '?') + ' · ' + (v.commit || '—');
+        el.hidden = false;
+      } catch { /* hors ligne ou fichier absent */ }
+    })();
   </script>
 </body>
 </html>

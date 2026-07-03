@@ -258,6 +258,31 @@ Le PMTiles Loire commence au **zoom 9**. Dans `index.html`, `protomapsL.leafletL
 
 ---
 
+## 🔖 Versionnement automatique
+
+Chaque commit peut incrémenter automatiquement la version (patch semver) dans `version.json` (hash git + date). La version s’affiche dans le lecteur **Documentation** (`docs.html`) et en bas du panneau latéral de la carte.
+
+### Activer le hook (une fois par clone)
+
+```bash
+git config core.hooksPath .githooks
+```
+
+Sous Windows (PowerShell ou Git Bash), la même commande fonctionne. Le hook `.githooks/pre-commit` appelle `scripts/bump_version.py` puis ajoute `version.json` au commit.
+
+### Incrément manuel
+
+```bash
+python scripts/bump_version.py          # patch (+1)
+set BUMP=minor && python scripts/bump_version.py   # Windows cmd
+$env:BUMP="minor"; python scripts/bump_version.py  # PowerShell
+BUMP=major python scripts/bump_version.py          # Git Bash / Linux
+```
+
+Création initiale sans incrément : `python scripts/bump_version.py --init`
+
+---
+
 ## 📚 Documentation
 
 | Fichier | Contenu |
