@@ -258,19 +258,63 @@ Le PMTiles Loire commence au **zoom 9**. Dans `index.html`, `protomapsL.leafletL
 
 ---
 
-## 🔖 Versionnement automatique
+## 🔖 Versionnement
 
-Chaque commit peut incrémenter automatiquement la version (patch semver) dans `version.json` (hash git + date). La version s’affiche dans le lecteur **Documentation** (`docs.html`) et en bas du panneau latéral de la carte.
+Cartoff suit le **semver** (`MAJEUR.MINEUR.PATCH`). La version courante, le hash git court, la date et la date de build sont centralisés dans **`version.json`** à la racine du dépôt.
 
-### Activer le hook (une fois par clone)
+Exemple (valeurs réelles au moment de la lecture) :
+
+```json
+{
+  "version": "1.0.26",
+  "commit": "efda49f",
+  "date": "2026-07-03",
+  "build": "2026-07-03"
+}
+```
+
+| Champ | Rôle |
+|-------|------|
+| `version` | Numéro semver affiché dans l’interface |
+| `commit` | Hash court du commit Git courant |
+| `date` | Date de la dernière mise à jour de version |
+| `build` | Date du dernier build / bump |
+
+Par défaut, chaque commit **incrémente le patch** (`1.0.26` → `1.0.27`). Les incréments **minor** ou **major** se font manuellement (voir ci-dessous).
+
+### Où la version s’affiche
+
+- **`docs.html`** — bannière en bas du panneau latéral : `Cartoff v…`, commit et date (lecteur Documentation, bouton **Documentation** de la carte)
+- **`index.html`** — pied du panneau latéral : `v… · <commit>` (élément `#appVersion`, sous le logo)
+
+Les deux pages chargent `version.json` via HTTP ; en `file://` ou sans serveur, l’affichage reste masqué ou indisponible.
+
+### Incrément automatique à chaque commit
+
+Les hooks Git dans **`.githooks/`** appellent `scripts/bump_version.py` :
+
+| Hook | Rôle |
+|------|------|
+| **`pre-commit`** | Incrémente le semver (patch par défaut), met à jour date/build, **sans** hash de commit (`--skip-commit-hash`), puis `git add version.json` |
+| **`post-commit`** | Écrit le hash du commit fraîchement créé dans `version.json` (`--sync-commit-only`), puis **amende** le commit pour inclure ce hash (une seule fois, garde-fou `.git/cartoff-version-amend`, `--no-verify` pour ne pas relancer pre-commit) |
+
+#### Activer les hooks (une fois par clone)
 
 ```bash
 git config core.hooksPath .githooks
 ```
 
-Git exécute les hooks via **sh** (Git Bash sous Windows). Le hook `pre-commit` incrémente la version ; le hook `post-commit` enregistre le hash du commit dans `version.json` puis amende ce fichier dans le même commit (sans relancer pre-commit).
+Git exécute les scripts via **sh** (Git Bash / MSYS sous Windows). Sans cette commande, les hooks du dépôt ne tournent pas et `version.json` n’est pas mis à jour au commit.
 
-**Python sous Windows** — ordre de recherche : `py -3`, `python`, `python3`, puis `.git-hook-bin/python.exe` (copie locale optionnelle). Voir [.git-hook-bin/README](.git-hook-bin/README) si « Python introuvable ».
+#### Python sous Windows
+
+`run-python.sh` résout l’interpréteur dans cet ordre :
+
+1. `py -3` (lanceur Windows, recommandé)
+2. `python` / `python3` dans le `PATH`
+3. **`.git-hook-bin/python.exe`** ou **`python3.exe`** (copie locale optionnelle, non versionnée)
+
+Si `git commit` échoue avec « Python introuvable », installez [Python](https://www.python.org/downloads/) ou suivez [.git-hook-bin/README](.git-hook-bin/README).
 
 ### Incrément manuel
 
@@ -282,9 +326,15 @@ $env:BUMP="minor"; py -3 scripts/bump_version.py  # PowerShell
 BUMP=major python scripts/bump_version.py          # Git Bash / Linux
 ```
 
-Création initiale sans incrément : `py -3 scripts/bump_version.py --init`
+| Variable `BUMP` | Effet (ex. depuis `1.2.3`) |
+|-----------------|------------------------------|
+| *(absent)* ou `patch` | `1.2.4` |
+| `minor` | `1.3.0` |
+| `major` | `2.0.0` |
 
-Options internes aux hooks : `--skip-commit-hash` (pre-commit), `--sync-commit-only` et `--commit-matches-head` (post-commit).
+Création initiale de `version.json` **sans** incrément : `py -3 scripts/bump_version.py --init`
+
+Options réservées aux hooks : `--skip-commit-hash` (pre-commit), `--sync-commit-only` et `--commit-matches-head` (post-commit).
 
 ---
 
@@ -292,6 +342,7 @@ Options internes aux hooks : `--skip-commit-hash` (pre-commit), `--sync-commit-o
 
 | Fichier | Contenu |
 |---------|---------|
+| **[Versionnement](#-versionnement)** | Semver, `version.json`, hooks `.githooks`, bump manuel, affichage dans l’app |
 | **[SAR.md](SAR.md)** | **Guide opérationnel Missions SAR** (personne, DF aéronef, SAR-3, export, dépannage) |
 | [sources.md](sources.md) | Provenance des données, calques, constats, DFCI, SAR technique |
 | [pmtiles/README.md](pmtiles/README.md) | Fond PMTiles, [créer un PMTiles pour votre région](pmtiles/README.md#créer-un-pmtiles-pour-votre-région), découpage GitHub, dépannage |
