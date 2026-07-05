@@ -37,6 +37,7 @@
 
   let store = { version: 1, activeMissionId: null, missions: [] };
   let sarModeActive = false;
+  let layerVisible = false;
   let panelState = null;
   let drawState = null;
   let pendingPointRole = null;
@@ -47,11 +48,11 @@
   const DEFAULT_AERONEF_DF_TEAMS = ['Alpha', 'Bravo', 'Charlie'];
   /** Position par défaut SDIS 42 (Saint-Étienne) — stations DF des équipes. */
   const DEFAULT_SDIS_42 = { lat: 45.46539, lon: 4.38530 };
-  /** Décalages légers entre marqueurs Alpha / Bravo / Charlie. */
+  /** Triangle ~4 km autour du SDIS 42 — géométrie DF exploitable (intersection SAR-3). */
   const DEFAULT_TEAM_STATION_OFFSETS = [
     { dLat: 0, dLon: 0 },
-    { dLat: 0.00028, dLon: 0.00032 },
-    { dLat: -0.00028, dLon: 0.00032 }
+    { dLat: 0.036, dLon: 0.051 },
+    { dLat: 0.036, dLon: -0.051 }
   ];
   /** Contexte X,Y,Z capturé au clic carte pour le relevé en cours (panneau ouvert). */
   let bearingClickContext = null;
@@ -83,6 +84,7 @@
           ensureMissionTeams(m);
           if (ensureDefaultAeronefTeams(m)) defaultDataAdded = true;
           if (ensureDefaultAeronefStations(m)) defaultDataAdded = true;
+          if (migrateColocatedDefaultStations(m)) defaultDataAdded = true;
           ensureMissionFeatures(m);
           ensureMissionStatus(m);
         });
@@ -97,6 +99,9 @@
           if (m && missionFeaturesList(m).length > 0) {
             sarModeActive = true;
           }
+        }
+        if (typeof data.layerVisible === 'boolean') {
+          layerVisible = data.layerVisible;
         }
         resolveActiveMissionId();
         if (sarModeActive && !missionCanEdit(getActiveMission())) {
@@ -121,7 +126,8 @@
       version: store.version,
       activeMissionId: store.activeMissionId,
       missions: store.missions,
-      sarModeActive
+      sarModeActive,
+      layerVisible
     }));
   }
 
@@ -196,6 +202,45 @@
       changed = true;
     });
     if (changed) mission.default_stations_at_sdis42 = true;
+    return changed;
+  }
+
+  /** Écarte les stations SDIS 42 créées au même endroit (~30 m) — intersection DF impossible. */
+  function migrateColocatedDefaultStations(mission) {
+    if (!mission || mission.type !== 'aeronef' || !mission.default_stations_at_sdis42) return false;
+    if (mission.default_stations_spread_migrated) return false;
+    ensureMissionTeams(mission);
+    ensureMissionFeatures(mission);
+    const teams = getMissionTeams(mission);
+    if (teams.length < 2) return false;
+    const placed = teams
+      .map((team) => findStationForTeam(mission, team.id))
+      .filter((st) => st && isStationPlaced(st));
+    if (placed.length < 2) return false;
+    let maxDistM = 0;
+    for (let i = 0; i < placed.length; i++) {
+      for (let j = i + 1; j < placed.length; j++) {
+        const c1 = placed[i].geometry.coordinates;
+        const c2 = placed[j].geometry.coordinates;
+        const d = L.latLng(c1[1], c1[0]).distanceTo(L.latLng(c2[1], c2[0]));
+        if (d > maxDistM) maxDistM = d;
+      }
+    }
+    if (maxDistM > 800) return false;
+    let changed = false;
+    teams.forEach((team, idx) => {
+      const st = findStationForTeam(mission, team.id);
+      if (!st || !isStationPlaced(st)) return;
+      const off = teamStationOffset(idx);
+      const lat = DEFAULT_SDIS_42.lat + off.dLat;
+      const lon = DEFAULT_SDIS_42.lon + off.dLon;
+      const c = st.geometry.coordinates;
+      if (Math.abs(c[1] - lat) < 1e-6 && Math.abs(c[0] - lon) < 1e-6) return;
+      st.geometry.coordinates = [lon, lat];
+      enrichLocationProps(st.properties || {}, lat, lon);
+      changed = true;
+    });
+    if (changed) mission.default_stations_spread_migrated = true;
     return changed;
   }
 
@@ -454,7 +499,39 @@
     return diff > 180 ? 360 - diff : diff;
   }
 
-  /** Corrige les géométries de relèvement (origine = point de relevé, directions direct/arrière). */
+  /** Coordonnées de la station DF (intersection SAR-3). */
+  function stationOrigin(stationFeature) {
+    if (!stationFeature || !stationFeature.geometry || !stationFeature.geometry.coordinates) return null;
+    const c = stationFeature.geometry.coordinates;
+    return { lat: c[1], lon: c[0] };
+  }
+
+  /** Origine d'affichage des lignes : point de relevé (clic) si présent, sinon station. */
+  function resolveBearingDisplayOrigin(stationFeature, targetCtx) {
+    if (targetCtx && targetCtx.lat != null && targetCtx.lon != null) {
+      return { lat: targetCtx.lat, lon: targetCtx.lon };
+    }
+    return stationOrigin(stationFeature);
+  }
+
+  /** Azimut réception pour intersection SAR-3 : sar:azimuth (mesuré à la station), jamais depuis le point de relevé. */
+  function deriveReceptionAzimuth(receptionFeature, stationLat, stationLon) {
+    const p = (receptionFeature && receptionFeature.properties) || {};
+    if (p[T.PROP_AZIMUTH] != null && isFinite(Number(p[T.PROP_AZIMUTH]))) {
+      return T.normalizeAzimuth(p[T.PROP_AZIMUTH]);
+    }
+    const coords = receptionFeature && receptionFeature.geometry && receptionFeature.geometry.coordinates;
+    if (coords && coords.length >= 2) {
+      const start = coords[0];
+      const end = coords[coords.length - 1];
+      if (Math.abs(start[0] - stationLon) < 1e-5 && Math.abs(start[1] - stationLat) < 1e-5) {
+        return T.initialBearing(stationLat, stationLon, end[1], end[0]);
+      }
+    }
+    return 0;
+  }
+
+  /** Corrige les géométries d'affichage (origine = point de relevé ou station ; n'altère jamais releve_point). */
   function repairBearingGeometries(mission) {
     if (!mission || mission.type !== 'aeronef') return false;
     ensureMissionFeatures(mission);
@@ -476,18 +553,18 @@
       const station = findStationById(mission, rp[T.PROP_STATION_ID]);
       if (!station || !station.geometry || !station.geometry.coordinates) return;
       const relevePoint = findRelevePointInGroup(mission, gid);
-      const origin = resolveBearingOrigin(relevePointToTargetCtx(relevePoint), station);
-      if (!origin) return;
+      const displayOrigin = resolveBearingDisplayOrigin(station, relevePointToTargetCtx(relevePoint));
+      if (!displayOrigin) return;
       const az = T.normalizeAzimuth(rp[T.PROP_AZIMUTH]);
       const range = Math.max(0.1, Number(rp[T.PROP_RANGE_KM]) || T.DEFAULT_RANGE_KM);
       const rc = reception.geometry && reception.geometry.coordinates;
       const pc = reciprocal.geometry && reciprocal.geometry.coordinates;
       let needsRepair = !rc || !pc || rc.length < 2 || pc.length < 2;
       if (!needsRepair) {
-        const startOk = Math.abs(rc[0][0] - origin.lon) < 1e-5 && Math.abs(rc[0][1] - origin.lat) < 1e-5 &&
-          Math.abs(pc[0][0] - origin.lon) < 1e-5 && Math.abs(pc[0][1] - origin.lat) < 1e-5;
-        const bRec = T.initialBearing(origin.lat, origin.lon, rc[1][1], rc[1][0]);
-        const bRep = T.initialBearing(origin.lat, origin.lon, pc[1][1], pc[1][0]);
+        const startOk = Math.abs(rc[0][0] - displayOrigin.lon) < 1e-5 && Math.abs(rc[0][1] - displayOrigin.lat) < 1e-5 &&
+          Math.abs(pc[0][0] - displayOrigin.lon) < 1e-5 && Math.abs(pc[0][1] - displayOrigin.lat) < 1e-5;
+        const bRec = T.initialBearing(displayOrigin.lat, displayOrigin.lon, rc[1][1], rc[1][0]);
+        const bRep = T.initialBearing(displayOrigin.lat, displayOrigin.lon, pc[1][1], pc[1][0]);
         needsRepair = !startOk ||
           Math.abs(bRec - az) > 0.5 ||
           Math.abs(bRep - T.reciprocalAzimuth(az)) > 0.5 ||
@@ -496,11 +573,11 @@
       if (!needsRepair) return;
       reception.geometry = {
         type: 'LineString',
-        coordinates: T.buildBearingLineFeature(origin.lat, origin.lon, az, range, false)
+        coordinates: T.buildBearingLineFeature(displayOrigin.lat, displayOrigin.lon, az, range, false)
       };
       reciprocal.geometry = {
         type: 'LineString',
-        coordinates: T.buildBearingLineFeature(origin.lat, origin.lon, az, range, true)
+        coordinates: T.buildBearingLineFeature(displayOrigin.lat, displayOrigin.lon, az, range, true)
       };
       reciprocal.properties[T.PROP_AZIMUTH] = T.reciprocalAzimuth(az);
       changed = true;
@@ -548,8 +625,8 @@
   }
 
   function receptionBearings(mission) {
-    const out = [];
-    (mission && mission.features || []).forEach((f) => {
+    const byStation = new Map();
+    missionFeaturesList(mission).forEach((f) => {
       const p = f.properties || {};
       if (p[T.PROP_ROLE] !== 'relevement_df') return;
       if (isReciprocalProp(p)) return;
@@ -558,18 +635,27 @@
       const station = findStationById(mission, stationId);
       if (!station || !station.geometry || !station.geometry.coordinates) return;
       const c = station.geometry.coordinates;
-      out.push({
+      const stationLat = c[1];
+      const stationLon = c[0];
+      const azimuth = deriveReceptionAzimuth(f, stationLat, stationLon);
+      const groupId = p[T.PROP_BEARING_GROUP_ID] || null;
+      const entry = {
         stationId,
-        groupId: p[T.PROP_BEARING_GROUP_ID] || null,
-        azimuth: p[T.PROP_AZIMUTH],
-        stationLat: c[1],
-        stationLon: c[0],
+        groupId,
+        azimuth,
+        stationLat,
+        stationLon,
         stationLabel: (station.properties && station.properties.label) || 'Station DF',
         teamId: p[T.PROP_TEAM_ID] || null,
-        teamName: p[T.PROP_TEAM_NAME] || null
-      });
+        teamName: p[T.PROP_TEAM_NAME] || null,
+        created_at: p.created_at || ''
+      };
+      const prev = byStation.get(stationId);
+      if (!prev || String(entry.created_at) > String(prev.created_at)) {
+        byStation.set(stationId, entry);
+      }
     });
-    return out;
+    return Array.from(byStation.values());
   }
 
   function clearBearingClickContexts() {
@@ -1140,34 +1226,17 @@
     };
   }
 
-  function resolveBearingOrigin(targetCtx, stationFeature) {
-    if (targetCtx && targetCtx.lat != null && targetCtx.lon != null) {
-      return { lat: targetCtx.lat, lon: targetCtx.lon };
-    }
-    if (stationFeature && stationFeature.geometry && stationFeature.geometry.coordinates) {
-      const c = stationFeature.geometry.coordinates;
-      return { lat: c[1], lon: c[0] };
-    }
-    return null;
-  }
-
   function getBearingOriginForPanel(mission) {
     if (!panelState || !mission) return null;
+    if (panelState.mode !== 'addBearing' && panelState.mode !== 'editBearing') return null;
+    const station = findStationById(mission, panelState.stationId);
     if (panelState.mode === 'addBearing') {
-      const ctx = getBearingTargetContext();
-      if (ctx && ctx.lat != null) return { lat: ctx.lat, lon: ctx.lon };
-      return null;
+      return resolveBearingDisplayOrigin(station, getBearingTargetContext());
     }
-    if (panelState.mode === 'editBearing' && panelState.bearingGroupId) {
-      const rp = findRelevePointInGroup(mission, panelState.bearingGroupId);
-      if (rp && rp.geometry && rp.geometry.coordinates) {
-        const c = rp.geometry.coordinates;
-        return { lat: c[1], lon: c[0] };
-      }
-      const station = findStationById(mission, panelState.stationId);
-      return resolveBearingOrigin(null, station);
-    }
-    return null;
+    const relevePoint = panelState.bearingGroupId
+      ? findRelevePointInGroup(mission, panelState.bearingGroupId)
+      : null;
+    return resolveBearingDisplayOrigin(station, relevePointToTargetCtx(relevePoint));
   }
 
   function featuresInBearingGroup(mission, groupId) {
@@ -1366,7 +1435,8 @@
 
   function rebuildLayer() {
     const mission = getActiveMission();
-    const wasVisible = sarModeActive && map && layersRef && layersRef[LAYER_NAME] && map.hasLayer(layersRef[LAYER_NAME]);
+    const layerCb = document.getElementById('sarLayerCheckbox');
+    const wasVisible = layerVisible && map && layersRef && layersRef[LAYER_NAME] && map.hasLayer(layersRef[LAYER_NAME]);
 
     if (!mission) {
       legendEntries = [];
@@ -1388,9 +1458,11 @@
     const newLayer = buildLayerFromFeatures(features, mission);
     if (layersRef) layersRef[LAYER_NAME] = newLayer;
 
-    const shouldShow = wasVisible || sarModeActive;
+    const shouldShow = wasVisible || sarModeActive || (layerCb && layerCb.checked) || layerVisible;
     if (shouldShow && map) {
       newLayer.addTo(map);
+      layerVisible = true;
+      if (layerCb) layerCb.checked = true;
     }
     if (updateLegendFn) updateLegendFn();
   }
@@ -1518,6 +1590,10 @@
       (sarModeActive ? ' checked' : '') +
       (mission && canEdit ? '' : ' disabled') +
       '> Mode SAR</label>';
+    html += '<label class="situation-filter"><input type="checkbox" id="sarLayerCheckbox"' +
+      (layerVisible ? ' checked' : '') +
+      (mission ? '' : ' disabled') +
+      '> Afficher sur la carte</label>';
     if (!mission && store.missions.length) {
       html += '<p class="situation-hint sar-mode-hint">Mode SAR disponible après sélection d\'une mission active.</p>';
     } else if (mission && !canEdit) {
@@ -1568,6 +1644,15 @@
         }
       }
       html += '</p>';
+      if (receptions.length >= 1) {
+        html += '<ul class="sar-reception-list">';
+        receptions.forEach((r) => {
+          const label = r.teamName || r.stationLabel || 'Station';
+          const az = r.azimuth != null ? T.normalizeAzimuth(r.azimuth).toFixed(1) + '°' : '—';
+          html += '<li class="sar-reception-item">' + escapeHtml(label) + ' — ' + escapeHtml(az) + '</li>';
+        });
+        html += '</ul>';
+      }
       html += '<label class="sar-uncertainty-label">Incertitude (km)<input type="number" id="sarUncertaintyKm" min="0.1" max="50" step="0.1" value="' + uncVal + '"' +
         (canEdit ? '' : ' disabled') + '></label>';
       html += '<div class="situation-toolbar">';
@@ -1578,7 +1663,7 @@
       }
       html += '</div>';
 
-      if (hasFix && sarModeActive) {
+      if (hasFix && (sarModeActive || layerVisible)) {
         ensureVisibleFixIds(mission);
         html += '<div class="sar-fix-checklist-wrap">';
         html += '<span class="sar-draw-label">Fixes sur la carte</span>';
@@ -1630,7 +1715,7 @@
           html += '</div>';
         }
       } else if (hasFix) {
-        html += '<p class="situation-hint sar-intersection-hint">Activez le mode SAR pour choisir les fixes visibles.</p>';
+        html += '<p class="situation-hint sar-intersection-hint">Activez le mode SAR ou cochez « Afficher sur la carte » pour choisir les fixes visibles.</p>';
       }
 
       html += '<div class="situation-toolbar">';
@@ -1642,6 +1727,8 @@
     }
 
     html += '<div class="situation-toolbar">';
+    html += '<button type="button" id="sarExportMissionPdfBtn" class="situation-btn situation-btn-primary"' +
+      (mission ? '' : ' disabled') + '>Exporter mission SAR (PDF)</button>';
     html += '<button type="button" id="sarExportMissionBtn" class="situation-btn"' + (mission ? '' : ' disabled') + '>Exporter mission</button>';
     html += '<button type="button" id="sarExportAllBtn" class="situation-btn"' + (store.missions.length ? '' : ' disabled') + '>Exporter tout</button>';
     html += '</div>';
@@ -1659,6 +1746,21 @@
     if (sidebarDelegationWired || !sidebarEl) return;
     sidebarDelegationWired = true;
     sidebarEl.addEventListener('change', (e) => {
+      if (e.target.id === 'sarLayerCheckbox') {
+        layerVisible = e.target.checked;
+        saveStore();
+        const layer = layersRef && layersRef[LAYER_NAME];
+        if (layer && map) {
+          if (e.target.checked) {
+            if (!map.hasLayer(layer)) layer.addTo(map);
+          } else if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+          }
+        }
+        if (updateLegendFn) updateLegendFn();
+        renderSidebar();
+        return;
+      }
       if (e.target.id !== 'sarModeCheckbox') return;
       if (e.target.checked) {
         let mission = getActiveMission();
@@ -1782,6 +1884,16 @@
       });
     });
 
+    const exportMissionPdfBtn = document.getElementById('sarExportMissionPdfBtn');
+    if (exportMissionPdfBtn) {
+      exportMissionPdfBtn.addEventListener('click', () => {
+        exportSarMissionPdf(store.activeMissionId).catch((err) => {
+          console.error('Export PDF SAR', err);
+          alert('Échec de l\'export PDF : ' + (err && err.message ? err.message : 'erreur inconnue'));
+        });
+      });
+    }
+
     const exportMissionBtn = document.getElementById('sarExportMissionBtn');
     if (exportMissionBtn) {
       exportMissionBtn.addEventListener('click', () => exportGeoJSON(store.activeMissionId));
@@ -1890,6 +2002,7 @@
     store.missions.push(mission);
     store.activeMissionId = mission.id;
     sarModeActive = true;
+    layerVisible = true;
     saveStore();
     rebuildLayer();
     renderSidebar();
@@ -2100,6 +2213,362 @@
     a.download = filename;
     a.click();
     URL.revokeObjectURL(url);
+  }
+
+  const PDF_BRAND = {
+    primary: [21, 101, 192],
+    accent: [230, 81, 0],
+    text: [33, 33, 33],
+    muted: [97, 97, 97],
+    line: [224, 224, 224]
+  };
+
+  function getJsPdfConstructor() {
+    const lib = global.jspdf;
+    if (lib && lib.jsPDF) return lib.jsPDF;
+    if (global.jsPDF) return global.jsPDF;
+    return null;
+  }
+
+  async function fetchAppVersionLabel() {
+    if (location.protocol === 'file:') return 'Cartoff (hors ligne)';
+    try {
+      const res = await fetch('version.json');
+      if (!res.ok) return 'Cartoff';
+      const v = await res.json();
+      const parts = ['Cartoff v' + (v.version || '?')];
+      if (v.commit) parts.push(v.commit);
+      if (v.date) parts.push(v.date);
+      return parts.join(' · ');
+    } catch (e) {
+      return 'Cartoff';
+    }
+  }
+
+  function formatLatLonShort(lat, lon) {
+    if (lat == null || lon == null) return '—';
+    return lat.toFixed(6) + ', ' + lon.toFixed(6);
+  }
+
+  function collectAllReceptionBearings(mission) {
+    const rows = [];
+    missionFeaturesList(mission).forEach((f) => {
+      const p = f.properties || {};
+      if (p[T.PROP_ROLE] !== 'relevement_df') return;
+      if (isReciprocalProp(p)) return;
+      const stationId = p[T.PROP_STATION_ID];
+      const station = stationId ? findStationById(mission, stationId) : null;
+      const sc = station && station.geometry && station.geometry.coordinates;
+      const groupId = p[T.PROP_BEARING_GROUP_ID];
+      const relevePoint = groupId ? findRelevePointInGroup(mission, groupId) : null;
+      const rpCtx = relevePointToTargetCtx(relevePoint);
+      rows.push({
+        stationLabel: station && station.properties ? (station.properties.label || 'Station DF') : '—',
+        teamName: p[T.PROP_TEAM_NAME] || '—',
+        azimuth: p[T.PROP_AZIMUTH] != null ? T.normalizeAzimuth(p[T.PROP_AZIMUTH]).toFixed(1) + '°' : '—',
+        rangeKm: p[T.PROP_RANGE_KM] != null ? String(p[T.PROP_RANGE_KM]) + ' km' : '—',
+        datetime: p.created_at ? formatTimestamp(p.created_at) : '—',
+        pointCoords: rpCtx ? formatLatLonShort(rpCtx.lat, rpCtx.lon) : '—',
+        pointAlt: rpCtx && rpCtx.alt != null ? String(rpCtx.alt) + ' m' : '—',
+        created_at: p.created_at || ''
+      });
+    });
+    rows.sort((a, b) => String(a.created_at).localeCompare(String(b.created_at)));
+    return rows;
+  }
+
+  function collectPersonneElements(mission) {
+    const byRole = { lkp: [], indice: [], waypoint: [], axe_probable: [], trace_fouille: [] };
+    missionFeaturesList(mission).forEach((f) => {
+      const role = featureRoleId(f.properties);
+      if (!byRole[role]) return;
+      const p = f.properties || {};
+      const g = f.geometry;
+      let coords = '—';
+      if (g && g.type === 'Point' && g.coordinates) {
+        coords = formatLatLonShort(g.coordinates[1], g.coordinates[0]);
+      } else if (g && (g.type === 'LineString' || g.type === 'Polygon')) {
+        const c = g.coordinates;
+        const n = g.type === 'Polygon' ? (c[0] ? c[0].length : 0) : (c ? c.length : 0);
+        coords = n + ' point(s)';
+      }
+      byRole[role].push({
+        label: p.label || (T.getRole(role) ? T.getRole(role).label : role),
+        notes: (p.notes || '').slice(0, 120),
+        datetime: p.created_at ? formatTimestamp(p.created_at) : '—',
+        coords
+      });
+    });
+    return byRole;
+  }
+
+  function pdfEnsureSpace(doc, y, needed, margin, pageH) {
+    if (y + needed <= pageH - margin) return y;
+    doc.addPage();
+    return margin + 8;
+  }
+
+  function pdfSectionTitle(doc, title, y, margin) {
+    doc.setFillColor.apply(doc, PDF_BRAND.primary);
+    doc.rect(margin, y - 4, doc.internal.pageSize.getWidth() - margin * 2, 7, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(11);
+    doc.setFont(undefined, 'bold');
+    doc.text(title, margin + 2, y + 1);
+    doc.setTextColor.apply(doc, PDF_BRAND.text);
+    doc.setFont(undefined, 'normal');
+    return y + 10;
+  }
+
+  function pdfAddFooterAllPages(doc, versionLabel, exportDate) {
+    const pageCount = doc.internal.getNumberOfPages();
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const margin = 14;
+    for (let i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.setDrawColor.apply(doc, PDF_BRAND.line);
+      doc.line(margin, pageH - 12, pageW - margin, pageH - 12);
+      doc.setFontSize(8);
+      doc.setTextColor.apply(doc, PDF_BRAND.muted);
+      doc.text(versionLabel, margin, pageH - 7);
+      doc.text('Exporté le ' + exportDate, pageW / 2, pageH - 7, { align: 'center' });
+      doc.text('Page ' + i + ' / ' + pageCount, pageW - margin, pageH - 7, { align: 'right' });
+    }
+  }
+
+  function pdfAutoTable(doc, opts) {
+    if (typeof doc.autoTable !== 'function') {
+      throw new Error('Extension jspdf-autotable non chargée');
+    }
+    doc.autoTable(opts);
+    return doc.lastAutoTable.finalY + 6;
+  }
+
+  async function exportSarMissionPdf(missionId) {
+    const mission = getMission(missionId);
+    if (!mission) return;
+    const JsPDF = getJsPdfConstructor();
+    if (!JsPDF) {
+      alert('Bibliothèque PDF non disponible. Vérifiez la connexion ou rechargez la page.');
+      return;
+    }
+
+    ensureMissionTeams(mission);
+    if (mission.type === 'aeronef') {
+      ensureDefaultAeronefTeams(mission);
+      ensureDefaultAeronefStations(mission);
+    }
+
+    const exportDate = new Date().toLocaleString('fr-FR');
+    const versionLabel = await fetchAppVersionLabel();
+    const margin = 14;
+    const doc = new JsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    let y = margin;
+
+    doc.setFillColor.apply(doc, PDF_BRAND.primary);
+    doc.rect(0, 0, pageW, 22, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(16);
+    doc.setFont(undefined, 'bold');
+    doc.text('Cartoff — Mission SAR', margin, 10);
+    doc.setFontSize(9);
+    doc.setFont(undefined, 'normal');
+    doc.text('Rapport d\'export · ' + exportDate, margin, 16);
+    doc.setTextColor.apply(doc, PDF_BRAND.text);
+    y = 28;
+
+    const mt = T.getMissionType(mission.type);
+    doc.setFontSize(13);
+    doc.setFont(undefined, 'bold');
+    doc.text(mission.name || 'Mission SAR', margin, y);
+    y += 7;
+    doc.setFontSize(10);
+    doc.setFont(undefined, 'normal');
+    const infoLines = [
+      'Type : ' + (mt ? mt.label : mission.type),
+      'Statut : ' + missionStatusLabel(mission.status),
+      'Créée le : ' + formatTimestamp(mission.created_at)
+    ];
+    infoLines.forEach((line) => {
+      doc.text(line, margin, y);
+      y += 5;
+    });
+    y += 4;
+
+    const teams = getMissionTeams(mission);
+    if (teams.length) {
+      y = pdfEnsureSpace(doc, y, 20, margin, pageH);
+      y = pdfSectionTitle(doc, 'Équipes', y, margin);
+      const teamRows = teams.map((t) => {
+        const station = findStationForTeam(mission, t.id);
+        const placed = isStationPlaced(station);
+        let latLon = '—';
+        let alt = '—';
+        let stationLabel = '—';
+        if (station && station.geometry && station.geometry.coordinates) {
+          const c = station.geometry.coordinates;
+          latLon = formatLatLonShort(c[1], c[0]);
+          const sp = station.properties || {};
+          stationLabel = sp.label || t.name;
+          if (sp[T.PROP_ELEVATION_M] != null) alt = String(sp[T.PROP_ELEVATION_M]) + ' m';
+        }
+        return [
+          t.name,
+          stationLabel,
+          latLon,
+          alt,
+          placed ? 'Positionnée' : 'Non positionnée'
+        ];
+      });
+      y = pdfAutoTable(doc, {
+        startY: y,
+        margin: { left: margin, right: margin },
+        head: [['Équipe', 'Station', 'Lat/Lon', 'Alt.', 'Statut']],
+        body: teamRows,
+        styles: { fontSize: 9, cellPadding: 2 },
+        headStyles: { fillColor: PDF_BRAND.primary, textColor: 255, fontStyle: 'bold' },
+        alternateRowStyles: { fillColor: [245, 245, 245] }
+      });
+    }
+
+    if (mission.type === 'aeronef') {
+      const bearings = collectAllReceptionBearings(mission);
+      y = pdfEnsureSpace(doc, y, 20, margin, pageH);
+      y = pdfSectionTitle(doc, 'Relèvements DF', y, margin);
+      if (!bearings.length) {
+        doc.setFontSize(9);
+        doc.setTextColor.apply(doc, PDF_BRAND.muted);
+        doc.text('Aucun relèvement enregistré.', margin, y);
+        y += 8;
+        doc.setTextColor.apply(doc, PDF_BRAND.text);
+      } else {
+        y = pdfAutoTable(doc, {
+          startY: y,
+          margin: { left: margin, right: margin },
+          head: [['Station', 'Équipe', 'Azimut', 'Portée', 'Date/heure', 'Point relevé', 'Alt. pt']],
+          body: bearings.map((b) => [
+            b.stationLabel, b.teamName, b.azimuth, b.rangeKm, b.datetime, b.pointCoords, b.pointAlt
+          ]),
+          styles: { fontSize: 8, cellPadding: 1.5 },
+          headStyles: { fillColor: PDF_BRAND.accent, textColor: 255, fontStyle: 'bold' },
+          columnStyles: { 5: { cellWidth: 28 } },
+          alternateRowStyles: { fillColor: [255, 243, 224] }
+        });
+      }
+
+      const fixFeats = getEstimatedFixFeatures(mission);
+      y = pdfEnsureSpace(doc, y, 20, margin, pageH);
+      y = pdfSectionTitle(doc, 'Intersections SAR-3', y, margin);
+      if (!fixFeats.length) {
+        doc.setFontSize(9);
+        doc.setTextColor.apply(doc, PDF_BRAND.muted);
+        doc.text('Aucune intersection calculée.', margin, y);
+        y += 8;
+        doc.setTextColor.apply(doc, PDF_BRAND.text);
+      } else {
+        const receptions = receptionBearings(mission);
+        const fixRows = fixFeats.map((fixFeat) => {
+          const fp = fixFeat.properties || {};
+          const c = fixFeat.geometry && fixFeat.geometry.coordinates;
+          const latLon = c ? formatLatLonShort(c[1], c[0]) : '—';
+          const isBest = fp[T.PROP_FIX_IS_BEST] === true;
+          const fixIndex = fp[T.PROP_FIX_INDEX] || '?';
+          const quality = fp[T.PROP_QUALITY_ANGLE] != null
+            ? fp[T.PROP_QUALITY_ANGLE] + '° (' + T.qualityLabel(fp[T.PROP_QUALITY_ANGLE]) + ')'
+            : '—';
+          const unc = fp[T.PROP_UNCERTAINTY_KM] != null ? '± ' + fp[T.PROP_UNCERTAINTY_KM] + ' km' : '—';
+          const stations = formatFixStationPair(mission, fp, receptions).replace(/<[^>]+>/g, '');
+          return [
+            'Fix ' + fixIndex + (isBest ? ' ★' : ''),
+            isBest ? 'Oui' : 'Non',
+            latLon,
+            unc,
+            quality,
+            stations
+          ];
+        });
+        y = pdfAutoTable(doc, {
+          startY: y,
+          margin: { left: margin, right: margin },
+          head: [['Fix', 'Meilleur', 'Coordonnées', 'Incertitude', 'Angle coupe', 'Stations / azimuts']],
+          body: fixRows,
+          styles: { fontSize: 8, cellPadding: 1.5 },
+          headStyles: { fillColor: PDF_BRAND.primary, textColor: 255, fontStyle: 'bold' },
+          alternateRowStyles: { fillColor: [232, 245, 233] }
+        });
+
+        const bestFix = getEstimatedFixFeature(mission);
+        if (bestFix && bestFix.geometry && bestFix.geometry.coordinates) {
+          y = pdfEnsureSpace(doc, y, 24, margin, pageH);
+          doc.setFontSize(10);
+          doc.setFont(undefined, 'bold');
+          doc.text('Meilleur candidat', margin, y);
+          y += 5;
+          doc.setFont(undefined, 'normal');
+          doc.setFontSize(9);
+          const bc = bestFix.geometry.coordinates;
+          formatCoordsLines(bc[1], bc[0]).forEach((line) => {
+            y = pdfEnsureSpace(doc, y, 6, margin, pageH);
+            doc.text(line, margin + 2, y);
+            y += 4.5;
+          });
+          const bp = bestFix.properties || {};
+          if (bp[T.PROP_UNCERTAINTY_KM] != null) {
+            doc.text('Incertitude : ± ' + bp[T.PROP_UNCERTAINTY_KM] + ' km', margin + 2, y);
+            y += 6;
+          }
+        }
+      }
+
+      y = pdfEnsureSpace(doc, y, 16, margin, pageH);
+      doc.setFontSize(8);
+      doc.setTextColor.apply(doc, PDF_BRAND.muted);
+      const warn = [
+        'Estimation indicative basée sur l\'intersection géodésique de relèvements DF.',
+        'Ne remplace pas une analyse opérationnelle ni des données officielles.',
+        'Outil 100 % offline — vérifier sur le terrain.'
+      ];
+      warn.forEach((line) => {
+        doc.text(line, margin, y);
+        y += 4;
+      });
+      doc.setTextColor.apply(doc, PDF_BRAND.text);
+    }
+
+    if (mission.type === 'personne') {
+      const elements = collectPersonneElements(mission);
+      const sections = [
+        { key: 'lkp', title: 'LKP — dernière position connue' },
+        { key: 'indice', title: 'Indices' },
+        { key: 'waypoint', title: 'Waypoints' },
+        { key: 'axe_probable', title: 'Axes probables' },
+        { key: 'trace_fouille', title: 'Zones fouillées' }
+      ];
+      sections.forEach((sec) => {
+        const items = elements[sec.key];
+        if (!items.length) return;
+        y = pdfEnsureSpace(doc, y, 20, margin, pageH);
+        y = pdfSectionTitle(doc, sec.title, y, margin);
+        y = pdfAutoTable(doc, {
+          startY: y,
+          margin: { left: margin, right: margin },
+          head: [['Libellé', 'Coordonnées / géométrie', 'Date/heure', 'Notes']],
+          body: items.map((it) => [it.label, it.coords, it.datetime, it.notes || '—']),
+          styles: { fontSize: 8, cellPadding: 1.5 },
+          headStyles: { fillColor: PDF_BRAND.primary, textColor: 255, fontStyle: 'bold' },
+          alternateRowStyles: { fillColor: [245, 245, 245] }
+        });
+      });
+    }
+
+    pdfAddFooterAllPages(doc, versionLabel, exportDate);
+
+    const safe = (mission.name || 'mission').replace(/[^\w\u00C0-\u024F\-]+/g, '_').slice(0, 40);
+    const filename = 'mission_SAR_' + safe + '_' + formatExportDateHeure() + '.pdf';
+    doc.save(filename);
   }
 
   function removeBearingPreview() {
@@ -2369,12 +2838,12 @@
     });
   }
 
-  /** Paire signal direct (plein) + arrière (pointillé) depuis le point de relevé. */
+  /** Paire signal direct (plein) + arrière (pointillé) — affichage depuis le point de relevé ; intersection SAR-3 via station + sar:azimuth. */
   function buildBearingFeaturePair(mission, stationFeature, azimuth, rangeKm, label, notes, groupId, createdAt, teamId, targetCtx) {
     const stationProps = stationFeature.properties || {};
     const stationId = stationProps.id;
-    const origin = resolveBearingOrigin(targetCtx, stationFeature);
-    if (!origin) return null;
+    const displayOrigin = resolveBearingDisplayOrigin(stationFeature, targetCtx);
+    if (!displayOrigin) return null;
     const az = T.normalizeAzimuth(azimuth);
     const range = Math.max(0.1, Number(rangeKm) || T.DEFAULT_RANGE_KM);
     const gid = groupId || newId();
@@ -2382,8 +2851,8 @@
     const baseLabel = label || ('Relèvement ' + az + '°');
     const teamProps = resolveTeamProps(mission, teamId);
 
-    const receptionCoords = T.buildBearingLineFeature(origin.lat, origin.lon, az, range, false);
-    const reciprocalCoords = T.buildBearingLineFeature(origin.lat, origin.lon, az, range, true);
+    const receptionCoords = T.buildBearingLineFeature(displayOrigin.lat, displayOrigin.lon, az, range, false);
+    const reciprocalCoords = T.buildBearingLineFeature(displayOrigin.lat, displayOrigin.lon, az, range, true);
 
     const reception = {
       type: 'Feature',
@@ -2417,8 +2886,8 @@
         ...teamProps
       })
     };
-    enrichLocationProps(reception.properties, origin.lat, origin.lon);
-    enrichLocationProps(reciprocal.properties, origin.lat, origin.lon);
+    enrichLocationProps(reception.properties, displayOrigin.lat, displayOrigin.lon);
+    enrichLocationProps(reciprocal.properties, displayOrigin.lat, displayOrigin.lon);
     return { reception, reciprocal, groupId: gid };
   }
 
@@ -3478,13 +3947,15 @@
       ensureMissionTeams(m);
       if (ensureDefaultAeronefTeams(m)) defaultDataAdded = true;
       if (ensureDefaultAeronefStations(m)) defaultDataAdded = true;
+      if (migrateColocatedDefaultStations(m)) defaultDataAdded = true;
       ensureMissionFeatures(m);
       if (m.type === 'aeronef') {
-        if (receptionBearings(m).length >= 2 && !hasEstimatedFix(m)) {
+        if (receptionBearings(m).length >= 2) {
           computeAndApplyIntersection(m, { renderSidebar: false, rebuild: false });
         } else if (hasEstimatedFix(m)) {
-          ensureVisibleFixIds(m);
+          removeEstimatedFix(m);
         }
+        ensureVisibleFixIds(m);
       }
     });
     saveStore();
@@ -3510,6 +3981,7 @@
     exportGeoJSON,
     formatExportDateHeure,
     exportSarReport,
+    exportSarMissionPdf,
     buildSarReportText,
     computeAndApplyIntersection,
     getStore: () => store,

@@ -437,7 +437,7 @@
 
 
 
-  /** Segment depuis le point de relevé le long de l'azimut sur range km. */
+  /** Segment depuis la station DF le long de l'azimut de relèvement sur range km. */
   function bearingLineCoordinates(originLat, originLon, azimuthDeg, rangeKm) {
 
     const az = normalizeAzimuth(azimuthDeg);

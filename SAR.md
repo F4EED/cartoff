@@ -76,10 +76,13 @@ Pendant un dessin (polyligne, polygone, placement de point) : bannière **Termin
 
 | Bouton | Fichier | Contenu |
 |--------|---------|---------|
+| **Exporter mission SAR (PDF)** | `mission_SAR_<nom>_YYYYMMDD_HHMMSS.pdf` | Rapport PDF structuré (mission, équipes, relèvements, intersections SAR-3, éléments personne) |
 | **Exporter mission** | `sar_mission_<nom>_YYYYMMDD_HHMMSS.geojson` | Features de la mission active (horodatage local à l’export) |
 | **Exporter tout** | `sar_missions_YYYYMMDD_HHMMSS.geojson` | Toutes les missions (horodatage local à l’export) |
 | **Exporter rapport SAR** | `sar_rapport_<nom>.txt` | Rapport texte (mission aéronef avec fixe calculé) |
 | **Copier rapport** | Presse-papiers | Même contenu que le rapport .txt |
+
+Le PDF est généré côté navigateur (jsPDF + jspdf-autotable). Environnement hors ligne complet : copier les bibliothèques dans `js/` et remplacer les balises CDN dans `index.html` par des scripts locaux.
 
 ---
 

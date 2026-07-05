@@ -134,9 +134,13 @@ def test_aeronef_enabled_not_stubbed():
 
     assert "repairBearingGeometries" in missions
 
+    assert "resolveBearingDisplayOrigin" in missions
+
     assert "findRelevePointInGroup" in missions
 
-    assert "resolveBearingOrigin" in missions
+    assert "stationOrigin" in missions
+
+    assert "deriveReceptionAzimuth" in missions
 
     assert "signal arrière" in missions
 
@@ -151,6 +155,10 @@ def test_aeronef_enabled_not_stubbed():
     assert "getEstimatedFixFeatures" in missions
 
     assert "exportSarReport" in missions
+
+    assert "exportSarMissionPdf" in missions
+
+    assert "sarExportMissionPdfBtn" in missions
 
     print("OK aéronef activé et workflow DF dans sar-missions.js")
 
@@ -554,6 +562,7 @@ def test_index_wiring():
     assert "sar-marker-fixe-estime" in html
 
     assert "sarComputeIntersectionBtn" in (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+    assert "sarLayerCheckbox" in (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
 
     assert re.search(r"cartoff_sar_missions", (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8"))
     assert "sarModeActive" in (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
@@ -856,6 +865,83 @@ def test_three_station_intersections():
 
 
 
+def test_alpha_bravo_charlie_intersection():
+
+    """SDIS 42 — stations écartées (~4 km) : 3 candidats et meilleur fixe proche de la cible."""
+
+    import subprocess
+
+    script = ROOT / "scripts" / "_test_intersection_alpha.mjs"
+
+    assert script.is_file(), script
+
+    node = Path(r"C:\Program Files\nodejs\node.exe")
+
+    if not node.is_file():
+
+        import shutil
+
+        node = shutil.which("node") or "node"
+
+    out = subprocess.run(
+
+        [str(node), str(script)],
+
+        capture_output=True,
+
+        text=True,
+
+        cwd=str(ROOT),
+
+        timeout=30,
+
+    )
+
+    assert out.returncode == 0, out.stderr or out.stdout
+
+    assert "OK Alpha/Bravo/Charlie intersection" in out.stdout, out.stdout
+
+    missions = (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+
+    assert "0.036" in missions and "0.051" in missions, "stations par défaut trop proches"
+
+    assert "migrateColocatedDefaultStations" in missions
+
+    print("OK Alpha/Bravo/Charlie intersection SAR-3 (stations écartées)")
+
+
+
+
+
+def test_three_station_triangle_fix_on_intersection():
+    """3 stations + cible : fixes sur intersections des lignes et proches de la cible."""
+    import subprocess
+
+    script = ROOT / "scripts" / "_test_integration_bearing_fix.mjs"
+    assert script.is_file(), script
+    node = Path(r"C:\Program Files\nodejs\node.exe")
+    if not node.is_file():
+        import shutil
+        node = shutil.which("node") or "node"
+    out = subprocess.run(
+        [str(node), str(script)],
+        capture_output=True,
+        text=True,
+        cwd=str(ROOT),
+        timeout=30,
+    )
+    assert out.returncode == 0, out.stderr or out.stdout
+    assert "OK 3-station triangle" in out.stdout, out.stdout
+    missions = (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+    assert "function stationOrigin(stationFeature)" in missions
+    assert "function resolveBearingDisplayOrigin" in missions
+    assert "function deriveReceptionAzimuth" in missions
+    assert "intersection SAR-3 via station" in missions
+    assert "bearing to relevé" not in missions.lower()
+    assert "fromStation = T.initialBearing" not in missions
+    print("OK 3-station triangle fix on line intersections")
+
+
 def test_bearing_opposite_directions():
 
     """Réception 38.1° et réciproque 218.1° depuis la même station (pas la même direction)."""
@@ -898,6 +984,52 @@ def test_bearing_opposite_directions():
 
 
 
+def test_intersection_sar3_restored():
+    """SAR-3 : calque visible, checklist fixes, dédoublonnage relèvements par station."""
+    text = (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+
+    assert "let layerVisible = false" in text
+    assert 'id="sarLayerCheckbox"' in text
+    assert "Afficher sur la carte" in text
+    assert "layerVisible" in text
+    assert re.search(
+        r"hasFix\s*&&\s*\(sarModeActive\s*\|\|\s*layerVisible\)",
+        text,
+    ), "checklist fixes : mode SAR ou calque affiché"
+    assert "byStation = new Map()" in text, "receptionBearings dédoublonne par station"
+    assert "migrateColocatedDefaultStations" in text
+    assert re.search(
+        r"receptionBearings\(m\)\.length >= 2[\s\S]*?computeAndApplyIntersection",
+        text,
+    ), "init doit recalculer l'intersection si >= 2 relèvements"
+    assert "sar-reception-list" in text
+    assert "exportSarReport" in text
+    assert "buildSarReportText" in text
+    assert re.search(r"localStorage\.setItem\(STORAGE_KEY[\s\S]*?layerVisible", text)
+
+    print("OK intersection SAR-3 (calque, checklist, relèvements)")
+
+
+
+
+
+def test_sar_pdf_export():
+    """Export PDF mission SAR — bouton sidebar et fonction export."""
+    text = (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+
+    assert "function exportSarMissionPdf" in text
+    assert "sarExportMissionPdfBtn" in text
+    assert "Exporter mission SAR (PDF)" in text
+    assert "mission_SAR_" in text
+    assert "fetchAppVersionLabel" in text
+    assert "collectAllReceptionBearings" in text
+    assert "exportSarMissionPdf" in text
+    assert "jspdf" in html.lower()
+
+    print("OK export PDF mission SAR")
+
+
 if __name__ == "__main__":
 
     test_libs_present()
@@ -924,7 +1056,15 @@ if __name__ == "__main__":
 
     test_three_station_intersections()
 
+    test_three_station_triangle_fix_on_intersection()
+
+    test_alpha_bravo_charlie_intersection()
+
     test_bearing_opposite_directions()
+
+    test_intersection_sar3_restored()
+
+    test_sar_pdf_export()
 
     print("Tous les tests SAR OK")
 
