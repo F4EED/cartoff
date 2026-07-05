@@ -1,6 +1,10 @@
 {
   "version": "1.0.30",
+<<<<<<< HEAD
   "commit": "7fe0804",
+=======
+  "commit": "9313a88",
+>>>>>>> 2faf6b7 (﻿SAR : relevé DF, équipes Alpha/Bravo/Charlie et doc)
   "date": "2026-07-05",
   "build": "2026-07-05"
 }
