@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 SAR_ROLES_PERSONNE = {"lkp", "indice", "waypoint", "trace_fouille", "axe_probable"}
 
-SAR_ROLES_AERONEF = {"station_df", "relevement_df", "fixe_estime", "incertitude_fix"}
+SAR_ROLES_AERONEF = {"station_df", "relevement_df", "releve_point", "fixe_estime", "incertitude_fix"}
 
 SAR_ROLES = SAR_ROLES_PERSONNE | SAR_ROLES_AERONEF
 
@@ -51,6 +51,8 @@ SAR_PROPS = {
     "sar:fix_is_best",
 
     "sar:fix_color",
+
+    "sar:elevation_m",
 
 }
 
@@ -92,6 +94,10 @@ def test_types_file_roles():
 
     assert "bearingLineCoordinates" in text
 
+    assert "buildBearingLineFeature" in text
+
+    assert "point de relevé" in text.lower() or "Point de relevé" in text
+
     assert "intersectBearings" in text
 
     assert "computeAllIntersections" in text
@@ -125,6 +131,16 @@ def test_aeronef_enabled_not_stubbed():
     assert "relevement_df" in missions or "addBearing" in missions
 
     assert "bearing_group_id" in missions or "PROP_BEARING_GROUP_ID" in missions
+
+    assert "repairBearingGeometries" in missions
+
+    assert "findRelevePointInGroup" in missions
+
+    assert "resolveBearingOrigin" in missions
+
+    assert "signal arrière" in missions
+
+    assert "applyBearingPreviewPolylines" in missions
 
     assert "computeAndApplyIntersection" in missions
 
@@ -516,7 +532,12 @@ def test_index_wiring():
 
     assert "js/sar-missions.js" in html
 
+    assert "setupFloatingPanelDrag" in html
+
     assert "Missions SAR" in html
+    assert "operationRechercheBlock" in html
+    assert "appendSecoursContextMenu" in html
+    assert "OPÉRATION DE SECOURS" in html
 
     assert "CartoffSar.init" in html
 
@@ -526,6 +547,8 @@ def test_index_wiring():
 
     assert "sarPanelRange" in html
 
+    assert "Trait plein = signal direct" in html
+
     assert "sar-marker-station-df" in html
 
     assert "sar-marker-fixe-estime" in html
@@ -533,8 +556,259 @@ def test_index_wiring():
     assert "sarComputeIntersectionBtn" in (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
 
     assert re.search(r"cartoff_sar_missions", (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8"))
+    assert "sarModeActive" in (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+    assert "wireSidebarDelegation" in (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+    assert "resolveActiveMissionId" in (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+    assert "Sélectionner une mission" in (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
 
     print("OK index.html branchement SAR et panneau DF")
+
+
+
+
+
+def test_sar_mode_checkbox_wiring():
+
+    text = (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+
+    assert "id=\"sarModeCheckbox\"" in text
+    assert "function wireSidebarDelegation()" in text
+    assert "function resolveActiveMissionId()" in text
+    assert "sarModeActive" in text
+    assert "localStorage.setItem(STORAGE_KEY" in text
+    assert "mission && canEdit ? '' : ' disabled'" in text
+    assert "Sélectionnez une mission dans « Mission active »" in text
+
+    print("OK Mode SAR checkbox et persistance")
+
+
+
+
+
+def test_releve_df_station_discovery():
+
+    text = (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+
+    assert "function stationFeatures(mission)" in text
+
+    assert "function isStationDfFeature(f)" in text
+
+    assert "featureRoleId(f.properties) === 'station_df'" in text
+
+    assert "appendReleveDfContextMenu" in text
+
+    assert "invokeReleveDfFromMenu" in text
+
+    assert "getLastRightClickLatLng" in (ROOT / "index.html").read_text(encoding="utf-8")
+
+    assert "lastRightClickLatLng" in (ROOT / "index.html").read_text(encoding="utf-8")
+
+    assert "function alertNoStationDf(mission)" in text
+
+    assert "Aucune station DF positionnée" in text
+
+    assert "Placer sur carte" in text
+
+    assert "DEFAULT_AERONEF_DF_TEAMS" in text
+
+    assert "function ensureDefaultAeronefTeams" in text
+
+    assert "function startTeamStationPlaceMode" in text
+
+    assert "sar-team-place-btn" in text
+
+    assert "function isStationPlaced" in text
+
+    assert "function findStationForTeam" in text
+
+    assert not re.search(
+        r"if \(mission\.type === 'aeronef'\)[\s\S]*?addItem\('Station DF'",
+        text,
+    ), "menu contextuel ne doit plus proposer Station DF pour aéronef"
+
+    assert "showBearingStationPicker" in text
+
+    assert "openBearingPanel" in text
+
+    assert "startBearingFlow" in text
+
+    assert "releveDfAfterTargetClick" in text
+
+    assert "captureBearingTargetContext" in text
+
+    assert "bearingClickContext" in text
+
+    assert "pendingBearingClickContext" in text
+
+    assert "clearBearingClickContexts" in text
+
+    assert "adoptBearingClickContext" in text
+
+    assert "function resolveMenuClickLatLng" in text
+
+    assert "function menuTargetClickLatLng" in text
+
+    assert "target.clickLatlng" in text
+
+    assert "buildRelevePointFeature" in text
+
+    assert "startBearingPickMode" in text
+
+    assert "onBearingTargetPickClick" in text
+
+    # Ne plus filtrer sar:mission_id sur les features déjà dans mission.features
+
+    assert "isStationDfFeatureForMission" in text
+
+    assert "syncMissionStationsFromLayer" in text
+
+    assert "trustMission" in text
+
+    assert re.search(
+        r"function stationFeaturesFromLayer[\s\S]*?if \(!group\) return out",
+        text,
+    ), "stationFeaturesFromLayer ne doit pas exiger map"
+
+    assert "beginReleveDfFromContext" in text
+
+    # Clic droit sur marqueur station : pas de mode pick carte (sidebar seul)
+    assert re.search(
+        r"featureRoleId\(props\) === 'station_df'[\s\S]*?invokeReleveDfFromMenu",
+        text,
+    ), "clic droit station DF doit utiliser invokeReleveDfFromMenu"
+    assert not re.search(
+        r"featureRoleId\(props\) === 'station_df'[\s\S]*?startBearingPickMode",
+        text,
+    ), "clic droit station DF ne doit pas lancer startBearingPickMode"
+
+    assert "resolveStationsForReleveDf" in text
+
+    assert "debugStationDiscovery" in text
+
+    assert re.search(
+        r"function resolveStationsForReleveDf[\s\S]*?rebuildLayer\(\)",
+        text,
+    ), "resolveStationsForReleveDf doit resynchroniser le calque avant relevé"
+
+    assert re.search(
+        r"function collectStationDfFeatures[\s\S]*?missionFeaturesList\(mission\)[\s\S]*?stationFeaturesFromLayer",
+        text,
+    ), "collectStationDfFeatures doit fusionner mission.features et calque carte"
+
+    assert re.search(
+        r"function stationFeatures\(mission\)[\s\S]*?collectStationDfFeatures",
+        text,
+    ), "stationFeatures doit s'appuyer sur collectStationDfFeatures"
+
+    assert re.search(
+        r"function stationFeaturesFromLayer[\s\S]*?isStationDfFeature\(feat\)",
+        text,
+    ), "stationFeaturesFromLayer doit compter les station_df du calque actif"
+
+    print("OK Relevé DF — découverte stations et sous-menu contextuel")
+
+
+
+
+
+def test_aeronef_default_teams_and_stations():
+
+    text = (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+
+    assert "DEFAULT_AERONEF_DF_TEAMS" in text
+
+    assert "'Alpha', 'Bravo', 'Charlie'" in text
+
+    assert "DEFAULT_SDIS_42" in text
+
+    assert "45.46539" in text
+
+    assert "4.38530" in text
+
+    assert "function ensureDefaultAeronefStations" in text
+
+    assert "function buildDefaultStationFeature" in text
+
+    assert "sar-team-place-btn" in text
+
+    assert "default_stations_at_sdis42" in text
+
+    assert "data-sar-action" not in text
+
+    assert "sar-aeronef-btn" not in text
+
+    assert re.search(
+        r"function createMission[\s\S]*?ensureDefaultAeronefStations\(mission",
+        text,
+    ), "createMission doit créer les stations DF par défaut"
+
+    assert "PROP_TEAM_ID" in (ROOT / "js" / "sar-types.js").read_text(encoding="utf-8")
+
+    assert "PROP_TEAM_NAME" in (ROOT / "js" / "sar-types.js").read_text(encoding="utf-8")
+
+    print("OK aéronef — équipes et stations DF SDIS 42 par défaut")
+
+
+
+
+
+def test_bearing_click_context_reset():
+
+    text = (ROOT / "js" / "sar-missions.js").read_text(encoding="utf-8")
+
+    assert "function clearBearingClickContexts()" in text
+
+    assert "function adoptBearingClickContext(clickContext)" in text
+
+    assert "bearingClickContext = null" in text
+
+    assert "pendingBearingClickContext = null" in text
+
+    # save : source unique + reset après enregistrement
+
+    assert re.search(
+
+        r"mode === 'addBearing'[\s\S]*?getBearingTargetContext\(\)",
+
+        text,
+
+    ), "saveBearingPanel doit lire le contexte clic via getBearingTargetContext"
+
+    assert re.search(
+
+        r"function closePanel\(\)[\s\S]*?clearBearingClickContexts\(\)",
+
+        text,
+
+    ), "closePanel doit invalider le contexte clic relevé"
+
+    assert re.search(
+
+        r"function startBearingPickMode[\s\S]*?clearBearingClickContexts\(\)",
+
+        text,
+
+    ), "chaque nouveau pick doit effacer l'ancien contexte"
+
+    assert re.search(
+
+        r"function openBearingPanel[\s\S]*?stopBearingPickMode\(\)",
+
+        text,
+
+    ), "openBearingPanel doit quitter le mode pick"
+
+    # édition : pas de réutilisation du contexte add
+
+    assert re.search(
+
+        r"if \(editGroupId\) \{[\s\S]*?clearBearingClickContexts\(\)",
+
+        text,
+
+    ), "editBearing ne doit pas réutiliser bearingClickContext"
+
+    print("OK Relevé DF — reset contexte clic entre relevés")
 
 
 
@@ -582,6 +856,48 @@ def test_three_station_intersections():
 
 
 
+def test_bearing_opposite_directions():
+
+    """Réception 38.1° et réciproque 218.1° depuis la même station (pas la même direction)."""
+
+    import subprocess
+
+    script = ROOT / "scripts" / "_test_bearing_dirs.mjs"
+
+    assert script.is_file(), script
+
+    node = Path(r"C:\Program Files\nodejs\node.exe")
+
+    if not node.is_file():
+
+        import shutil
+
+        node = shutil.which("node") or "node"
+
+    out = subprocess.run(
+
+        [str(node), str(script)],
+
+        capture_output=True,
+
+        text=True,
+
+        cwd=str(ROOT),
+
+        timeout=30,
+
+    )
+
+    assert out.returncode == 0, out.stderr or out.stdout
+
+    assert "OK bearing opposite directions" in out.stdout, out.stdout
+
+    print("OK relèvement réception / réciproque directions opposées")
+
+
+
+
+
 if __name__ == "__main__":
 
     test_libs_present()
@@ -598,7 +914,17 @@ if __name__ == "__main__":
 
     test_index_wiring()
 
+    test_sar_mode_checkbox_wiring()
+
+    test_releve_df_station_discovery()
+
+    test_aeronef_default_teams_and_stations()
+
+    test_bearing_click_context_reset()
+
     test_three_station_intersections()
+
+    test_bearing_opposite_directions()
 
     print("Tous les tests SAR OK")
 

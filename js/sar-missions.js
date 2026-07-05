@@ -12,6 +12,7 @@
   let findCommuneFn = null;
   let latLngToDfciFn = null;
   let latLngToUtmFn = null;
+  let getElevationFn = null;
 
   let sidebarEl = null;
   let panelEl = null;
@@ -26,6 +27,9 @@
   let panelBearingFieldsEl = null;
   let panelAzimuthEl = null;
   let panelRangeEl = null;
+  let panelBearingTargetEl = null;
+  let panelTeamFieldsEl = null;
+  let panelTeamEl = null;
   let drawBannerEl = null;
   let drawBannerTextEl = null;
   let drawFinishBtn = null;
@@ -33,11 +37,26 @@
 
   let store = { version: 1, activeMissionId: null, missions: [] };
   let sarModeActive = false;
-  let layerVisible = false;
   let panelState = null;
   let drawState = null;
   let pendingPointRole = null;
-  let pendingBearingPick = false;
+  /** Équipe DF en attente de placement carte (section Équipes). */
+  let pendingTeamStationId = null;
+  let pendingBearingPick = null;
+
+  const DEFAULT_AERONEF_DF_TEAMS = ['Alpha', 'Bravo', 'Charlie'];
+  /** Position par défaut SDIS 42 (Saint-Étienne) — stations DF des équipes. */
+  const DEFAULT_SDIS_42 = { lat: 45.46539, lon: 4.38530 };
+  /** Décalages légers entre marqueurs Alpha / Bravo / Charlie. */
+  const DEFAULT_TEAM_STATION_OFFSETS = [
+    { dLat: 0, dLon: 0 },
+    { dLat: 0.00028, dLon: 0.00032 },
+    { dLat: -0.00028, dLon: 0.00032 }
+  ];
+  /** Contexte X,Y,Z capturé au clic carte pour le relevé en cours (panneau ouvert). */
+  let bearingClickContext = null;
+  /** Contexte capturé au clic pick, consommé à l'ouverture du panneau. */
+  let pendingBearingClickContext = null;
   let bearingPreviewLayer = null;
   const iconCache = {};
   let legendEntries = [];
@@ -59,14 +78,51 @@
           activeMissionId: data.activeMissionId || null,
           missions: data.missions
         };
+        let defaultDataAdded = false;
+        store.missions.forEach((m) => {
+          ensureMissionTeams(m);
+          if (ensureDefaultAeronefTeams(m)) defaultDataAdded = true;
+          if (ensureDefaultAeronefStations(m)) defaultDataAdded = true;
+          ensureMissionFeatures(m);
+          ensureMissionStatus(m);
+        });
+        if (defaultDataAdded) saveStore();
+        if (store.missions.some((m) => repairBearingGeometries(m))) {
+          saveStore();
+        }
+        if (typeof data.sarModeActive === 'boolean') {
+          sarModeActive = data.sarModeActive;
+        } else if (store.activeMissionId) {
+          const m = getMission(store.activeMissionId);
+          if (m && missionFeaturesList(m).length > 0) {
+            sarModeActive = true;
+          }
+        }
+        resolveActiveMissionId();
+        if (sarModeActive && !missionCanEdit(getActiveMission())) {
+          sarModeActive = false;
+        }
       }
     } catch (err) {
       console.warn('Missions SAR : stockage invalide', err);
     }
   }
 
+  function resolveActiveMissionId() {
+    if (store.activeMissionId && getMission(store.activeMissionId)) return;
+    store.activeMissionId = null;
+    if (store.missions.length === 1) {
+      store.activeMissionId = store.missions[0].id;
+    }
+  }
+
   function saveStore() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      version: store.version,
+      activeMissionId: store.activeMissionId,
+      missions: store.missions,
+      sarModeActive
+    }));
   }
 
   function getMission(id) {
@@ -78,8 +134,185 @@
     return getMission(store.activeMissionId);
   }
 
+  function ensureMissionTeams(mission) {
+    if (!mission) return;
+    if (!Array.isArray(mission.teams)) mission.teams = [];
+  }
+
+  /** Mission aéronef sans équipes : Alpha, Bravo, Charlie (stations DF par défaut). */
+  function ensureDefaultAeronefTeams(mission) {
+    if (!mission || mission.type !== 'aeronef') return false;
+    ensureMissionTeams(mission);
+    if (mission.teams.length > 0) return false;
+    DEFAULT_AERONEF_DF_TEAMS.forEach((name) => {
+      mission.teams.push({
+        id: newId(),
+        name,
+        created_at: new Date().toISOString()
+      });
+    });
+    return true;
+  }
+
+  function teamStationOffset(index) {
+    const o = DEFAULT_TEAM_STATION_OFFSETS[index % DEFAULT_TEAM_STATION_OFFSETS.length];
+    return o || { dLat: 0, dLon: 0 };
+  }
+
+  function buildDefaultStationFeature(mission, team, lat, lon) {
+    const teamProps = resolveTeamProps(mission, team.id);
+    const props = T.buildFeatureProps(mission, 'station_df', {
+      id: newId(),
+      label: team.name,
+      notes: '',
+      created_at: new Date().toISOString(),
+      ...teamProps
+    });
+    enrichLocationProps(props, lat, lon);
+    return {
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [lon, lat] },
+      properties: props
+    };
+  }
+
+  /** Stations DF au SDIS 42 pour chaque équipe sans station (création / migration). */
+  function ensureDefaultAeronefStations(mission, opts) {
+    opts = opts || {};
+    if (!mission || mission.type !== 'aeronef') return false;
+    if (!opts.force && mission.default_stations_at_sdis42) return false;
+    ensureMissionTeams(mission);
+    ensureMissionFeatures(mission);
+    const teams = getMissionTeams(mission);
+    if (!teams.length) return false;
+    let changed = false;
+    let placeIndex = 0;
+    teams.forEach((team) => {
+      if (findStationForTeam(mission, team.id)) return;
+      const off = teamStationOffset(placeIndex++);
+      const lat = DEFAULT_SDIS_42.lat + off.dLat;
+      const lon = DEFAULT_SDIS_42.lon + off.dLon;
+      mission.features.push(buildDefaultStationFeature(mission, team, lat, lon));
+      changed = true;
+    });
+    if (changed) mission.default_stations_at_sdis42 = true;
+    return changed;
+  }
+
+  function isStationPlaced(f) {
+    if (!f || !isPointGeometry(f.geometry)) return false;
+    const c = f.geometry.coordinates;
+    return Array.isArray(c) && c.length >= 2 && isFinite(c[0]) && isFinite(c[1]);
+  }
+
+  function collectStationDfFeatures(mission) {
+    if (!mission) return [];
+    ensureMissionFeatures(mission);
+    const missionId = mission.id;
+    const seen = new Set();
+    const out = [];
+    const addStation = (f) => {
+      if (!f || !isStationDfFeature(f)) return;
+      const key = stationFeatureKey(f);
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      out.push(f);
+    };
+    missionFeaturesList(mission).forEach(addStation);
+    stationFeaturesFromLayer(missionId).forEach(addStation);
+    return out;
+  }
+
+  function findStationForTeam(mission, teamId) {
+    if (!mission || !teamId) return null;
+    return collectStationDfFeatures(mission).find((f) => {
+      const p = f.properties || {};
+      return p[T.PROP_TEAM_ID] === teamId;
+    }) || null;
+  }
+
+  function getMissionTeams(mission) {
+    ensureMissionTeams(mission);
+    return mission.teams;
+  }
+
+  function findTeamById(mission, teamId) {
+    if (!mission || !teamId) return null;
+    return getMissionTeams(mission).find((t) => t.id === teamId) || null;
+  }
+
+  function addTeam(mission, name, notes) {
+    if (!mission || !name) return null;
+    ensureMissionTeams(mission);
+    const team = {
+      id: newId(),
+      name: name.trim(),
+      created_at: new Date().toISOString()
+    };
+    if (notes && notes.trim()) team.notes = notes.trim();
+    mission.teams.push(team);
+    saveStore();
+    return team;
+  }
+
+  function deleteTeam(mission, teamId) {
+    if (!mission || !teamId) return;
+    ensureMissionTeams(mission);
+    const station = findStationForTeam(mission, teamId);
+    if (station && station.properties && station.properties.id) {
+      deleteFeature(station.properties.id);
+    }
+    mission.teams = mission.teams.filter((t) => t.id !== teamId);
+    saveStore();
+    rebuildLayer();
+    renderSidebar();
+  }
+
+  function resolveTeamProps(mission, teamId) {
+    if (!teamId) return {};
+    const team = findTeamById(mission, teamId);
+    if (!team) return {};
+    return {
+      [T.PROP_TEAM_ID]: team.id,
+      [T.PROP_TEAM_NAME]: team.name
+    };
+  }
+
+  function readPanelTeamId() {
+    return panelTeamEl ? (panelTeamEl.value || '') : '';
+  }
+
+  function populateTeamSelect(mission, selectedTeamId, showForRole, lockTeam) {
+    if (!panelTeamFieldsEl || !panelTeamEl) return;
+    const teams = getMissionTeams(mission);
+    const show = teams.length > 0 && showForRole && !lockTeam;
+    panelTeamFieldsEl.hidden = !show;
+    if (!show) return;
+    panelTeamEl.innerHTML = '';
+    const optNone = document.createElement('option');
+    optNone.value = '';
+    optNone.textContent = '— Non assignée —';
+    panelTeamEl.appendChild(optNone);
+    teams.forEach((t) => {
+      const opt = document.createElement('option');
+      opt.value = t.id;
+      opt.textContent = t.name;
+      panelTeamEl.appendChild(opt);
+    });
+    panelTeamEl.value = selectedTeamId || '';
+  }
+
   function missionCanEdit(mission) {
-    return !!(mission && mission.status === 'active');
+    if (!mission) return false;
+    if (mission.status === 'closed') return false;
+    return true;
+  }
+
+  function ensureMissionStatus(mission) {
+    if (!mission) return;
+    if (mission.status !== 'active' && mission.status !== 'closed') {
+      mission.status = 'active';
+    }
   }
 
   function activeMissionFeatures() {
@@ -99,7 +332,8 @@
   function featuresForDisplay() {
     const mission = getActiveMission();
     if (!mission) return [];
-    const features = mission.features || [];
+    ensureMissionFeatures(mission);
+    const features = missionFeaturesList(mission);
     ensureVisibleFixIds(mission);
     return features.filter((f) => {
       const p = f.properties || {};
@@ -204,6 +438,76 @@
     return { x, y };
   }
 
+  function isReciprocalProp(props) {
+    if (!props) return false;
+    const v = props[T.PROP_BEARING_RECIPROCAL];
+    return v === true || v === 'true';
+  }
+
+  function isReceptionProp(props) {
+    if (!props) return false;
+    return !isReciprocalProp(props);
+  }
+
+  function bearingSeparationDeg(b1, b2) {
+    const diff = Math.abs(((b2 - b1 + 360) % 360));
+    return diff > 180 ? 360 - diff : diff;
+  }
+
+  /** Corrige les géométries de relèvement (origine = point de relevé, directions direct/arrière). */
+  function repairBearingGeometries(mission) {
+    if (!mission || mission.type !== 'aeronef') return false;
+    ensureMissionFeatures(mission);
+    const byGroup = new Map();
+    mission.features.forEach((f) => {
+      const p = f.properties || {};
+      if (p[T.PROP_ROLE] !== 'relevement_df') return;
+      const gid = p[T.PROP_BEARING_GROUP_ID];
+      if (!gid) return;
+      if (!byGroup.has(gid)) byGroup.set(gid, []);
+      byGroup.get(gid).push(f);
+    });
+    let changed = false;
+    byGroup.forEach((feats, gid) => {
+      const reception = feats.find((f) => isReceptionProp(f.properties));
+      const reciprocal = feats.find((f) => isReciprocalProp(f.properties));
+      if (!reception || !reciprocal) return;
+      const rp = reception.properties || {};
+      const station = findStationById(mission, rp[T.PROP_STATION_ID]);
+      if (!station || !station.geometry || !station.geometry.coordinates) return;
+      const relevePoint = findRelevePointInGroup(mission, gid);
+      const origin = resolveBearingOrigin(relevePointToTargetCtx(relevePoint), station);
+      if (!origin) return;
+      const az = T.normalizeAzimuth(rp[T.PROP_AZIMUTH]);
+      const range = Math.max(0.1, Number(rp[T.PROP_RANGE_KM]) || T.DEFAULT_RANGE_KM);
+      const rc = reception.geometry && reception.geometry.coordinates;
+      const pc = reciprocal.geometry && reciprocal.geometry.coordinates;
+      let needsRepair = !rc || !pc || rc.length < 2 || pc.length < 2;
+      if (!needsRepair) {
+        const startOk = Math.abs(rc[0][0] - origin.lon) < 1e-5 && Math.abs(rc[0][1] - origin.lat) < 1e-5 &&
+          Math.abs(pc[0][0] - origin.lon) < 1e-5 && Math.abs(pc[0][1] - origin.lat) < 1e-5;
+        const bRec = T.initialBearing(origin.lat, origin.lon, rc[1][1], rc[1][0]);
+        const bRep = T.initialBearing(origin.lat, origin.lon, pc[1][1], pc[1][0]);
+        needsRepair = !startOk ||
+          Math.abs(bRec - az) > 0.5 ||
+          Math.abs(bRep - T.reciprocalAzimuth(az)) > 0.5 ||
+          Math.abs(bearingSeparationDeg(bRec, bRep) - 180) > 0.5;
+      }
+      if (!needsRepair) return;
+      reception.geometry = {
+        type: 'LineString',
+        coordinates: T.buildBearingLineFeature(origin.lat, origin.lon, az, range, false)
+      };
+      reciprocal.geometry = {
+        type: 'LineString',
+        coordinates: T.buildBearingLineFeature(origin.lat, origin.lon, az, range, true)
+      };
+      reciprocal.properties[T.PROP_AZIMUTH] = T.reciprocalAzimuth(az);
+      changed = true;
+    });
+    return changed;
+  }
+
   function isFixFeature(props) {
     return props && FIX_ROLES.has(props[T.PROP_ROLE]);
   }
@@ -248,7 +552,7 @@
     (mission && mission.features || []).forEach((f) => {
       const p = f.properties || {};
       if (p[T.PROP_ROLE] !== 'relevement_df') return;
-      if (p[T.PROP_BEARING_RECIPROCAL] === true) return;
+      if (isReciprocalProp(p)) return;
       const stationId = p[T.PROP_STATION_ID];
       if (!stationId) return;
       const station = findStationById(mission, stationId);
@@ -260,10 +564,100 @@
         azimuth: p[T.PROP_AZIMUTH],
         stationLat: c[1],
         stationLon: c[0],
-        stationLabel: (station.properties && station.properties.label) || 'Station DF'
+        stationLabel: (station.properties && station.properties.label) || 'Station DF',
+        teamId: p[T.PROP_TEAM_ID] || null,
+        teamName: p[T.PROP_TEAM_NAME] || null
       });
     });
     return out;
+  }
+
+  function clearBearingClickContexts() {
+    bearingClickContext = null;
+    pendingBearingClickContext = null;
+  }
+
+  function bearingClickInputLatLng(clickContext) {
+    if (!clickContext) return null;
+    if (clickContext.latlng) return clickContext.latlng;
+    if (clickContext.lat == null) return null;
+    const lon = clickContext.lon != null ? clickContext.lon : clickContext.lng;
+    if (lon == null) return null;
+    return L.latLng(clickContext.lat, lon);
+  }
+
+  function captureBearingTargetContext(latlng) {
+    if (!latlng) return null;
+    const lat = latlng.lat;
+    const lon = latlng.lng;
+    let alt = null;
+    if (getElevationFn) {
+      try {
+        alt = getElevationFn(lat, lon);
+      } catch (e) { /* ignore */ }
+    }
+    return { lat, lon, alt, latlng: L.latLng(lat, lon) };
+  }
+
+  function snapshotLatLng(latlng) {
+    if (!latlng) return null;
+    return L.latLng(latlng.lat, latlng.lng);
+  }
+
+  function getGlobalRightClickLatLng() {
+    const fn = global.getLastRightClickLatLng;
+    if (typeof fn !== 'function') return null;
+    return fn();
+  }
+
+  function adoptBearingClickContext(clickContext) {
+    if (clickContext != null) {
+      pendingBearingClickContext = null;
+      bearingClickContext = captureBearingTargetContext(bearingClickInputLatLng(clickContext));
+      return bearingClickContext;
+    }
+    if (pendingBearingClickContext != null) {
+      bearingClickContext = pendingBearingClickContext;
+      pendingBearingClickContext = null;
+      return bearingClickContext;
+    }
+    bearingClickContext = null;
+    return null;
+  }
+
+  function computeBearingDefaults(station, targetCtx) {
+    if (!station || !targetCtx || !station.geometry || !station.geometry.coordinates) return null;
+    const sc = station.geometry.coordinates;
+    const stationLat = sc[1];
+    const stationLon = sc[0];
+    const azimuth = T.initialBearing(stationLat, stationLon, targetCtx.lat, targetCtx.lon);
+    let rangeKm = T.DEFAULT_RANGE_KM;
+    const distM = L.latLng(stationLat, stationLon).distanceTo(L.latLng(targetCtx.lat, targetCtx.lon));
+    if (distM > 10) {
+      rangeKm = Math.max(0.1, Math.round(distM / 100) / 10);
+    }
+    return { azimuth, rangeKm };
+  }
+
+  /** Point de relevé figé à l'ouverture du panneau (ajout uniquement). */
+  function getBearingTargetContext() {
+    if (!panelState || panelState.mode !== 'addBearing') return null;
+    return panelState.bearingTarget || null;
+  }
+
+  function renderBearingTargetInfo(ctx) {
+    if (!panelBearingTargetEl) return;
+    if (!ctx) {
+      panelBearingTargetEl.hidden = true;
+      panelBearingTargetEl.innerHTML = '';
+      return;
+    }
+    panelBearingTargetEl.hidden = false;
+    const lines = formatCoordsLines(ctx.lat, ctx.lon);
+    if (ctx.alt != null) lines.push('Alt. : ' + ctx.alt + ' m');
+    panelBearingTargetEl.innerHTML =
+      '<p class="situation-hint">Point de relevé (position du clic)</p>' +
+      lines.map((l) => '<div class="coords-line">' + escapeHtml(l) + '</div>').join('');
   }
 
   function formatCoordsLines(lat, lon) {
@@ -453,7 +847,7 @@
   function getLineStyle(roleId, closed, props) {
     const role = T.getRole(roleId);
     let base;
-    if (roleId === 'relevement_df' && props && props[T.PROP_BEARING_RECIPROCAL] === true) {
+    if (roleId === 'relevement_df' && props && isReciprocalProp(props)) {
       base = (role && role.lineStyleReciprocal) || { color: '#e65100', weight: 2, dashArray: '8 6', opacity: 0.75 };
     } else if (role && role.lineStyle) {
       base = role.lineStyle;
@@ -502,10 +896,10 @@
     if (props[T.PROP_RANGE_KM] != null) {
       html += '<b>Portée :</b> ' + escapeHtml(String(props[T.PROP_RANGE_KM])) + ' km<br>';
     }
-    if (props[T.PROP_BEARING_RECIPROCAL] === true) {
-      html += '<i>Ligne réciproque</i><br>';
+    if (isReciprocalProp(props)) {
+      html += '<i>Signal arrière (trait pointillé)</i><br>';
     } else if (props[T.PROP_BEARING_RECIPROCAL] === false) {
-      html += '<i>Ligne réception</i><br>';
+      html += '<i>Signal direct (trait plein)</i><br>';
     }
     if (props[T.PROP_QUALITY_ANGLE] != null) {
       html += '<b>Angle de coupe :</b> ' + escapeHtml(String(props[T.PROP_QUALITY_ANGLE])) + '°';
@@ -518,6 +912,12 @@
     }
     if (props[T.PROP_UNCERTAINTY_KM] != null && props[T.PROP_ROLE] === 'fixe_estime') {
       html += '<b>Incertitude :</b> ± ' + escapeHtml(String(props[T.PROP_UNCERTAINTY_KM])) + ' km<br>';
+    }
+    if (props[T.PROP_TEAM_NAME]) {
+      html += '<b>Équipe :</b> ' + escapeHtml(props[T.PROP_TEAM_NAME]) + '<br>';
+    }
+    if (props[T.PROP_ELEVATION_M] != null) {
+      html += '<b>Altitude :</b> ' + escapeHtml(String(props[T.PROP_ELEVATION_M])) + ' m<br>';
     }
     return html;
   }
@@ -541,15 +941,233 @@
     }
   }
 
-  function stationFeatures(mission) {
-    return (mission && mission.features || []).filter((f) => {
-      const p = f.properties || {};
-      return p[T.PROP_ROLE] === 'station_df' && f.geometry && f.geometry.type === 'Point';
+  /** Horodatage local pour noms de fichiers export (YYYYMMDD_HHMMSS). */
+  function formatExportDateHeure(d) {
+    d = d || new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + '_' +
+      pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds());
+  }
+
+  function missionFeaturesList(mission) {
+    if (!mission) return [];
+    const feats = mission.features;
+    if (Array.isArray(feats)) return feats;
+    if (feats && Array.isArray(feats.features)) return feats.features;
+    return [];
+  }
+
+  function ensureMissionFeatures(mission) {
+    if (!mission) return;
+    if (Array.isArray(mission.features)) return;
+    if (mission.features && Array.isArray(mission.features.features)) {
+      mission.features = mission.features.features;
+      return;
+    }
+    mission.features = [];
+  }
+
+  function featureRoleId(props) {
+    if (!props) return '';
+    return props[T.PROP_ROLE] || props.role || '';
+  }
+
+  function isPointGeometry(geom) {
+    if (!geom) return false;
+    if (geom.type) {
+      const t = String(geom.type);
+      if (t === 'Point' || t === 'point') return true;
+    }
+    const c = geom.coordinates;
+    return Array.isArray(c) && c.length >= 2 && typeof c[0] === 'number' && typeof c[1] === 'number';
+  }
+
+  function isStationDfFeature(f) {
+    if (!f || !isPointGeometry(f.geometry)) return false;
+    return featureRoleId(f.properties) === 'station_df';
+  }
+
+  function isStationDfFeatureForMission(f, missionId, opts) {
+    opts = opts || {};
+    if (!isStationDfFeature(f)) return false;
+    if (opts.trustMission) return true;
+    const p = f.properties || {};
+    if (missionId && p[T.PROP_MISSION_ID] && p[T.PROP_MISSION_ID] !== missionId) return false;
+    return true;
+  }
+
+  function stationFeatureKey(f) {
+    const id = f.properties && f.properties.id;
+    if (id) return 'id:' + id;
+    const c = f.geometry && f.geometry.coordinates;
+    return c ? 'c:' + JSON.stringify(c) : '';
+  }
+
+  function sarLayerGroupForMission(missionId) {
+    const group = layersRef && layersRef[LAYER_NAME];
+    if (!group) return null;
+    const layerMid = group._cartoffSarMissionId;
+    if (layerMid != null && layerMid !== missionId) return null;
+    return group;
+  }
+
+  function stationFeaturesFromLayer(missionId) {
+    const out = [];
+    const seen = new Set();
+    const group = sarLayerGroupForMission(missionId);
+    if (!group) return out;
+    group.eachLayer((layer) => {
+      const feat = layer._cartoffSarFeature;
+      if (!feat || !isStationDfFeature(feat)) return;
+      const key = stationFeatureKey(feat);
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      out.push(feat);
     });
+    return out;
+  }
+
+  /** Réaligne mission.features sur les marqueurs station visibles du calque SAR. */
+  function syncMissionStationsFromLayer(mission) {
+    if (!mission || !mission.id) return false;
+    const layerStations = stationFeaturesFromLayer(mission.id);
+    if (!layerStations.length) return false;
+    ensureMissionFeatures(mission);
+    const seen = new Set();
+    missionFeaturesList(mission).forEach((f) => {
+      if (!isStationDfFeature(f)) return;
+      const key = stationFeatureKey(f);
+      if (key) seen.add(key);
+    });
+    let changed = false;
+    layerStations.forEach((f) => {
+      const key = stationFeatureKey(f);
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      const p = f.properties || {};
+      if (mission.id && !p[T.PROP_MISSION_ID]) {
+        p[T.PROP_MISSION_ID] = mission.id;
+      }
+      mission.features.push(f);
+      changed = true;
+    });
+    if (changed) saveStore();
+    return changed;
+  }
+
+  function debugStationDiscovery(mission, context) {
+    const mid = mission && mission.id;
+    const group = layersRef && layersRef[LAYER_NAME];
+    const feats = mission ? missionFeaturesList(mission) : [];
+    const inFeatures = feats.filter(isStationDfFeature);
+    const fromLayer = mid ? stationFeaturesFromLayer(mid) : [];
+    const layerStationIds = [];
+    if (group) {
+      group.eachLayer((layer) => {
+        const feat = layer._cartoffSarFeature;
+        if (feat && isStationDfFeature(feat)) {
+          layerStationIds.push((feat.properties && feat.properties.id) || stationFeatureKey(feat));
+        }
+      });
+    }
+    console.warn('[CartoffSar] ' + (context || 'station discovery'), {
+      activeMissionId: store.activeMissionId,
+      missionId: mid,
+      missionType: mission && mission.type,
+      sarModeActive,
+      featuresIsArray: !!(mission && Array.isArray(mission.features)),
+      stationsInMissionFeatures: inFeatures.length,
+      stationsFromLayer: fromLayer.length,
+      layerMissionId: group && group._cartoffSarMissionId,
+      layerOnMap: !!(group && map && map.hasLayer(group)),
+      layerStationIds,
+      pendingStationDraft: !!(panelState && panelState.mode === 'add' && panelState.roleId === 'station_df'),
+      panelStateMissionId: panelState && panelState.missionId
+    });
+  }
+
+  function stationFeatures(mission) {
+    return collectStationDfFeatures(mission).filter(isStationPlaced);
+  }
+
+  function resolveStationsForReleveDf(mission) {
+    if (!mission) return [];
+    ensureMissionFeatures(mission);
+    rebuildLayer();
+    syncMissionStationsFromLayer(mission);
+    return stationFeatures(mission);
+  }
+
+  /** Alerte : stations DF non positionnées (section Équipes). */
+  function alertNoStationDf(mission) {
+    const teams = getMissionTeams(mission);
+    const placed = stationFeatures(mission);
+    const unplaced = teams.filter((t) => !isStationPlaced(findStationForTeam(mission, t.id)));
+    if (teams.length && !placed.length) {
+      const names = unplaced.length ? unplaced.map((t) => t.name).join(', ') : teams.map((t) => t.name).join(', ');
+      alert('Aucune station DF positionnée sur la carte. Section Équipes → « Placer sur carte » pour : ' + names + '.');
+      return;
+    }
+    if (unplaced.length) {
+      alert('Stations non positionnées : ' + unplaced.map((t) => t.name).join(', ') +
+        '. Section Équipes → « Placer sur carte ».');
+      return;
+    }
+    alert('Aucune station DF positionnée. Section Équipes → placez les stations sur la carte.');
   }
 
   function findStationById(mission, stationId) {
     return stationFeatures(mission).find((f) => f.properties && f.properties.id === stationId) || null;
+  }
+
+  function findRelevePointInGroup(mission, groupId) {
+    if (!mission || !groupId) return null;
+    return (mission.features || []).find((f) => {
+      const p = f.properties || {};
+      return p[T.PROP_BEARING_GROUP_ID] === groupId && p[T.PROP_ROLE] === 'releve_point';
+    }) || null;
+  }
+
+  function relevePointToTargetCtx(feature) {
+    if (!feature || !feature.geometry || !feature.geometry.coordinates) return null;
+    const c = feature.geometry.coordinates;
+    const p = feature.properties || {};
+    return {
+      lat: c[1],
+      lon: c[0],
+      alt: p[T.PROP_ELEVATION_M] != null ? p[T.PROP_ELEVATION_M] : null,
+      latlng: L.latLng(c[1], c[0])
+    };
+  }
+
+  function resolveBearingOrigin(targetCtx, stationFeature) {
+    if (targetCtx && targetCtx.lat != null && targetCtx.lon != null) {
+      return { lat: targetCtx.lat, lon: targetCtx.lon };
+    }
+    if (stationFeature && stationFeature.geometry && stationFeature.geometry.coordinates) {
+      const c = stationFeature.geometry.coordinates;
+      return { lat: c[1], lon: c[0] };
+    }
+    return null;
+  }
+
+  function getBearingOriginForPanel(mission) {
+    if (!panelState || !mission) return null;
+    if (panelState.mode === 'addBearing') {
+      const ctx = getBearingTargetContext();
+      if (ctx && ctx.lat != null) return { lat: ctx.lat, lon: ctx.lon };
+      return null;
+    }
+    if (panelState.mode === 'editBearing' && panelState.bearingGroupId) {
+      const rp = findRelevePointInGroup(mission, panelState.bearingGroupId);
+      if (rp && rp.geometry && rp.geometry.coordinates) {
+        const c = rp.geometry.coordinates;
+        return { lat: c[1], lon: c[0] };
+      }
+      const station = findStationById(mission, panelState.stationId);
+      return resolveBearingOrigin(null, station);
+    }
+    return null;
   }
 
   function featuresInBearingGroup(mission, groupId) {
@@ -570,8 +1188,22 @@
   function setPanelFieldVisibility(roleId, panelKind) {
     const isStation = roleId === 'station_df' || panelKind === 'station';
     const isBearing = roleId === 'relevement_df' || panelKind === 'bearing';
-    if (panelDfFieldsEl) panelDfFieldsEl.hidden = !isStation;
-    if (panelBearingFieldsEl) panelBearingFieldsEl.hidden = !isBearing;
+    if (panelDfFieldsEl) {
+      panelDfFieldsEl.hidden = !isStation;
+      if (isStation) panelDfFieldsEl.removeAttribute('hidden');
+      else panelDfFieldsEl.setAttribute('hidden', '');
+    }
+    if (panelBearingFieldsEl) {
+      panelBearingFieldsEl.hidden = !isBearing;
+      if (isBearing) panelBearingFieldsEl.removeAttribute('hidden');
+      else panelBearingFieldsEl.setAttribute('hidden', '');
+    }
+  }
+
+  function updatePanelTeamSelect(mission, roleId, panelKind, teamId, lockTeam) {
+    const showTeam = (roleId === 'station_df' || panelKind === 'station' ||
+      roleId === 'relevement_df' || panelKind === 'bearing');
+    populateTeamSelect(mission, teamId, showTeam, lockTeam);
   }
 
   function escapeHtml(str) {
@@ -610,7 +1242,11 @@
       const geom = feature.geometry || {};
       const isLine = geom.type === 'LineString';
       const isPolygon = geom.type === 'Polygon';
-      let latlng = clickLatLng || (layer.getLatLng ? layer.getLatLng() : null);
+      let clickLatlng = clickLatLng;
+      if (!clickLatlng && map) {
+        try { clickLatlng = map.mouseEventToLatLng(domEvent); } catch (e) { /* ignore */ }
+      }
+      let latlng = layer.getLatLng ? layer.getLatLng() : null;
       if (!latlng && geom.type === 'Point' && geom.coordinates) {
         latlng = L.latLng(geom.coordinates[1], geom.coordinates[0]);
       }
@@ -622,7 +1258,7 @@
         const ring = geom.coordinates[0].map((c) => L.latLng(c[1], c[0]));
         latlng = L.polygon(ring).getBounds().getCenter();
       }
-      openFeatureContextMenu(domEvent.clientX, domEvent.clientY, feature, mission, latlng);
+      openFeatureContextMenu(domEvent.clientX, domEvent.clientY, feature, mission, latlng, clickLatlng);
     };
     layer.on('contextmenu', (e) => {
       if (e.originalEvent) showMenu(e.originalEvent, e.latlng);
@@ -730,8 +1366,7 @@
 
   function rebuildLayer() {
     const mission = getActiveMission();
-    const checkbox = document.getElementById('sarLayerCheckbox');
-    const wasVisible = layerVisible && map && layersRef && layersRef[LAYER_NAME] && map.hasLayer(layersRef[LAYER_NAME]);
+    const wasVisible = sarModeActive && map && layersRef && layersRef[LAYER_NAME] && map.hasLayer(layersRef[LAYER_NAME]);
 
     if (!mission) {
       legendEntries = [];
@@ -753,11 +1388,9 @@
     const newLayer = buildLayerFromFeatures(features, mission);
     if (layersRef) layersRef[LAYER_NAME] = newLayer;
 
-    const shouldShow = wasVisible || (checkbox && checkbox.checked);
+    const shouldShow = wasVisible || sarModeActive;
     if (shouldShow && map) {
       newLayer.addTo(map);
-      layerVisible = true;
-      if (checkbox) checkbox.checked = true;
     }
     if (updateLegendFn) updateLegendFn();
   }
@@ -769,22 +1402,27 @@
 
     let html = '<p class="situation-hint" id="sarHint">';
     if (!mission) {
-      html += 'Créez une mission puis activez le mode SAR pour saisir des éléments.';
+      if (store.missions.length) {
+        html += 'Sélectionnez une mission dans « Mission active », puis cochez Mode SAR.';
+      } else {
+        html += 'Créez une mission puis activez le mode SAR pour saisir des éléments.';
+      }
     } else if (!canEdit) {
       html += 'Mission clôturée — consultation uniquement. Réactivez la mission pour modifier.';
     } else if (sarModeActive) {
       if (mission && mission.type === 'aeronef') {
-        html += 'Mode SAR actif : station DF, relèvements (clic droit ou outils ci-dessous).';
+        html += 'Mode SAR actif : stations DF (section Équipes), relèvements via clic droit carte.';
       } else {
         html += 'Mode SAR actif : clic droit sur la carte ou outils ci-dessous.';
       }
     } else if (mission && mission.type === 'aeronef') {
-      html += 'Cochez « Mode SAR » pour placer des stations DF et des relèvements.';
+      html += 'Cochez « Mode SAR » pour relèvements (clic droit) et repositionner les stations DF.';
     } else {
       html += 'Cochez « Mode SAR » pour saisir LKP, indices, tracés…';
     }
     html += '</p>';
 
+    html += '<span class="sar-draw-label">Mission</span>';
     html += '<div class="sar-mission-form">';
     html += '<label>Nouvelle mission<input type="text" id="sarNewMissionName" placeholder="Ex. Personne disparue secteur X" maxlength="80"></label>';
     html += '<p class="situation-hint sar-mission-name-hint">Le préfixe SAR + date du jour sera ajouté à la création.</p>';
@@ -805,6 +1443,9 @@
     if (!store.missions.length) {
       html += '<option value="">— Aucune mission —</option>';
     } else {
+      if (!store.activeMissionId) {
+        html += '<option value="" selected>— Sélectionner une mission —</option>';
+      }
       store.missions.forEach((m) => {
         const sel = m.id === store.activeMissionId ? ' selected' : '';
         const status = missionStatusLabel(m.status);
@@ -823,23 +1464,68 @@
     }
     html += '</div></div>';
 
+    if (mission) {
+      ensureMissionTeams(mission);
+      if (mission.type === 'aeronef') {
+        ensureDefaultAeronefTeams(mission);
+        ensureDefaultAeronefStations(mission);
+      }
+      const teams = getMissionTeams(mission);
+      html += '<div class="sar-teams-panel">';
+      html += '<span class="sar-draw-label">Équipes</span>';
+      if (mission.type === 'aeronef') {
+        html += '<p class="situation-hint sar-teams-df-hint">Équipes DF — stations par défaut au SDIS 42. « Placer sur carte » pour repositionner.</p>';
+      }
+      if (canEdit) {
+        html += '<div class="sar-team-add">';
+        html += '<input type="text" id="sarNewTeamName" placeholder="Ex. Équipe DF Roanne" maxlength="80">';
+        html += '<button type="button" id="sarAddTeamBtn" class="situation-btn">Ajouter équipe</button>';
+        html += '</div>';
+      }
+      if (!teams.length) {
+        html += '<p class="situation-hint">Aucune équipe — créez-les au fil de la session.</p>';
+      } else {
+        html += '<ul class="sar-team-list">';
+        teams.forEach((t) => {
+          const station = findStationForTeam(mission, t.id);
+          const placed = isStationPlaced(station);
+          html += '<li class="sar-team-row">';
+          html += '<span class="sar-team-name">' + escapeHtml(t.name) + '</span>';
+          if (mission.type === 'aeronef') {
+            if (placed) {
+              html += '<span class="sar-team-station-status" title="Station positionnée">● carte</span>';
+            } else {
+              html += '<span class="sar-team-station-status sar-team-station-missing" title="Non positionnée">○</span>';
+            }
+          }
+          if (canEdit && mission.type === 'aeronef') {
+            const placeLabel = placed ? 'Repositionner' : 'Placer sur carte';
+            html += '<button type="button" class="situation-btn sar-team-place-btn" data-team-id="' +
+              escapeHtml(t.id) + '">' + placeLabel + '</button>';
+          }
+          if (canEdit) {
+            html += '<button type="button" class="situation-btn sar-team-delete-btn" data-team-id="' +
+              escapeHtml(t.id) + '" title="Supprimer">✕</button>';
+          }
+          html += '</li>';
+        });
+        html += '</ul>';
+      }
+      html += '</div>';
+    }
+
     html += '<label class="situation-filter"><input type="checkbox" id="sarModeCheckbox"' +
       (sarModeActive ? ' checked' : '') +
-      (canEdit ? '' : ' disabled') +
+      (mission && canEdit ? '' : ' disabled') +
       '> Mode SAR</label>';
-
-    html += '<label class="situation-filter"><input type="checkbox" id="sarLayerCheckbox"' +
-      (layerVisible ? ' checked' : '') +
-      (mission ? '' : ' disabled') +
-      '> Afficher sur la carte</label>';
+    if (!mission && store.missions.length) {
+      html += '<p class="situation-hint sar-mode-hint">Mode SAR disponible après sélection d\'une mission active.</p>';
+    } else if (mission && !canEdit) {
+      html += '<p class="situation-hint sar-mode-hint">Réactivez la mission pour activer le mode SAR.</p>';
+    }
 
     if (mission && canEdit && sarModeActive) {
-      if (mission.type === 'aeronef') {
-        html += '<div class="sar-draw-tools"><span class="sar-draw-label">Aéronef — DF / balise</span><div class="situation-toolbar">';
-        html += '<button type="button" class="situation-btn sar-aeronef-btn" data-sar-action="station_df">Station DF</button>';
-        html += '<button type="button" class="situation-btn sar-aeronef-btn" data-sar-action="bearing">Relèvement</button>';
-        html += '</div></div>';
-      } else {
+      if (mission.type !== 'aeronef') {
         html += '<div class="sar-draw-tools"><span class="sar-draw-label">Points</span><div class="situation-toolbar">';
         T.pointRoles(mission.type).forEach((role) => {
           html += '<button type="button" class="situation-btn sar-draw-btn" data-sar-role="' + role.id + '" data-sar-geom="point">' + role.shortLabel + '</button>';
@@ -892,7 +1578,7 @@
       }
       html += '</div>';
 
-      if (hasFix && (sarModeActive || layerVisible)) {
+      if (hasFix && sarModeActive) {
         ensureVisibleFixIds(mission);
         html += '<div class="sar-fix-checklist-wrap">';
         html += '<span class="sar-draw-label">Fixes sur la carte</span>';
@@ -944,7 +1630,7 @@
           html += '</div>';
         }
       } else if (hasFix) {
-        html += '<p class="situation-hint sar-intersection-hint">Activez le mode SAR ou l\'affichage carte pour choisir les fixes visibles.</p>';
+        html += '<p class="situation-hint sar-intersection-hint">Activez le mode SAR pour choisir les fixes visibles.</p>';
       }
 
       html += '<div class="situation-toolbar">';
@@ -962,6 +1648,46 @@
 
     sidebarEl.innerHTML = html;
     wireSidebarEvents();
+    if (global.CartoffSarOperation) {
+      global.CartoffSarOperation.updateVisibility(sarModeActive);
+    }
+  }
+
+  let sidebarDelegationWired = false;
+
+  function wireSidebarDelegation() {
+    if (sidebarDelegationWired || !sidebarEl) return;
+    sidebarDelegationWired = true;
+    sidebarEl.addEventListener('change', (e) => {
+      if (e.target.id !== 'sarModeCheckbox') return;
+      if (e.target.checked) {
+        let mission = getActiveMission();
+        if (!mission) {
+          const sel = document.getElementById('sarMissionSelect');
+          if (sel && sel.value && getMission(sel.value)) {
+            store.activeMissionId = sel.value;
+            mission = getMission(sel.value);
+          }
+        }
+        if (!missionCanEdit(mission)) {
+          e.target.checked = false;
+          return;
+        }
+      }
+      sarModeActive = e.target.checked;
+      cancelInteractions();
+      saveStore();
+      rebuildLayer();
+      renderSidebar();
+    });
+  }
+
+  function setSarModeActive(enabled) {
+    sarModeActive = !!enabled;
+    cancelInteractions();
+    saveStore();
+    rebuildLayer();
+    renderSidebar();
   }
 
   function wireSidebarEvents() {
@@ -1007,30 +1733,44 @@
       });
     }
 
-    const modeCb = document.getElementById('sarModeCheckbox');
-    if (modeCb) {
-      modeCb.addEventListener('change', (e) => {
-        sarModeActive = e.target.checked;
-        cancelInteractions();
+    const addTeamBtn = document.getElementById('sarAddTeamBtn');
+    if (addTeamBtn) {
+      addTeamBtn.addEventListener('click', () => {
+        const mission = getActiveMission();
+        if (!mission || !missionCanEdit(mission)) return;
+        const nameEl = document.getElementById('sarNewTeamName');
+        const name = (nameEl && nameEl.value || '').trim();
+        if (!name) {
+          alert('Indiquez un nom d\'équipe.');
+          return;
+        }
+        addTeam(mission, name);
+        if (nameEl) nameEl.value = '';
         renderSidebar();
       });
     }
 
-    const layerCb = document.getElementById('sarLayerCheckbox');
-    if (layerCb) {
-      layerCb.addEventListener('change', (e) => {
-        layerVisible = e.target.checked;
-        const layer = layersRef && layersRef[LAYER_NAME];
-        if (!layer || !map) return;
-        if (e.target.checked) {
-          if (!map.hasLayer(layer)) layer.addTo(map);
-        } else if (map.hasLayer(layer)) {
-          map.removeLayer(layer);
-        }
-        if (updateLegendFn) updateLegendFn();
-        renderSidebar();
+    document.querySelectorAll('.sar-team-delete-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const mission = getActiveMission();
+        if (!mission || !missionCanEdit(mission)) return;
+        const teamId = btn.getAttribute('data-team-id');
+        const team = findTeamById(mission, teamId);
+        if (!team) return;
+        if (!confirm('Supprimer l\'équipe « ' + team.name + ' » ?')) return;
+        deleteTeam(mission, teamId);
       });
-    }
+    });
+
+    document.querySelectorAll('.sar-team-place-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const mission = getActiveMission();
+        if (!mission || !missionCanEdit(mission) || mission.type !== 'aeronef') return;
+        const teamId = btn.getAttribute('data-team-id');
+        if (!findTeamById(mission, teamId)) return;
+        startTeamStationPlaceMode(teamId);
+      });
+    });
 
     document.querySelectorAll('.sar-draw-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -1039,14 +1779,6 @@
         if (geom === 'point') startPointPickMode(roleId);
         else if (geom === 'line') startLineDrawMode(roleId);
         else if (geom === 'polygon') startPolygonDrawMode(roleId);
-      });
-    });
-
-    document.querySelectorAll('.sar-aeronef-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const action = btn.getAttribute('data-sar-action');
-        if (action === 'station_df') startPointPickMode('station_df');
-        else if (action === 'bearing') startBearingFlow(null);
       });
     });
 
@@ -1147,12 +1879,17 @@
       type: type || 'personne',
       status: 'active',
       created_at: new Date().toISOString(),
-      features: []
+      features: [],
+      teams: []
     };
+    ensureMissionTeams(mission);
+    if (mission.type === 'aeronef') {
+      ensureDefaultAeronefTeams(mission);
+      ensureDefaultAeronefStations(mission, { force: true });
+    }
     store.missions.push(mission);
     store.activeMissionId = mission.id;
     sarModeActive = true;
-    layerVisible = true;
     saveStore();
     rebuildLayer();
     renderSidebar();
@@ -1195,7 +1932,7 @@
   }
 
   function persistFeature(mission, feature, mode, featureId) {
-    if (!mission.features) mission.features = [];
+    ensureMissionFeatures(mission);
     if (mode === 'edit') {
       const idx = mission.features.findIndex((f) => f.properties && f.properties.id === featureId);
       if (idx >= 0) mission.features[idx] = feature;
@@ -1265,10 +2002,10 @@
       if (!m) return;
       features = m.features || [];
       const safe = m.name.replace(/[^\w\u00C0-\u024F\-]+/g, '_').slice(0, 40);
-      filename = 'sar_mission_' + safe + '.geojson';
+      filename = 'sar_mission_' + safe + '_' + formatExportDateHeure() + '.geojson';
     } else {
       features = allFeatures();
-      filename = 'sar_missions.geojson';
+      filename = 'sar_missions_' + formatExportDateHeure() + '.geojson';
     }
     const json = JSON.stringify({ type: 'FeatureCollection', features }, null, 2);
     const blob = new Blob([json], { type: 'application/geo+json' });
@@ -1299,6 +2036,7 @@
     } else {
       receptions.forEach((r, i) => {
         lines.push((i + 1) + '. ' + r.stationLabel + ' — azimut ' + r.azimuth + '°');
+        if (r.teamName) lines.push('   Équipe : ' + r.teamName);
         lines.push('   Station : ' + r.stationLat.toFixed(6) + ', ' + r.stationLon.toFixed(6));
       });
     }
@@ -1376,7 +2114,7 @@
     const receptionBase = (role && role.lineStyle) || { color: '#e65100', weight: 3 };
     const reciprocalBase = (role && role.lineStyleReciprocal) || { color: '#e65100', weight: 2, dashArray: '8 6' };
     return {
-      reception: { ...receptionBase, opacity: 0.5, dashArray: '6 4', pane: 'sarPane' },
+      reception: { ...receptionBase, opacity: 0.55, pane: 'sarPane' },
       reciprocal: { ...reciprocalBase, opacity: 0.4, pane: 'sarPane' }
     };
   }
@@ -1391,6 +2129,15 @@
       azimuth: T.normalizeAzimuth(azRaw),
       rangeKm: Math.max(0.1, Math.round(range * 10) / 10)
     };
+  }
+
+  function applyBearingPreviewPolylines(receptionLatLngs, reciprocalLatLngs) {
+    if (!bearingPreviewLayer) return;
+    bearingPreviewLayer.eachLayer((layer) => {
+      if (typeof layer.setLatLngs !== 'function') return;
+      const isReciprocal = !!(layer.options && layer.options.dashArray);
+      layer.setLatLngs(isReciprocal ? reciprocalLatLngs : receptionLatLngs);
+    });
   }
 
   function updateBearingPreview() {
@@ -1417,38 +2164,67 @@
       removeBearingPreview();
       return;
     }
-    const coords = station.geometry.coordinates;
-    const stationLon = coords[0];
-    const stationLat = coords[1];
-    const receptionCoords = T.bearingLineCoordinates(stationLat, stationLon, bearing.azimuth, bearing.rangeKm);
-    const reciprocalCoords = T.bearingLineCoordinates(
-      stationLat, stationLon, T.reciprocalAzimuth(bearing.azimuth), bearing.rangeKm
-    );
+    const origin = getBearingOriginForPanel(mission);
+    if (!origin) {
+      removeBearingPreview();
+      return;
+    }
+    const receptionCoords = T.buildBearingLineFeature(origin.lat, origin.lon, bearing.azimuth, bearing.rangeKm, false);
+    const reciprocalCoords = T.buildBearingLineFeature(origin.lat, origin.lon, bearing.azimuth, bearing.rangeKm, true);
     const styles = bearingPreviewStyles();
     const receptionLatLngs = receptionCoords.map((c) => L.latLng(c[1], c[0]));
     const reciprocalLatLngs = reciprocalCoords.map((c) => L.latLng(c[1], c[0]));
+    const targetCtx = panelState.mode === 'addBearing'
+      ? getBearingTargetContext()
+      : relevePointToTargetCtx(findRelevePointInGroup(mission, panelState.bearingGroupId));
     if (!bearingPreviewLayer) {
-      bearingPreviewLayer = L.layerGroup([
+      const layers = [
         L.polyline(receptionLatLngs, styles.reception),
         L.polyline(reciprocalLatLngs, styles.reciprocal)
-      ], { pane: 'sarPane' }).addTo(map);
+      ];
+      if (targetCtx && targetCtx.latlng) {
+        layers.push(L.marker(targetCtx.latlng, {
+          icon: getMarkerIcon('releve_point', false),
+          pane: 'sarPane',
+          interactive: false
+        }));
+      }
+      bearingPreviewLayer = L.layerGroup(layers, { pane: 'sarPane' }).addTo(map);
       return;
     }
+    applyBearingPreviewPolylines(receptionLatLngs, reciprocalLatLngs);
     const layers = bearingPreviewLayer.getLayers();
-    if (layers[0]) layers[0].setLatLngs(receptionLatLngs);
-    if (layers[1]) layers[1].setLatLngs(reciprocalLatLngs);
+    const markerLayer = layers.find((layer) => typeof layer.setLatLng === 'function' && typeof layer.setLatLngs !== 'function');
+    if (targetCtx && targetCtx.latlng) {
+      if (markerLayer) {
+        markerLayer.setLatLng(targetCtx.latlng);
+      } else {
+        bearingPreviewLayer.addLayer(L.marker(targetCtx.latlng, {
+          icon: getMarkerIcon('releve_point', false),
+          pane: 'sarPane',
+          interactive: false
+        }));
+      }
+    } else if (markerLayer) {
+      bearingPreviewLayer.removeLayer(markerLayer);
+    }
   }
 
   function closePanel() {
     if (panelState && panelState.draftMarker && map) map.removeLayer(panelState.draftMarker);
     if (panelState && panelState.draftLayer && map) map.removeLayer(panelState.draftLayer);
     removeBearingPreview();
+    clearBearingClickContexts();
+    stopBearingPickMode();
+    if (drawBannerEl) drawBannerEl.hidden = true;
     panelState = null;
     if (panelEl) panelEl.hidden = true;
+    renderBearingTargetInfo(null);
   }
 
   function showPanel(opts) {
     if (!panelEl) return;
+    dismissPanelOverlays();
     const role = T.getRole(opts.roleId);
     const panelKind = opts.panelKind || null;
     if (panelTitleEl) {
@@ -1474,44 +2250,67 @@
       panelRangeEl.value = opts.rangeKm != null ? String(opts.rangeKm) : String(T.DEFAULT_RANGE_KM);
     }
     setPanelFieldVisibility(opts.roleId, panelKind);
+    const mission = getMission(opts.missionId) || getActiveMission();
+    updatePanelTeamSelect(mission, opts.roleId, panelKind, opts.teamId, opts.lockTeam);
     if (panelDeleteBtn) {
       panelDeleteBtn.hidden = opts.mode !== 'edit' && opts.mode !== 'editBearing';
     }
+    if (!panelEl) return;
     panelEl.hidden = false;
+    panelEl.removeAttribute('hidden');
+    panelEl.style.display = 'block';
+    panelEl.style.zIndex = '3300';
     const pos = clampPopupPosition(panelEl, opts.clientX, opts.clientY, 10);
     panelEl.style.left = pos.x + 'px';
     panelEl.style.top = pos.y + 'px';
     if (opts.panelKind === 'bearing' || opts.mode === 'addBearing' || opts.mode === 'editBearing') {
+      let bearingTargetInfo = null;
+      if (opts.mode === 'addBearing' && opts.bearingTarget) {
+        bearingTargetInfo = opts.bearingTarget;
+      } else if (opts.mode === 'editBearing' && mission && panelState && panelState.bearingGroupId) {
+        bearingTargetInfo = relevePointToTargetCtx(findRelevePointInGroup(mission, panelState.bearingGroupId));
+      }
+      renderBearingTargetInfo(bearingTargetInfo);
       updateBearingPreview();
     } else {
+      renderBearingTargetInfo(null);
       removeBearingPreview();
     }
   }
 
-  function openPanelAdd(roleId, latlng, clientX, clientY, draftMarker, draftLayer, coordinates, geometryKind) {
+  function openPanelAdd(roleId, latlng, clientX, clientY, draftMarker, draftLayer, coordinates, geometryKind, presetTeamId) {
     closePanel();
     cancelDrawMode();
     pendingPointRole = null;
-    pendingBearingPick = false;
+    pendingTeamStationId = null;
     if (map) {
       map.off('click', onPointPickClick);
-      map.off('click', onBearingStationPickClick);
     }
+    const activeMission = getActiveMission();
+    const lockTeam = !!presetTeamId;
+    const team = presetTeamId && activeMission ? findTeamById(activeMission, presetTeamId) : null;
     panelState = {
       mode: 'add',
       roleId,
+      missionId: activeMission ? activeMission.id : null,
       latlng,
       draftMarker: draftMarker || null,
       draftLayer: draftLayer || null,
       coordinates: coordinates || null,
-      geometryKind: geometryKind || (coordinates ? 'line' : null)
+      geometryKind: geometryKind || (coordinates ? 'line' : null),
+      presetTeamId: presetTeamId || null
     };
     showPanel({
       mode: 'add',
       roleId,
       panelKind: roleId === 'station_df' ? 'station' : null,
+      missionId: getActiveMission() && getActiveMission().id,
       clientX,
-      clientY
+      clientY,
+      created_at: roleId === 'station_df' ? new Date().toISOString() : undefined,
+      teamId: presetTeamId || '',
+      lockTeam,
+      label: team && roleId === 'station_df' ? team.name : undefined
     });
   }
 
@@ -1523,7 +2322,7 @@
 
     if (isBearingFeature(props) && groupId) {
       const groupFeats = featuresInBearingGroup(mission, groupId);
-      const reception = groupFeats.find((f) => f.properties && f.properties[T.PROP_BEARING_RECIPROCAL] === false) || feature;
+      const reception = groupFeats.find((f) => isReceptionProp(f.properties)) || feature;
       const rp = reception.properties || {};
       panelState = {
         mode: 'editBearing',
@@ -1536,10 +2335,12 @@
         mode: 'editBearing',
         roleId: 'relevement_df',
         panelKind: 'bearing',
+        missionId: mission.id,
         label: rp.label || '',
         notes: rp.notes || '',
         azimuth: rp[T.PROP_AZIMUTH],
         rangeKm: rp[T.PROP_RANGE_KM],
+        teamId: rp[T.PROP_TEAM_ID] || '',
         clientX,
         clientY
       });
@@ -1558,28 +2359,31 @@
       mode: 'edit',
       roleId: props[T.PROP_ROLE],
       panelKind: props[T.PROP_ROLE] === 'station_df' ? 'station' : null,
+      missionId: mission.id,
       label: props.label || '',
       notes: props.notes || '',
       created_at: props.created_at,
+      teamId: props[T.PROP_TEAM_ID] || '',
       clientX,
       clientY
     });
   }
 
-  function buildBearingFeaturePair(mission, stationFeature, azimuth, rangeKm, label, notes, groupId, createdAt) {
+  /** Paire signal direct (plein) + arrière (pointillé) depuis le point de relevé. */
+  function buildBearingFeaturePair(mission, stationFeature, azimuth, rangeKm, label, notes, groupId, createdAt, teamId, targetCtx) {
     const stationProps = stationFeature.properties || {};
     const stationId = stationProps.id;
-    const coords = stationFeature.geometry.coordinates;
-    const stationLon = coords[0];
-    const stationLat = coords[1];
+    const origin = resolveBearingOrigin(targetCtx, stationFeature);
+    if (!origin) return null;
     const az = T.normalizeAzimuth(azimuth);
     const range = Math.max(0.1, Number(rangeKm) || T.DEFAULT_RANGE_KM);
     const gid = groupId || newId();
     const ts = createdAt || new Date().toISOString();
     const baseLabel = label || ('Relèvement ' + az + '°');
+    const teamProps = resolveTeamProps(mission, teamId);
 
-    const receptionCoords = T.bearingLineCoordinates(stationLat, stationLon, az, range);
-    const reciprocalCoords = T.bearingLineCoordinates(stationLat, stationLon, T.reciprocalAzimuth(az), range);
+    const receptionCoords = T.buildBearingLineFeature(origin.lat, origin.lon, az, range, false);
+    const reciprocalCoords = T.buildBearingLineFeature(origin.lat, origin.lon, az, range, true);
 
     const reception = {
       type: 'Feature',
@@ -1593,7 +2397,8 @@
         [T.PROP_BEARING_GROUP_ID]: gid,
         [T.PROP_AZIMUTH]: az,
         [T.PROP_RANGE_KM]: range,
-        [T.PROP_BEARING_RECIPROCAL]: false
+        [T.PROP_BEARING_RECIPROCAL]: false,
+        ...teamProps
       })
     };
     const reciprocal = {
@@ -1601,23 +2406,54 @@
       geometry: { type: 'LineString', coordinates: reciprocalCoords },
       properties: T.buildFeatureProps(mission, 'relevement_df', {
         id: newId(),
-        label: baseLabel + ' (réciproque)',
+        label: baseLabel + ' (signal arrière)',
         notes: notes || '',
         created_at: ts,
         [T.PROP_STATION_ID]: stationId,
         [T.PROP_BEARING_GROUP_ID]: gid,
         [T.PROP_AZIMUTH]: T.reciprocalAzimuth(az),
         [T.PROP_RANGE_KM]: range,
-        [T.PROP_BEARING_RECIPROCAL]: true
+        [T.PROP_BEARING_RECIPROCAL]: true,
+        ...teamProps
       })
     };
-    enrichLocationProps(reception.properties, stationLat, stationLon);
-    enrichLocationProps(reciprocal.properties, stationLat, stationLon);
+    enrichLocationProps(reception.properties, origin.lat, origin.lon);
+    enrichLocationProps(reciprocal.properties, origin.lat, origin.lon);
     return { reception, reciprocal, groupId: gid };
   }
 
-  function persistBearingPair(mission, stationFeature, azimuth, rangeKm, label, notes, groupId, createdAt) {
-    const pair = buildBearingFeaturePair(mission, stationFeature, azimuth, rangeKm, label, notes, groupId, createdAt);
+  function buildRelevePointFeature(mission, targetCtx, groupId, stationId, label, notes, createdAt, teamProps) {
+    const props = T.buildFeatureProps(mission, 'releve_point', {
+      id: newId(),
+      label: label || 'Point de relevé',
+      notes: notes || '',
+      created_at: createdAt || new Date().toISOString(),
+      [T.PROP_BEARING_GROUP_ID]: groupId,
+      [T.PROP_STATION_ID]: stationId,
+      ...(targetCtx.alt != null ? { [T.PROP_ELEVATION_M]: targetCtx.alt } : {}),
+      ...teamProps
+    });
+    enrichLocationProps(props, targetCtx.lat, targetCtx.lon);
+    return {
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [targetCtx.lon, targetCtx.lat] },
+      properties: props
+    };
+  }
+
+  function persistBearingPair(mission, stationFeature, azimuth, rangeKm, label, notes, groupId, createdAt, teamId, targetCtx) {
+    ensureMissionFeatures(mission);
+    let existingRelevePoint = null;
+    if (groupId) {
+      existingRelevePoint = (mission.features || []).find((f) => {
+        const p = f.properties || {};
+        return p[T.PROP_BEARING_GROUP_ID] === groupId && p[T.PROP_ROLE] === 'releve_point';
+      }) || null;
+    }
+    const pair = buildBearingFeaturePair(
+      mission, stationFeature, azimuth, rangeKm, label, notes, groupId, createdAt, teamId, targetCtx
+    );
+    if (!pair) return;
     if (groupId) {
       mission.features = (mission.features || []).filter((f) => {
         const p = f.properties || {};
@@ -1626,13 +2462,229 @@
     }
     mission.features.push(pair.reception);
     mission.features.push(pair.reciprocal);
+    if (targetCtx && targetCtx.lat != null && targetCtx.lon != null) {
+      const stationProps = stationFeature.properties || {};
+      const teamProps = resolveTeamProps(mission, teamId);
+      mission.features.push(buildRelevePointFeature(
+        mission, targetCtx, pair.groupId, stationProps.id, label, notes,
+        pair.reception.properties.created_at, teamProps
+      ));
+    } else if (existingRelevePoint) {
+      mission.features.push(existingRelevePoint);
+    }
     saveStore();
     rebuildLayer();
     if (mission.type === 'aeronef') maybeAutoUpdateIntersection(mission);
     else renderSidebar();
   }
 
-  function openBearingPanel(stationId, clientX, clientY, editGroupId) {
+  function stationFeatureLabel(st) {
+    const props = st.properties || {};
+    if (props[T.PROP_TEAM_NAME]) return String(props[T.PROP_TEAM_NAME]).trim();
+    return (props.label || 'Station DF').trim();
+  }
+
+  let bearingPickerDismissFn = null;
+
+  function hideBearingStationPicker() {
+    const picker = document.getElementById('sarBearingStationPicker');
+    if (picker) picker.hidden = true;
+    if (bearingPickerDismissFn) {
+      document.removeEventListener('mousedown', bearingPickerDismissFn, true);
+      bearingPickerDismissFn = null;
+    }
+  }
+
+  function ensureBearingStationPickerEl() {
+    let picker = document.getElementById('sarBearingStationPicker');
+    if (picker) return picker;
+    picker = document.createElement('div');
+    picker.id = 'sarBearingStationPicker';
+    picker.className = 'map-context-menu sar-bearing-station-picker';
+    picker.hidden = true;
+    document.body.appendChild(picker);
+    return picker;
+  }
+
+  function dismissPanelOverlays() {
+    hideBearingStationPicker();
+  }
+
+  function bindBearingPickerDismiss(picker) {
+    if (bearingPickerDismissFn) {
+      document.removeEventListener('mousedown', bearingPickerDismissFn, true);
+    }
+    bearingPickerDismissFn = (e) => {
+      if (picker.hidden || picker.contains(e.target)) return;
+      if (e.target.closest && e.target.closest('.situation-panel')) return;
+      if (e.target.closest && e.target.closest('.sar-bearing-station-picker')) return;
+      hideBearingStationPicker();
+    };
+    if (!picker.hidden) {
+      document.addEventListener('mousedown', bearingPickerDismissFn, true);
+    }
+  }
+
+  function resolveReleveDfClickContext(clickContext) {
+    if (clickContext != null) return clickContext;
+    if (pendingBearingClickContext != null) return pendingBearingClickContext;
+    const getTarget = global.getMapContextMenuClickTarget;
+    if (typeof getTarget === 'function') {
+      const target = getTarget();
+      const clickLl = menuTargetClickLatLng(target);
+      if (clickLl) return captureBearingTargetContext(clickLl);
+    }
+    const globalLl = getGlobalRightClickLatLng();
+    if (globalLl) return captureBearingTargetContext(globalLl);
+    return null;
+  }
+
+  function ensureBearingTargetContext(clickContext) {
+    const resolved = resolveReleveDfClickContext(clickContext);
+    if (!resolved) return null;
+    if (resolved.lat != null && resolved.latlng) return resolved;
+    return captureBearingTargetContext(bearingClickInputLatLng(resolved));
+  }
+
+  function beginReleveDfFromContext(clickContext, clientX, clientY, knownStationId) {
+    hideBearingStationPicker();
+    releveDfAfterTargetClick(clickContext, clientX, clientY, knownStationId);
+  }
+
+  function canOfferReleveDf() {
+    if (!sarModeActive) return false;
+    const mission = getActiveMission();
+    if (!mission || mission.type !== 'aeronef') return false;
+    return missionCanEdit(mission);
+  }
+
+  /** Entrée directe menu contextuel — lat/lng figés, ouvre toujours #sarPanel (ou sélecteur station). */
+  function openReleveDfDirect(latlng, clientX, clientY, knownStationId) {
+    let snap = null;
+    if (latlng && latlng.lat != null && latlng.lng != null) {
+      snap = snapshotLatLng(latlng);
+    }
+    if (!snap) snap = snapshotLatLng(getGlobalRightClickLatLng());
+    invokeReleveDfFromMenu(clientX, clientY, knownStationId || null, snap);
+  }
+
+  /** Clic menu contextuel : latlng figé en closure, ouverture panneau synchrone. */
+  function invokeReleveDfFromMenu(clientX, clientY, knownStationId, latlngSnapshot) {
+    let clickContext = null;
+    if (latlngSnapshot) {
+      clickContext = captureBearingTargetContext(latlngSnapshot);
+    }
+    if (!clickContext) {
+      clickContext = resolveReleveDfClickContext(null);
+    }
+    if (clickContext) pendingBearingClickContext = clickContext;
+    beginReleveDfFromContext(clickContext, clientX, clientY, knownStationId);
+  }
+
+  function menuTargetClickLatLng(target) {
+    if (!target) return null;
+    return target.clickLatlng || target.latlng || null;
+  }
+
+  function resolveMenuClickLatLng(target, clickContext) {
+    if (clickContext && clickContext.latlng) return snapshotLatLng(clickContext.latlng);
+    const clickLl = menuTargetClickLatLng(target);
+    if (clickLl) return snapshotLatLng(clickLl);
+    return snapshotLatLng(getGlobalRightClickLatLng());
+  }
+
+  /** Après capture X,Y,Z : choisir la station si besoin, puis ouvrir le panneau. */
+  function releveDfAfterTargetClick(clickContext, clientX, clientY, knownStationId) {
+    const mission = getActiveMission();
+    if (!mission || mission.type !== 'aeronef') return;
+    if (!missionCanEdit(mission)) {
+      alert('Mission non modifiable — réactivez-la pour saisir un relèvement.');
+      return;
+    }
+    if (!sarModeActive) {
+      alert('Activez le mode SAR pour saisir un relèvement DF.');
+      return;
+    }
+    const ctx = ensureBearingTargetContext(clickContext);
+    if (!ctx) {
+      alert('Position du clic introuvable — recliquez sur la carte puis « Relevé DF ».');
+      return;
+    }
+    const stations = resolveStationsForReleveDf(mission);
+    if (!stations.length) {
+      if (panelState && panelState.mode === 'add' && panelState.roleId === 'station_df') {
+        debugStationDiscovery(mission, 'releveDf: station draft non enregistrée');
+        alert('Enregistrez d\'abord la station DF ouverte (bouton Enregistrer).');
+        return;
+      }
+      debugStationDiscovery(mission, 'releveDf: aucune station DF');
+      alertNoStationDf(mission);
+      return;
+    }
+    if (knownStationId) {
+      openBearingPanel(knownStationId, clientX, clientY, null, ctx);
+      return;
+    }
+    if (stations.length === 1) {
+      const sid = stations[0].properties && stations[0].properties.id;
+      openBearingPanel(sid, clientX, clientY, null, ctx);
+      return;
+    }
+    showBearingStationPicker(clientX, clientY, ctx);
+  }
+
+  function showBearingStationPicker(clientX, clientY, clickContext) {
+    const mission = getActiveMission();
+    if (!mission || mission.type !== 'aeronef') return;
+    const stations = stationFeatures(mission);
+    if (!stations.length) return;
+    if (stations.length === 1) {
+      const sid = stations[0].properties && stations[0].properties.id;
+      openBearingPanel(sid, clientX, clientY, null, clickContext);
+      return;
+    }
+    const picker = ensureBearingStationPickerEl();
+    picker.innerHTML = '';
+    const section = document.createElement('div');
+    section.className = 'map-context-menu-section';
+    section.textContent = 'Choisir la station';
+    picker.appendChild(section);
+    stations.forEach((st) => {
+      const sid = st.properties && st.properties.id;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'map-context-menu-item map-context-menu-submenu-item';
+      btn.textContent = '- ' + stationFeatureLabel(st);
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hideBearingStationPicker();
+        openBearingPanel(sid, clientX, clientY, null, clickContext);
+      });
+      picker.appendChild(btn);
+    });
+    picker.hidden = false;
+    const pos = clampPopupPosition(picker, clientX, clientY, 8);
+    picker.style.left = pos.x + 'px';
+    picker.style.top = pos.y + 'px';
+    bindBearingPickerDismiss(picker);
+  }
+
+  function appendReleveDfContextMenu(menuEl, addItem, mission, clientX, clientY, clickContext, target) {
+    const latlngSnapshot = resolveMenuClickLatLng(target, clickContext);
+    const cx = clientX;
+    const cy = clientY;
+    const snapLat = latlngSnapshot ? latlngSnapshot.lat : null;
+    const snapLng = latlngSnapshot ? latlngSnapshot.lng : null;
+    addItem('Relevé DF', () => {
+      if (snapLat != null && snapLng != null) {
+        openReleveDfDirect({ lat: snapLat, lng: snapLng }, cx, cy, null);
+      } else {
+        openReleveDfDirect(null, cx, cy, null);
+      }
+    });
+  }
+
+  function openBearingPanel(stationId, clientX, clientY, editGroupId, clickContext) {
     const mission = getActiveMission();
     if (!mission || !missionCanEdit(mission)) return;
     const station = findStationById(mission, stationId);
@@ -1640,18 +2692,19 @@
       alert('Station DF introuvable.');
       return;
     }
-    closePanel();
+    stopBearingPickMode();
+    dismissPanelOverlays();
     cancelDrawMode();
     pendingPointRole = null;
-    pendingBearingPick = false;
-    if (map) map.off('click', onBearingStationPickClick);
 
     const coords = station.geometry.coordinates;
     const latlng = L.latLng(coords[1], coords[0]);
 
     if (editGroupId) {
+      clearBearingClickContexts();
+      closePanel();
       const groupFeats = featuresInBearingGroup(mission, editGroupId);
-      const reception = groupFeats.find((f) => f.properties && f.properties[T.PROP_BEARING_RECIPROCAL] === false);
+      const reception = groupFeats.find((f) => isReceptionProp(f.properties));
       const rp = (reception && reception.properties) || {};
       panelState = {
         mode: 'editBearing',
@@ -1664,30 +2717,43 @@
         mode: 'editBearing',
         roleId: 'relevement_df',
         panelKind: 'bearing',
+        missionId: mission.id,
         label: rp.label || '',
         notes: rp.notes || '',
         azimuth: rp[T.PROP_AZIMUTH],
         rangeKm: rp[T.PROP_RANGE_KM],
+        teamId: rp[T.PROP_TEAM_ID] || '',
         clientX,
         clientY
       });
       return;
     }
 
+    const targetCtx = adoptBearingClickContext(clickContext);
+    const prevPanel = panelState;
+    if (prevPanel && prevPanel.draftMarker && map) map.removeLayer(prevPanel.draftMarker);
+    if (prevPanel && prevPanel.draftLayer && map) map.removeLayer(prevPanel.draftLayer);
+    removeBearingPreview();
+    const stationProps = station.properties || {};
+    const defaults = targetCtx ? computeBearingDefaults(station, targetCtx) : null;
     panelState = {
       mode: 'addBearing',
       stationId,
       missionId: mission.id,
-      latlng
+      latlng,
+      bearingTarget: targetCtx
     };
     showPanel({
       mode: 'addBearing',
       roleId: 'relevement_df',
       panelKind: 'bearing',
+      missionId: mission.id,
       label: 'Relèvement DF',
       notes: '',
-      azimuth: 0,
-      rangeKm: T.DEFAULT_RANGE_KM,
+      azimuth: defaults ? defaults.azimuth : 0,
+      rangeKm: defaults ? defaults.rangeKm : T.DEFAULT_RANGE_KM,
+      teamId: stationProps[T.PROP_TEAM_ID] || '',
+      bearingTarget: targetCtx,
       clientX,
       clientY
     });
@@ -1722,14 +2788,26 @@
     if (!bearing) return;
     const label = (panelLabelEl && panelLabelEl.value || '').trim() || ('Relèvement ' + bearing.azimuth + '°');
     const notes = (panelNotesEl && panelNotesEl.value || '').trim();
+    const teamId = readPanelTeamId();
     const groupId = panelState.mode === 'editBearing' ? panelState.bearingGroupId : null;
     let createdAt = null;
     if (panelState.mode === 'editBearing') {
       const groupFeats = featuresInBearingGroup(mission, groupId);
-      const reception = groupFeats.find((f) => f.properties && f.properties[T.PROP_BEARING_RECIPROCAL] === false);
+      const reception = groupFeats.find((f) => isReceptionProp(f.properties));
       createdAt = reception && reception.properties && reception.properties.created_at;
     }
-    persistBearingPair(mission, station, bearing.azimuth, bearing.rangeKm, label, notes, groupId, createdAt);
+    let targetCtx = null;
+    if (panelState.mode === 'addBearing') {
+      targetCtx = getBearingTargetContext();
+    } else if (panelState.mode === 'editBearing' && groupId) {
+      const groupFeats = featuresInBearingGroup(mission, groupId);
+      const rpFeat = groupFeats.find((f) => (f.properties || {})[T.PROP_ROLE] === 'releve_point');
+      targetCtx = relevePointToTargetCtx(rpFeat);
+    }
+    persistBearingPair(
+      mission, station, bearing.azimuth, bearing.rangeKm, label, notes, groupId, createdAt, teamId,
+      targetCtx
+    );
     closePanel();
   }
 
@@ -1739,12 +2817,20 @@
       saveBearingPanel();
       return;
     }
-    const mission = getMission(panelState.missionId) || getActiveMission();
+    const mission = panelState.mode === 'add'
+      ? (getMission(panelState.missionId) || getActiveMission())
+      : (getMission(panelState.missionId) || getActiveMission());
     if (!mission || !missionCanEdit(mission)) return;
+    ensureMissionFeatures(mission);
 
     const roleId = panelState.roleId;
+    if (panelState.mode === 'add' && roleId === 'station_df' && mission.id !== store.activeMissionId) {
+      store.activeMissionId = mission.id;
+      saveStore();
+    }
+
     const role = T.getRole(roleId);
-    const label = (panelLabelEl && panelLabelEl.value || '').trim() || (role ? role.label : '');
+    const inputLabel = (panelLabelEl && panelLabelEl.value || '').trim();
     const notes = (panelNotesEl && panelNotesEl.value || '').trim();
 
     let geometry;
@@ -1789,22 +2875,29 @@
     }
 
     let props;
+    const teamId = roleId === 'station_df'
+      ? (panelState.presetTeamId || readPanelTeamId())
+      : '';
+    const teamProps = roleId === 'station_df' ? resolveTeamProps(mission, teamId) : {};
+    const linkedTeam = teamId ? findTeamById(mission, teamId) : null;
+    const effectiveLabel = inputLabel || (linkedTeam ? linkedTeam.name : '') || (role ? role.label : '');
     if (panelState.mode === 'edit') {
       const found = findFeature(panelState.featureId);
       const prev = (found && found.feature.properties) || {};
       props = T.buildFeatureProps(mission, roleId, {
         id: panelState.featureId,
-        label,
+        label: effectiveLabel,
         notes,
         created_at: prev.created_at || new Date().toISOString(),
         [T.PROP_AZIMUTH]: prev[T.PROP_AZIMUTH],
         [T.PROP_RANGE_KM]: prev[T.PROP_RANGE_KM],
-        [T.PROP_BEARING_RECIPROCAL]: prev[T.PROP_BEARING_RECIPROCAL]
+        [T.PROP_BEARING_RECIPROCAL]: prev[T.PROP_BEARING_RECIPROCAL],
+        ...teamProps
       });
       props.commune = prev.commune;
       props.dfci = prev.dfci;
     } else {
-      props = T.buildFeatureProps(mission, roleId, { id: newId(), label, notes });
+      props = T.buildFeatureProps(mission, roleId, { id: newId(), label: effectiveLabel, notes, ...teamProps });
     }
     const ts = parseDatetimeLocal(panelTimestampEl && panelTimestampEl.value);
     if (ts && roleId === 'station_df') props.created_at = ts;
@@ -1812,6 +2905,7 @@
 
     const feature = { type: 'Feature', geometry, properties: props };
     persistFeature(mission, feature, panelState.mode, panelState.featureId);
+    if (roleId === 'station_df') renderSidebar();
     closePanel();
   }
 
@@ -1954,6 +3048,51 @@
   }
 
   function onPointPickClick(e) {
+    if (pendingTeamStationId) {
+      const teamId = pendingTeamStationId;
+      pendingTeamStationId = null;
+      map.off('click', onPointPickClick);
+      map.getContainer().classList.remove('situation-line-drawing');
+      if (drawBannerEl) drawBannerEl.hidden = true;
+      const mission = getActiveMission();
+      const team = mission ? findTeamById(mission, teamId) : null;
+      if (!mission || !team) return;
+      const existing = findStationForTeam(mission, teamId);
+      const draftMarker = L.marker(e.latlng, {
+        icon: getMarkerIcon('station_df', false),
+        pane: 'sarPane',
+        interactive: false
+      }).addTo(map);
+      if (existing && existing.properties && existing.properties.id && isStationPlaced(existing)) {
+        if (panelState && panelState.draftMarker && map) map.removeLayer(panelState.draftMarker);
+        panelState = {
+          mode: 'edit',
+          featureId: existing.properties.id,
+          roleId: 'station_df',
+          missionId: mission.id,
+          latlng: e.latlng,
+          draftMarker,
+          presetTeamId: teamId
+        };
+        const ep = existing.properties || {};
+        showPanel({
+          mode: 'edit',
+          roleId: 'station_df',
+          panelKind: 'station',
+          missionId: mission.id,
+          label: ep.label || team.name,
+          notes: ep.notes || '',
+          created_at: ep.created_at,
+          teamId,
+          lockTeam: true,
+          clientX: e.originalEvent.clientX,
+          clientY: e.originalEvent.clientY
+        });
+      } else {
+        openPanelAdd('station_df', e.latlng, e.originalEvent.clientX, e.originalEvent.clientY, draftMarker, null, null, null, teamId);
+      }
+      return;
+    }
     if (!pendingPointRole) return;
     const roleId = pendingPointRole;
     pendingPointRole = null;
@@ -1969,76 +3108,75 @@
     openPanelAdd(roleId, e.latlng, e.originalEvent.clientX, e.originalEvent.clientY, draftMarker);
   }
 
-  function onBearingStationPickClick(e) {
-    if (!pendingBearingPick) return;
-    const mission = getActiveMission();
-    if (!mission) return;
-    let hitStation = null;
-    const layers = layersRef && layersRef[LAYER_NAME];
-    if (layers && map) {
-      layers.eachLayer((layer) => {
-        if (hitStation) return;
-        const feat = layer._cartoffSarFeature;
-        if (!feat || !feat.properties) return;
-        if (feat.properties[T.PROP_ROLE] !== 'station_df') return;
-        if (layer.getLatLng && e.latlng.distanceTo(layer.getLatLng()) < 25) {
-          hitStation = feat;
-        }
-      });
-    }
-    if (!hitStation) {
-      const stations = stationFeatures(mission);
-      let bestDist = Infinity;
-      stations.forEach((f) => {
-        const c = f.geometry.coordinates;
-        const d = e.latlng.distanceTo(L.latLng(c[1], c[0]));
-        if (d < bestDist && d < 500) {
-          bestDist = d;
-          hitStation = f;
-        }
-      });
-    }
-    if (!hitStation) {
-      alert('Cliquez sur une station DF (marqueur ▲).');
-      return;
-    }
-    pendingBearingPick = false;
+  function stopBearingPickMode() {
     if (map) {
-      map.off('click', onBearingStationPickClick);
+      map.off('click', onBearingTargetPickClick);
       map.getContainer().classList.remove('situation-line-drawing');
     }
-    if (drawBannerEl) drawBannerEl.hidden = true;
-    openBearingPanel(hitStation.properties.id, e.originalEvent.clientX, e.originalEvent.clientY);
+    pendingBearingPick = null;
+  }
+
+  function startBearingPickMode(stationId) {
+    cancelDrawMode();
+    closePanel();
+    pendingPointRole = null;
+    hideBearingStationPicker();
+    clearBearingClickContexts();
+    pendingBearingPick = stationId ? { stationId } : {};
+    if (map) {
+      map.off('click', onBearingTargetPickClick);
+      map.getContainer().classList.add('situation-line-drawing');
+      map.on('click', onBearingTargetPickClick);
+    }
+    if (drawBannerEl) {
+      drawBannerEl.hidden = false;
+      if (drawBannerTextEl) {
+        drawBannerTextEl.textContent = stationId
+          ? 'Cliquez le point visé sur la carte (station déjà choisie)'
+          : 'Cliquez le point visé sur la carte (relèvement DF)';
+      }
+    }
+  }
+
+  function onBearingTargetPickClick(e) {
+    if (!pendingBearingPick) return;
+    const pickState = pendingBearingPick;
+    const cx = e.originalEvent.clientX;
+    const cy = e.originalEvent.clientY;
+    stopBearingPickMode();
+    beginReleveDfFromContext(e.latlng, cx, cy, pickState.stationId || null);
   }
 
   function startBearingFlow(stationId) {
     const mission = getActiveMission();
-    if (!missionCanEdit(mission) || !sarModeActive || !map) return;
+    if (!mission || mission.type !== 'aeronef') return;
+    if (!missionCanEdit(mission)) {
+      alert('Mission non modifiable — réactivez-la pour saisir un relèvement.');
+      return;
+    }
+    if (!sarModeActive) {
+      alert('Activez le mode SAR pour saisir un relèvement DF.');
+      return;
+    }
+    dismissPanelOverlays();
+    startBearingPickMode(stationId || null);
+  }
+
+  function startTeamStationPlaceMode(teamId) {
+    const mission = getActiveMission();
+    if (!mission || mission.type !== 'aeronef' || !missionCanEdit(mission) || !map) return;
+    const team = findTeamById(mission, teamId);
+    if (!team) return;
     cancelDrawMode();
     closePanel();
     pendingPointRole = null;
-
-    const stations = stationFeatures(mission);
-    if (!stations.length) {
-      alert('Placez d\'abord une station DF.');
-      return;
-    }
-    if (stationId) {
-      openBearingPanel(stationId, window.innerWidth / 2, 120);
-      return;
-    }
-    if (stations.length === 1) {
-      openBearingPanel(stations[0].properties.id, window.innerWidth / 2, 120);
-      return;
-    }
-
-    pendingBearingPick = true;
+    pendingTeamStationId = teamId;
     map.getContainer().classList.add('situation-line-drawing');
-    map.on('click', onBearingStationPickClick);
+    map.on('click', onPointPickClick);
     if (drawBannerEl) {
       drawBannerEl.hidden = false;
       if (drawBannerTextEl) {
-        drawBannerTextEl.textContent = 'Cliquez sur une station DF pour ajouter un relèvement';
+        drawBannerTextEl.textContent = 'Placez la station « ' + team.name + ' » sur la carte';
       }
     }
   }
@@ -2048,8 +3186,6 @@
     if (!missionCanEdit(mission) || !sarModeActive || !map) return;
     cancelDrawMode();
     closePanel();
-    pendingBearingPick = false;
-    map.off('click', onBearingStationPickClick);
     pendingPointRole = roleId;
     map.getContainer().classList.add('situation-line-drawing');
     map.on('click', onPointPickClick);
@@ -2066,37 +3202,43 @@
     cancelDrawMode();
     closePanel();
     pendingPointRole = null;
-    pendingBearingPick = false;
+    pendingTeamStationId = null;
+    stopBearingPickMode();
+    hideBearingStationPicker();
     if (map) {
       map.off('click', onPointPickClick);
-      map.off('click', onBearingStationPickClick);
       map.getContainer().classList.remove('situation-line-drawing');
     }
     if (drawBannerEl) drawBannerEl.hidden = true;
   }
 
-  function openFeatureContextMenu(clientX, clientY, feature, mission, latlng) {
+  function openFeatureContextMenu(clientX, clientY, feature, mission, latlng, clickLatlng) {
     if (typeof global.openMapContextMenuForSar !== 'function') return;
     const geom = feature.geometry || {};
     global.openMapContextMenuForSar(clientX, clientY, {
       type: geom.type === 'LineString' ? 'line' : (geom.type === 'Polygon' ? 'polygon' : 'marker'),
       feature,
-      latlng
+      latlng,
+      clickLatlng: clickLatlng || latlng
     });
   }
 
-  function buildMapContextMenu(menuEl, addItem, target, clientX, clientY) {
-    if (!sarModeActive) return;
+  function buildMapContextMenu(menuEl, addItem, target, clientX, clientY, opts) {
+    opts = opts || {};
+    const hostEl = opts.hostEl || menuEl;
+    if (!sarModeActive) return false;
     const mission = getActiveMission();
-    if (!mission) return;
+    if (!mission) return false;
 
     if (target.type === 'marker' || target.type === 'line' || target.type === 'polygon') {
       const feature = target.feature;
       if (feature && feature.properties && feature.properties[T.PROP_MISSION_ID]) {
-        const section = document.createElement('div');
-        section.className = 'map-context-menu-section';
-        section.textContent = 'Mission SAR';
-        menuEl.appendChild(section);
+        if (!opts.skipSection) {
+          const section = document.createElement('div');
+          section.className = 'map-context-menu-section';
+          section.textContent = opts.sectionLabel || 'Mission SAR';
+          menuEl.appendChild(section);
+        }
         const props = feature.properties;
         const found = findFeature(props.id);
         const m = found ? found.mission : mission;
@@ -2108,12 +3250,16 @@
               rebuildLayer();
               renderSidebar();
             }, { danger: true });
-            return;
+            return true;
           }
-          if (props[T.PROP_ROLE] === 'incertitude_fix') return;
-          if (props[T.PROP_ROLE] === 'station_df') {
-            addItem('Relèvement depuis cette station', () => {
-              openBearingPanel(props.id, clientX, clientY);
+          if (props[T.PROP_ROLE] === 'incertitude_fix') return false;
+          if (featureRoleId(props) === 'station_df') {
+            const latlngSnapshot = resolveMenuClickLatLng(target, null);
+            const stationId = props.id || null;
+            const cx = clientX;
+            const cy = clientY;
+            addItem('Relevé DF', () => {
+              invokeReleveDfFromMenu(cx, cy, stationId, latlngSnapshot);
             });
           }
           if (isBearingFeature(props)) {
@@ -2131,40 +3277,63 @@
             addItem('Supprimer', () => deleteFeature(props.id), { danger: true });
           }
         }
-        return;
+        return true;
       }
     }
 
-    if (!missionCanEdit(mission)) return;
+    if (!missionCanEdit(mission)) return false;
 
-    const section = document.createElement('div');
-    section.className = 'map-context-menu-section';
-    section.textContent = 'Mission SAR';
-    menuEl.appendChild(section);
+    if (!opts.skipSection) {
+      const section = document.createElement('div');
+      section.className = 'map-context-menu-section';
+      section.textContent = opts.sectionLabel || 'Mission SAR';
+      menuEl.appendChild(section);
+    }
 
     if (mission.type === 'aeronef') {
-      addItem('Station DF', () => {
-        const draftMarker = L.marker(target.latlng, {
-          icon: getMarkerIcon('station_df', false),
-          pane: 'sarPane',
-          interactive: false
-        }).addTo(map);
-        openPanelAdd('station_df', target.latlng, clientX, clientY, draftMarker);
-      });
-      const stations = stationFeatures(mission);
-      if (stations.length === 1) {
-        addItem('Relèvement depuis la station', () => {
-          openBearingPanel(stations[0].properties.id, clientX, clientY);
-        });
-      } else if (stations.length > 1) {
-        addItem('Relèvement — choisir une station', () => {
-          startBearingFlow(null);
-        });
+      if (!opts.skipReleveDf) {
+        const clickLl = menuTargetClickLatLng(target);
+        const clickCtx = clickLl ? captureBearingTargetContext(clickLl) : null;
+        appendReleveDfContextMenu(hostEl, addItem, mission, clientX, clientY, clickCtx, target);
       }
-      return;
+      return true;
     }
 
-    T.pointRoles(mission.type).forEach((role) => {
+    const addSubmenu = global.addMapContextMenuSubmenu;
+    const pointRoles = T.pointRoles(mission.type);
+    const lineRoles = T.lineRoles(mission.type);
+    const polygonRoles = T.polygonRoles(mission.type);
+
+    if (addSubmenu) {
+      if (pointRoles.length) {
+        addSubmenu(hostEl, 'Point', pointRoles.map((role) => ({
+          label: role.label,
+          onClick: () => {
+            const draftMarker = L.marker(target.latlng, {
+              icon: getMarkerIcon(role.id, false),
+              pane: 'sarPane',
+              interactive: false
+            }).addTo(map);
+            openPanelAdd(role.id, target.latlng, clientX, clientY, draftMarker);
+          }
+        })));
+      }
+      if (lineRoles.length) {
+        addSubmenu(hostEl, 'Tronçon', lineRoles.map((role) => ({
+          label: role.label,
+          onClick: () => startLineDrawMode(role.id, target.latlng)
+        })));
+      }
+      if (polygonRoles.length) {
+        addSubmenu(hostEl, 'Surface', polygonRoles.map((role) => ({
+          label: role.label,
+          onClick: () => startPolygonDrawMode(role.id, target.latlng)
+        })));
+      }
+      return !!(pointRoles.length || lineRoles.length || polygonRoles.length);
+    }
+
+    pointRoles.forEach((role) => {
       addItem(role.label, () => {
         const draftMarker = L.marker(target.latlng, {
           icon: getMarkerIcon(role.id, false),
@@ -2174,16 +3343,17 @@
         openPanelAdd(role.id, target.latlng, clientX, clientY, draftMarker);
       });
     });
-    T.lineRoles(mission.type).forEach((role) => {
+    lineRoles.forEach((role) => {
       addItem(role.label + ' (polyligne)', () => {
         startLineDrawMode(role.id, target.latlng);
       });
     });
-    T.polygonRoles(mission.type).forEach((role) => {
+    polygonRoles.forEach((role) => {
       addItem(role.label + ' (zone)', () => {
         startPolygonDrawMode(role.id, target.latlng);
       });
     });
+    return !!(pointRoles.length || lineRoles.length || polygonRoles.length);
   }
 
   function getFeatureFromDomEvent(domEvent) {
@@ -2213,7 +3383,7 @@
       } else {
         const color = (role.lineStyle && role.lineStyle.color) || '#333';
         const weight = (role.lineStyle && role.lineStyle.weight) || 3;
-        const dash = role.id === 'relevement_df' ? ' (réception / réciproque)' : '';
+        const dash = role.id === 'relevement_df' ? ' (signal direct / arrière)' : '';
         if (role.id === 'relevement_df') {
           html += '<span class="lineBox" style="border-top:' + weight + 'px solid ' + color + '"></span> ' +
             entry.label + dash + '<br>';
@@ -2225,51 +3395,37 @@
     return html;
   }
 
-  function init(options) {
-    map = options.map;
-    layersRef = options.layers;
-    updateLegendFn = options.updateLegend;
-    findCommuneFn = options.findCommune || null;
-    latLngToDfciFn = options.latLngToDfci || null;
-    latLngToUtmFn = options.latLngToUtm || null;
-    sidebarEl = options.sidebarEl;
-    panelEl = options.panelEl;
-    panelTitleEl = options.panelTitleEl;
-    panelLabelEl = options.panelLabelEl;
-    panelNotesEl = options.panelNotesEl;
-    panelSaveBtn = options.panelSaveBtn;
-    panelCancelBtn = options.panelCancelBtn;
-    panelDeleteBtn = options.panelDeleteBtn;
-    panelDfFieldsEl = options.panelDfFieldsEl;
-    panelTimestampEl = options.panelTimestampEl;
-    panelBearingFieldsEl = options.panelBearingFieldsEl;
-    panelAzimuthEl = options.panelAzimuthEl;
-    panelRangeEl = options.panelRangeEl;
-    drawBannerEl = options.drawBannerEl;
-    drawBannerTextEl = options.drawBannerTextEl;
-    drawFinishBtn = options.drawFinishBtn;
-    drawCancelBtn = options.drawCancelBtn;
+  let panelActionsWired = false;
 
-    loadStore();
-    if (store.activeMissionId && !getMission(store.activeMissionId)) {
-      store.activeMissionId = store.missions.length ? store.missions[0].id : null;
+  function wirePanelActions() {
+    if (panelActionsWired || !panelEl) return;
+    panelActionsWired = true;
+    if (typeof global.setupFloatingPanelDrag === 'function' && panelTitleEl) {
+      global.setupFloatingPanelDrag(panelEl, panelTitleEl);
     }
-    store.missions.forEach((m) => {
-      if (m.type === 'aeronef') {
-        if (receptionBearings(m).length >= 2 && !hasEstimatedFix(m)) {
-          computeAndApplyIntersection(m, { renderSidebar: false, rebuild: false });
-        } else if (hasEstimatedFix(m)) {
-          ensureVisibleFixIds(m);
-        }
-      }
+    const onSave = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      savePanel();
+    };
+    const onCancel = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closePanel();
+    };
+    const onDelete = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      deletePanelFeature();
+    };
+    panelEl.addEventListener('click', (e) => {
+      if (e.target.closest('#sarPanelSave')) onSave(e);
+      else if (e.target.closest('#sarPanelCancel')) onCancel(e);
+      else if (e.target.closest('#sarPanelDelete')) onDelete(e);
     });
-    saveStore();
-    renderSidebar();
-    if (store.activeMissionId) rebuildLayer();
-
-    if (panelSaveBtn) panelSaveBtn.addEventListener('click', savePanel);
-    if (panelCancelBtn) panelCancelBtn.addEventListener('click', closePanel);
-    if (panelDeleteBtn) panelDeleteBtn.addEventListener('click', deletePanelFeature);
+    if (panelSaveBtn) panelSaveBtn.addEventListener('click', onSave);
+    if (panelCancelBtn) panelCancelBtn.addEventListener('click', onCancel);
+    if (panelDeleteBtn) panelDeleteBtn.addEventListener('click', onDelete);
     if (panelAzimuthEl) panelAzimuthEl.addEventListener('input', updateBearingPreview);
     if (panelRangeEl) panelRangeEl.addEventListener('input', updateBearingPreview);
     if (drawFinishBtn) {
@@ -2284,20 +3440,80 @@
     if (drawCancelBtn) drawCancelBtn.addEventListener('click', cancelInteractions);
   }
 
+  function init(options) {
+    map = options.map;
+    layersRef = options.layers;
+    updateLegendFn = options.updateLegend;
+    findCommuneFn = options.findCommune || null;
+    latLngToDfciFn = options.latLngToDfci || null;
+    latLngToUtmFn = options.latLngToUtm || null;
+    getElevationFn = options.getElevation || null;
+    sidebarEl = options.sidebarEl;
+    panelEl = options.panelEl;
+    panelTitleEl = options.panelTitleEl;
+    panelLabelEl = options.panelLabelEl;
+    panelNotesEl = options.panelNotesEl;
+    panelSaveBtn = options.panelSaveBtn;
+    panelCancelBtn = options.panelCancelBtn;
+    panelDeleteBtn = options.panelDeleteBtn;
+    panelDfFieldsEl = options.panelDfFieldsEl;
+    panelTimestampEl = options.panelTimestampEl;
+    panelBearingFieldsEl = options.panelBearingFieldsEl;
+    panelAzimuthEl = options.panelAzimuthEl;
+    panelRangeEl = options.panelRangeEl;
+    panelBearingTargetEl = options.panelBearingTargetEl || null;
+    panelTeamFieldsEl = options.panelTeamFieldsEl;
+    panelTeamEl = options.panelTeamEl;
+    drawBannerEl = options.drawBannerEl;
+    drawBannerTextEl = options.drawBannerTextEl;
+    drawFinishBtn = options.drawFinishBtn;
+    drawCancelBtn = options.drawCancelBtn;
+    wirePanelActions();
+    wireSidebarDelegation();
+
+    loadStore();
+    resolveActiveMissionId();
+    let defaultDataAdded = false;
+    store.missions.forEach((m) => {
+      ensureMissionTeams(m);
+      if (ensureDefaultAeronefTeams(m)) defaultDataAdded = true;
+      if (ensureDefaultAeronefStations(m)) defaultDataAdded = true;
+      ensureMissionFeatures(m);
+      if (m.type === 'aeronef') {
+        if (receptionBearings(m).length >= 2 && !hasEstimatedFix(m)) {
+          computeAndApplyIntersection(m, { renderSidebar: false, rebuild: false });
+        } else if (hasEstimatedFix(m)) {
+          ensureVisibleFixIds(m);
+        }
+      }
+    });
+    saveStore();
+    renderSidebar();
+    try {
+      if (store.activeMissionId) rebuildLayer();
+    } catch (err) {
+      console.warn('Missions SAR : affichage du calque impossible', err);
+    }
+  }
+
   global.CartoffSar = {
     LAYER_NAME,
     STORAGE_KEY,
     init,
     isSarModeActive: () => sarModeActive,
-    isDrawOrPanelActive: () => !!(drawState || panelState || pendingPointRole || pendingBearingPick),
+    setSarModeActive,
+    isDrawOrPanelActive: () => !!(drawState || panelState || pendingPointRole || pendingTeamStationId || pendingBearingPick),
     cancelInteractions,
     getFeatureFromDomEvent,
     buildMapContextMenu,
     getLegendHtml,
     exportGeoJSON,
+    formatExportDateHeure,
     exportSarReport,
     buildSarReportText,
     computeAndApplyIntersection,
-    getStore: () => store
+    getStore: () => store,
+    canOfferReleveDf,
+    openReleveDfDirect
   };
 })(typeof window !== 'undefined' ? window : this);

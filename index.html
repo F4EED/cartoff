@@ -310,7 +310,7 @@
     .situation-btn-primary:hover { background: #303f9f; }
     .situation-panel {
       position: fixed;
-      z-index: 3100;
+      z-index: 3300;
       background: white;
       padding: 10px 12px;
       border-radius: 8px;
@@ -324,6 +324,11 @@
       font-weight: bold;
       margin-bottom: 8px;
       color: #333;
+      cursor: grab;
+      user-select: none;
+    }
+    .situation-panel-title.is-dragging {
+      cursor: grabbing;
     }
     .situation-panel label {
       display: block;
@@ -384,6 +389,7 @@
       user-select: none;
     }
     .map-context-menu[hidden] { display: none !important; }
+    .sar-bearing-station-picker { z-index: 3400; }
     .map-context-menu-section {
       padding: 4px 12px 2px;
       font-size: 11px;
@@ -407,6 +413,20 @@
     .map-context-menu-item:hover { background: #f0f0f0; }
     .map-context-menu-item-danger { color: #c62828; }
     .map-context-menu-item-danger:hover { background: #ffebee; }
+    .map-context-menu-hint {
+      padding: 6px 12px 8px;
+      font-size: 12px;
+      color: #888;
+      font-style: italic;
+    }
+    .map-context-menu-submenu-toggle::after {
+      content: ' ▸';
+      float: right;
+      color: #999;
+    }
+    .map-context-menu-submenu-toggle.is-open::after { content: ' ▾'; }
+    .map-context-menu-submenu { margin-left: 10px; }
+    .map-context-menu-submenu-item { padding-left: 34px; font-size: 12px; }
     .situation-filter {
       display: block;
       margin: 0 0 8px 0;
@@ -527,6 +547,12 @@
       line-height: 24px;
       font-size: 10px;
     }
+    .sar-marker-releve-point div {
+      background: #bf360c;
+      border: 2px solid #8d2a0a;
+      font-size: 14px;
+      line-height: 22px;
+    }
     .sar-marker-closed div { opacity: 0.45; filter: grayscale(0.6); }
     .sar-mission-form label { display: block; margin-bottom: 6px; font-size: 13px; }
     .sar-mission-form input[type="text"],
@@ -537,6 +563,8 @@
     .sar-mission-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
     .sar-draw-tools { margin-bottom: 8px; }
     .sar-draw-label { display: block; font-size: 12px; font-weight: bold; color: #555; margin: 4px 0 2px; }
+    .secours-subsection { margin-top: 10px; border-top: 1px solid #e8e8e8; padding-top: 6px; }
+    .secours-subsection > summary { font-size: 13px; font-weight: bold; color: #444; }
     .sar-intersection-panel { margin: 8px 0; padding: 8px; background: #fafafa; border: 1px solid #e0e0e0; border-radius: 4px; }
     .sar-intersection-hint { margin: 4px 0 8px; font-size: 12px; }
     .sar-uncertainty-label { display: block; font-size: 12px; margin-bottom: 6px; }
@@ -572,6 +600,17 @@
       font-size: 10px; font-weight: bold; color: #2e7d32; background: #e8f5e9;
       padding: 1px 5px; border-radius: 3px; margin-left: 4px; vertical-align: middle;
     }
+    .sar-teams-panel { margin: 8px 0; padding: 8px; background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 4px; }
+    .sar-team-add { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+    .sar-team-add input { flex: 1; min-width: 120px; padding: 6px 8px; font-size: 13px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    .sar-team-list { list-style: none; margin: 4px 0 0; padding: 0; }
+    .sar-team-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 4px 0; border-bottom: 1px solid #eee; font-size: 13px; }
+    .sar-team-row:last-child { border-bottom: none; }
+    .sar-team-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+    .sar-team-station-status { font-size: 11px; color: #2e7d32; white-space: nowrap; }
+    .sar-team-station-missing { color: #9e9e9e; }
+    .sar-team-place-btn { font-size: 11px; padding: 2px 6px; white-space: nowrap; }
+    .sar-team-delete-btn { padding: 2px 8px; font-size: 12px; line-height: 1.2; color: #c62828; border-color: #c62828; background: #fff; }
     .sar-marker-fixe-estime div {
       background: transparent; border: none; font-size: 20px; font-weight: bold;
       line-height: 26px; text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff;
@@ -595,6 +634,7 @@
     #legend span.sar-legend-indice { background: #f9a825; color: #333; }
     #legend span.sar-legend-waypoint { background: #1565c0; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); border-radius: 0; }
     #legend span.sar-legend-station-df { background: #ff6f00; clip-path: polygon(50% 0%, 15% 100%, 85% 100%); border-radius: 0; }
+    #legend span.sar-legend-releve-point { background: #bf360c; font-size: 11px; }
     #legend span.sar-legend-polygon {
       display: inline-block;
       width: 18px;
@@ -671,6 +711,11 @@
             <option value="" disabled selected>— Choisir un constat —</option>
           </select>
         </div>
+        <div class="layer-search" id="operationRechercheSearch">
+          <select id="operationRechercheSearchSelect" disabled>
+            <option value="" disabled selected>— Choisir un élément —</option>
+          </select>
+        </div>
       </div>
     </details>
 
@@ -729,6 +774,18 @@
       <div id="sarSidebar"></div>
     </details>
 
+    <details id="operationRechercheBlock" hidden>
+      <summary>Opération de recherche</summary>
+      <p class="situation-hint" id="operationHint">Clic droit sur la carte pour ajouter ou modifier un élément. Cochez le calque ci-dessous pour l'affichage.</p>
+      <div class="situation-toolbar">
+        <button type="button" id="operationExportBtn" class="situation-btn">Exporter GeoJSON</button>
+      </div>
+      <label class="situation-filter" id="operationShowInactifsLabel" hidden>
+        <input type="checkbox" id="operationShowInactifs"> Afficher les inactifs
+      </label>
+      <div id="operationLayers"></div>
+    </details>
+
     <details open>
       <summary>Situation</summary>
       <p class="situation-hint" id="situationHint">Clic droit sur la carte pour ajouter ou modifier un constat. Cochez le calque ci-dessous pour l'affichage.</p>
@@ -763,6 +820,27 @@
     <button type="button" id="sarLineDrawCancel" class="situation-btn">Annuler</button>
   </div>
 
+  <div id="operationLineDrawBanner" class="situation-line-draw-banner" hidden>
+    <span id="operationDrawBannerText">Cliquez pour placer les points — Terminer pour valider</span>
+    <button type="button" id="operationLineDrawFinish" class="situation-btn situation-btn-primary" disabled>Terminer</button>
+    <button type="button" id="operationLineDrawCancel" class="situation-btn">Annuler</button>
+  </div>
+
+  <div id="operationPanel" class="situation-panel" hidden>
+    <div class="situation-panel-title" id="operationPanelTitle">Élément</div>
+    <label>Type
+      <select id="operationPanelType"></select>
+    </label>
+    <label>Libellé
+      <input type="text" id="operationPanelLibelle" placeholder="Description courte…" maxlength="120">
+    </label>
+    <div class="situation-panel-actions">
+      <button type="button" id="operationPanelSave" class="situation-btn-save">Enregistrer</button>
+      <button type="button" id="operationPanelCancel">Annuler</button>
+      <button type="button" id="operationPanelDelete" class="situation-btn-delete" hidden>Supprimer</button>
+    </div>
+  </div>
+
   <div id="sarPanel" class="situation-panel" hidden>
     <div class="situation-panel-title" id="sarPanelTitle">Élément SAR</div>
     <label>Libellé
@@ -776,8 +854,14 @@
         <input type="datetime-local" id="sarPanelTimestamp">
       </label>
     </div>
+    <div id="sarPanelTeamFields" hidden>
+      <label>Équipe
+        <select id="sarPanelTeam"></select>
+      </label>
+    </div>
     <div id="sarPanelBearingFields" hidden>
-      <p class="situation-hint">Aperçu — validez pour enregistrer</p>
+      <div id="sarPanelBearingTarget" hidden></div>
+      <p class="situation-hint">Trait plein = signal direct · trait pointillé = signal arrière</p>
       <label>Azimut (°)
         <input type="number" id="sarPanelAzimuth" min="0" max="360" step="0.1" value="0">
       </label>
@@ -816,6 +900,7 @@
   <script src="js/file-import.js"></script>
   <script src="js/sar-types.js"></script>
   <script src="js/sar-missions.js"></script>
+  <script src="js/sar-operation.js"></script>
   <script src="js/protomaps-leaflet.js"></script>
 
   <script>
@@ -895,6 +980,8 @@
 
     map.createPane('situationPane');
     map.getPane('situationPane').style.zIndex = 610;
+    map.createPane('operationPane');
+    map.getPane('operationPane').style.zIndex = 615;
     map.createPane('sarPane');
     map.getPane('sarPane').style.zIndex = 620;
 
@@ -1314,6 +1401,8 @@
     let situationPanelState = null;
     let drawState = null;
     let mapContextMenuState = null;
+    /** Position figée du dernier clic droit carte (secours Relevé DF). */
+    let lastRightClickLatLng = null;
     let situationShowInactifs = false;
     const situationLineDrawBanner = document.getElementById('situationLineDrawBanner');
     const squareLegendLayers = {
@@ -1911,6 +2000,7 @@
       const draftLayer = drawState.previewLayer;
       const vertices = drawState.vertices.slice();
       const drawMode = drawState.mode;
+      const presetSousType = drawState.presetSousType;
       if (drawMode === 'polygon') {
         draftLayer.setStyle({ dashArray: null, opacity: 0.65, fillOpacity: 0.25, color: '#3949ab', fillColor: '#3949ab' });
       } else {
@@ -1935,11 +2025,16 @@
         draftLayer
       };
       buildSituationTypeSelect(situationPanelType, geometryKind);
-      showSituationPanel({ mode: 'add', geometry: geometryKind, sousType: defaultType, libelle: '' });
+      showSituationPanel({
+        mode: 'add',
+        geometry: geometryKind,
+        sousType: presetSousType || defaultType,
+        libelle: ''
+      });
       positionSituationPanel(clientX, clientY);
     }
 
-    function startDrawMode(mode, initialLatLng) {
+    function startDrawMode(mode, initialLatLng, presetSousType) {
       cancelDrawMode();
       closeSituationPanel();
       closeMapContextMenu();
@@ -1962,7 +2057,7 @@
         pane: 'situationPane'
       })).addTo(map);
 
-      drawState = { mode, vertices, previewLayer };
+      drawState = { mode, vertices, previewLayer, presetSousType: presetSousType || null };
       map.getContainer().classList.add('situation-line-drawing');
       if (situationLineDrawBanner) situationLineDrawBanner.hidden = false;
       const bannerText = document.getElementById('situationDrawBannerText');
@@ -1983,12 +2078,12 @@
       }
     }
 
-    function startLineDrawMode(initialLatLng) {
-      startDrawMode('line', initialLatLng);
+    function startLineDrawMode(initialLatLng, presetSousType) {
+      startDrawMode('line', initialLatLng, presetSousType);
     }
 
-    function startPolygonDrawMode(initialLatLng) {
-      startDrawMode('polygon', initialLatLng);
+    function startPolygonDrawMode(initialLatLng, presetSousType) {
+      startDrawMode('polygon', initialLatLng, presetSousType);
     }
 
     function clampPopupPosition(el, clientX, clientY, margin) {
@@ -2005,6 +2100,61 @@
       return { x, y };
     }
 
+    function setupFloatingPanelDrag(panelEl, handleEl) {
+      if (!panelEl || !handleEl || handleEl.dataset.cartoffDragWired) return;
+      handleEl.dataset.cartoffDragWired = '1';
+      let dragging = false;
+      let startX = 0;
+      let startY = 0;
+      let origLeft = 0;
+      let origTop = 0;
+
+      function clampPanelPos() {
+        const m = 8;
+        let x = panelEl.offsetLeft;
+        let y = panelEl.offsetTop;
+        x = Math.min(Math.max(m, x), window.innerWidth - panelEl.offsetWidth - m);
+        y = Math.min(Math.max(m, y), window.innerHeight - panelEl.offsetHeight - m);
+        panelEl.style.left = x + 'px';
+        panelEl.style.top = y + 'px';
+      }
+
+      function onDown(e) {
+        if (e.type === 'mousedown' && e.button !== 0) return;
+        dragging = true;
+        const pt = e.touches ? e.touches[0] : e;
+        startX = pt.clientX;
+        startY = pt.clientY;
+        origLeft = panelEl.offsetLeft;
+        origTop = panelEl.offsetTop;
+        handleEl.classList.add('is-dragging');
+        e.preventDefault();
+      }
+
+      function onMove(e) {
+        if (!dragging) return;
+        const pt = e.touches ? e.touches[0] : e;
+        panelEl.style.left = (origLeft + pt.clientX - startX) + 'px';
+        panelEl.style.top = (origTop + pt.clientY - startY) + 'px';
+        clampPanelPos();
+      }
+
+      function onUp() {
+        if (!dragging) return;
+        dragging = false;
+        handleEl.classList.remove('is-dragging');
+      }
+
+      handleEl.addEventListener('mousedown', onDown);
+      handleEl.addEventListener('touchstart', onDown, { passive: false });
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('touchmove', onMove, { passive: true });
+      document.addEventListener('mouseup', onUp);
+      document.addEventListener('touchend', onUp);
+    }
+
+    window.setupFloatingPanelDrag = setupFloatingPanelDrag;
+
     function positionSituationPanel(clientX, clientY) {
       situationPanelEl.style.left = clientX + 'px';
       situationPanelEl.style.top = clientY + 'px';
@@ -2014,37 +2164,214 @@
       situationPanelEl.style.top = pos.y + 'px';
     }
 
-    function closeMapContextMenu() {
+    function dismissMapContextMenuDom() {
       mapContextMenuEl.hidden = true;
       mapContextMenuEl.innerHTML = '';
+    }
+
+    function closeMapContextMenu() {
+      dismissMapContextMenuDom();
       mapContextMenuState = null;
     }
 
-    function addMapContextMenuItem(label, onClick, options) {
+    const SUBMENU_ITEM_PREFIX = '- ';
+
+    function dismissContextMenuAfterAction() {
+      queueMicrotask(() => {
+        dismissMapContextMenuDom();
+        mapContextMenuState = null;
+      });
+    }
+
+    function runMapContextMenuAction(handler) {
+      try {
+        if (typeof handler === 'function') handler();
+      } finally {
+        dismissContextMenuAfterAction();
+      }
+    }
+
+    function addMapContextMenuItem(label, onClick, options, parentEl) {
+      const container = parentEl || mapContextMenuEl;
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'map-context-menu-item' + (options && options.danger ? ' map-context-menu-item-danger' : '');
       btn.textContent = label;
+      btn.addEventListener('mousedown', (e) => {
+        e.stopPropagation();
+      });
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        closeMapContextMenu();
-        onClick();
+        e.preventDefault();
+        runMapContextMenuAction(onClick);
       });
-      mapContextMenuEl.appendChild(btn);
+      container.appendChild(btn);
     }
+
+    function addMapContextMenuCollapsible(menuEl, toggleLabel, contentHost) {
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'map-context-menu-item map-context-menu-submenu-toggle';
+      toggle.textContent = toggleLabel;
+      const submenu = document.createElement('div');
+      submenu.className = 'map-context-menu-submenu';
+      submenu.hidden = true;
+      while (contentHost.firstChild) {
+        submenu.appendChild(contentHost.firstChild);
+      }
+      toggle.addEventListener('mousedown', (e) => {
+        e.stopPropagation();
+      });
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const opening = submenu.hidden;
+        submenu.hidden = !opening;
+        toggle.classList.toggle('is-open', opening);
+      });
+      menuEl.appendChild(toggle);
+      menuEl.appendChild(submenu);
+    }
+
+    function hostContextMenuItem(hostEl) {
+      return (label, onClick, options) => addMapContextMenuItem(label, onClick, options, hostEl);
+    }
+
+    function appendFlatReleveDfMenuItem(menuEl, target, clientX, clientY) {
+      if (typeof CartoffSar === 'undefined' || !CartoffSar.canOfferReleveDf || !CartoffSar.canOfferReleveDf()) return;
+      const clickLl = (target && (target.clickLatlng || target.latlng)) || null;
+      if (!clickLl) return;
+      const snapLat = clickLl.lat;
+      const snapLng = clickLl.lng;
+      const cx = clientX;
+      const cy = clientY;
+      addMapContextMenuItem('Relevé DF', () => {
+        CartoffSar.openReleveDfDirect({ lat: snapLat, lng: snapLng }, cx, cy, null);
+      });
+    }
+
+    function appendSecoursContextMenu(menuEl, target, clientX, clientY) {
+      const sarAvailable = typeof CartoffSar !== 'undefined';
+      const opAvailable = typeof CartoffSarOperation !== 'undefined';
+      if (!sarAvailable && !opAvailable) return;
+
+      const isOpFeature = target.feature && isOperationFeature(target.feature);
+      const isSar = target.feature && isSarFeature(target.feature);
+      const isEdit = isOpFeature || isSar;
+
+      if (isEdit) {
+        const section = document.createElement('div');
+        section.className = 'map-context-menu-section';
+        section.textContent = 'OPÉRATION DE SECOURS';
+        menuEl.appendChild(section);
+        if (isOpFeature && opAvailable) {
+          CartoffSarOperation.buildMapContextMenu(menuEl, addMapContextMenuItem, target, clientX, clientY, {
+            skipSection: true
+          });
+        } else if (sarAvailable) {
+          CartoffSar.buildMapContextMenu(menuEl, addMapContextMenuItem, target, clientX, clientY, {
+            skipSection: true
+          });
+        }
+        return;
+      }
+
+      const sarHost = document.createElement('div');
+      const opHost = document.createElement('div');
+      let sarBuilt = false;
+      let opBuilt = false;
+
+      if (sarAvailable) {
+        sarBuilt = CartoffSar.buildMapContextMenu(menuEl, hostContextMenuItem(sarHost), target, clientX, clientY, {
+          skipSection: true,
+          hostEl: sarHost,
+          skipReleveDf: true
+        });
+      }
+      if (opAvailable) {
+        opBuilt = CartoffSarOperation.buildMapContextMenu(menuEl, hostContextMenuItem(opHost), target, clientX, clientY, {
+          skipSection: true,
+          hostEl: opHost
+        });
+      }
+      if (!sarBuilt && !opBuilt) return;
+
+      const section = document.createElement('div');
+      section.className = 'map-context-menu-section';
+      section.textContent = 'OPÉRATION DE SECOURS';
+      menuEl.appendChild(section);
+
+      appendFlatReleveDfMenuItem(menuEl, target, clientX, clientY);
+
+      if (sarBuilt && opBuilt) {
+        addMapContextMenuCollapsible(menuEl, 'Mission SAR', sarHost);
+        addMapContextMenuCollapsible(menuEl, 'Opération de recherche', opHost);
+      } else if (sarBuilt) {
+        while (sarHost.firstChild) menuEl.appendChild(sarHost.firstChild);
+      } else {
+        while (opHost.firstChild) menuEl.appendChild(opHost.firstChild);
+      }
+    }
+
+    function addMapContextMenuSubmenu(menuEl, toggleLabel, items) {
+      if (!items || !items.length) return;
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'map-context-menu-item map-context-menu-submenu-toggle';
+      toggle.textContent = toggleLabel;
+      const submenu = document.createElement('div');
+      submenu.className = 'map-context-menu-submenu';
+      submenu.hidden = true;
+      items.forEach((item) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'map-context-menu-item map-context-menu-submenu-item' +
+          (item.danger ? ' map-context-menu-item-danger' : '');
+        btn.textContent = SUBMENU_ITEM_PREFIX + item.label;
+        btn.addEventListener('mousedown', (e) => {
+          e.stopPropagation();
+        });
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          runMapContextMenuAction(item.onClick);
+        });
+        submenu.appendChild(btn);
+      });
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const opening = submenu.hidden;
+        submenu.hidden = !opening;
+        toggle.classList.toggle('is-open', opening);
+      });
+      menuEl.appendChild(toggle);
+      menuEl.appendChild(submenu);
+    }
+
+    window.addMapContextMenuSubmenu = addMapContextMenuSubmenu;
 
     function isSarFeature(feature) {
       const props = feature && feature.properties;
       return !!(props && props['sar:mission_id']);
     }
 
+    function isOperationFeature(feature) {
+      return typeof CartoffSarOperation !== 'undefined' &&
+        CartoffSarOperation.isOperationFeature(feature);
+    }
+
     function openMapContextMenu(clientX, clientY, target) {
       closeMapContextMenu();
+      const clickLl = target && (target.clickLatlng || target.latlng);
+      if (clickLl) {
+        lastRightClickLatLng = L.latLng(clickLl.lat, clickLl.lng);
+      }
       mapContextMenuState = { clientX, clientY, target };
 
       const isSar = target.feature && isSarFeature(target.feature);
+      const isOperation = target.feature && isOperationFeature(target.feature);
 
-      if (!isSar) {
+      if (!isSar && !isOperation) {
         const section = document.createElement('div');
         section.className = 'map-context-menu-section';
         section.textContent = 'Constat / événement';
@@ -2072,21 +2399,28 @@
             deleteSituationFeature(target.feature);
           }, { danger: true });
         } else {
-          addMapContextMenuItem('Point (panneau)', () => {
-            openSituationPanelAdd(target.latlng, clientX, clientY);
-          });
-          addMapContextMenuItem('Tronçon (ligne)', () => {
-            startLineDrawMode(target.latlng);
-          });
-          addMapContextMenuItem('Zone (surface)', () => {
-            startPolygonDrawMode(target.latlng);
-          });
+          const pointTypes = CartoffPoi.getTypesForGeometry('point')
+            .sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+          const lineTypes = CartoffPoi.getTypesForGeometry('line')
+            .sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+          const polygonTypes = CartoffPoi.getTypesForGeometry('polygon')
+            .sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+          addMapContextMenuSubmenu(mapContextMenuEl, 'Point', pointTypes.map((t) => ({
+            label: t.label,
+            onClick: () => openSituationPanelAdd(target.latlng, clientX, clientY, t.id)
+          })));
+          addMapContextMenuSubmenu(mapContextMenuEl, 'Tronçon', lineTypes.map((t) => ({
+            label: t.label,
+            onClick: () => startLineDrawMode(target.latlng, t.id)
+          })));
+          addMapContextMenuSubmenu(mapContextMenuEl, 'Surface', polygonTypes.map((t) => ({
+            label: t.label,
+            onClick: () => startPolygonDrawMode(target.latlng, t.id)
+          })));
         }
       }
 
-      if (typeof CartoffSar !== 'undefined') {
-        CartoffSar.buildMapContextMenu(mapContextMenuEl, addMapContextMenuItem, target, clientX, clientY);
-      }
+      appendSecoursContextMenu(mapContextMenuEl, target, clientX, clientY);
 
       mapContextMenuEl.style.left = clientX + 'px';
       mapContextMenuEl.style.top = clientY + 'px';
@@ -2123,7 +2457,7 @@
       situationPanelEl.hidden = false;
     }
 
-    function openSituationPanelAdd(latlng, clientX, clientY) {
+    function openSituationPanelAdd(latlng, clientX, clientY, sousType) {
       cancelDrawMode();
       closeSituationPanel();
       buildSituationTypeSelect(situationPanelType, 'point');
@@ -2133,7 +2467,12 @@
         interactive: false
       }).addTo(map);
       situationPanelState = { mode: 'add', geometry: 'Point', latlng, draftMarker };
-      showSituationPanel({ mode: 'add', geometry: 'point', sousType: 'incident_generique', libelle: '' });
+      showSituationPanel({
+        mode: 'add',
+        geometry: 'point',
+        sousType: sousType || 'incident_generique',
+        libelle: ''
+      });
       positionSituationPanel(clientX, clientY);
     }
 
@@ -2282,7 +2621,10 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'situation_constats.geojson';
+      const dh = (window.CartoffSar && CartoffSar.formatExportDateHeure)
+        ? CartoffSar.formatExportDateHeure()
+        : '';
+      a.download = 'situation_constats' + (dh ? '_' + dh : '') + '.geojson';
       a.click();
       URL.revokeObjectURL(url);
     }
@@ -2305,6 +2647,9 @@
     document.getElementById('situationPanelSave').addEventListener('click', saveSituationPanel);
     document.getElementById('situationPanelCancel').addEventListener('click', closeSituationPanel);
     document.getElementById('situationPanelDelete').addEventListener('click', deleteSituationPanel);
+    setupFloatingPanelDrag(situationPanelEl, situationPanelTitle);
+    setupFloatingPanelDrag(document.getElementById('operationPanel'), document.getElementById('operationPanelTitle'));
+    setupFloatingPanelDrag(document.getElementById('sarPanel'), document.getElementById('sarPanelTitle'));
     document.getElementById('situationLineDrawFinish').addEventListener('click', () => {
       if (!drawState) return;
       const minVerts = drawState.mode === 'polygon' ? 3 : 2;
@@ -2316,6 +2661,7 @@
 
     map.getContainer().addEventListener('contextmenu', (e) => {
       if (drawState) return;
+      if (typeof CartoffSarOperation !== 'undefined' && CartoffSarOperation.isDrawOrPanelActive()) return;
       if (typeof CartoffSar !== 'undefined' && CartoffSar.isDrawOrPanelActive()) return;
       if (e.target.closest('.sidebar') || e.target.closest('.situation-panel') || e.target.closest('.map-context-menu') || e.target.closest('.situation-line-draw-banner')) return;
       e.preventDefault();
@@ -2326,12 +2672,33 @@
           const geom = feature.geometry || {};
           const isLine = geom.type === 'LineString';
           const isPolygon = geom.type === 'Polygon';
+          const clickLatlng = map.mouseEventToLatLng(e);
           let latlng = sarLayerHit.getLatLng ? sarLayerHit.getLatLng() : null;
           if (!latlng) latlng = situationGeomAnchorLatLng(geom);
           openMapContextMenu(e.clientX, e.clientY, {
             type: isLine ? 'line' : (isPolygon ? 'polygon' : 'marker'),
             feature,
-            latlng
+            latlng,
+            clickLatlng
+          });
+          return;
+        }
+      }
+      if (typeof CartoffSarOperation !== 'undefined') {
+        const operationLayerHit = CartoffSarOperation.getFeatureFromDomEvent(e);
+        if (operationLayerHit) {
+          const feature = operationLayerHit._cartoffOperationFeature;
+          const geom = feature.geometry || {};
+          const isLine = geom.type === 'LineString';
+          const isPolygon = geom.type === 'Polygon';
+          const clickLatlng = map.mouseEventToLatLng(e);
+          let latlng = operationLayerHit.getLatLng ? operationLayerHit.getLatLng() : null;
+          if (!latlng) latlng = situationGeomAnchorLatLng(geom);
+          openMapContextMenu(e.clientX, e.clientY, {
+            type: isLine ? 'line' : (isPolygon ? 'polygon' : 'marker'),
+            feature,
+            latlng,
+            clickLatlng
           });
           return;
         }
@@ -2342,20 +2709,22 @@
         const geom = feature.geometry || {};
         const isLine = geom.type === 'LineString';
         const isPolygon = geom.type === 'Polygon' || geom.type === 'MultiPolygon';
+        const clickLatlng = map.mouseEventToLatLng(e);
         let latlng = situationLayer.getLatLng ? situationLayer.getLatLng() : null;
         if (!latlng) latlng = situationGeomAnchorLatLng(geom);
         openMapContextMenu(e.clientX, e.clientY, {
           type: isLine ? 'line' : (isPolygon ? 'polygon' : 'marker'),
           feature,
-          latlng
+          latlng,
+          clickLatlng
         });
         return;
       }
       const latlng = map.mouseEventToLatLng(e);
-      openMapContextMenu(e.clientX, e.clientY, { type: 'map', latlng });
+      openMapContextMenu(e.clientX, e.clientY, { type: 'map', latlng, clickLatlng: latlng });
     });
 
-    document.addEventListener('mousedown', (e) => {
+    document.addEventListener('click', (e) => {
       if (!mapContextMenuEl.hidden && !mapContextMenuEl.contains(e.target)) {
         closeMapContextMenu();
       }
@@ -2364,6 +2733,7 @@
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
       if (!mapContextMenuEl.hidden) closeMapContextMenu();
+      else if (typeof CartoffSarOperation !== 'undefined' && CartoffSarOperation.isDrawOrPanelActive()) CartoffSarOperation.cancelInteractions();
       else if (typeof CartoffSar !== 'undefined' && CartoffSar.isDrawOrPanelActive()) CartoffSar.cancelInteractions();
       else if (drawState) cancelDrawMode();
       else if (situationPanelState) closeSituationPanel();
@@ -2571,6 +2941,8 @@
             }
           } else if (typeof CartoffSar !== 'undefined' && name === CartoffSar.LAYER_NAME) {
             html += CartoffSar.getLegendHtml();
+          } else if (typeof CartoffSarOperation !== 'undefined' && name === CartoffSarOperation.LAYER_NAME) {
+            html += CartoffSarOperation.getLegendHtml();
           } else {
             const style = layerStyles[name] || {};
             let color = style.color || "#000";
@@ -3041,6 +3413,18 @@
       });
     }
 
+    function setupOperationSearch() {
+      if (typeof CartoffSarOperation === 'undefined') return;
+      setupLayerSelect({
+        selectId: 'operationRechercheSearchSelect',
+        getEntries: () => CartoffSarOperation.buildSearchEntries(),
+        placeholder: '— Choisir un élément —',
+        emptyMessage: '— Aucun élément —',
+        highlightStyle: SITUATION_HIGHLIGHT,
+        viewportFilter: false
+      });
+    }
+
     function showSituationLoadError(message) {
       const div = document.getElementById('situationLayers');
       const hint = document.getElementById('situationHint');
@@ -3078,6 +3462,13 @@
       addSituationLazyCheckbox(document.getElementById('situationLayers'));
 
       if (typeof CartoffSar !== 'undefined') {
+        window.closeMapContextMenu = closeMapContextMenu;
+        window.getMapContextMenuClickTarget = function () {
+          return mapContextMenuState && mapContextMenuState.target || null;
+        };
+        window.getLastRightClickLatLng = function () {
+          return lastRightClickLatLng;
+        };
         window.openMapContextMenuForSar = function (clientX, clientY, target) {
           openMapContextMenu(clientX, clientY, target);
         };
@@ -3088,6 +3479,7 @@
           findCommune: (lat, lon) => CartoffCoords.findCommune(lat, lon, communeIndex),
           latLngToDfci: (lat, lon) => CartoffCoords.latLngToDfci(lat, lon),
           latLngToUtm: (lat, lon) => CartoffCoords.latLngToUtm(lat, lon),
+          getElevation: (lat, lon) => CartoffCoords.getElevation(lat, lon),
           sidebarEl: document.getElementById('sarSidebar'),
           panelEl: document.getElementById('sarPanel'),
           panelTitleEl: document.getElementById('sarPanelTitle'),
@@ -3098,7 +3490,10 @@
           panelDeleteBtn: document.getElementById('sarPanelDelete'),
           panelDfFieldsEl: document.getElementById('sarPanelDfFields'),
           panelTimestampEl: document.getElementById('sarPanelTimestamp'),
+          panelTeamFieldsEl: document.getElementById('sarPanelTeamFields'),
+          panelTeamEl: document.getElementById('sarPanelTeam'),
           panelBearingFieldsEl: document.getElementById('sarPanelBearingFields'),
+          panelBearingTargetEl: document.getElementById('sarPanelBearingTarget'),
           panelAzimuthEl: document.getElementById('sarPanelAzimuth'),
           panelRangeEl: document.getElementById('sarPanelRange'),
           drawBannerEl: document.getElementById('sarLineDrawBanner'),
@@ -3106,6 +3501,30 @@
           drawFinishBtn: document.getElementById('sarLineDrawFinish'),
           drawCancelBtn: document.getElementById('sarLineDrawCancel')
         });
+        if (typeof CartoffSarOperation !== 'undefined') {
+          CartoffSarOperation.init({
+            map: map,
+            layers: layers,
+            updateLegend: updateLegend,
+            findCommune: (lat, lon) => CartoffCoords.findCommune(lat, lon, communeIndex),
+            latLngToDfci: (lat, lon) => CartoffCoords.latLngToDfci(lat, lon),
+            openMapContextMenu: openMapContextMenu,
+            setupSearch: setupOperationSearch,
+            sectionEl: document.getElementById('operationRechercheBlock'),
+            panelEl: document.getElementById('operationPanel'),
+            panelTitleEl: document.getElementById('operationPanelTitle'),
+            panelTypeEl: document.getElementById('operationPanelType'),
+            panelLibelleEl: document.getElementById('operationPanelLibelle'),
+            panelSaveBtn: document.getElementById('operationPanelSave'),
+            panelCancelBtn: document.getElementById('operationPanelCancel'),
+            panelDeleteBtn: document.getElementById('operationPanelDelete'),
+            drawBannerEl: document.getElementById('operationLineDrawBanner'),
+            drawFinishBtn: document.getElementById('operationLineDrawFinish'),
+            drawCancelBtn: document.getElementById('operationLineDrawCancel'),
+            layersContainerEl: document.getElementById('operationLayers'),
+            hintEl: document.getElementById('operationHint')
+          });
+        }
       }
 
       if (typeof CartoffFileImport !== 'undefined') {

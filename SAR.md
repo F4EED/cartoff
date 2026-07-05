@@ -15,7 +15,7 @@ Le module **Missions SAR** (*Search and Rescue*) permet de structurer une opéra
 | **Personne disparue** | `personne` (SAR-1) | LKP, indices trouvés, axe de déplacement probable, zones déjà fouillées |
 | **Aéronef / balise** | `aéronef` (SAR-2 / SAR-3) | Stations DF, relèvements d’azimut, intersection géodésique, fixe estimé |
 
-Les éléments sont saisis sur la carte (clic droit, boutons de la barre latérale), horodatés, enrichis automatiquement (commune, DFCI, UTM dans les popups et rapports), puis **sauvegardés localement** dans le navigateur.
+Les éléments sont saisis sur la carte (menu contextuel **Opération de secours**, outils de la barre latérale pour les missions personne), horodatés, enrichis automatiquement (commune, DFCI, UTM dans les popups et rapports), puis **sauvegardés localement** dans le navigateur.
 
 **Ce que Cartoff n’est pas :** un outil certifié de triangulation DF, un système de gestion d’incident officiel, ni un substitut à l’analyse d’un coordinateur SAR qualifié. Les fixe(s) estimé(s) sont **indicatifs** ; validez toujours sur le terrain et avec vos procédures.
 
@@ -76,8 +76,8 @@ Pendant un dessin (polyligne, polygone, placement de point) : bannière **Termin
 
 | Bouton | Fichier | Contenu |
 |--------|---------|---------|
-| **Exporter mission** | `sar_mission_<nom>.geojson` | Features de la mission active |
-| **Exporter tout** | `sar_missions.geojson` | Toutes les missions |
+| **Exporter mission** | `sar_mission_<nom>_YYYYMMDD_HHMMSS.geojson` | Features de la mission active (horodatage local à l’export) |
+| **Exporter tout** | `sar_missions_YYYYMMDD_HHMMSS.geojson` | Toutes les missions (horodatage local à l’export) |
 | **Exporter rapport SAR** | `sar_rapport_<nom>.txt` | Rapport texte (mission aéronef avec fixe calculé) |
 | **Copier rapport** | Presse-papiers | Même contenu que le rapport .txt |
 
@@ -162,15 +162,20 @@ Objectif : enregistrer les positions des stations de direction-finding et les az
 
 ### 6.2 Placer une station DF
 
-1. Bouton **Station DF**, ou clic droit sur la carte → **Station DF**.
+1. Clic droit sur la carte → **Opération de secours** → **Mission SAR** → **Station DF**.
 2. Cliquer la position de la station (véhicule, site, relais).
 3. Panneau :
    - **Libellé** (ex. « DF Saint-Étienne »),
    - **Notes** (fréquence, matériel, opérateur),
-   - **Horodatage** (modifiable ; par défaut : maintenant).
+   - **Horodatage** (modifiable ; par défaut : maintenant),
+   - **Équipe** (si des équipes ont été créées dans la mission).
 4. **Enregistrer**.
 
 Symbole : triangle orange **▲**.
+
+### 6.2 bis Équipes (session)
+
+Pendant une mission **active**, la section **Équipes** permet de créer les équipes au fil de l’arrivée sur le terrain (ex. « Équipe DF Roanne », « Équipe mobile 2 »). Saisir un nom puis **Ajouter équipe**. Les équipes sont propres à chaque mission et stockées localement.
 
 ### 6.3 Saisir un relèvement
 
@@ -184,10 +189,11 @@ Un relèvement crée **deux lignes** automatiquement :
 **Procédure :**
 
 1. Au moins une station DF doit exister.
-2. Bouton **Relèvement**, ou clic droit sur une station → **Relèvement depuis cette station** (si plusieurs stations : **Relèvement — choisir une station** puis clic sur le marqueur ▲).
+2. Clic droit sur la carte → **Relevé DF** (menu **Opération de secours**), ou clic droit sur une station ▲ → **Relevé DF** (si plusieurs stations : choisir la station dans la liste).
 3. Dans le panneau :
    - **Azimut** : 0–360°, une décimale (ex. `127.5`),
    - **Portée** : longueur affichée en km (défaut **30 km**),
+   - **Équipe** : choisir l’équipe ayant effectué le relèvement (ou « Non assignée »),
    - Libellé et notes optionnels.
 4. **Aperçu en direct** : tant que le panneau est ouvert, les lignes réception et réciproque s’affichent en semi-transparent sur la carte ; elles se mettent à jour quand vous modifiez azimut ou portée.
 5. **Enregistrer**.
@@ -304,6 +310,7 @@ Structure d’une **mission** :
   "status": "active | closed",
   "created_at": "ISO-8601",
   "features": [ "… GeoJSON Features …" ],
+  "teams": [ { "id": "uuid", "name": "Équipe DF Roanne", "created_at": "ISO-8601", "notes": "…" } ],
   "visibleFixIds": [ "id-fix-1", "id-fix-2" ]
 }
 ```
@@ -324,6 +331,7 @@ Chaque feature porte notamment :
 | `sar:station_id`, `sar:bearing_group_id` | Liens station / paire de lignes |
 | `sar:quality_angle`, `sar:uncertainty_km` | SAR-3 |
 | `sar:fix_station_ids`, `sar:fix_index`, `sar:fix_is_best`, `sar:fix_color` | Candidats multiples |
+| `sar:team_id`, `sar:team_name` | Équipe (relèvement DF, station DF) |
 
 Champs communs : `label`, `notes`, `created_at`, `commune`, `dfci` (si calculables).
 

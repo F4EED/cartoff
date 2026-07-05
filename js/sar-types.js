@@ -16,6 +16,8 @@
 
  *   sar:quality_angle, sar:uncertainty_km, sar:fix_station_ids — fixe estimé (SAR-3)
  *   sar:fix_index, sar:fix_is_best, sar:fix_color — candidats multiples (SAR-3)
+ *   sar:team_id, sar:team_name — équipe ayant effectué le relèvement (ou station DF)
+ *   sar:elevation_m — altitude MNT au point visé (point de relevé)
 
  */
 
@@ -52,6 +54,12 @@
   const PROP_FIX_IS_BEST = 'sar:fix_is_best';
 
   const PROP_FIX_COLOR = 'sar:fix_color';
+
+  const PROP_TEAM_ID = 'sar:team_id';
+
+  const PROP_TEAM_NAME = 'sar:team_name';
+
+  const PROP_ELEVATION_M = 'sar:elevation_m';
 
 
 
@@ -251,6 +259,26 @@
 
     },
 
+    releve_point: {
+
+      id: 'releve_point',
+
+      label: 'Point de relevé',
+
+      shortLabel: 'Pt',
+
+      geometry: 'point',
+
+      missionTypes: ['aeronef'],
+
+      markerClass: 'sar-marker-releve-point',
+
+      markerHtml: '<div>●</div>',
+
+      legendClass: 'sar-legend-releve-point'
+
+    },
+
     fixe_estime: {
 
       id: 'fixe_estime',
@@ -361,7 +389,7 @@
 
   function reciprocalAzimuth(azimuthDeg) {
 
-    return normalizeAzimuth(azimuthDeg + 180);
+    return normalizeAzimuth(Number(azimuthDeg) + 180);
 
   }
 
@@ -409,17 +437,33 @@
 
 
 
-  function bearingLineCoordinates(stationLat, stationLon, azimuthDeg, rangeKm) {
+  /** Segment depuis le point de relevé le long de l'azimut sur range km. */
+  function bearingLineCoordinates(originLat, originLon, azimuthDeg, rangeKm) {
 
-    const end = destinationPoint(stationLat, stationLon, azimuthDeg, rangeKm);
+    const az = normalizeAzimuth(azimuthDeg);
+
+    const end = destinationPoint(originLat, originLon, az, rangeKm);
 
     return [
 
-      [stationLon, stationLat],
+      [originLon, originLat],
 
       [end.lon, end.lat]
 
     ];
+
+  }
+
+
+
+  /** Géométrie LineString : signal direct (plein) ou arrière (+180°, pointillé). */
+  function buildBearingLineFeature(originLat, originLon, azimuthDeg, rangeKm, isReciprocal) {
+
+    const baseAz = normalizeAzimuth(azimuthDeg);
+
+    const az = isReciprocal === true ? normalizeAzimuth(baseAz + 180) : baseAz;
+
+    return bearingLineCoordinates(originLat, originLon, az, rangeKm);
 
   }
 
@@ -851,6 +895,24 @@
 
     }
 
+    if (extra && extra[PROP_TEAM_ID] != null) {
+
+      props[PROP_TEAM_ID] = extra[PROP_TEAM_ID];
+
+    }
+
+    if (extra && extra[PROP_TEAM_NAME] != null) {
+
+      props[PROP_TEAM_NAME] = extra[PROP_TEAM_NAME];
+
+    }
+
+    if (extra && extra[PROP_ELEVATION_M] != null) {
+
+      props[PROP_ELEVATION_M] = extra[PROP_ELEVATION_M];
+
+    }
+
     return props;
 
   }
@@ -887,6 +949,12 @@
 
     PROP_FIX_COLOR,
 
+    PROP_TEAM_ID,
+
+    PROP_TEAM_NAME,
+
+    PROP_ELEVATION_M,
+
     FIX_COLOR_PALETTE,
 
     DEFAULT_RANGE_KM,
@@ -916,6 +984,8 @@
     destinationPoint,
 
     bearingLineCoordinates,
+
+    buildBearingLineFeature,
 
     initialBearing,
 

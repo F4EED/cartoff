@@ -186,6 +186,67 @@
       geometry: ['point'],
       image: 'images/vent_violent.PNG'
     },
+    ops_pc: {
+      id: 'ops_pc',
+      label: 'PC opérationnel',
+      categorie: 'recherche_sar',
+      geometry: ['point'],
+      image: 'images/panneau_vierge_à_compléter.png'
+    },
+    ops_lkp: {
+      id: 'ops_lkp',
+      label: 'Dernière position connue (LKP)',
+      categorie: 'recherche_sar',
+      geometry: ['point'],
+      image: 'images/panneau_vierge_à_compléter.png'
+    },
+    ops_indice: {
+      id: 'ops_indice',
+      label: 'Indice / vestige',
+      categorie: 'recherche_sar',
+      geometry: ['point'],
+      image: 'images/panneau_vierge_à_compléter.png'
+    },
+    ops_repere: {
+      id: 'ops_repere',
+      label: 'Repère opérationnel',
+      categorie: 'recherche_sar',
+      geometry: ['point'],
+      image: 'images/panneau_vierge_à_compléter.png'
+    },
+    ops_secteur: {
+      id: 'ops_secteur',
+      label: 'Secteur de recherche',
+      categorie: 'recherche_sar',
+      geometry: ['polygon'],
+      image: 'images/panneau_vierge_à_compléter.png',
+      polygonStyle: { color: '#1565c0', weight: 2, fillColor: '#1976d2', fillOpacity: 0.25 }
+    },
+    ops_zone_fouillee: {
+      id: 'ops_zone_fouillee',
+      label: 'Zone fouillée',
+      categorie: 'recherche_sar',
+      geometry: ['polygon'],
+      image: 'images/panneau_vierge_à_compléter.png',
+      polygonStyle: { color: '#2e7d32', weight: 2, fillColor: '#43a047', fillOpacity: 0.35 }
+    },
+    ops_perimetre: {
+      id: 'ops_perimetre',
+      label: 'Périmètre',
+      categorie: 'recherche_sar',
+      geometry: ['line', 'polygon'],
+      image: 'images/panneau_vierge_à_compléter.png',
+      lineStyle: { color: '#1565c0', weight: 3, dashArray: '6 4' },
+      polygonStyle: { color: '#1565c0', weight: 2, fillColor: '#1976d2', fillOpacity: 0.2 }
+    },
+    ops_axe: {
+      id: 'ops_axe',
+      label: 'Axe de recherche probable',
+      categorie: 'recherche_sar',
+      geometry: ['line'],
+      image: 'images/panneau_vierge_à_compléter.png',
+      lineStyle: { color: '#6a1b9a', weight: 4, dashArray: '6 4' }
+    },
     incident_generique: {
       id: 'incident_generique',
       label: 'Incident générique',
@@ -214,6 +275,7 @@
   const CATEGORIES = {
     secteur_routier: 'Secteur routier',
     incendie_atmosphere: 'Incendie & atmosphère',
+    recherche_sar: 'Opération de recherche',
     autre: 'Autre'
   };
 
